@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/result">
+        <file>blue.png</file>
+        <file>red.png</file>
+        <file>same.png</file>
+        <file>tiger.png</file>
+        <file>long.png</file>
+        <file>pu_yellow.png</file>
+        <file>pu_yellow_an.png</file>
+        <file>useless.png</file>
+        <file>blueLine.png</file>
+        <file>bluePoint.png</file>
+        <file>redLine.png</file>
+        <file>redPoint.png</file>
+        <file>long_ask_way.png</file>
+        <file>tiger_ask_way.png</file>
+    </qresource>
+</RCC>
