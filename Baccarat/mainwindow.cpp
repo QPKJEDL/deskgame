@@ -33,9 +33,6 @@ MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned in
     _map.insert(START,&MainWindow::responsed_start);
     _map.insert(ROOMINFO,&MainWindow::responsed_roominfo);
     _map.insert(RECORD,&MainWindow::responsed_record);
-    _map.insert(ROOMCARD,&MainWindow::responsed_roomcard);
-    _map.insert(LOCATE,&MainWindow::responsed_locate);
-    _map.insert(FAPAI,&MainWindow::responsed_fapai);
     _map.insert(SUMMIT,&MainWindow::responsed_summit);
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
@@ -48,7 +45,7 @@ MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned in
     ui->label_pairMinLimit->setText(QString::number(minPair));
 
     // 开始请求房间信息
-    request_room_info();
+    request_roominfo();
 
 
     // 倒计时初始化
@@ -442,24 +439,9 @@ void MainWindow::pu_init()
         ui->pu_init->setEnabled(false);
 
         // 发送初始化请求
-        m_post_type = "init";
-        m_request->setUrl(QUrl("http://" + URL + "/bjl_desk_ini"));
-        QByteArray postData;
-        postData.append(QString(""));
-        m_accessManager->post(*m_request, postData);
-
-
+        request_init();
     }
 }
-
-//void MainWindow::on_login()
-//{
-//    // 启用该启用的按钮
-//    ui->pu_start->setEnabled(true);
-//    ui->pu_changeXue->setEnabled(true);
-//    ui->pu_leave->setEnabled(true);
-//    ui->pu_init->setEnabled(true);
-//}
 
 void MainWindow::on_start(){
     m_timer_count_down->start(1000);
@@ -470,20 +452,14 @@ void MainWindow::pu_start()
     // 禁用按钮
     ui->pu_start->setEnabled(false);
     // 请求倒计时接口
-    m_post_type = "start";
-    m_request->setUrl(QUrl("http://" + URL + "/bjl_count_down"));
-    QByteArray postData;
-    m_accessManager->post(*m_request, postData);
+    request_start();
 }
 
 void MainWindow::pu_changeXue()
 {
     int choose = QMessageBox::question(this,QString("换靴"),QString("确认换靴？"),QMessageBox::Yes | QMessageBox::No);
     if(choose == QMessageBox::Yes){
-        m_post_type = "change_boot";
-        m_request->setUrl(QUrl("http://" + URL + "/bjl_change_boot"));
-        QByteArray postData;
-        m_accessManager->post(*m_request,postData);
+        request_change_boot();
     }
 }
 
@@ -498,15 +474,10 @@ void MainWindow::pu_leave(){
 void MainWindow::pu_useless(){
     int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
     if(choose == QMessageBox::Yes){
-        m_post_type = "game_burn";
-        m_request->setUrl(QUrl("http://" + URL + "/bjl_game_burn"));
-        QByteArray postData;
-        postData.append(QString("boot_num="));postData.append(ui->label_times_xue->text());
-        postData.append(QString("&pave_num="));postData.append(ui->label_times_pu->text());
-        m_accessManager->post(*m_request,postData);
-
         // 禁用作废按钮
         ui->pu_useless->setEnabled(false);
+
+        request_useless();
     }
 }
 
@@ -533,438 +504,6 @@ void MainWindow::pu_xiandui()
 void MainWindow::pu_same()
 {
     on_same();
-}
-
-void MainWindow::finishedSlot(QNetworkReply* _reply)
-{
-    if (_reply->error() == QNetworkReply::NoError){
-        QByteArray bytes = _reply->readAll();
-        if(m_post_type == "login"){
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            qDebug() << "login : " << info << "-" << status;
-            if(status == 1){
-                // 登录成功
-                QJsonObject json_object2 = json_object.value("data").toObject();
-                qDebug() << QString(QJsonDocument(json_object2).toJson());
-                unsigned int desk_id = json_object2.value("desk_id").toInt();
-                QString desk_token = json_object2.value("desk_token").toString();
-                //on_login();
-                m_request->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
-                m_request->setRawHeader("desk_token",desk_token.toUtf8());
-                qDebug() << "desk_id : " << QString::number(desk_id).toUtf8() << "--" << "desk_token" << desk_token;
-                // 刷新限红
-                unsigned int maxLimit = json_object2.value("maxLimit").toInt();
-                unsigned int minLimit = json_object2.value("minLimit").toInt();
-                unsigned int tieMaxLimit = json_object2.value("tieMaxLimit").toInt();
-                unsigned int tieMinLimit = json_object2.value("tieMinLimit").toInt();
-                unsigned int pairMaxLimit = json_object2.value("pairMaxLimit").toInt();
-                unsigned int pairMinLimit = json_object2.value("pairMinLimit").toInt();
-                ui->label_maxLimit->setText(QString::number(maxLimit));
-                ui->label_minLimit->setText(QString::number(minLimit));
-                ui->label_tieMaxLimit->setText(QString::number(tieMaxLimit));
-                ui->label_tieMinLimit->setText(QString::number(tieMinLimit));
-                ui->label_pairMaxLimit->setText(QString::number(pairMaxLimit));
-                ui->label_pairMinLimit->setText(QString::number(pairMinLimit));
-
-                // 开始请求房间信息
-                request_room_info();
-            }
-            else{
-                QMessageBox box;
-                box.setText("登录失败");
-                box.exec();
-            }
-        }
-        else if(m_post_type == "init"){
-            // 响应初始化
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();          
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            qDebug() << "init status: " << status;
-            qDebug() << "init info : " << info.toLocal8Bit();
-            if(status == 1){
-                QJsonObject json_object2 = json_object.value("data").toObject();
-                unsigned int boot_num = json_object2.value("boot_num").toInt();
-                unsigned int pave_num = json_object2.value("pave_num").toInt();
-                ui->label_times_xue->setText(QString::number(boot_num));
-                ui->label_times_pu->setText(QString::number(pave_num));
-                // 清空规律面板
-                way_big->init();
-
-                // 清空问路
-                way_big_eye->init();
-                way_little->init();
-                way_aotu->init();
-            }
-            else{
-                QMessageBox box;
-                box.setText("初始化失败");
-                box.exec();
-
-                ui->pu_init->setEnabled(true);
-            }
-        }
-        else if(m_post_type == "roominfo"){
-            // 响应房间信息
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            if(status == 1){
-                QJsonArray json_array = json_object.value("data").toArray();
-                // 刷新靴次
-                unsigned int boot_num = json_array.at(0)["BootNum"].toInt(); //json_object2.value("BootNum").toInt();
-                qDebug() << "boot_room : " << boot_num;
-                ui->label_times_xue->setText(QString::number(boot_num));
-                // 刷新铺次
-                unsigned int PaveNum = json_array.at(0)["PaveNum"].toInt(); //json_object2.value("PaveNum").toInt();
-                ui->label_times_pu->setText(QString::number(PaveNum));
-                qDebug() << "PaveNum : " << PaveNum;
-                // 刷新台桌
-                QString DeskName = json_array.at(0)["DeskName"].toString(); //json_object2.value("DeskName").toString();
-                ui->label_desk_id->setText(DeskName);
-                qDebug() << "desk id : " << DeskName;
-                // 获取时间戳
-                unsigned int GameStarTime = json_array.at(0)["GameStarTime"].toInt(); //json_object2.value("GameStarTime").toInt();
-                unsigned int Systime = json_array.at(0)["Systime"].toInt(); //json_object2.value("Systime").toInt();
-                // 获取房间状态
-                unsigned int phase = json_array.at(0)["Phase"].toInt(); //json_object2.value("Phase").toInt();
-                switch (phase) {
-                case 0:
-                    // 洗牌中
-                    phase_zero();
-                    break;
-                case 1:
-                    // 倒计时
-                    phase_countDown(GameStarTime,Systime);
-                    break;
-                case 2:
-                    // 开牌中
-                    phase_kaiPai();
-                    break;
-                case 3:
-                    // 结算完成
-                    phase_finish();
-                    break;
-                }
-                request_result_list();
-            }
-            else{
-                QMessageBox box;
-                box.setText("获取房间信息失败");
-                box.exec();
-            }
-        }
-        else if(m_post_type == "result_list"){
-            // 响应结果信息
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            if(status == 1){
-                // 成功获取信息
-                // 应用结果到每个label上
-                QJsonArray json_array = json_object.value("data").toArray();
-                // 先应用赢得次数
-                // 和
-                unsigned int sumTie = json_array.at(0)["sumTie"].toInt(); //json_object.value("sumTie").toInt();
-                ui->label_result_same->setText(QString::number(sumTie));
-                // 庄
-                unsigned int sumBanker = json_array.at(0)["sumBanker"].toInt(); //json_object.value("sumBanker").toInt();
-                ui->label_result_zhuang->setText(QString::number(sumBanker));
-                // 闲
-                unsigned int sumPlayer = json_array.at(0)["sumPlayer"].toInt(); //json_object.value("sumPlayer").toInt();
-                ui->label_result_xian->setText(QString::number(sumPlayer));
-                // 庄对
-                unsigned int sumBankerPair = json_array.at(0)["sumBankerPair"].toInt(); //json_object.value("sumBankerPair").toInt();
-                ui->label_result_zhuangDui->setText(QString::number(sumBankerPair));
-                // 闲对
-                unsigned int PlayerPair = json_array.at(0)["PlayerPair"].toInt(); //json_object.value("PlayerPair").toInt();
-                ui->label_result_xianDui->setText(QString::number(PlayerPair));
-
-                // 应用结果表
-                QJsonArray array = json_array.at(0)["list"].toArray(); //json_object2.value("list").toArray();
-                result_list(array);
-            }
-            else{
-                QMessageBox box;
-                box.setText("获取历史记录失败");
-                box.exec();
-            }
-        }
-        else if(m_post_type == "start"){
-            // 获取倒计时响应
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            qDebug() << "start : " << info << "-" << status;
-
-            if(status == 1){
-                // 开始倒计时成功
-                QJsonObject json_object2 = json_object.value("data").toObject();
-                unsigned int boot_num = json_object2.value("boot_num").toInt();
-                unsigned int pave_num = json_object2.value("pave_num").toInt();
-                // 刷新靴次和铺次
-                ui->label_times_xue->setText(QString::number(boot_num));
-                ui->label_times_pu->setText(QString::number(pave_num));
-                // 禁用换靴
-                ui->pu_changeXue->setEnabled(false);
-
-                on_start();
-            }
-            else{
-                // 请求倒计时失败
-                QMessageBox box;
-                box.setText("开局失败");
-                box.exec();
-                // 启用开始按钮
-                ui->pu_start->setEnabled(true);
-            }
-        }
-        else if(m_post_type == "change_boot"){
-            // 获取响应
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            qDebug() << "start : " << info << "-" << status;
-
-            if(status == 1){
-                // 换靴成功
-                QJsonObject json_object2 = json_object.value("data").toObject();
-                unsigned int boot_num = json_object2.value("boot_num").toInt();
-                unsigned int pave_num = json_object2.value("pave_num").toInt();
-                // 刷新靴次和铺次
-                ui->label_times_xue->setText(QString::number(boot_num));
-                ui->label_times_pu->setText(QString::number(pave_num));
-                // 置零结果次数
-                ui->label_result_same->setText("0");
-                ui->label_result_xian->setText("0");
-                ui->label_result_zhuang->setText("0");
-                ui->label_result_xianDui->setText("0");
-                ui->label_result_zhuangDui->setText("0");
-                // 清空结果面板
-                Link* node = m_link_reslut_head;
-                while(node->next != nullptr){
-                    node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
-                    node->data->setText("");
-                    node = node->next;
-                }
-                m_link_reslut = m_link_reslut_head;
-
-                // 清空规律面板
-                way_big->init();
-
-                // 清空问路
-                way_big_eye->init();
-                way_little->init();
-                way_aotu->init();
-            }
-            else{
-                // 换靴失败
-                QMessageBox box;
-                box.setText("换靴失败");
-                box.exec();
-
-                qDebug() << "change_boot_faild";
-            }
-        }
-        else if(m_post_type == "game_burn"){
-            // 获取响应
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            QString info = json_object.value("info").toString();
-            unsigned int status = json_object.value("status").toInt();
-            qDebug() << "game_burn : " << info << "-" << status;
-
-            if(status == 1){
-                // 作废成功
-                QString path = QString("border-image: url(:/result/useless.png);");
-                m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(path));
-
-                // 指向下一个结果 label
-                // 如果下一个 结果label 为 nullptr 如何？
-                if(m_link_reslut->next == nullptr){
-                    Link* node = m_link_reslut_head;
-                    for (int i = 0;node->next != nullptr;i++) {
-                        qDebug() << "node -> next : " << i;
-                        node->data->setStyleSheet(node->next->data->styleSheet());
-                        node->data->setText(node->next->data->text());
-                        node = node->next;
-                    }
-                    node->data->setText("");
-                    node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
-                    qDebug() << "m_link_reslut->next : nullptr";
-                }
-                else{
-                    m_link_reslut = m_link_reslut->next;
-                    qDebug() << "m_link_reslut->next : not null";
-                }
-
-                // 清空结果
-                ui->label_result->setText("");
-                // 禁用结算取消按钮
-                ui->pu_enter->setEnabled(false);
-                ui->pu_cancel->setEnabled(false);
-                // 禁用结果按钮
-                ui->pu_zhuang->setEnabled(false);
-                ui->pu_xian->setEnabled(false);
-                ui->pu_same->setEnabled(false);
-                ui->pu_zhuangdui->setEnabled(false);
-                ui->pu_xiandui->setEnabled(false);
-                // 禁用作废按钮
-                ui->pu_useless->setEnabled(false);
-                // 启用开局按钮
-                ui->pu_start->setEnabled(true);
-                // 恢复倒计时
-                this->times = 30;
-                // 上铺结果
-                ui->label_up_pave->setText("上铺：作废");
-            }
-            else{
-                // 作废失败
-                QMessageBox box;
-                box.setText("作废失败");
-                box.exec();
-                // 启用作废按钮
-                ui->pu_useless->setEnabled(true);
-
-                qDebug() << "game_burn_faild";
-            }
-        }
-        else if(m_post_type == "gameover"){
-            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-            unsigned int status = json_object.value("status").toInt();
-            QString info = json_object.value("info").toString();
-            qDebug() << info;
-            if(status == 1){
-                ui->label_result->setText(QString(""));
-                QString path = QString(":/result/");
-                QString path_gl = QString(":/guilv/gl_");
-                QString up = "上铺：";
-                switch (m_game) {
-                case 7:{
-                    up.append("庄赢");
-                    path.append("zhuang");
-                    path_gl.append("zhuang");
-                    // 庄赢的次数加一
-                    int n_zhuang = ui->label_result_zhuang->text().toInt();
-                    ui->label_result_zhuang->setText(QString::number(n_zhuang + 1));
-                    break;
-                }
-                case 4:{
-                    up.append("闲赢");
-                    path.append("xian");
-                    path_gl.append("xian");
-                    // 闲赢的次数加一
-                    int n_xian = ui->label_result_xian->text().toInt();
-                    ui->label_result_xian->setText(QString::number(n_xian + 1));
-                    break;
-                }
-                case 1:{
-                    up.append("和");
-                    path.append("same");
-                    path_gl.append("same");
-                    // 和赢的次数加一
-                    int n_same = ui->label_result_same->text().toInt();
-                    ui->label_result_same->setText(QString::number(n_same + 1));
-                    break;
-                }
-                }
-                if(m_bankerPair == 2){
-                    up.append("庄对");
-                    path.append("zhuangdui");
-                    path_gl.append("zhuangdui");
-                    // 庄对的次数加一
-                    int n_banker = ui->label_result_zhuangDui->text().toInt();
-                    ui->label_result_zhuangDui->setText(QString::number(n_banker + 1));
-                }
-                if(m_playerPair == 5){
-                    up.append("闲对");
-                    path.append("xiandui");
-                    path_gl.append("xiandui");
-                    // 闲对的次数加一
-                    int n_player = ui->label_result_xianDui->text().toInt();
-                    ui->label_result_xianDui->setText(QString::number(n_player + 1));
-                }
-                path.append(".png");
-                path_gl.append(".png");
-
-                ui->label_up_pave->setText(up);
-                // 更新结果样式表
-                QString style = "border-image: url(" + path + ");";
-                m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(style));
-
-                // 更新规律表
-                ongl_enter(path_gl);
-
-
-                // 指向下一个结果 label
-                // 如果下一个 结果label 为 nullptr 如何？
-                if(m_link_reslut->next == nullptr){
-                    Link* node = m_link_reslut_head;
-                    for (int i = 0;node->next != nullptr;i++) {
-                        qDebug() << "node -> next : " << i;
-                        node->data->setStyleSheet(node->next->data->styleSheet());
-                        node->data->setText(node->next->data->text());
-                        node = node->next;
-                    }
-                    node->data->setText("");
-                    node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
-                    qDebug() << "m_link_reslut->next : nullptr";
-                }
-                else{
-                    m_link_reslut = m_link_reslut->next;
-                    qDebug() << "m_link_reslut->next : not null";
-                }
-
-
-
-
-                // 启用该启用的按钮
-                ui->pu_start->setEnabled(true);
-                // 禁用结果按钮
-                ui->pu_zhuang->setEnabled(false);
-                ui->pu_zhuangdui->setEnabled(false);
-                ui->pu_xian->setEnabled(false);
-                ui->pu_xiandui->setEnabled(false);
-                ui->pu_same->setEnabled(false);
-                // 倒计时恢复为30
-                times = 30;
-                // 初始化结果值
-                m_game = -1;
-                m_playerPair = 0;
-                m_bankerPair = 0;
-                ui->label_result->setText("");
-
-                // 禁用结算按钮
-                ui->pu_enter->setEnabled(false);
-                ui->pu_cancel->setEnabled(false);
-                // 关闭弹窗
-                form->hide();
-                // 禁用作废
-                ui->pu_useless->setEnabled(false);
-                // 启用换靴
-                ui->pu_changeXue->setEnabled(true);
-            }else{
-                QMessageBox box;
-                box.setText("结算失败");
-                box.exec();
-
-                // 启用结算和取消按钮
-                ui->pu_enter->setEnabled(true);
-                ui->pu_cancel->setEnabled(true);
-
-                qDebug() << "faild";
-            }
-        }
-    }else{
-        qDebug() << "finishedSlot errors here";
-        qDebug( "found error .... code: %d\n", (int)_reply->error());
-        qDebug() << _reply->errorString();
-        // 提示网络连接失败
-        QMessageBox box;
-        box.setText("网络连接失败");
-        box.exec();
-    }
 }
 
 void MainWindow::count_down()
@@ -1080,25 +619,6 @@ void MainWindow::on_xiandui()
 
     // 禁用闲对按钮
     ui->pu_xiandui->setEnabled(false);
-}
-
-void MainWindow::request_room_info()
-{
-    m_post_type = "roominfo";
-    QString url = "http://" + URL + "/HeGuanRoominfo";
-    m_request->setUrl(QUrl(url));
-    QByteArray postData;
-    m_accessManager->post(*m_request,postData);
-}
-
-void MainWindow::request_result_list()
-{
-    m_post_type = "result_list";
-    QString url = "http://" + URL + "/bjl_dutch_game_list";
-    m_request->setUrl(QUrl(url));
-    QByteArray postData;
-    postData.append("boot_num=" + ui->label_times_xue->text());
-    m_accessManager->post(*m_request,postData);
 }
 
 void MainWindow::phase_zero()
@@ -1250,21 +770,7 @@ void MainWindow::tc_enter()
     }
     else{
         // 发送请求
-        m_post_type = "gameover";
-        QString url = "http://" + URL + "/bjl_game_over";
-        m_request->setUrl(QUrl(url));
-        QByteArray postData;
-        postData.append(QString("boot_num="));postData.append(ui->label_times_xue->text());
-        postData.append(QString("&pave_num="));postData.append(ui->label_times_pu->text());
-        qDebug() << "postData gameover: " << postData.data();
-        QJsonObject json;
-        json.insert("game",m_game);
-        json.insert("playerPair",m_playerPair);
-        json.insert("bankerPair",m_bankerPair);
-        qDebug() << QString(QJsonDocument(json).toJson());
-        postData.append(QString("&game_num="));postData.append(QString(QJsonDocument(json).toJson()));
-        qDebug() << "Json : " << postData.data();
-        m_accessManager->post(*m_request,postData);
+        request_summit();
     }
 }
 
@@ -1544,6 +1050,89 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
     }
 }
 
+void MainWindow::next_result()
+{
+    if(m_link_reslut->next == nullptr){
+        Link* node = m_link_reslut_head;
+        for (int i = 0;node->next != nullptr;i++) {
+            qDebug() << "node -> next : " << i;
+            node->data->setStyleSheet(node->next->data->styleSheet());
+            node->data->setText(node->next->data->text());
+            node = node->next;
+        }
+        node->data->setText("");
+        node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+    }
+    else{
+        m_link_reslut = m_link_reslut->next;
+    }
+}
+
+void MainWindow::request_init()
+{
+    manager->setStatus(INIT);
+    manager->setInterface("bjl_desk_ini");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::request_roominfo()
+{
+    manager->setStatus(ROOMINFO);
+    manager->setInterface("HeGuanRoominfo");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::request_record()
+{
+    manager->setStatus(RECORD);
+    manager->setInterface("bjl_dutch_game_list");
+    QByteArray postData;
+    postData.append("boot_num=" + ui->label_times_xue->text());
+    manager->postData(postData);
+}
+
+void MainWindow::request_start()
+{
+    manager->setStatus(START);
+    manager->setInterface("bjl_count_down");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::request_change_boot()
+{
+    manager->setStatus(CHANGEBOOT);
+    manager->setInterface("bjl_change_boot");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::request_useless()
+{
+    // 禁用作废按钮
+    ui->pu_useless->setEnabled(false);
+
+    manager->setStatus(USELESS);
+    manager->setInterface("bjl_game_burn");
+    QByteArray postData;
+    postData.append(QString("boot_num="));postData.append(ui->label_times_xue->text());
+    postData.append(QString("&pave_num="));postData.append(ui->label_times_pu->text());
+    manager->postData(postData);
+}
+
+void MainWindow::request_summit()
+{
+    manager->setStatus(SUMMIT);
+    manager->setInterface("bjl_game_over");
+    QByteArray postData;
+    postData.append(QString("boot_num="));postData.append(ui->label_times_xue->text());
+    postData.append(QString("&pave_num="));postData.append(ui->label_times_pu->text());
+    QJsonObject json;
+    json.insert("game",m_game);
+    json.insert("playerPair",m_playerPair);
+    json.insert("bankerPair",m_bankerPair);
+    postData.append(QString("&game_num="));postData.append(QString(QJsonDocument(json).toJson()));
+    manager->postData(postData);
+}
+
 void MainWindow::responsed_init(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
@@ -1602,7 +1191,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
             break;
         }
         }
-        request_result_list();
+        request_record();
     }
     else{
         QMessageBox box;
@@ -1696,5 +1285,146 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
         way_little->init();
         way_aotu->init();
     }
+    else{
+        QMessageBox box;
+        box.setText("换靴失败");
+        box.exec();
+    }
 }
+
+void MainWindow::responsed_useless(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QString path = QString("border-image: url(:/result/useless.png);");
+        m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(path));
+
+        // 指向下一个结果 label
+        next_result();
+
+        ui->label_result->setText("");
+
+        ui->pu_enter->setEnabled(false);
+        ui->pu_cancel->setEnabled(false);
+        ui->pu_zhuang->setEnabled(false);
+        ui->pu_xian->setEnabled(false);
+        ui->pu_same->setEnabled(false);
+        ui->pu_zhuangdui->setEnabled(false);
+        ui->pu_xiandui->setEnabled(false);
+        ui->pu_useless->setEnabled(false);
+        ui->pu_start->setEnabled(true);
+        ui->label_up_pave->setText("上铺：作废");
+
+        this->times = 30;
+    }
+    else{
+        ui->pu_useless->setEnabled(true);
+
+        QMessageBox box;
+        box.setText("作废失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_summit(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    QString info = json.value("info").toString();
+    unsigned int status = json.value("status").toInt();
+
+    if(status == 1){
+        ui->label_result->setText(QString(""));
+        QString path = QString(":/result/");
+        QString path_gl = QString(":/guilv/gl_");
+        QString up = "上铺：";
+        switch (m_game) {
+        case 7:{
+            up.append("庄赢");
+            path.append("zhuang");
+            path_gl.append("zhuang");
+            // 庄赢的次数加一
+            int n_zhuang = ui->label_result_zhuang->text().toInt();
+            ui->label_result_zhuang->setText(QString::number(n_zhuang + 1));
+            break;
+        }
+        case 4:{
+            up.append("闲赢");
+            path.append("xian");
+            path_gl.append("xian");
+            // 闲赢的次数加一
+            int n_xian = ui->label_result_xian->text().toInt();
+            ui->label_result_xian->setText(QString::number(n_xian + 1));
+            break;
+        }
+        case 1:{
+            up.append("和");
+            path.append("same");
+            path_gl.append("same");
+            // 和赢的次数加一
+            int n_same = ui->label_result_same->text().toInt();
+            ui->label_result_same->setText(QString::number(n_same + 1));
+            break;
+        }
+        }
+        if(m_bankerPair == 2){
+            up.append("庄对");
+            path.append("zhuangdui");
+            path_gl.append("zhuangdui");
+            // 庄对的次数加一
+            int n_banker = ui->label_result_zhuangDui->text().toInt();
+            ui->label_result_zhuangDui->setText(QString::number(n_banker + 1));
+        }
+        if(m_playerPair == 5){
+            up.append("闲对");
+            path.append("xiandui");
+            path_gl.append("xiandui");
+            // 闲对的次数加一
+            int n_player = ui->label_result_xianDui->text().toInt();
+            ui->label_result_xianDui->setText(QString::number(n_player + 1));
+        }
+        path.append(".png");
+        path_gl.append(".png");
+
+        ui->label_up_pave->setText(up);
+        QString style = "border-image: url(" + path + ");";
+        m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(style));
+        ongl_enter(path_gl);
+        // 指向下一个结果 label
+        next_result();
+
+        ui->pu_start->setEnabled(true);
+        ui->pu_zhuang->setEnabled(false);
+        ui->pu_zhuangdui->setEnabled(false);
+        ui->pu_xian->setEnabled(false);
+        ui->pu_xiandui->setEnabled(false);
+        ui->pu_same->setEnabled(false);
+
+        times = 30;
+
+        m_game = -1;
+        m_playerPair = 0;
+        m_bankerPair = 0;
+        ui->label_result->setText("");
+
+        ui->pu_enter->setEnabled(false);
+        ui->pu_cancel->setEnabled(false);
+
+        form->hide();
+        ui->pu_useless->setEnabled(false);
+        ui->pu_changeXue->setEnabled(true);
+    }
+    else{
+        ui->pu_enter->setEnabled(true);
+        ui->pu_cancel->setEnabled(true);
+
+        QMessageBox box;
+        box.setText("结算失败");
+        box.exec();
+    }
+}
+
+
 

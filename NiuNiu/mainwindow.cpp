@@ -267,6 +267,8 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
   this->result_list.append(labels_twt);
   //M
   ui->lineEdit_2->setVisible(false);
+
+  this->showFullScreen();
 }
 
 //判断是否是炸弹12，五花牛11

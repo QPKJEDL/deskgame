@@ -9,7 +9,7 @@ static QString URL = "101.32.22.231:8210";
 
 //static QString URL = "129.211.114.135:8210";
 
-Login::Login(QWidget *parent) : QWidget(parent)
+Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
 {
     ui->setupUi(this);
     setWindowTitle("登录");

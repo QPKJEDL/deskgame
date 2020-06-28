@@ -197,8 +197,6 @@ private:
     void on_same();
     void on_zhuangdui();
     void on_xiandui();
-    void request_room_info();
-    void request_result_list();
     // 刷新重启前结果
     void result_list(QJsonArray array);
     // 房间状态
@@ -211,18 +209,21 @@ private:
     void ongl_enter(QString path_gl);
     void update_ask(NUMBER big_way, bool zhuang);
 
+    void next_result();
+    void request_init();
+    void request_roominfo();
+    void request_record();
+    void request_start();
+    void request_change_boot();
+    void request_useless();
+    void request_summit();
 public:
     void responsed_init(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);
     void responsed_record(QNetworkReply *reply);
     void responsed_start(QNetworkReply *reply);
     void responsed_change_boot(QNetworkReply *reply);
-
-    void responsed_roomcard(QNetworkReply *reply);
-    void responsed_locate(QNetworkReply *reply);
-    void responsed_fapai(QNetworkReply *reply);
-    void responsed_summit(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
-
+    void responsed_summit(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

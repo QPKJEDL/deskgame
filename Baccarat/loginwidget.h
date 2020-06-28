@@ -9,6 +9,7 @@
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
 #include "mainwindow.h"
+#include "mod/MNetManager.h"
 
 class LoginWidget : public QWidget
 {
