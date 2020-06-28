@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/result">
+        <file>images/result/same.png</file>
+        <file>images/result/samexiandui.png</file>
+        <file>images/result/samezhuangdui.png</file>
+        <file>images/result/samezhuangduixiandui.png</file>
+        <file>images/result/useless.png</file>
+        <file>images/result/xian.png</file>
+        <file>images/result/xianxiandui.png</file>
+        <file>images/result/xianzhuangdui.png</file>
+        <file>images/result/xianzhuangduixiandui.png</file>
+        <file>images/result/zhuang.png</file>
+        <file>images/result/zhuangxiandui.png</file>
+        <file>images/result/zhuangzhuangdui.png</file>
+        <file>images/result/zhuangzhuangduixiandui.png</file>
+    </qresource>
+    <qresource prefix="/big_way">
+        <file>images/big_way/gl_xian.png</file>
+        <file>images/big_way/gl_xianxiandui.png</file>
+        <file>images/big_way/gl_xianzhuangdui.png</file>
+        <file>images/big_way/gl_xianzhuangduixiandui.png</file>
+        <file>images/big_way/gl_zhuang.png</file>
+        <file>images/big_way/gl_zhuangxiandui.png</file>
+        <file>images/big_way/gl_zhuangzhuangdui.png</file>
+        <file>images/big_way/gl_zhuangzhuangduixiandui.png</file>
+    </qresource>
+    <qresource prefix="/button">
+        <file>images/button/pu_yellow.png</file>
+        <file>images/button/pu_yellow_an.png</file>
+    </qresource>
+    <qresource prefix="/ask_way">
+        <file>images/ask_way/blue.png</file>
+        <file>images/ask_way/blueLine.png</file>
+        <file>images/ask_way/bluePoint.png</file>
+        <file>images/ask_way/red.png</file>
+        <file>images/ask_way/redLine.png</file>
+        <file>images/ask_way/redPoint.png</file>
+    </qresource>
+</RCC>

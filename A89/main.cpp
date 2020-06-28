@@ -1,12 +1,10 @@
 #include "mainwindow.h"
-#include "loginwindow.h"
 #include "bannerwidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    LoginWindow w;
-    w.show();
+    MainWindow w;
     return a.exec();
 }

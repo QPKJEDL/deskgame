@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/result">
+        <file>image/result/same.png</file>
+        <file>image/result/samexiandui.png</file>
+        <file>image/result/samezhuangdui.png</file>
+        <file>image/result/samezhuangduixiandui.png</file>
+        <file>image/result/useless.png</file>
+        <file>image/result/xian.png</file>
+        <file>image/result/xianxiandui.png</file>
+        <file>image/result/xianzhuangdui.png</file>
+        <file>image/result/xianzhuangduixiandui.png</file>
+        <file>image/result/zhuang.png</file>
+        <file>image/result/zhuangxiandui.png</file>
+        <file>image/result/zhuangzhuangdui.png</file>
+        <file>image/result/zhuangzhuangduixiandui.png</file>
+    </qresource>
+    <qresource prefix="/button">
+        <file>image/button/pu_yellow.png</file>
+        <file>image/button/pu_yellow_an.png</file>
+    </qresource>
+</RCC>

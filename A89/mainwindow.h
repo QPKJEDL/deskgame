@@ -6,6 +6,8 @@
 #include <string>
 #include <QList>
 #include <QMainWindow>
+#include "mod/MNetManager.h"
+#include "login.h"
 using namespace std;
 
 #include <QNetworkReply>
@@ -63,67 +65,48 @@ namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 class QNetworkReply;
 class QGraphicsOpacityEffect;
+
+
+
+class MNetManager;
+class MainWindow;
+typedef void (MainWindow::*exe)(QNetworkReply *);
+
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(int id, QString token, QString limit, QString tieLimit, QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     QString m_str;
 protected:
     void keyPressEvent(QKeyEvent *event);
 
-private slots:
-    void update();
-    void finishedSlot(QNetworkReply*);
-    void on_timeout();
-    //void pu_start();
-    void pu_stop();
-    void pu_end();
-    void pu_locate();
-    void line_finish();
-    void on_summit();
-    void update_date();
-    void on_exit();
-    void on_useless();
-    // 点击开始按钮的槽函数
-    //void on_start();
-    // 倒计时间隔计时器\
-
-    void Request_faPai(CARD card);
-    void Request_summit();
-    void Request_useless();
-    void Request_start();
-    void Request_initialize();
-    void on_count_down();
-
-
-
-
 private:
     Ui::MainWindow *ui;
+
     QTimer* timer_focus;
     QTimer* timer_opacity;
     QTimer* timer_date;
     QGraphicsOpacityEffect* m_graphiceffect;
     QGraphicsOpacityEffect* n_graphiceffect;
     bool m_light;
-    QString m_edit_last;
-    //M
+
     players *head;
     QList<FOURLABELS*> result_list;
     int quarter;
     QLabel *label_name;
 
-    int desk_id;
-    QString desk_token;
-    QString m_post_type;
+    // 网络
+    MNetManager *manager;
+    QMap<int,exe> _map;
     bool m_fapai;
-    //QNetworkReply* m_reply;
-    QNetworkRequest* m_request;
-    QNetworkAccessManager* m_accessManager;
+
+    Login *login_window;
+
+    QString m_edit_last;
 
     NUMBER number;
     int location;
@@ -136,24 +119,68 @@ private:
     QString FanMen;
     QString Banker;
 
+private slots:
+    void update_focus();
+    void update_date();
+
+    void when_timeout();
+    void when_count_down();
+    void when_line_finish();
+
+    void pu_login();
+    void pu_init();
+    void pu_start();
+    void pu_change_boot();
+    void pu_end();
+    void pu_locate();
+    void pu_summit();
+    void pu_exit();
+    void pu_useless();
+
+    void on_responsed(QNetworkReply* reply,int status);
+
 private:
     void LabelPaixu(players *head);
-
-    void wait(CARD card,string paixing); //等待发牌
-    //void locate();
+    void quarter_increase();
+    void wait(CARD card,string paixing);
     void result();
-    void locate_success();
 
-    void request_game_record();
-    void on_game_record(QJsonArray array);
-    void request_room_card();
     void on_room_card(QJsonArray zhuang, QJsonArray one, QJsonArray two, QJsonArray three,string zhuang_result,string one_result,string two_result,string three_result);
-    void request_room_info();
-    // 房间状态
+
     void phase_zero();
     void phase_countDown(unsigned int start,unsigned int end);
     void phase_kaiPai();
     void phase_finish();
-    //M
+
+    void apply_locate();
+    void apply_summit();
+    void apply_useless();
+    void apply_record(QJsonArray array);
+
+    void request_login();
+    void request_start();
+    void request_roominfo();
+    void request_roomcard();
+    void request_record();
+    void request_locate();
+    void request_faPai(CARD card);
+    void request_summit();
+    void request_useless();
+    void request_init();
+    void request_end();
+
+    void responsed_login(QNetworkReply *reply);
+    void responsed_start(QNetworkReply *reply);
+    void responsed_roominfo(QNetworkReply *reply);
+    void responsed_roomcard(QNetworkReply *reply);
+    void responsed_record(QNetworkReply *reply);
+    void responsed_locate(QNetworkReply *reply);
+    void responsed_fapai(QNetworkReply *reply);
+    void responsed_summit(QNetworkReply *reply);
+    void responsed_useless(QNetworkReply *reply);
+    void responsed_init(QNetworkReply *reply);
+    void responsed_end(QNetworkReply *reply);
+
+    //void on_game_record(QJsonArray array);
 };
 #endif // MAINWINDOW_H
