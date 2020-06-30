@@ -18,6 +18,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -50,18 +51,23 @@ public:
     QLabel *label_2;
     QLabel *label_3;
     QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_5;
     QLabel *label_137;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents_3;
+    QVBoxLayout *verticalLayout_7;
+    QGridLayout *gridLayout_5;
     QLabel *label_4;
     QLabel *label_5;
     QLabel *label_6;
     QLabel *label_7;
+    QLabel *label_9;
     QTextEdit *textEdit;
     QGroupBox *groupBox;
     QWidget *layoutWidget;
     QGridLayout *gridLayout_2;
     QWidget *layoutWidget1;
     QVBoxLayout *verticalLayout_2;
+    QPushButton *pu_init;
     QPushButton *pu_start;
     QPushButton *pu_changeXue;
     QPushButton *pu_stop;
@@ -84,6 +90,7 @@ public:
     QLabel *label_129;
     QLabel *label_128;
     QLabel *label_tieMinLimit;
+    QLabel *label_countdown;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -210,7 +217,7 @@ public:
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(1550, 220, 341, 351));
+        groupBox_3->setGeometry(QRect(1550, 220, 361, 351));
         groupBox_3->setStyleSheet(QString::fromUtf8("QGroupBox{color: rgb(0, 0, 0);background-image: url(:/button/pu_yellow.png);solid grey; border-radius: 8px;}"));
         verticalLayout_4 = new QVBoxLayout(groupBox_3);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
@@ -246,47 +253,74 @@ public:
 
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(1550, 580, 341, 461));
+        groupBox_4->setGeometry(QRect(1550, 580, 351, 451));
         groupBox_4->setStyleSheet(QString::fromUtf8("QGroupBox{color: rgb(0, 0, 0);background-image: url(:/button/pu_yellow.png);solid grey; border-radius: 8px;}"));
-        verticalLayout_5 = new QVBoxLayout(groupBox_4);
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
         label_137 = new QLabel(groupBox_4);
         label_137->setObjectName(QString::fromUtf8("label_137"));
+        label_137->setGeometry(QRect(10, 0, 341, 41));
         label_137->setFont(font2);
         label_137->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
         label_137->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_5->addWidget(label_137);
-
-        label_4 = new QLabel(groupBox_4);
+        scrollArea = new QScrollArea(groupBox_4);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setGeometry(QRect(10, 50, 341, 401));
+        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents_3 = new QWidget();
+        scrollAreaWidgetContents_3->setObjectName(QString::fromUtf8("scrollAreaWidgetContents_3"));
+        scrollAreaWidgetContents_3->setGeometry(QRect(0, 0, 339, 494));
+        verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents_3);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        gridLayout_5->setHorizontalSpacing(0);
+        gridLayout_5->setVerticalSpacing(6);
+        label_4 = new QLabel(scrollAreaWidgetContents_3);
         label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setMinimumSize(QSize(319, 90));
+        label_4->setMaximumSize(QSize(319, 90));
         label_4->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
 
-        verticalLayout_5->addWidget(label_4);
+        gridLayout_5->addWidget(label_4, 0, 0, 1, 1);
 
-        label_5 = new QLabel(groupBox_4);
+        label_5 = new QLabel(scrollAreaWidgetContents_3);
         label_5->setObjectName(QString::fromUtf8("label_5"));
+        label_5->setMinimumSize(QSize(319, 90));
         label_5->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
 
-        verticalLayout_5->addWidget(label_5);
+        gridLayout_5->addWidget(label_5, 1, 0, 1, 1);
 
-        label_6 = new QLabel(groupBox_4);
+        label_6 = new QLabel(scrollAreaWidgetContents_3);
         label_6->setObjectName(QString::fromUtf8("label_6"));
+        label_6->setMinimumSize(QSize(319, 90));
         label_6->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
 
-        verticalLayout_5->addWidget(label_6);
+        gridLayout_5->addWidget(label_6, 2, 0, 1, 1);
 
-        label_7 = new QLabel(groupBox_4);
+        label_7 = new QLabel(scrollAreaWidgetContents_3);
         label_7->setObjectName(QString::fromUtf8("label_7"));
+        label_7->setMinimumSize(QSize(319, 90));
         label_7->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
 
-        verticalLayout_5->addWidget(label_7);
+        gridLayout_5->addWidget(label_7, 4, 0, 1, 1);
 
+        label_9 = new QLabel(scrollAreaWidgetContents_3);
+        label_9->setObjectName(QString::fromUtf8("label_9"));
+        label_9->setMinimumSize(QSize(319, 90));
+        label_9->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
+
+        gridLayout_5->addWidget(label_9, 3, 0, 1, 1);
+
+
+        verticalLayout_7->addLayout(gridLayout_5);
+
+        scrollArea->setWidget(scrollAreaWidgetContents_3);
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
         textEdit->setGeometry(QRect(10, 420, 1541, 621));
@@ -384,20 +418,35 @@ public:
         verticalLayout_2 = new QVBoxLayout(layoutWidget1);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        pu_init = new QPushButton(layoutWidget1);
+        pu_init->setObjectName(QString::fromUtf8("pu_init"));
+        pu_init->setEnabled(false);
+        pu_init->setMinimumSize(QSize(80, 50));
+        pu_init->setMaximumSize(QSize(119, 50));
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font4.setPointSize(15);
+        pu_init->setFont(font4);
+        pu_init->setAcceptDrops(true);
+        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        verticalLayout_2->addWidget(pu_init);
+
         pu_start = new QPushButton(layoutWidget1);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
         pu_start->setMinimumSize(QSize(80, 50));
         pu_start->setMaximumSize(QSize(119, 50));
-        QFont font4;
-        font4.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font4.setPointSize(15);
         pu_start->setFont(font4);
         pu_start->setAcceptDrops(true);
-        pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);border-image: url(:/button/image/button/pu_yellow.png);;solid grey; border-radius: 8px;}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
+        pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
         verticalLayout_2->addWidget(pu_start);
@@ -408,10 +457,10 @@ public:
         pu_changeXue->setMinimumSize(QSize(80, 50));
         pu_changeXue->setMaximumSize(QSize(119, 50));
         pu_changeXue->setFont(font4);
-        pu_changeXue->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);border-image: url(:/button/image/button/pu_yellow.png);;solid grey; border-radius: 8px;}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
+        pu_changeXue->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
         verticalLayout_2->addWidget(pu_changeXue);
@@ -422,10 +471,10 @@ public:
         pu_stop->setMinimumSize(QSize(80, 50));
         pu_stop->setMaximumSize(QSize(119, 50));
         pu_stop->setFont(font4);
-        pu_stop->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);border-image: url(:/button/image/button/pu_yellow.png);;solid grey; border-radius: 8px;}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
+        pu_stop->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
         verticalLayout_2->addWidget(pu_stop);
@@ -436,10 +485,10 @@ public:
         pu_leave->setMinimumSize(QSize(80, 50));
         pu_leave->setMaximumSize(QSize(119, 50));
         pu_leave->setFont(font4);
-        pu_leave->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);border-image: url(:/button/image/button/pu_yellow.png);;solid grey; border-radius: 8px;}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
+        pu_leave->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
         verticalLayout_2->addWidget(pu_leave);
@@ -450,10 +499,10 @@ public:
         pu_useless->setMinimumSize(QSize(80, 50));
         pu_useless->setMaximumSize(QSize(119, 50));
         pu_useless->setFont(font4);
-        pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);border-image: url(:/button/image/button/pu_yellow.png);;solid grey; border-radius: 8px;}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/button/pu_yellow_an.png);\n"
+        pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
         verticalLayout_2->addWidget(pu_useless);
@@ -648,6 +697,16 @@ public:
 
         verticalLayout_6->addLayout(gridLayout);
 
+        label_countdown = new QLabel(centralwidget);
+        label_countdown->setObjectName(QString::fromUtf8("label_countdown"));
+        label_countdown->setEnabled(true);
+        label_countdown->setGeometry(QRect(90, 580, 1401, 321));
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font5.setPointSize(250);
+        label_countdown->setFont(font5);
+        label_countdown->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
+        label_countdown->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
@@ -687,7 +746,9 @@ public:
         label_5->setText(QString());
         label_6->setText(QString());
         label_7->setText(QString());
+        label_9->setText(QString());
         groupBox->setTitle(QString());
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
         pu_changeXue->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264\357\274\210+\357\274\211", nullptr));
         pu_stop->setText(QCoreApplication::translate("MainWindow", "\345\201\234\346\255\242\357\274\210/\357\274\211", nullptr));
@@ -705,6 +766,7 @@ public:
         label_129->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">\345\257\271\345\255\220</span></p></body></html>", nullptr));
         label_128->setText(QCoreApplication::translate("MainWindow", "\345\222\214", nullptr));
         label_tieMinLimit->setText(QString());
+        label_countdown->setText(QString());
     } // retranslateUi
 
 };

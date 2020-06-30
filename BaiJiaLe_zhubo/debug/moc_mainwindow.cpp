@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[26];
-    char stringdata0[262];
+    char stringdata0[251];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,29 +43,29 @@ QT_MOC_LITERAL(7, 63, 12), // "pu_zhuangdui"
 QT_MOC_LITERAL(8, 76, 7), // "pu_xian"
 QT_MOC_LITERAL(9, 84, 10), // "pu_xiandui"
 QT_MOC_LITERAL(10, 95, 7), // "pu_same"
-QT_MOC_LITERAL(11, 103, 9), // "on_cancel"
-QT_MOC_LITERAL(12, 113, 8), // "on_enter"
-QT_MOC_LITERAL(13, 122, 12), // "on_responsed"
-QT_MOC_LITERAL(14, 135, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(15, 150, 5), // "reply"
-QT_MOC_LITERAL(16, 156, 6), // "status"
-QT_MOC_LITERAL(17, 163, 19), // "request_first_login"
-QT_MOC_LITERAL(18, 183, 10), // "count_down"
-QT_MOC_LITERAL(19, 194, 8), // "tc_enter"
-QT_MOC_LITERAL(20, 203, 9), // "tc_cancel"
-QT_MOC_LITERAL(21, 213, 11), // "readMessage"
-QT_MOC_LITERAL(22, 225, 11), // "sendMessage"
-QT_MOC_LITERAL(23, 237, 2), // "id"
-QT_MOC_LITERAL(24, 240, 5), // "token"
-QT_MOC_LITERAL(25, 246, 15) // "connectedServer"
+QT_MOC_LITERAL(11, 103, 8), // "pu_login"
+QT_MOC_LITERAL(12, 112, 9), // "on_cancel"
+QT_MOC_LITERAL(13, 122, 8), // "on_enter"
+QT_MOC_LITERAL(14, 131, 12), // "on_responsed"
+QT_MOC_LITERAL(15, 144, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(16, 159, 5), // "reply"
+QT_MOC_LITERAL(17, 165, 6), // "status"
+QT_MOC_LITERAL(18, 172, 10), // "count_down"
+QT_MOC_LITERAL(19, 183, 8), // "tc_enter"
+QT_MOC_LITERAL(20, 192, 9), // "tc_cancel"
+QT_MOC_LITERAL(21, 202, 11), // "readMessage"
+QT_MOC_LITERAL(22, 214, 11), // "sendMessage"
+QT_MOC_LITERAL(23, 226, 2), // "id"
+QT_MOC_LITERAL(24, 229, 5), // "token"
+QT_MOC_LITERAL(25, 235, 15) // "connectedServer"
 
     },
     "MainWindow\0pu_init\0\0pu_start\0pu_changeXue\0"
     "pu_useless\0pu_zhuang\0pu_zhuangdui\0"
-    "pu_xian\0pu_xiandui\0pu_same\0on_cancel\0"
-    "on_enter\0on_responsed\0QNetworkReply*\0"
-    "reply\0status\0request_first_login\0"
-    "count_down\0tc_enter\0tc_cancel\0readMessage\0"
+    "pu_xian\0pu_xiandui\0pu_same\0pu_login\0"
+    "on_cancel\0on_enter\0on_responsed\0"
+    "QNetworkReply*\0reply\0status\0count_down\0"
+    "tc_enter\0tc_cancel\0readMessage\0"
     "sendMessage\0id\0token\0connectedServer"
 };
 #undef QT_MOC_LITERAL
@@ -95,8 +95,8 @@ static const uint qt_meta_data_MainWindow[] = {
       10,    0,  117,    2, 0x08 /* Private */,
       11,    0,  118,    2, 0x08 /* Private */,
       12,    0,  119,    2, 0x08 /* Private */,
-      13,    2,  120,    2, 0x08 /* Private */,
-      17,    0,  125,    2, 0x08 /* Private */,
+      13,    0,  120,    2, 0x08 /* Private */,
+      14,    2,  121,    2, 0x08 /* Private */,
       18,    0,  126,    2, 0x08 /* Private */,
       19,    0,  127,    2, 0x08 /* Private */,
       20,    0,  128,    2, 0x08 /* Private */,
@@ -116,8 +116,8 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 14, QMetaType::Int,   15,   16,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 15, QMetaType::Int,   16,   17,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -143,10 +143,10 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->pu_xian(); break;
         case 7: _t->pu_xiandui(); break;
         case 8: _t->pu_same(); break;
-        case 9: _t->on_cancel(); break;
-        case 10: _t->on_enter(); break;
-        case 11: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 12: _t->request_first_login(); break;
+        case 9: _t->pu_login(); break;
+        case 10: _t->on_cancel(); break;
+        case 11: _t->on_enter(); break;
+        case 12: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 13: _t->count_down(); break;
         case 14: _t->tc_enter(); break;
         case 15: _t->tc_cancel(); break;
@@ -158,7 +158,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 11:
+        case 12:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:

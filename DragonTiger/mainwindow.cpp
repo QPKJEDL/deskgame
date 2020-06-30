@@ -526,6 +526,7 @@ void MainWindow::responsed_login(QNetworkReply *reply)
         ui->label_tieMinLimit->setText(QString::number(tieMinLimit));
         login_window->close();
         this->show();
+        this->showFullScreen();
         request_room_info();
     }
     else{
@@ -1077,7 +1078,7 @@ void MainWindow::pu_stop(){
 }
 
 void MainWindow::pu_leave(){
-
+    this->close();
 }
 
 void MainWindow::pu_useless(){

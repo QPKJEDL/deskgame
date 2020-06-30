@@ -973,6 +973,7 @@ void MainWindow::responsed_login(QNetworkReply *reply)
 
         login_window->close();
         this->show();
+        this->showFullScreen();
         request_record();
     }
     else{

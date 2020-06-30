@@ -19,20 +19,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     form.cpp \
-    loginwidget.cpp \
+    login.cpp \
     main.cpp \
     mainwindow.cpp \
     mod/MNetManager.cpp
 
 HEADERS += \
     form.h \
-    loginwidget.h \
+    login.h \
     mainwindow.h \
     mod/MNetManager.h
 
 FORMS += \
     form.ui \
-    loginwidget.ui \
+    login.ui \
     mainwindow.ui
 
 # Default rules for deployment.

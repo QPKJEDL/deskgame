@@ -11,7 +11,9 @@ class MNetManager : public QObject{
 public:
     explicit MNetManager(QObject *parent = nullptr);
 
-    void InitRequest(QString header,QString id,QString token);
+    //void InitRequest(QString header,QString id,QString token);
+    void setHeader(QString header);
+    void setRawHeader(QByteArray name, QByteArray rawHeader);
     void setIp(QString ip);
     void setStatus(int status);
     void setInterface(QString interface);

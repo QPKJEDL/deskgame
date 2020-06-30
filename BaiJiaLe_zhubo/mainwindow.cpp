@@ -23,6 +23,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_bankerPair = 0;
     // 倒计时初始化
     times = 30;
+    ui->label_countdown->setVisible(false);
 
     _map.insert(LOGIN,&MainWindow::responsed_login);
     _map.insert(INIT,&MainWindow::responsed_init);
@@ -77,7 +78,7 @@ MainWindow::MainWindow(QWidget *parent)
     }
     login_window = new Login();
     // 链接槽函数
-    //connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
+    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
     connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(pu_start()));
     connect(ui->pu_changeXue,SIGNAL(clicked()),this,SLOT(pu_changeXue()));
     connect(ui->pu_useless,SIGNAL(clicked()),this,SLOT(pu_useless()));
@@ -88,7 +89,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pu_same,SIGNAL(clicked()),this,SLOT(pu_same()));
     connect(ui->pu_enter,SIGNAL(clicked()),this,SLOT(on_enter()));
     connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
-    connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(request_first_login()));
+    connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
     // 连接弹窗信号
     form = new Form();
     form->setWindowFlag(Qt::FramelessWindowHint);
@@ -121,6 +122,7 @@ void MainWindow::pu_init()
 }
 
 void MainWindow::apply_start(){
+    ui->label_countdown->setVisible(true);
     m_timer_count_down->start(1000);
 }
 
@@ -201,8 +203,14 @@ void MainWindow::pu_same()
     ui->pu_cancel->setEnabled(true);
 }
 
+void MainWindow::pu_login()
+{
+    request_first_login();
+}
+
 void MainWindow::count_down()
 {
+    ui->label_countdown->setText(QString::number(times));
     if(--times < 0){
         m_timer_count_down->stop();
 
@@ -333,6 +341,13 @@ void MainWindow::reqeust_second_login(QString live_user,QString password)
 
     //?
     manager->postData(postData);
+}
+
+void MainWindow::request_init()
+{
+    manager->setStatus(INIT);
+    manager->setInterface("bjl_desk_ini");
+    manager->postData(QByteArray());
 }
 
 void MainWindow::responsed_login(QNetworkReply *reply)
@@ -852,6 +867,7 @@ void MainWindow::readMessage()
 
             login_window->close();
             this->show();
+            request_room_info();
         }
         else{
             qDebug() << "login faild";

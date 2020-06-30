@@ -179,10 +179,11 @@ private slots:
     void pu_xian();
     void pu_xiandui();
     void pu_same();
+    void pu_login();
     void on_cancel();
     void on_enter();
     void on_responsed(QNetworkReply* reply,int status);
-    void request_first_login();
+
     // 倒计时
     void count_down();
     // 弹窗
@@ -197,11 +198,16 @@ private:
     void on_init();
     void apply_start();
 
+    void request_first_login();
+    void reqeust_second_login(QString live_user, QString password);
+    void request_init();
     void request_room_info();
     void request_result_list();
+    void request_start();
+    void request_changeXue();
+    void request_useless();
     void request_gameover();
 
-    void reqeust_second_login(QString live_user, QString password);
     // 刷新重启前结果
     void result_list(QJsonArray array);
     void result_increase();

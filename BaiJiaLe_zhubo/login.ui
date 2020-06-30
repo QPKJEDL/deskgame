@@ -39,6 +39,12 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
      <height>79</height>
     </size>
    </property>
+   <property name="font">
+    <font>
+     <family>微软雅黑</family>
+     <pointsize>40</pointsize>
+    </font>
+   </property>
    <property name="styleSheet">
     <string notr="true">background:rgba(39,39,57,1);
 border-radius:5px;</string>
@@ -185,11 +191,20 @@ background-color: transparent;</string>
           <height>42</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>25</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">width:305px;
 height:43px;
 background:rgba(255,255,255,1);
 border-radius:4px;</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>
@@ -222,11 +237,20 @@ background-color: transparent;</string>
           <height>42</height>
          </size>
         </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>25</pointsize>
+         </font>
+        </property>
         <property name="styleSheet">
          <string notr="true">width:305px;
 height:43px;
 background:rgba(255,255,255,1);
 border-radius:4px;</string>
+        </property>
+        <property name="text">
+         <string/>
         </property>
        </widget>
       </item>

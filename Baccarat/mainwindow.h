@@ -8,12 +8,14 @@
 #include <QLabel>
 #include "form.h"
 #include "mod/MNetManager.h"
-
+#include "login.h"
+// lh a1 // bjl a5 // nn a2
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
 class MainWindow;
+class MNetManager;
 typedef void (MainWindow::*exe)(QNetworkReply *);
 
 typedef struct node{
@@ -116,7 +118,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(int id,QString token,unsigned int maxLimit,unsigned int minLimit,unsigned int maxPair,unsigned int minPair,unsigned int maxTie,unsigned int minTie,QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private:
@@ -125,6 +127,7 @@ private:
     // 网络
     MNetManager *manager;
     QMap<int,exe> _map;
+    Login *login_window;
 
     // 倒计时
     QTimer *m_timer_count_down;
@@ -166,6 +169,7 @@ private:
     Link* m_link_reslut_head;
 
 private slots:
+    void pu_login();
     void pu_init();
     void pu_start();
     void pu_changeXue();
@@ -179,9 +183,8 @@ private slots:
     void pu_same();
     void on_cancel();
     void on_enter();
+    void on_responsed(QNetworkReply* reply,int status);
 
-    // 网络
-    void finishedSlot(QNetworkReply *_reply);
     // 倒计时
     void count_down();
     // 弹窗
@@ -210,6 +213,8 @@ private:
     void update_ask(NUMBER big_way, bool zhuang);
 
     void next_result();
+
+    void request_login();
     void request_init();
     void request_roominfo();
     void request_record();
@@ -218,6 +223,7 @@ private:
     void request_useless();
     void request_summit();
 public:
+    void responsed_login(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);
     void responsed_record(QNetworkReply *reply);

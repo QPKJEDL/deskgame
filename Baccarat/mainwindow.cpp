@@ -10,13 +10,14 @@
 //QString URL = "192.168.0.104:8210";
 QString URL = "129.211.114.135:8210";
 
-enum {START,CHANGEBOOT,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT};
+enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT};
 
-MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned int minLimit, unsigned int maxPair, unsigned int minPair, unsigned int maxTie, unsigned int minTie, QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    login_window = new Login();
 
     // 结果值初始化
     m_playerPair = 0;
@@ -27,9 +28,11 @@ MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned in
     // 网络初始化
     manager = new MNetManager;
     manager->setIp("129.211.114.135:8210");
-    manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
+    manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
+
+    _map.insert(LOGIN,&MainWindow::responsed_login);
     _map.insert(START,&MainWindow::responsed_start);
     _map.insert(ROOMINFO,&MainWindow::responsed_roominfo);
     _map.insert(RECORD,&MainWindow::responsed_record);
@@ -37,16 +40,7 @@ MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned in
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
 
-    ui->label_maxLimit->setText(QString::number(maxLimit));
-    ui->label_minLimit->setText(QString::number(minLimit));
-    ui->label_tieMaxLimit->setText(QString::number(maxTie));
-    ui->label_tieMinLimit->setText(QString::number(minTie));
-    ui->label_pairMaxLimit->setText(QString::number(maxPair));
-    ui->label_pairMinLimit->setText(QString::number(minPair));
-
-    // 开始请求房间信息
-    request_roominfo();
-
+    login_window->show();
 
     // 倒计时初始化
     this->m_timer_count_down = new QTimer(this);
@@ -156,6 +150,7 @@ MainWindow::MainWindow(int id, QString token, unsigned int maxLimit, unsigned in
     connect(ui->pu_same,SIGNAL(clicked()),this,SLOT(pu_same()));
     connect(ui->pu_enter,SIGNAL(clicked()),this,SLOT(on_enter()));
     connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
+    connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
     // 连接弹窗信号
     form = new Form();
     form->setWindowFlag(Qt::FramelessWindowHint);
@@ -243,12 +238,12 @@ void MainWindow::update_ask_way()
         // 肯定需要判断 大眼仔路
         if(if_order(way_big->now,1,2)){
             // 齐整大眼仔路
-            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/redPoint.png") + QString(");");
+            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/redPoint.png") + QString(");");
             game = 7;
         }
         else{
             // 不齐整大眼仔路
-            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/bluePoint.png") + QString(");");
+            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/bluePoint.png") + QString(");");
             game = 4;
         }
         // 移动到下一个大眼仔路
@@ -262,12 +257,12 @@ void MainWindow::update_ask_way()
             // 可以判断小路
             if(if_order(way_big->now,1,3)){
                 // 齐整小路
-                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/red.png") + QString(");");
+                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/redPoint.png") + QString(");");
                 game = 7;
             }
             else{
                 // 不齐整大路
-                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/blue.png") + QString(");");
+                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/bluePoint.png") + QString(");");
                 game = 4;
             }
             // 移动到下一个小路路
@@ -278,11 +273,11 @@ void MainWindow::update_ask_way()
             if(way_big->now.m_now_row > 3){
                 // 可以判断凹凸路
                 if(if_order(way_big->now,1,4)){
-                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/redLine.png") + QString(");");
+                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/redLine.png") + QString(");");
                     game = 7;
                 }
                 else{
-                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/blueLine.png") + QString(");");
+                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/blueLine.png") + QString(");");
                     game = 4;
                 }
                 // 移动到下一个凹凸路
@@ -298,12 +293,12 @@ void MainWindow::update_ask_way()
         // 肯定需要判断 大眼仔路
         if(if_YesOrNo(way_big->now,1)){
             // 有 或 直落
-            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/redPoint.png") + QString(");");
+            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/redPoint.png") + QString(");");
             game = 7;
         }
         else{
             // 无
-            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/bluePoint.png") + QString(");");
+            style = way_big_eye->labels[way_big_eye->now.m_now_row][way_big_eye->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/bluePoint.png") + QString(");");
             game = 4;
         }
         // 移动到下一个大眼仔路
@@ -315,12 +310,12 @@ void MainWindow::update_ask_way()
             // 可以判断小路
             if(if_YesOrNo(way_big->now,2)){
                 // 有 或 直落
-                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/red.png") + QString(");");
+                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/red.png") + QString(");");
                 game = 7;
             }
             else{
                 // 无
-                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/blue.png") + QString(");");
+                style = way_little->labels[way_little->now.m_now_row][way_little->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/blue.png") + QString(");");
                 game = 4;
             }
             // 移动到下一个小路路
@@ -331,11 +326,11 @@ void MainWindow::update_ask_way()
             if(way_big->now.m_now_row > 2){
                 // 可以判断凹凸路
                 if(if_YesOrNo(way_big->now,3)){
-                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/redLine.png") + QString(");");
+                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/redLine.png") + QString(");");
                     game = 7;
                 }
                 else{
-                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/result/blueLine.png") + QString(");");
+                    style = way_aotu->labels[way_aotu->now.m_now_row][way_aotu->now.m_now_line].label->styleSheet() + QString("border-image: url(") + QString(":/ask_way/images/ask_way/blueLine.png") + QString(");");
                     game = 4;
                 }
                 // 移动到下一个凹凸路
@@ -428,7 +423,12 @@ ASKWAY MainWindow::next_ask_way(WAY* way,int game,QString style,bool T)
     return askway;
 
 //    way->labels[way->now.m_now_row][way->now.m_now_line].who_win = game;
-//    way->labels[way->now.m_now_row][way->now.m_now_line].label->setStyleSheet(style);
+    //    way->labels[way->now.m_now_row][way->now.m_now_line].label->setStyleSheet(style);
+}
+
+void MainWindow::pu_login()
+{
+    request_login();
 }
 
 void MainWindow::pu_init()
@@ -468,7 +468,7 @@ void MainWindow::pu_stop(){
 }
 
 void MainWindow::pu_leave(){
-
+    this->close();
 }
 
 void MainWindow::pu_useless(){
@@ -670,8 +670,8 @@ void MainWindow::result_list(QJsonArray array)
     qDebug() << "array.count : " << array.count();
     // 获取结果和规律的图片
     for(int i = 0;i < array.count();i++){
-        QString path = QString(":/result/");
-        QString path_gl = QString(":/guilv/gl_");
+        QString path = QString(":/result/images/result/");//:/result/images/result/same.png
+        QString path_gl = QString(":/big_way/images/big_way/gl_");//:/big_way/images/big_way/gl_xian.png
         QString up = "上铺：";
         m_game_str = array.at(i)["game"].toString();
         if(m_game_str == "庄"){
@@ -758,6 +758,16 @@ void MainWindow::on_enter()
     form->init(ui->label_desk_id->text(),ui->label_times_xue->text(),ui->label_times_pu->text(),ui->label_result->text());
     form->show();
     form->move(600,400);
+}
+
+void MainWindow::on_responsed(QNetworkReply *reply, int status)
+{
+    if(_map.find(status) != _map.end()){
+        (this->*(_map[status]))(reply);
+    }
+    else{
+        qDebug() << "unknow status";
+    }
 }
 
 void MainWindow::tc_enter()
@@ -874,6 +884,8 @@ void MainWindow::ongl_enter(QString path_gl){
         way_big->labels[way_big->now.m_now_row][way_big->now.m_now_line].label->setStyleSheet(way_big->labels[way_big->now.m_now_row][way_big->now.m_now_line].label->styleSheet().append(path_gl));
         way_big->labels[way_big->now.m_now_row][way_big->now.m_now_line].who_win = m_game;
         way_big->first = false;
+
+
         // 更新问路样式表
         update_ask_way();
         NUMBER zhuang_next = next_zhuang(7);
@@ -931,13 +943,13 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
             // 齐整大眼仔路
             style = "border-radius: 8px; \
                     background-color: rgb(255, 255, 255); \
-                    border-image: url(:/result/redPoint.png);";
+                    border-image: url(:/ask_way/images/ask_way/redPoint.png);";
         }
         else{
             // 不齐整大眼仔路
             style = "border-radius: 8px; \
                     background-color: rgb(255, 255, 255); \
-                    border-image: url(:/result/bluePoint.png);";
+                    border-image: url(:/ask_way/images/ask_way/bluePoint.png);";
         }
         if(zhuang){
             ui->label_zwl_one->setStyleSheet(style);
@@ -952,13 +964,13 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
                 // 齐整 小路
                 style = "border-radius: 8px; \
                         background-color: rgb(255, 255, 255); \
-                        border-image: url(:/result/red.png);";
+                        border-image: url(:/ask_way/images/ask_way/red.png);";
             }
             else{
                 // 不齐整 小路
                 style = "border-radius: 8px; \
                         background-color: rgb(255, 255, 255); \
-                        border-image: url(:/result/blue.png);";
+                        border-image: url(:/ask_way/images/ask_way/blue.png);";
             }
             if(zhuang){
                 ui->label_zwl_two->setStyleSheet(style);
@@ -972,13 +984,13 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
                     // 齐整凹凸路
                     style = "border-radius: 8px; \
                             background-color: rgb(255, 255, 255); \
-                            border-image: url(:/result/redLine.png);";
+                            border-image: url(:/ask_way/images/ask_way/redLine.png);";
                 }
                 else{
                     // 不齐整凹凸路
                     style = "border-radius: 8px; \
                             background-color: rgb(255, 255, 255); \
-                            border-image: url(:/result/blueLine.png);";
+                            border-image: url(:/ask_way/images/ask_way/blueLine.png);";
                 }
                 if(zhuang){
                     ui->label_zwl_three->setStyleSheet(style);
@@ -996,12 +1008,12 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
         if(if_YesOrNo(big_way,1)){
             style = "border-radius: 8px; \
                     background-color: rgb(255, 255, 255); \
-                    border-image: url(:/result/redPoint.png);";
+                    border-image: url(:/ask_way/images/ask_way/redPoint.png);";
         }
         else{
             style = "border-radius: 8px; \
                     background-color: rgb(255, 255, 255); \
-                    border-image: url(:/result/bluePoint.png);";
+                    border-image: url(:/ask_way/images/ask_way/bluePoint.png);";
         }
         if(zhuang){
             ui->label_zwl_one->setStyleSheet(style);
@@ -1014,12 +1026,12 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
             if(if_YesOrNo(big_way,2)){
                 style = "border-radius: 8px; \
                         background-color: rgb(255, 255, 255); \
-                        border-image: url(:/result/red.png);";
+                        border-image: url(:/ask_way/images/ask_way/red.png);";
             }
             else{
                 style = "border-radius: 8px; \
                         background-color: rgb(255, 255, 255); \
-                        border-image: url(:/result/blue.png);";
+                        border-image: url(:/ask_way/images/ask_way/blue.png);";
             }
             if(zhuang){
                 ui->label_zwl_two->setStyleSheet(style);
@@ -1032,12 +1044,12 @@ void MainWindow::update_ask(NUMBER big_way,bool zhuang){
                 if(if_YesOrNo(big_way,3)){
                     style = "border-radius: 8px; \
                             background-color: rgb(255, 255, 255); \
-                            border-image: url(:/result/redLine.png);";
+                            border-image: url(:/ask_way/images/ask_way/redLine.png);";
                 }
                 else{
                     style = "border-radius: 8px; \
                             background-color: rgb(255, 255, 255); \
-                            border-image: url(:/result/blueLine.png);";
+                            border-image: url(:/ask_way/images/ask_way/blueLine.png);";
                 }
                 if(zhuang){
                     ui->label_zwl_three->setStyleSheet(style);
@@ -1066,6 +1078,15 @@ void MainWindow::next_result()
     else{
         m_link_reslut = m_link_reslut->next;
     }
+}
+
+void MainWindow::request_login()
+{
+    manager->setStatus(LOGIN);
+    manager->setInterface("dutch_login");
+    QByteArray postData;
+    postData.append("desk=a5&password=123456");
+    manager->postData(postData);
 }
 
 void MainWindow::request_init()
@@ -1133,6 +1154,37 @@ void MainWindow::request_summit()
     manager->postData(postData);
 }
 
+void MainWindow::responsed_login(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonObject data = json.value("data").toObject();
+        unsigned int desk_id = data.value("desk_id").toInt();
+        QString desk_token = data.value("desk_token").toString();
+        manager->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
+        manager->setRawHeader("desk_token",desk_token.toUtf8());
+        unsigned int maxLimit = data.value("maxLimit").toInt();
+        unsigned int minLimit = data.value("minLimit").toInt();
+        unsigned int tieMaxLimit = data.value("tieMaxLimit").toInt();
+        unsigned int tieMinLimit = data.value("tieMinLimit").toInt();
+        ui->label_maxLimit->setText(QString::number(maxLimit));
+        ui->label_minLimit->setText(QString::number(minLimit));
+        ui->label_tieMaxLimit->setText(QString::number(tieMaxLimit));
+        ui->label_tieMinLimit->setText(QString::number(tieMinLimit));
+        login_window->close();
+        this->show();
+        this->showFullScreen();
+        request_roominfo();
+    }
+    else{
+        QMessageBox box;
+        box.setText("登录失败");
+        box.exec();
+    }
+}
+
 void MainWindow::responsed_init(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
@@ -1188,6 +1240,10 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         }
         case 2:{
             phase_kaiPai();
+            break;
+        }
+        case 3:{
+            phase_finish();
             break;
         }
         }
@@ -1337,8 +1393,8 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
 
     if(status == 1){
         ui->label_result->setText(QString(""));
-        QString path = QString(":/result/");
-        QString path_gl = QString(":/guilv/gl_");
+        QString path = QString(":/result/images/result/");//:/result/images/result/same.png
+        QString path_gl = QString(":/big_way/images/big_way/gl_");//:/big_way/images/big_way/gl_xian.png
         QString up = "上铺：";
         switch (m_game) {
         case 7:{
