@@ -10,7 +10,7 @@
 //QString URL = "192.168.0.104:8210";
 //QString URL = "129.211.114.135:8210";
 
-enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN};
+enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE};
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -23,7 +23,6 @@ MainWindow::MainWindow(QWidget *parent)
     m_bankerPair = 0;
     // 倒计时初始化
     times = 30;
-    ui->label_countdown->setVisible(false);
 
     _map.insert(LOGIN,&MainWindow::responsed_login);
     _map.insert(INIT,&MainWindow::responsed_init);
@@ -51,6 +50,10 @@ MainWindow::MainWindow(QWidget *parent)
     // 倒计时初始化
     this->m_timer_count_down = new QTimer(this);
     connect(m_timer_count_down,SIGNAL(timeout()),this,SLOT(count_down()));
+    label_count_down = new QLabel(this);
+    label_count_down->setMinimumSize(QSize(300,300));
+    label_count_down->move(800,400);
+    label_count_down->setStyleSheet("background-color: transparent;font: 200pt \"方正粗黑宋简体\";");
 
     // 生成体力活链表
     m_link_reslut = new Link();
@@ -89,6 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pu_same,SIGNAL(clicked()),this,SLOT(pu_same()));
     connect(ui->pu_enter,SIGNAL(clicked()),this,SLOT(on_enter()));
     connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
+    connect(ui->pu_leave,SIGNAL(clicked()),this,SLOT(pu_leave()));
     connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
     // 连接弹窗信号
     form = new Form();
@@ -122,15 +126,16 @@ void MainWindow::pu_init()
 }
 
 void MainWindow::apply_start(){
-    ui->label_countdown->setVisible(true);
     m_timer_count_down->start(1000);
 }
 
 void MainWindow::pu_start()
 {
-    manager->setStatus(START);
-    manager->setInterface("bjl_count_down");
-    manager->postData(QByteArray());
+    ui->pu_start->setEnabled(false);
+    m_bankerPair = 0;
+    m_playerPair = 0;
+    m_game = 0;
+    request_start();
 }
 
 void MainWindow::pu_changeXue()
@@ -161,7 +166,7 @@ void MainWindow::pu_useless(){
 void MainWindow::pu_zhuang()
 {
     m_game = 7;
-
+    ui->label_result->setText(ui->label_result->text().append("庄赢"));
     ui->pu_zhuang->setEnabled(false);
     ui->pu_xian->setEnabled(false);
     ui->pu_same->setEnabled(false);
@@ -170,13 +175,14 @@ void MainWindow::pu_zhuang()
 void MainWindow::pu_zhuangdui()
 {
     m_bankerPair = 2;
+    ui->label_result->setText(ui->label_result->text().append("庄对"));
     ui->pu_zhuangdui->setEnabled(false);
 }
 
 void MainWindow::pu_xian()
 {
     m_game = 4;
-
+    ui->label_result->setText(ui->label_result->text().append("闲赢"));
     ui->pu_zhuang->setEnabled(false);
     ui->pu_xian->setEnabled(false);
     ui->pu_same->setEnabled(false);
@@ -188,13 +194,14 @@ void MainWindow::pu_xian()
 void MainWindow::pu_xiandui()
 {
     m_playerPair = 5;
+    ui->label_result->setText(ui->label_result->text().append("闲对"));
     ui->pu_xiandui->setEnabled(false);
 }
 
 void MainWindow::pu_same()
 {
     m_game = 1;
-
+    ui->label_result->setText(ui->label_result->text().append("和"));
     ui->pu_zhuang->setEnabled(false);
     ui->pu_xian->setEnabled(false);
     ui->pu_same->setEnabled(false);
@@ -208,12 +215,19 @@ void MainWindow::pu_login()
     request_first_login();
 }
 
+void MainWindow::pu_leave()
+{
+    this->close();
+}
+
 void MainWindow::count_down()
 {
-    ui->label_countdown->setText(QString::number(times));
+    label_count_down->setText(QString::number(times));
     if(--times < 0){
         m_timer_count_down->stop();
-
+        label_count_down->setText("");
+        ui->pu_enter->setEnabled(true);
+        ui->pu_cancel->setEnabled(true);
         ui->pu_leave->setEnabled(true);
         ui->pu_zhuang->setEnabled(true);
         ui->pu_zhuangdui->setEnabled(true);
@@ -256,6 +270,13 @@ void MainWindow::request_result_list()
     QByteArray postData;
     postData.append("boot_num=" + ui->label_times_xue->text());
     manager->postData(postData);
+}
+
+void MainWindow::request_start()
+{
+    manager->setStatus(START);
+    manager->setInterface("bjl_count_down");
+    manager->postData(QByteArray());
 }
 
 void MainWindow::phase_zero()
@@ -319,6 +340,25 @@ void MainWindow::request_gameover()
         postData.append(QString("&game_num="));postData.append(QString(QJsonDocument(json).toJson()));
         manager->postData(postData);
     }
+}
+
+void MainWindow::request_top_three()
+{
+    manager->setInterface("bjl_bet_top_three");
+    manager->setStatus(TOPTHREE);
+    QByteArray postData;
+    postData.append("boot_num=" + ui->label_times_xue->text());
+    postData.append("&pave_num=" + ui->label_times_pu->text());
+    manager->postData(postData);
+}
+
+void MainWindow::request_top_five()
+{
+    manager->setInterface("bjl_bingo_top_five");
+    manager->setStatus(TOPFIVE);
+    QByteArray postData;
+    postData.append("boot_num=" + ui->label_times_xue->text());
+    manager->postData(postData);
 }
 
 void MainWindow::request_first_login()
@@ -539,7 +579,7 @@ void MainWindow::responsed_useless(QNetworkReply *reply)
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        QString path = QString("border-image: url(:/result/useless.png);");
+        QString path = QString("border-image: url(:/result/image/result/useless.png;");
         m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(path));
         result_increase();
         // 禁用结算取消按钮
@@ -572,7 +612,7 @@ void MainWindow::responsed_gameover(QNetworkReply *reply)
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        QString path = QString(":/result/");
+        QString path = QString(":/result/image/result/");//:/result/image/result/same.png
         QString up = "上铺：";
         switch (m_game) {
         case 7:{
@@ -606,6 +646,8 @@ void MainWindow::responsed_gameover(QNetworkReply *reply)
         // 禁用结算取消按钮
         ui->pu_enter->setEnabled(false);
         ui->pu_cancel->setEnabled(false);
+        form->hide();
+        ui->label_result->setText("");
         // 禁用结果按钮
         ui->pu_zhuang->setEnabled(false);
         ui->pu_xian->setEnabled(false);
@@ -613,11 +655,13 @@ void MainWindow::responsed_gameover(QNetworkReply *reply)
         ui->pu_zhuangdui->setEnabled(false);
         ui->pu_xiandui->setEnabled(false);
         // 禁用作废按钮
-        ui->pu_useless->setEnabled(false);
+        //ui->pu_useless->setEnabled(false);
         // 启用开局按钮
         ui->pu_start->setEnabled(true);
         // 恢复倒计时
         this->times = 30;
+
+        request_top_three();
     }
     else{
         ui->pu_enter->setEnabled(true);
@@ -625,6 +669,68 @@ void MainWindow::responsed_gameover(QNetworkReply *reply)
         QMessageBox box;
         box.setText("结算失败");
         box.exec();
+    }
+}
+
+void MainWindow::responsed_top_three(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonObject data = json.value("data").toObject();
+        QJsonObject first = data.value("first").toObject();
+        QJsonObject second = data.value("second").toObject();
+        QJsonObject third = data.value("third").toObject();
+        int first_money = first.value("Money").toInt();
+        int second_money = second.value("Money").toInt();
+        int third_money = third.value("Money").toInt();
+        ui->label_first_money->setText(QString::number(first_money) + "元");
+        ui->label_second__money->setText(QString::number(second_money) + "元");
+        ui->label_third_money->setText(QString::number(third_money) + "元");
+
+        auto f = [](QString bet,QLabel *label){
+            QString path = ":/result/image/result/";
+            if(bet == "player"){
+                label->setText("<html><head/><body><p><img src=\":/result/image/result/same.png\"/></p></body></html>");
+            }
+            else if(bet == "banker"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/banker.png\"/></p></body></html>");
+            }
+            else if(bet == "tie"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/tie.png\"/></p></body></html>");
+            }
+            else if(bet == "playerPair"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/playerpair.png\"/></p></body></html>");
+            }
+            else if(bet == "bankerPair"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/bankerpair.png\"/></p></body></html>");
+            }
+        };
+
+        QString first_bet = first.value("Bet").toString();
+        QString second_bet = second.value("Bet").toString();
+        QString third_bet = third.value("Bet").toString();
+
+        f(first_bet,ui->label_first_bet);
+        f(second_bet,ui->label_second_bet);
+        f(third_bet,ui->label_third_bet);
+    }
+    else{
+        QMessageBox box;
+        box.setText("获取下注前三失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_top_five(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonObject data = json.value("data").toObject();
+
     }
 }
 
@@ -650,26 +756,22 @@ void MainWindow::result_list(QJsonArray array)
     qDebug() << "array.count : " << array.count();
     // 获取结果和规律的图片
     for(int i = 0;i < array.count();i++){
-        QString path = QString(":/result/");
-        QString path_gl = QString(":/guilv/gl_");
+        QString path = QString(":/result/image/result/");//:/result/image/result/
         QString up = "上铺：";
         m_game_str = array.at(i)["game"].toString();
         if(m_game_str == "庄"){
             m_game = 7;
             path.append("zhuang");
-            path_gl.append("zhuang");
             up.append("庄赢");
         }
         else if(m_game_str == "闲"){
             m_game = 4;
             path.append("xian");
-            path_gl.append("xian");
             up.append("闲赢");
         }
         else if(m_game_str == "和"){
             m_game = 1;
             path.append("same");
-            path_gl.append("same");
             up.append("和");
         }
         else if(m_game_str == ""){
@@ -681,18 +783,21 @@ void MainWindow::result_list(QJsonArray array)
         if(m_bankerPair_str == "庄对"){
             m_bankerPair = 2;
             path.append("zhuangdui");
-            path_gl.append("zhuangdui");
             up.append("庄对");
+        }
+        else{
+            m_bankerPair = 0;
         }
         m_playerPair_str = array.at(i)["playerPair"].toString();
         if(m_playerPair_str == "闲对"){
             m_playerPair = 5;
             path.append("xiandui");
-            path_gl.append("xiandui");
             up.append("闲对");
         }
+        else{
+            m_playerPair = 0;
+        }
         path.append(".png");
-        path_gl.append(".png");
 
        // ui->label_up_pave->setText(up);
         // 更新结果样式表
@@ -709,7 +814,7 @@ void MainWindow::on_enter()
     ui->pu_enter->setEnabled(false);
     ui->pu_cancel->setEnabled(false);
 
-    //form->init(ui->label_desk_id->text(),ui->label_times_xue->text(),ui->label_times_pu->text(),ui->label_result->text());
+    form->init(ui->label_desk_id->text(),ui->label_times_xue->text(),ui->label_times_pu->text(),ui->label_result->text());
     form->show();
     form->move(600,400);
 }
@@ -735,7 +840,7 @@ void MainWindow::on_cancel()
     m_game = -1;
     m_playerPair = 0;
     m_bankerPair = 0;
-    //ui->label_result->setText("");
+    ui->label_result->setText("");
 
     // 启用结果按钮
     ui->pu_zhuang->setEnabled(true);
@@ -867,6 +972,7 @@ void MainWindow::readMessage()
 
             login_window->close();
             this->show();
+            this->showFullScreen();
             request_room_info();
         }
         else{

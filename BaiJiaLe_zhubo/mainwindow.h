@@ -144,6 +144,7 @@ private:
     // 倒计时
     QTimer *m_timer_count_down;
     int times;
+    QLabel *label_count_down;
 
     // 结果
     int m_game;
@@ -180,6 +181,7 @@ private slots:
     void pu_xiandui();
     void pu_same();
     void pu_login();
+    void pu_leave();
     void on_cancel();
     void on_enter();
     void on_responsed(QNetworkReply* reply,int status);
@@ -208,6 +210,9 @@ private:
     void request_useless();
     void request_gameover();
 
+    void request_top_three();
+    void request_top_five();
+
     // 刷新重启前结果
     void result_list(QJsonArray array);
     void result_increase();
@@ -226,5 +231,7 @@ private:
     void responsed_changeBoot(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
     void responsed_gameover(QNetworkReply *reply);
+    void responsed_top_three(QNetworkReply *reply);
+    void responsed_top_five(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

@@ -43,6 +43,7 @@ public:
             Login->setObjectName(QString::fromUtf8("Login"));
         Login->resize(595, 400);
         Login->setMinimumSize(QSize(595, 400));
+        Login->setAutoFillBackground(false);
         Login->setStyleSheet(QString::fromUtf8("width:585px;\n"
 "height:394px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 81, 118, 255), stop:1 rgba(46, 48, 74, 255));"));
@@ -53,6 +54,10 @@ public:
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setGeometry(QRect(80, 10, 439, 79));
         comboBox->setMinimumSize(QSize(439, 79));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font.setPointSize(40);
+        comboBox->setFont(font);
         comboBox->setStyleSheet(QString::fromUtf8("background:rgba(39,39,57,1);\n"
 "border-radius:5px;"));
         enter = new QPushButton(Login);
@@ -60,10 +65,10 @@ public:
         enter->setEnabled(true);
         enter->setGeometry(QRect(100, 220, 387, 80));
         enter->setMinimumSize(QSize(387, 80));
-        QFont font;
-        font.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font.setPointSize(30);
-        enter->setFont(font);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font1.setPointSize(30);
+        enter->setFont(font1);
         enter->setStyleSheet(QString::fromUtf8("QPushButton{background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(167, 38, 35, 255), stop:1 rgba(255, 118, 96, 255));\n"
 "box-shadow:0px 2px 9px 0px rgba(0, 0, 0, 0.77);\n"
 "border-radius:16px;}\n"
@@ -76,7 +81,7 @@ public:
         cancel->setObjectName(QString::fromUtf8("cancel"));
         cancel->setGeometry(QRect(100, 310, 387, 80));
         cancel->setMinimumSize(QSize(387, 80));
-        cancel->setFont(font);
+        cancel->setFont(font1);
         cancel->setStyleSheet(QString::fromUtf8("QPushButton{background-color:qlineargradient(spread:pad, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(167, 38, 35, 255), stop:1 rgba(255, 118, 96, 255));\n"
 "box-shadow:0px 2px 9px 0px rgba(0, 0, 0, 0.77);\n"
 "border-radius:16px;}\n"
@@ -98,10 +103,10 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font1.setPointSize(20);
-        label_2->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font2.setPointSize(20);
+        label_2->setFont(font2);
         label_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: transparent;"));
 
@@ -110,6 +115,10 @@ public:
         userid = new QLineEdit(layoutWidget);
         userid->setObjectName(QString::fromUtf8("userid"));
         userid->setMinimumSize(QSize(300, 42));
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font3.setPointSize(25);
+        userid->setFont(font3);
         userid->setStyleSheet(QString::fromUtf8("width:305px;\n"
 "height:43px;\n"
 "background:rgba(255,255,255,1);\n"
@@ -124,7 +133,7 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setFont(font1);
+        label_3->setFont(font2);
         label_3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: transparent;"));
 
@@ -133,10 +142,13 @@ public:
         passwd = new QLineEdit(layoutWidget);
         passwd->setObjectName(QString::fromUtf8("passwd"));
         passwd->setMinimumSize(QSize(300, 42));
+        passwd->setFont(font3);
         passwd->setStyleSheet(QString::fromUtf8("width:305px;\n"
 "height:43px;\n"
 "background:rgba(255,255,255,1);\n"
 "border-radius:4px;"));
+        passwd->setEchoMode(QLineEdit::Password);
+        passwd->setDragEnabled(true);
 
         horizontalLayout_2->addWidget(passwd);
 
@@ -163,7 +175,9 @@ public:
         cancel->setText(QCoreApplication::translate("Login", "\345\217\226\346\266\210", nullptr));
         label->setText(QCoreApplication::translate("Login", "TextLabel", nullptr));
         label_2->setText(QCoreApplication::translate("Login", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));
+        userid->setText(QString());
         label_3->setText(QCoreApplication::translate("Login", "\344\270\273\346\222\255\350\215\267\345\256\230\345\257\206\347\240\201  ", nullptr));
+        passwd->setText(QString());
     } // retranslateUi
 
 };

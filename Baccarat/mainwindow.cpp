@@ -7,7 +7,7 @@
 #include <QJsonArray>
 #include <QKeyEvent>
 
-//QString URL = "192.168.0.104:8210";
+//QString URL = "101.32.22.231:8210";
 QString URL = "129.211.114.135:8210";
 
 enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT};
@@ -24,10 +24,14 @@ MainWindow::MainWindow(QWidget *parent)
     m_bankerPair = 0;
     // 倒计时初始化
     times = 30;
+    label_count_down = new QLabel(this);
+    label_count_down->setMinimumSize(QSize(300,300));
+    label_count_down->move(550,400);
+    label_count_down->setStyleSheet("background-color: transparent;font: 200pt \"方正粗黑宋简体\";");
 
     // 网络初始化
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -508,11 +512,11 @@ void MainWindow::pu_same()
 
 void MainWindow::count_down()
 {
-    ui->label_count_down->setText(QString::number(times));
+    label_count_down->setText(QString::number(times));
     if(--times < 0){
         //倒计时完成
         m_timer_count_down->stop();
-        ui->label_count_down->setText(QString(""));
+        label_count_down->setText(QString(""));
         // 启用该启用的按钮
         ui->pu_leave->setEnabled(true);
         ui->pu_zhuang->setEnabled(true);
@@ -1085,7 +1089,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=a5&password=123456");
+    postData.append("desk=cs1&password=147963");
     manager->postData(postData);
 }
 

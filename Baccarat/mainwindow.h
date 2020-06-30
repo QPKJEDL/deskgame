@@ -132,6 +132,7 @@ private:
     // 倒计时
     QTimer *m_timer_count_down;
     int times;
+    QLabel *label_count_down;
 
     // 结果
     int m_game;

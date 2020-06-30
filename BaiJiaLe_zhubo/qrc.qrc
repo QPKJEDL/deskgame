@@ -18,4 +18,16 @@
         <file>image/button/pu_yellow.png</file>
         <file>image/button/pu_yellow_an.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>image/icon/1.png</file>
+        <file>image/icon/2.png</file>
+        <file>image/icon/3.png</file>
+    </qresource>
+    <qresource prefix="/bet">
+        <file>image/bet/banker.png</file>
+        <file>image/bet/bankerpair.png</file>
+        <file>image/bet/player.png</file>
+        <file>image/bet/playerpair.png</file>
+        <file>image/bet/tie.png</file>
+    </qresource>
 </RCC>
