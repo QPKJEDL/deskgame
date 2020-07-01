@@ -8,7 +8,7 @@
 #include <QKeyEvent>
 
 //QString URL = "101.32.22.231:8210";
-QString URL = "129.211.114.135:8210";
+QString URL = "129.211.114.135:8210";//101.32.22.231
 
 enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT};
 
@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 网络初始化
     manager = new MNetManager;
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -1089,7 +1089,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=cs1&password=147963");
+    postData.append("desk=a5&password=123456");
     manager->postData(postData);
 }
 

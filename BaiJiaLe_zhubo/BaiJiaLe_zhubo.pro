@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     form.cpp \
+    live.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,12 +27,14 @@ SOURCES += \
 
 HEADERS += \
     form.h \
+    live.h \
     login.h \
     mainwindow.h \
     mod/MNetManager.h
 
 FORMS += \
     form.ui \
+    live.ui \
     login.ui \
     mainwindow.ui
 

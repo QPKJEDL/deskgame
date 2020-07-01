@@ -10,7 +10,7 @@
 //QString URL = "192.168.0.104:8210";
 //QString URL = "129.211.114.135:8210";
 
-enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE};
+enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,TODAY,YESTERDAY,NOWMONTH,FRONTMONTH};
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,6 +24,12 @@ MainWindow::MainWindow(QWidget *parent)
     // 倒计时初始化
     times = 30;
 
+    pu_money = new QPushButton(this);
+    pu_money->setMinimumSize(150,150);
+    pu_money->move(1400,400);
+    pu_money->setStyleSheet("background-color: transparent;border-image: url(:/icon/image/icon/money.png);");
+    pu_money->show();
+
     _map.insert(LOGIN,&MainWindow::responsed_login);
     _map.insert(INIT,&MainWindow::responsed_init);
     _map.insert(ROOMINFO,&MainWindow::responsed_roominfo);
@@ -33,11 +39,20 @@ MainWindow::MainWindow(QWidget *parent)
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(GAMEOVER,&MainWindow::responsed_gameover);
     _map.insert(SECONDLOGIN,&MainWindow::responsed_second_login);
+    _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
+    _map.insert(TOPFIVE,&MainWindow::responsed_top_five);
+    _map.insert(TODAY,&MainWindow::responsed_today);
 
     manager = new MNetManager;
     manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
+
+    second_manager = new MNetManager;
+    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setHeader("application/x-www-form-urlencoded");
+    connect(second_manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
+
 
     //// added by mengjinhao 0619
     m_tcpsocket = new QTcpSocket(this);
@@ -93,12 +108,17 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pu_enter,SIGNAL(clicked()),this,SLOT(on_enter()));
     connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
     connect(ui->pu_leave,SIGNAL(clicked()),this,SLOT(pu_leave()));
+    connect(pu_money,SIGNAL(clicked()),this,SLOT(on_money()));
     connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
     // 连接弹窗信号
     form = new Form();
     form->setWindowFlag(Qt::FramelessWindowHint);
     connect(form->button_enter(),SIGNAL(clicked()),this,SLOT(tc_enter()));
     connect(form->button_cancel(),SIGNAL(clicked()),this,SLOT(tc_cancel()));
+
+    live_window = new Live();
+    connect(live_window,SIGNAL(request_today()),this,SLOT(pu_today()));
+    live_window->show();
 }
 
 MainWindow::~MainWindow()
@@ -135,6 +155,7 @@ void MainWindow::pu_start()
     m_bankerPair = 0;
     m_playerPair = 0;
     m_game = 0;
+
     request_start();
 }
 
@@ -220,12 +241,25 @@ void MainWindow::pu_leave()
     this->close();
 }
 
+void MainWindow::pu_today()
+{
+    request_today();
+}
+
+void MainWindow::on_money()
+{
+    live_window->show();
+}
+
 void MainWindow::count_down()
 {
     label_count_down->setText(QString::number(times));
     if(--times < 0){
         m_timer_count_down->stop();
         label_count_down->setText("");
+
+        request_top_three();
+
         ui->pu_enter->setEnabled(true);
         ui->pu_cancel->setEnabled(true);
         ui->pu_leave->setEnabled(true);
@@ -286,7 +320,6 @@ void MainWindow::phase_zero()
     ui->pu_start->setEnabled(true);
     ui->pu_changeXue->setEnabled(true);
     ui->pu_leave->setEnabled(true);
-    //ui->pu_init->setEnabled(true);
 }
 
 void MainWindow::phase_countDown(unsigned int start, unsigned int end)
@@ -318,6 +351,7 @@ void MainWindow::phase_finish()
     ui->pu_start->setEnabled(true);
     ui->pu_changeXue->setEnabled(true);
     ui->pu_leave->setEnabled(true);
+    ui->pu_init->setEnabled(true);
 }
 
 void MainWindow::request_gameover()
@@ -358,6 +392,15 @@ void MainWindow::request_top_five()
     manager->setStatus(TOPFIVE);
     QByteArray postData;
     postData.append("boot_num=" + ui->label_times_xue->text());
+    manager->postData(postData);
+}
+
+void MainWindow::request_today()
+{
+    manager->setStatus(TODAY);
+    manager->setInterface("live_login");
+    QByteArray postData;
+    postData.append("lastid=0&type=1");
     manager->postData(postData);
 }
 
@@ -433,6 +476,8 @@ void MainWindow::responsed_second_login(QNetworkReply *reply){
         QJsonObject data = json.value("data").toObject();
         _long_id = data.value("userid").toString();
         _long_token = data.value("token").toString();
+        manager->setRawHeader("desk_id",_long_id.toUtf8());
+        manager->setRawHeader("desk_token",_long_token.toUtf8());
 
         m_tcpsocket->abort();
         m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
@@ -538,6 +583,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->label_times_pu->setText(QString::number(pave_num));
         ui->pu_changeXue->setEnabled(false);
         apply_start();
+        request_top_five();
     }
     else{
         ui->pu_start->setEnabled(true);
@@ -660,8 +706,6 @@ void MainWindow::responsed_gameover(QNetworkReply *reply)
         ui->pu_start->setEnabled(true);
         // 恢复倒计时
         this->times = 30;
-
-        request_top_three();
     }
     else{
         ui->pu_enter->setEnabled(true);
@@ -730,7 +774,44 @@ void MainWindow::responsed_top_five(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonObject data = json.value("data").toObject();
+        QJsonObject first = data.value("first").toObject();
+        QJsonObject second = data.value("second").toObject();
+        QJsonObject third = data.value("third").toObject();
+        QJsonObject fourth = data.value("fourth").toObject();
+        QJsonObject fifth = data.value("fifth").toObject();
 
+        int first_num = first.value("Num").toInt();
+        int second_num = second.value("Num").toInt();
+        int third_num = third.value("Num").toInt();
+        int fourth_num = fourth.value("Num").toInt();
+        int fifth_num = fifth.value("Num").toInt();
+
+        ui->label_first_num->setText(QString::number(first_num));
+        ui->label_second_num->setText(QString::number(second_num));
+        ui->label_third_num->setText(QString::number(third_num));
+        ui->label_fourth_num->setText(QString::number(fourth_num));
+        ui->label_fifth_num->setText(QString::number(fifth_num));
+    }
+    else{
+        QMessageBox box;
+        box.setText("获取连续中铺记录失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_today(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonArray data = json.value("data").toArray();
+        live_window->update_panel(data);
+    }
+    else{
+        QMessageBox box;
+        box.setText("获取今日打赏记录失败");
+        box.exec();
     }
 }
 

@@ -9,6 +9,7 @@
 #include <QTcpSocket>
 #include "form.h"
 #include "login.h"
+#include "live.h"
 #include "mod/MNetManager.h"
 
 QT_BEGIN_NAMESPACE
@@ -135,8 +136,11 @@ public:
 private:
     Ui::MainWindow *ui;
     Login *login_window;
+    Live *live_window;
+    QPushButton *pu_money;
     // 网络
     MNetManager *manager;
+    MNetManager *second_manager;
     QMap<int,exe> _map;
     QString _long_id;
     QString _long_token;
@@ -182,6 +186,11 @@ private slots:
     void pu_same();
     void pu_login();
     void pu_leave();
+    void pu_today();
+    //void pu_yesterday();
+    //void pu_now_month();
+    //void pu_front_month();
+    void on_money();
     void on_cancel();
     void on_enter();
     void on_responsed(QNetworkReply* reply,int status);
@@ -213,6 +222,11 @@ private:
     void request_top_three();
     void request_top_five();
 
+    void request_today();
+    void request_yesterday();
+    void request_now_month();
+    void request_front_month();
+
     // 刷新重启前结果
     void result_list(QJsonArray array);
     void result_increase();
@@ -233,5 +247,6 @@ private:
     void responsed_gameover(QNetworkReply *reply);
     void responsed_top_three(QNetworkReply *reply);
     void responsed_top_five(QNetworkReply *reply);
+    void responsed_today(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

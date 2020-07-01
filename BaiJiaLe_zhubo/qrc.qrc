@@ -22,6 +22,7 @@
         <file>image/icon/1.png</file>
         <file>image/icon/2.png</file>
         <file>image/icon/3.png</file>
+        <file>image/icon/money.png</file>
     </qresource>
     <qresource prefix="/bet">
         <file>image/bet/banker.png</file>
