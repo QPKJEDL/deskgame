@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[29];
-    char stringdata0[278];
+    char stringdata0[283];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,32 +45,32 @@ QT_MOC_LITERAL(9, 84, 10), // "pu_xiandui"
 QT_MOC_LITERAL(10, 95, 7), // "pu_same"
 QT_MOC_LITERAL(11, 103, 8), // "pu_login"
 QT_MOC_LITERAL(12, 112, 8), // "pu_leave"
-QT_MOC_LITERAL(13, 121, 8), // "pu_today"
-QT_MOC_LITERAL(14, 130, 8), // "on_money"
-QT_MOC_LITERAL(15, 139, 9), // "on_cancel"
-QT_MOC_LITERAL(16, 149, 8), // "on_enter"
-QT_MOC_LITERAL(17, 158, 12), // "on_responsed"
-QT_MOC_LITERAL(18, 171, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(19, 186, 5), // "reply"
-QT_MOC_LITERAL(20, 192, 6), // "status"
-QT_MOC_LITERAL(21, 199, 10), // "count_down"
-QT_MOC_LITERAL(22, 210, 8), // "tc_enter"
-QT_MOC_LITERAL(23, 219, 9), // "tc_cancel"
-QT_MOC_LITERAL(24, 229, 11), // "readMessage"
-QT_MOC_LITERAL(25, 241, 11), // "sendMessage"
-QT_MOC_LITERAL(26, 253, 2), // "id"
-QT_MOC_LITERAL(27, 256, 5), // "token"
-QT_MOC_LITERAL(28, 262, 15) // "connectedServer"
+QT_MOC_LITERAL(13, 121, 13), // "pu_money_list"
+QT_MOC_LITERAL(14, 135, 8), // "on_money"
+QT_MOC_LITERAL(15, 144, 9), // "on_cancel"
+QT_MOC_LITERAL(16, 154, 8), // "on_enter"
+QT_MOC_LITERAL(17, 163, 12), // "on_responsed"
+QT_MOC_LITERAL(18, 176, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(19, 191, 5), // "reply"
+QT_MOC_LITERAL(20, 197, 6), // "status"
+QT_MOC_LITERAL(21, 204, 10), // "count_down"
+QT_MOC_LITERAL(22, 215, 8), // "tc_enter"
+QT_MOC_LITERAL(23, 224, 9), // "tc_cancel"
+QT_MOC_LITERAL(24, 234, 11), // "readMessage"
+QT_MOC_LITERAL(25, 246, 11), // "sendMessage"
+QT_MOC_LITERAL(26, 258, 2), // "id"
+QT_MOC_LITERAL(27, 261, 5), // "token"
+QT_MOC_LITERAL(28, 267, 15) // "connectedServer"
 
     },
     "MainWindow\0pu_init\0\0pu_start\0pu_changeXue\0"
     "pu_useless\0pu_zhuang\0pu_zhuangdui\0"
     "pu_xian\0pu_xiandui\0pu_same\0pu_login\0"
-    "pu_leave\0pu_today\0on_money\0on_cancel\0"
-    "on_enter\0on_responsed\0QNetworkReply*\0"
-    "reply\0status\0count_down\0tc_enter\0"
-    "tc_cancel\0readMessage\0sendMessage\0id\0"
-    "token\0connectedServer"
+    "pu_leave\0pu_money_list\0on_money\0"
+    "on_cancel\0on_enter\0on_responsed\0"
+    "QNetworkReply*\0reply\0status\0count_down\0"
+    "tc_enter\0tc_cancel\0readMessage\0"
+    "sendMessage\0id\0token\0connectedServer"
 };
 #undef QT_MOC_LITERAL
 
@@ -155,7 +155,7 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 8: _t->pu_same(); break;
         case 9: _t->pu_login(); break;
         case 10: _t->pu_leave(); break;
-        case 11: _t->pu_today(); break;
+        case 11: _t->pu_money_list(); break;
         case 12: _t->on_money(); break;
         case 13: _t->on_cancel(); break;
         case 14: _t->on_enter(); break;

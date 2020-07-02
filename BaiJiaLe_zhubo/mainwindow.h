@@ -186,10 +186,8 @@ private slots:
     void pu_same();
     void pu_login();
     void pu_leave();
-    void pu_today();
-    //void pu_yesterday();
-    //void pu_now_month();
-    //void pu_front_month();
+    void pu_money_list();
+
     void on_money();
     void on_cancel();
     void on_enter();
@@ -222,10 +220,7 @@ private:
     void request_top_three();
     void request_top_five();
 
-    void request_today();
-    void request_yesterday();
-    void request_now_month();
-    void request_front_month();
+    void request_money();
 
     // 刷新重启前结果
     void result_list(QJsonArray array);
@@ -247,6 +242,6 @@ private:
     void responsed_gameover(QNetworkReply *reply);
     void responsed_top_three(QNetworkReply *reply);
     void responsed_top_five(QNetworkReply *reply);
-    void responsed_today(QNetworkReply *reply);
+    void responsed_money(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

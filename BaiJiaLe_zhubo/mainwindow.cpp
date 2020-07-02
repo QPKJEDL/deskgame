@@ -10,7 +10,7 @@
 //QString URL = "192.168.0.104:8210";
 //QString URL = "129.211.114.135:8210";
 
-enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,TODAY,YESTERDAY,NOWMONTH,FRONTMONTH};
+enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY};
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -41,7 +41,8 @@ MainWindow::MainWindow(QWidget *parent)
     _map.insert(SECONDLOGIN,&MainWindow::responsed_second_login);
     _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
     _map.insert(TOPFIVE,&MainWindow::responsed_top_five);
-    _map.insert(TODAY,&MainWindow::responsed_today);
+    _map.insert(MONEY,&MainWindow::responsed_money);
+
 
     manager = new MNetManager;
     manager->setIp("129.211.114.135:8210");
@@ -117,8 +118,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(form->button_cancel(),SIGNAL(clicked()),this,SLOT(tc_cancel()));
 
     live_window = new Live();
-    connect(live_window,SIGNAL(request_today()),this,SLOT(pu_today()));
-    live_window->show();
+    connect(live_window,SIGNAL(request_money_list()),this,SLOT(pu_money_list()));
 }
 
 MainWindow::~MainWindow()
@@ -241,9 +241,9 @@ void MainWindow::pu_leave()
     this->close();
 }
 
-void MainWindow::pu_today()
+void MainWindow::pu_money_list()
 {
-    request_today();
+    request_money();
 }
 
 void MainWindow::on_money()
@@ -395,13 +395,16 @@ void MainWindow::request_top_five()
     manager->postData(postData);
 }
 
-void MainWindow::request_today()
+void MainWindow::request_money()
 {
-    manager->setStatus(TODAY);
-    manager->setInterface("live_login");
+    second_manager->setStatus(MONEY);
+    second_manager->setInterface("live_reward_list");
     QByteArray postData;
-    postData.append("lastid=0&type=1");
-    manager->postData(postData);
+    postData.append("lastid=" + QString::number(live_window->lastid));
+    postData.append("&type=" + QString::number(live_window->type));
+    postData.append("&begin=" + live_window->get_time_begin());
+    postData.append("&end=" + live_window->get_time_end());
+    second_manager->postData(postData);
 }
 
 void MainWindow::request_first_login()
@@ -416,14 +419,14 @@ void MainWindow::request_first_login()
 
 void MainWindow::reqeust_second_login(QString live_user,QString password)
 {
-    manager->setInterface("live_login");
-    manager->setStatus(SECONDLOGIN);
+    second_manager->setInterface("live_login");
+    second_manager->setStatus(SECONDLOGIN);
     QByteArray postData;
     postData.append(QString("live_user=" + live_user));
     postData.append(QString("&password=" + password));
 
     //?
-    manager->postData(postData);
+    second_manager->postData(postData);
 }
 
 void MainWindow::request_init()
@@ -476,8 +479,8 @@ void MainWindow::responsed_second_login(QNetworkReply *reply){
         QJsonObject data = json.value("data").toObject();
         _long_id = data.value("userid").toString();
         _long_token = data.value("token").toString();
-        manager->setRawHeader("desk_id",_long_id.toUtf8());
-        manager->setRawHeader("desk_token",_long_token.toUtf8());
+        second_manager->setRawHeader("userid",_long_id.toUtf8());
+        second_manager->setRawHeader("token",_long_token.toUtf8());
 
         m_tcpsocket->abort();
         m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
@@ -500,6 +503,14 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         unsigned int pave_num = data.value("pave_num").toInt();
         ui->label_times_xue->setText(QString::number(boot_num));
         ui->label_times_pu->setText(QString::number(pave_num));
+
+        Link *node = m_link_reslut_head;
+        while(node->next != NULL){
+            node->data->setText("");
+            node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+        }
+
+        m_link_reslut = m_link_reslut_head;
     }
     else{
         QMessageBox box;
@@ -799,7 +810,7 @@ void MainWindow::responsed_top_five(QNetworkReply *reply)
     }
 }
 
-void MainWindow::responsed_today(QNetworkReply *reply)
+void MainWindow::responsed_money(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
@@ -810,7 +821,7 @@ void MainWindow::responsed_today(QNetworkReply *reply)
     }
     else{
         QMessageBox box;
-        box.setText("获取今日打赏记录失败");
+        box.setText("获取打赏记录失败");
         box.exec();
     }
 }

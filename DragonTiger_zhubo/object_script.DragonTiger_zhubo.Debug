@@ -1,0 +1,12 @@
+debug/form.o
+debug/live.o
+debug/login.o
+debug/main.o
+debug/mainwindow.o
+debug/MNetManager.o
+debug/qrc_qrc.o
+debug/moc_form.o
+debug/moc_live.o
+debug/moc_login.o
+debug/moc_mainwindow.o
+debug/moc_MNetManager.o
