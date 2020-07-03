@@ -85,7 +85,7 @@ public:
     QLabel *label_first_money;
     QLabel *label_second_bet;
     QLabel *label_13;
-    QLabel *label_second__money;
+    QLabel *label_second_money;
     QLabel *label_3;
     QLabel *label_16;
     QLabel *label_third_name;
@@ -97,13 +97,13 @@ public:
     QVBoxLayout *verticalLayout_7;
     QLabel *label_137;
     QGridLayout *gridLayout_5;
-    QLabel *label_4;
+    QLabel *label_bingo_one;
     QLabel *label_14;
     QLabel *label_8;
-    QLabel *label_7;
-    QLabel *label_6;
-    QLabel *label_5;
-    QLabel *label_9;
+    QLabel *label_bingo_five;
+    QLabel *label_bingo_three;
+    QLabel *label_bingo_two;
+    QLabel *label_bingo_four;
     QLabel *label_first_num;
     QLabel *label_15;
     QLabel *label_19;
@@ -556,7 +556,7 @@ public:
 
         pu_cancel = new QPushButton(widget);
         pu_cancel->setObjectName(QString::fromUtf8("pu_cancel"));
-        pu_cancel->setEnabled(false);
+        pu_cancel->setEnabled(true);
         pu_cancel->setFont(font2);
         pu_cancel->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(121, 61, 3);background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0.153409 rgba(252, 238, 205, 255), stop:1 rgba(153, 118, 97, 255));border:1px solid grey; border-radius: 0px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -727,13 +727,13 @@ public:
 
         gridLayout_3->addWidget(label_13, 1, 2, 1, 1);
 
-        label_second__money = new QLabel(widget_3);
-        label_second__money->setObjectName(QString::fromUtf8("label_second__money"));
-        label_second__money->setFont(font4);
-        label_second__money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_second__money->setAlignment(Qt::AlignCenter);
+        label_second_money = new QLabel(widget_3);
+        label_second_money->setObjectName(QString::fromUtf8("label_second_money"));
+        label_second_money->setFont(font4);
+        label_second_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
+        label_second_money->setAlignment(Qt::AlignCenter);
 
-        gridLayout_3->addWidget(label_second__money, 1, 4, 1, 1);
+        gridLayout_3->addWidget(label_second_money, 1, 4, 1, 1);
 
         label_3 = new QLabel(widget_3);
         label_3->setObjectName(QString::fromUtf8("label_3"));
@@ -819,15 +819,15 @@ public:
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
         gridLayout_5->setHorizontalSpacing(0);
         gridLayout_5->setVerticalSpacing(1);
-        label_4 = new QLabel(groupBox_4);
-        label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setMaximumSize(QSize(319, 90));
-        label_4->setFont(font2);
-        label_4->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+        label_bingo_one = new QLabel(groupBox_4);
+        label_bingo_one->setObjectName(QString::fromUtf8("label_bingo_one"));
+        label_bingo_one->setMaximumSize(QSize(319, 90));
+        label_bingo_one->setFont(font2);
+        label_bingo_one->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
-        label_4->setAlignment(Qt::AlignCenter);
+        label_bingo_one->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addWidget(label_4, 0, 0, 1, 1);
+        gridLayout_5->addWidget(label_bingo_one, 0, 0, 1, 1);
 
         label_14 = new QLabel(groupBox_4);
         label_14->setObjectName(QString::fromUtf8("label_14"));
@@ -847,41 +847,41 @@ public:
 
         gridLayout_5->addWidget(label_8, 0, 1, 1, 1);
 
-        label_7 = new QLabel(groupBox_4);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setFont(font2);
-        label_7->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+        label_bingo_five = new QLabel(groupBox_4);
+        label_bingo_five->setObjectName(QString::fromUtf8("label_bingo_five"));
+        label_bingo_five->setFont(font2);
+        label_bingo_five->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
-        label_7->setAlignment(Qt::AlignCenter);
+        label_bingo_five->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addWidget(label_7, 4, 0, 1, 1);
+        gridLayout_5->addWidget(label_bingo_five, 4, 0, 1, 1);
 
-        label_6 = new QLabel(groupBox_4);
-        label_6->setObjectName(QString::fromUtf8("label_6"));
-        label_6->setFont(font2);
-        label_6->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+        label_bingo_three = new QLabel(groupBox_4);
+        label_bingo_three->setObjectName(QString::fromUtf8("label_bingo_three"));
+        label_bingo_three->setFont(font2);
+        label_bingo_three->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
-        label_6->setAlignment(Qt::AlignCenter);
+        label_bingo_three->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addWidget(label_6, 2, 0, 1, 1);
+        gridLayout_5->addWidget(label_bingo_three, 2, 0, 1, 1);
 
-        label_5 = new QLabel(groupBox_4);
-        label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setFont(font2);
-        label_5->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+        label_bingo_two = new QLabel(groupBox_4);
+        label_bingo_two->setObjectName(QString::fromUtf8("label_bingo_two"));
+        label_bingo_two->setFont(font2);
+        label_bingo_two->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
-        label_5->setAlignment(Qt::AlignCenter);
+        label_bingo_two->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addWidget(label_5, 1, 0, 1, 1);
+        gridLayout_5->addWidget(label_bingo_two, 1, 0, 1, 1);
 
-        label_9 = new QLabel(groupBox_4);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setFont(font2);
-        label_9->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
+        label_bingo_four = new QLabel(groupBox_4);
+        label_bingo_four->setObjectName(QString::fromUtf8("label_bingo_four"));
+        label_bingo_four->setFont(font2);
+        label_bingo_four->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
-        label_9->setAlignment(Qt::AlignCenter);
+        label_bingo_four->setAlignment(Qt::AlignCenter);
 
-        gridLayout_5->addWidget(label_9, 3, 0, 1, 1);
+        gridLayout_5->addWidget(label_bingo_four, 3, 0, 1, 1);
 
         label_first_num = new QLabel(groupBox_4);
         label_first_num->setObjectName(QString::fromUtf8("label_first_num"));
@@ -1076,7 +1076,7 @@ public:
         label_first_money->setText(QString());
         label_second_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
         label_13->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_second__money->setText(QString());
+        label_second_money->setText(QString());
         label_3->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
         label_16->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/3.png\"/></p></body></html>", nullptr));
         label_third_name->setText(QString());
@@ -1085,13 +1085,13 @@ public:
         label_third_money->setText(QString());
         groupBox_4->setTitle(QString());
         label_137->setText(QCoreApplication::translate("MainWindow", "\346\234\254\351\235\264\350\277\236\347\273\255\344\270\255\346\263\250\344\270\211\351\223\272\344\273\245\344\270\212", nullptr));
-        label_4->setText(QString());
+        label_bingo_one->setText(QString());
         label_14->setText(QCoreApplication::translate("MainWindow", "\351\223\272", nullptr));
         label_8->setText(QCoreApplication::translate("MainWindow", "\350\277\236\344\270\255", nullptr));
-        label_7->setText(QString());
-        label_6->setText(QString());
-        label_5->setText(QString());
-        label_9->setText(QString());
+        label_bingo_five->setText(QString());
+        label_bingo_three->setText(QString());
+        label_bingo_two->setText(QString());
+        label_bingo_four->setText(QString());
         label_first_num->setText(QString());
         label_15->setText(QCoreApplication::translate("MainWindow", "\350\277\236\344\270\255", nullptr));
         label_19->setText(QCoreApplication::translate("MainWindow", "\350\277\236\344\270\255", nullptr));

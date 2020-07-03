@@ -1274,7 +1274,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
             <item>
              <widget class="QPushButton" name="pu_cancel">
               <property name="enabled">
-               <bool>false</bool>
+               <bool>true</bool>
               </property>
               <property name="font">
                <font>
@@ -1603,7 +1603,7 @@ background-color: rgb(0, 101, 255);</string>
              </widget>
             </item>
             <item row="1" column="4">
-             <widget class="QLabel" name="label_second__money">
+             <widget class="QLabel" name="label_second_money">
               <property name="font">
                <font>
                 <family>微软雅黑</family>
@@ -1780,7 +1780,7 @@ color: rgb(255, 255, 255);</string>
               <number>1</number>
              </property>
              <item row="0" column="0">
-              <widget class="QLabel" name="label_4">
+              <widget class="QLabel" name="label_bingo_one">
                <property name="maximumSize">
                 <size>
                  <width>319</width>
@@ -1846,7 +1846,7 @@ background-color: rgb(74, 15, 12);</string>
               </widget>
              </item>
              <item row="4" column="0">
-              <widget class="QLabel" name="label_7">
+              <widget class="QLabel" name="label_bingo_five">
                <property name="font">
                 <font>
                  <family>方正粗黑宋简体</family>
@@ -1866,7 +1866,7 @@ background-color: rgb(74, 15, 12);</string>
               </widget>
              </item>
              <item row="2" column="0">
-              <widget class="QLabel" name="label_6">
+              <widget class="QLabel" name="label_bingo_three">
                <property name="font">
                 <font>
                  <family>方正粗黑宋简体</family>
@@ -1886,7 +1886,7 @@ background-color: rgb(74, 15, 12);</string>
               </widget>
              </item>
              <item row="1" column="0">
-              <widget class="QLabel" name="label_5">
+              <widget class="QLabel" name="label_bingo_two">
                <property name="font">
                 <font>
                  <family>方正粗黑宋简体</family>
@@ -1906,7 +1906,7 @@ background-color: rgb(74, 15, 12);</string>
               </widget>
              </item>
              <item row="3" column="0">
-              <widget class="QLabel" name="label_9">
+              <widget class="QLabel" name="label_bingo_four">
                <property name="font">
                 <font>
                  <family>方正粗黑宋简体</family>

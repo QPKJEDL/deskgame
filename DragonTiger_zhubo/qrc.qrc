@@ -21,4 +21,9 @@
         <file>image/icon/3.png</file>
         <file>image/icon/money.png</file>
     </qresource>
+    <qresource prefix="/bet">
+        <file>image/bet/dragon.png</file>
+        <file>image/bet/tie.png</file>
+        <file>image/bet/tiger.png</file>
+    </qresource>
 </RCC>

@@ -171,6 +171,10 @@ private:
     QString userStr;
     bool m_login = true;
 
+    // 断线重连
+    // 是否为发牌阶段
+    bool is_fapai_phase = false;
+
 
 
 private:
@@ -194,6 +198,7 @@ private:
 
     void request_top_three();
     void request_top_five();
+    void request_top_three_two();
 
     void request_money();
 

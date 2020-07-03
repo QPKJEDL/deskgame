@@ -128,6 +128,9 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_qrc.cpp
 debug/qrc_qrc.cpp: qrc.qrc \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/bin/rcc.exe \
+		image/bet/tie.png \
+		image/bet/dragon.png \
+		image/bet/tiger.png \
 		blueLine.png \
 		long.png \
 		blue.png \
@@ -1140,6 +1143,33 @@ debug/live.o: live.cpp live.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qabstractbutton.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qicon.h \
 		ui_live.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/QDate \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qdatetime.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/QVariant \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QApplication \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qapplication.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qcoreapplication.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qeventloop.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qdesktopwidget.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qguiapplication.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qinputmethod.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QDateTimeEdit \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qdatetimeedit.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qcalendar.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qabstractspinbox.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qvalidator.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qregularexpression.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QGridLayout \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QLabel \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qlabel.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qframe.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QSpacerItem \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/QJsonArray \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qjsonarray.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/QDebug
@@ -1318,7 +1348,13 @@ debug/login.o: login.cpp login.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qtabbar.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qtabwidget.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qrubberband.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qlayoutitem.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\login.o login.cpp
 
 debug/main.o: main.cpp mainwindow.h \

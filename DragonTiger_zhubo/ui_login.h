@@ -155,6 +155,9 @@ public:
         Login->setWindowTitle(QCoreApplication::translate("Login", "Form", nullptr));
         pu_cancel->setText(QCoreApplication::translate("Login", "\345\217\226\346\266\210", nullptr));
         pu_enter->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_enter->setShortcut(QCoreApplication::translate("Login", "Enter", nullptr));
+#endif // QT_CONFIG(shortcut)
         comboBox->setItemText(0, QCoreApplication::translate("Login", "\351\276\231\350\231\216\357\274\210CS2\357\274\211", nullptr));
 
         label_2->setText(QCoreApplication::translate("Login", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));

@@ -508,6 +508,8 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         while(node->next != NULL){
             node->data->setText("");
             node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+            node = node->next;
+
         }
 
         m_link_reslut = m_link_reslut_head;
@@ -587,6 +589,19 @@ void MainWindow::responsed_start(QNetworkReply *reply)
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
+        ui->label_first_bet->setText("");
+        ui->label_second_bet->setText("");
+        ui->label_third_bet->setText("");
+
+        ui->label_first_money->setText("");
+        ui->label_second_money->setText("");
+        ui->label_third_money->setText("");
+
+        ui->label_first_name->setText("");
+        ui->label_second_name->setText("");
+        ui->label_third_name->setText("");
+
+
         QJsonObject data = json.value("data").toObject();
         unsigned int boot_num = data.value("boot_num").toInt();
         unsigned int pave_num = data.value("pave_num").toInt();
@@ -734,20 +749,13 @@ void MainWindow::responsed_top_three(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonObject data = json.value("data").toObject();
-        QJsonObject first = data.value("first").toObject();
-        QJsonObject second = data.value("second").toObject();
-        QJsonObject third = data.value("third").toObject();
-        int first_money = first.value("Money").toInt();
-        int second_money = second.value("Money").toInt();
-        int third_money = third.value("Money").toInt();
-        ui->label_first_money->setText(QString::number(first_money) + "元");
-        ui->label_second__money->setText(QString::number(second_money) + "元");
-        ui->label_third_money->setText(QString::number(third_money) + "元");
-
+        QJsonArray topThree = data.value("top3").toArray();
+        int i = topThree.count();
+        int h = 0;
         auto f = [](QString bet,QLabel *label){
             QString path = ":/result/image/result/";
             if(bet == "player"){
-                label->setText("<html><head/><body><p><img src=\":/result/image/result/same.png\"/></p></body></html>");
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/player.png\"/></p></body></html>");
             }
             else if(bet == "banker"){
                 label->setText("<html><head/><body><p><img src=\":/bet/image/bet/banker.png\"/></p></body></html>");
@@ -762,14 +770,26 @@ void MainWindow::responsed_top_three(QNetworkReply *reply)
                 label->setText("<html><head/><body><p><img src=\":/bet/image/bet/bankerpair.png\"/></p></body></html>");
             }
         };
+        auto f2 = [&](QLabel *m,QLabel *b,QLabel *n){
+            QJsonObject ob = topThree.at(h).toObject();
+            int money = ob.value("Money").toInt();
+            QString bet = ob.value("Bet").toString();
+            QString NickName = ob.value("NickName").toString();
 
-        QString first_bet = first.value("Bet").toString();
-        QString second_bet = second.value("Bet").toString();
-        QString third_bet = third.value("Bet").toString();
+            n->setText(NickName);
+            m->setText(QString::number(money) + "元");
+            f(bet,b);
+        };
 
-        f(first_bet,ui->label_first_bet);
-        f(second_bet,ui->label_second_bet);
-        f(third_bet,ui->label_third_bet);
+        if(h < i){
+            f2(ui->label_first_money,ui->label_first_bet,ui->label_first_name);
+            if(++h < i){
+                f2(ui->label_second_money,ui->label_second_bet,ui->label_second_name);
+                if(++h < i){
+                    f2(ui->label_third_money,ui->label_third_bet,ui->label_third_name);
+                }
+            }
+        }
     }
     else{
         QMessageBox box;
@@ -785,23 +805,32 @@ void MainWindow::responsed_top_five(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonObject data = json.value("data").toObject();
-        QJsonObject first = data.value("first").toObject();
-        QJsonObject second = data.value("second").toObject();
-        QJsonObject third = data.value("third").toObject();
-        QJsonObject fourth = data.value("fourth").toObject();
-        QJsonObject fifth = data.value("fifth").toObject();
+        QJsonArray topFive = data.value("top5").toArray();
+        int i = topFive.count();
+        int h = 0;
+        auto f = [&](QLabel *n,QLabel *a){
+            QJsonObject ob = topFive.at(h).toObject();
+            QString NickName = ob.value("NickName").toString();
+            double num = ob.value("Num").toInt();
+            n->setText(QString::number(num));
+            a->setText(NickName);
+        };
 
-        int first_num = first.value("Num").toInt();
-        int second_num = second.value("Num").toInt();
-        int third_num = third.value("Num").toInt();
-        int fourth_num = fourth.value("Num").toInt();
-        int fifth_num = fifth.value("Num").toInt();
-
-        ui->label_first_num->setText(QString::number(first_num));
-        ui->label_second_num->setText(QString::number(second_num));
-        ui->label_third_num->setText(QString::number(third_num));
-        ui->label_fourth_num->setText(QString::number(fourth_num));
-        ui->label_fifth_num->setText(QString::number(fifth_num));
+        if(h < i){
+            f(ui->label_first_num,ui->label_bingo_one);
+            if(++h < i){
+                f(ui->label_second_num,ui->label_bingo_two);
+                if(++h < i){
+                    f(ui->label_third_num,ui->label_bingo_three);
+                    if(++h < i){
+                        f(ui->label_fourth_num,ui->label_bingo_four);
+                        if(++h < i){
+                            f(ui->label_fifth_num,ui->label_bingo_five);
+                        }
+                    }
+                }
+            }
+        }
     }
     else{
         QMessageBox box;
