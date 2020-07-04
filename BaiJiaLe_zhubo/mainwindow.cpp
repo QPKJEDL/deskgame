@@ -7,6 +7,8 @@
 #include <QJsonArray>
 #include <QHostAddress>
 
+#include "qqchat.h"
+
 //QString URL = "192.168.0.104:8210";
 //QString URL = "129.211.114.135:8210";
 
@@ -957,6 +959,11 @@ void MainWindow::tc_enter()
 
 void MainWindow::on_cancel()
 {
+    QQChat *qc = new QQChat();
+    qc->update_input(QString::number(chat_num++));
+    ui->ChatPanel->addWidget(qc);
+    return;
+
     // 初始化结果值
     m_game = -1;
     m_playerPair = 0;

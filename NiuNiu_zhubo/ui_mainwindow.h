@@ -131,22 +131,6 @@ public:
     QPushButton *button_summit;
     QHBoxLayout *horizontalLayout_24;
     QVBoxLayout *verticalLayout_10;
-    QHBoxLayout *horizontalLayout_17;
-    QHBoxLayout *horizontalLayout_12;
-    QLabel *label_date_2;
-    QLabel *label_limit;
-    QHBoxLayout *horizontalLayout_13;
-    QLabel *label_date_4;
-    QLabel *label_tieLimit;
-    QHBoxLayout *horizontalLayout_14;
-    QLabel *label_date_6;
-    QLabel *one_win_times;
-    QHBoxLayout *horizontalLayout_15;
-    QLabel *label_date_9;
-    QLabel *two_win_times;
-    QHBoxLayout *horizontalLayout_16;
-    QLabel *label_date_11;
-    QLabel *three_win_times;
     QTextEdit *textEdit;
     QGroupBox *groupBox_6;
     QVBoxLayout *verticalLayout_9;
@@ -1019,381 +1003,6 @@ public:
         horizontalLayout_24->setObjectName(QString::fromUtf8("horizontalLayout_24"));
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        horizontalLayout_17 = new QHBoxLayout();
-        horizontalLayout_17->setSpacing(60);
-        horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
-        horizontalLayout_17->setSizeConstraint(QLayout::SetMinAndMaxSize);
-        horizontalLayout_12 = new QHBoxLayout();
-        horizontalLayout_12->setSpacing(0);
-        horizontalLayout_12->setObjectName(QString::fromUtf8("horizontalLayout_12"));
-        label_date_2 = new QLabel(centralwidget);
-        label_date_2->setObjectName(QString::fromUtf8("label_date_2"));
-        label_date_2->setMaximumSize(QSize(16777215, 48));
-        QPalette palette3;
-        palette3.setBrush(QPalette::Active, QPalette::WindowText, brush10);
-        QBrush brush12(QColor(0, 73, 148, 255));
-        brush12.setStyle(Qt::SolidPattern);
-        palette3.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette3.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette3.setBrush(QPalette::Active, QPalette::Window, brush12);
-        palette3.setBrush(QPalette::Inactive, QPalette::WindowText, brush10);
-        palette3.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette3.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette3.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        palette3.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
-        palette3.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette3.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette3.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        label_date_2->setPalette(palette3);
-        QFont font11;
-        font11.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font11.setPointSize(20);
-        font11.setBold(true);
-        font11.setWeight(75);
-        label_date_2->setFont(font11);
-
-        horizontalLayout_12->addWidget(label_date_2);
-
-        label_limit = new QLabel(centralwidget);
-        label_limit->setObjectName(QString::fromUtf8("label_limit"));
-        label_limit->setMaximumSize(QSize(16777215, 48));
-        QPalette palette4;
-        palette4.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette4.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette4.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette4.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette4.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette4.setBrush(QPalette::Active, QPalette::Window, brush12);
-        QBrush brush13(QColor(255, 255, 255, 128));
-        brush13.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette4.setBrush(QPalette::Active, QPalette::PlaceholderText, brush13);
-#endif
-        palette4.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette4.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette4.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette4.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette4.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette4.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        QBrush brush14(QColor(255, 255, 255, 128));
-        brush14.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette4.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush14);
-#endif
-        palette4.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette4.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette4.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette4.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette4.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette4.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        QBrush brush15(QColor(255, 255, 255, 128));
-        brush15.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette4.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush15);
-#endif
-        label_limit->setPalette(palette4);
-        QFont font12;
-        font12.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font12.setPointSize(20);
-        font12.setBold(false);
-        font12.setWeight(50);
-        label_limit->setFont(font12);
-        label_limit->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        horizontalLayout_12->addWidget(label_limit);
-
-
-        horizontalLayout_17->addLayout(horizontalLayout_12);
-
-        horizontalLayout_13 = new QHBoxLayout();
-        horizontalLayout_13->setSpacing(0);
-        horizontalLayout_13->setObjectName(QString::fromUtf8("horizontalLayout_13"));
-        label_date_4 = new QLabel(centralwidget);
-        label_date_4->setObjectName(QString::fromUtf8("label_date_4"));
-        label_date_4->setMaximumSize(QSize(16777215, 48));
-        QPalette palette5;
-        palette5.setBrush(QPalette::Active, QPalette::WindowText, brush10);
-        palette5.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette5.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette5.setBrush(QPalette::Active, QPalette::Window, brush12);
-        palette5.setBrush(QPalette::Inactive, QPalette::WindowText, brush10);
-        palette5.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette5.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette5.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        palette5.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
-        palette5.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette5.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette5.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        label_date_4->setPalette(palette5);
-        label_date_4->setFont(font11);
-
-        horizontalLayout_13->addWidget(label_date_4);
-
-        label_tieLimit = new QLabel(centralwidget);
-        label_tieLimit->setObjectName(QString::fromUtf8("label_tieLimit"));
-        label_tieLimit->setMaximumSize(QSize(16777215, 48));
-        QPalette palette6;
-        palette6.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette6.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette6.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette6.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette6.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette6.setBrush(QPalette::Active, QPalette::Window, brush12);
-        QBrush brush16(QColor(255, 255, 255, 128));
-        brush16.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette::Active, QPalette::PlaceholderText, brush16);
-#endif
-        palette6.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette6.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette6.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette6.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette6.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette6.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        QBrush brush17(QColor(255, 255, 255, 128));
-        brush17.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush17);
-#endif
-        palette6.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette6.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette6.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette6.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette6.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette6.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        QBrush brush18(QColor(255, 255, 255, 128));
-        brush18.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette6.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush18);
-#endif
-        label_tieLimit->setPalette(palette6);
-        label_tieLimit->setFont(font12);
-        label_tieLimit->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        horizontalLayout_13->addWidget(label_tieLimit);
-
-
-        horizontalLayout_17->addLayout(horizontalLayout_13);
-
-        horizontalLayout_14 = new QHBoxLayout();
-        horizontalLayout_14->setSpacing(0);
-        horizontalLayout_14->setObjectName(QString::fromUtf8("horizontalLayout_14"));
-        label_date_6 = new QLabel(centralwidget);
-        label_date_6->setObjectName(QString::fromUtf8("label_date_6"));
-        label_date_6->setMaximumSize(QSize(16777215, 48));
-        QPalette palette7;
-        palette7.setBrush(QPalette::Active, QPalette::WindowText, brush10);
-        palette7.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette7.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette7.setBrush(QPalette::Active, QPalette::Window, brush12);
-        palette7.setBrush(QPalette::Inactive, QPalette::WindowText, brush10);
-        palette7.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette7.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette7.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        palette7.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
-        palette7.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette7.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette7.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        label_date_6->setPalette(palette7);
-        label_date_6->setFont(font11);
-        label_date_6->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_14->addWidget(label_date_6);
-
-        one_win_times = new QLabel(centralwidget);
-        one_win_times->setObjectName(QString::fromUtf8("one_win_times"));
-        one_win_times->setMaximumSize(QSize(16777215, 48));
-        QPalette palette8;
-        palette8.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette8.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette8.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette8.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette8.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette8.setBrush(QPalette::Active, QPalette::Window, brush12);
-        QBrush brush19(QColor(255, 255, 255, 128));
-        brush19.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette8.setBrush(QPalette::Active, QPalette::PlaceholderText, brush19);
-#endif
-        palette8.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette8.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette8.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette8.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette8.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette8.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        QBrush brush20(QColor(255, 255, 255, 128));
-        brush20.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette8.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush20);
-#endif
-        palette8.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette8.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette8.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette8.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette8.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette8.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        QBrush brush21(QColor(255, 255, 255, 128));
-        brush21.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette8.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush21);
-#endif
-        one_win_times->setPalette(palette8);
-        one_win_times->setFont(font12);
-        one_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        one_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-
-        horizontalLayout_14->addWidget(one_win_times);
-
-
-        horizontalLayout_17->addLayout(horizontalLayout_14);
-
-        horizontalLayout_15 = new QHBoxLayout();
-        horizontalLayout_15->setSpacing(0);
-        horizontalLayout_15->setObjectName(QString::fromUtf8("horizontalLayout_15"));
-        label_date_9 = new QLabel(centralwidget);
-        label_date_9->setObjectName(QString::fromUtf8("label_date_9"));
-        label_date_9->setMaximumSize(QSize(16777215, 48));
-        QPalette palette9;
-        palette9.setBrush(QPalette::Active, QPalette::WindowText, brush10);
-        palette9.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette9.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette9.setBrush(QPalette::Active, QPalette::Window, brush12);
-        palette9.setBrush(QPalette::Inactive, QPalette::WindowText, brush10);
-        palette9.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette9.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette9.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        palette9.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
-        palette9.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette9.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette9.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        label_date_9->setPalette(palette9);
-        label_date_9->setFont(font11);
-        label_date_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_15->addWidget(label_date_9);
-
-        two_win_times = new QLabel(centralwidget);
-        two_win_times->setObjectName(QString::fromUtf8("two_win_times"));
-        two_win_times->setMaximumSize(QSize(16777215, 48));
-        QPalette palette10;
-        palette10.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette10.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette10.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette10.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette10.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette10.setBrush(QPalette::Active, QPalette::Window, brush12);
-        QBrush brush22(QColor(255, 255, 255, 128));
-        brush22.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette10.setBrush(QPalette::Active, QPalette::PlaceholderText, brush22);
-#endif
-        palette10.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette10.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette10.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette10.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette10.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette10.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        QBrush brush23(QColor(255, 255, 255, 128));
-        brush23.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette10.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush23);
-#endif
-        palette10.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette10.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette10.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette10.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette10.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette10.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        QBrush brush24(QColor(255, 255, 255, 128));
-        brush24.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette10.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush24);
-#endif
-        two_win_times->setPalette(palette10);
-        two_win_times->setFont(font12);
-        two_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        two_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-
-        horizontalLayout_15->addWidget(two_win_times);
-
-
-        horizontalLayout_17->addLayout(horizontalLayout_15);
-
-        horizontalLayout_16 = new QHBoxLayout();
-        horizontalLayout_16->setSpacing(0);
-        horizontalLayout_16->setObjectName(QString::fromUtf8("horizontalLayout_16"));
-        label_date_11 = new QLabel(centralwidget);
-        label_date_11->setObjectName(QString::fromUtf8("label_date_11"));
-        label_date_11->setMaximumSize(QSize(16777215, 48));
-        QPalette palette11;
-        palette11.setBrush(QPalette::Active, QPalette::WindowText, brush10);
-        palette11.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette11.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette11.setBrush(QPalette::Active, QPalette::Window, brush12);
-        palette11.setBrush(QPalette::Inactive, QPalette::WindowText, brush10);
-        palette11.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette11.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette11.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        palette11.setBrush(QPalette::Disabled, QPalette::WindowText, brush11);
-        palette11.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette11.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette11.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        label_date_11->setPalette(palette11);
-        label_date_11->setFont(font11);
-        label_date_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
-
-        horizontalLayout_16->addWidget(label_date_11);
-
-        three_win_times = new QLabel(centralwidget);
-        three_win_times->setObjectName(QString::fromUtf8("three_win_times"));
-        three_win_times->setMaximumSize(QSize(16777215, 48));
-        QPalette palette12;
-        palette12.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        palette12.setBrush(QPalette::Active, QPalette::Button, brush12);
-        palette12.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette12.setBrush(QPalette::Active, QPalette::ButtonText, brush6);
-        palette12.setBrush(QPalette::Active, QPalette::Base, brush12);
-        palette12.setBrush(QPalette::Active, QPalette::Window, brush12);
-        QBrush brush25(QColor(255, 255, 255, 128));
-        brush25.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette12.setBrush(QPalette::Active, QPalette::PlaceholderText, brush25);
-#endif
-        palette12.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette12.setBrush(QPalette::Inactive, QPalette::Button, brush12);
-        palette12.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette12.setBrush(QPalette::Inactive, QPalette::ButtonText, brush6);
-        palette12.setBrush(QPalette::Inactive, QPalette::Base, brush12);
-        palette12.setBrush(QPalette::Inactive, QPalette::Window, brush12);
-        QBrush brush26(QColor(255, 255, 255, 128));
-        brush26.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette12.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush26);
-#endif
-        palette12.setBrush(QPalette::Disabled, QPalette::WindowText, brush6);
-        palette12.setBrush(QPalette::Disabled, QPalette::Button, brush12);
-        palette12.setBrush(QPalette::Disabled, QPalette::Text, brush6);
-        palette12.setBrush(QPalette::Disabled, QPalette::ButtonText, brush6);
-        palette12.setBrush(QPalette::Disabled, QPalette::Base, brush12);
-        palette12.setBrush(QPalette::Disabled, QPalette::Window, brush12);
-        QBrush brush27(QColor(255, 255, 255, 128));
-        brush27.setStyle(Qt::NoBrush);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette12.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush27);
-#endif
-        three_win_times->setPalette(palette12);
-        three_win_times->setFont(font12);
-        three_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        three_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-
-        horizontalLayout_16->addWidget(three_win_times);
-
-
-        horizontalLayout_17->addLayout(horizontalLayout_16);
-
-
-        verticalLayout_10->addLayout(horizontalLayout_17);
-
         textEdit = new QTextEdit(centralwidget);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
 
@@ -1462,10 +1071,10 @@ public:
 
         label_first_money = new QLabel(widget_3);
         label_first_money->setObjectName(QString::fromUtf8("label_first_money"));
-        QFont font13;
-        font13.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font13.setPointSize(20);
-        label_first_money->setFont(font13);
+        QFont font11;
+        font11.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font11.setPointSize(20);
+        label_first_money->setFont(font11);
         label_first_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_first_money->setAlignment(Qt::AlignCenter);
 
@@ -1479,19 +1088,19 @@ public:
 
         label_13 = new QLabel(widget_3);
         label_13->setObjectName(QString::fromUtf8("label_13"));
-        QFont font14;
-        font14.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font14.setPointSize(14);
-        font14.setBold(true);
-        font14.setWeight(75);
-        label_13->setFont(font14);
+        QFont font12;
+        font12.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font12.setPointSize(14);
+        font12.setBold(true);
+        font12.setWeight(75);
+        label_13->setFont(font12);
         label_13->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_4->addWidget(label_13, 1, 2, 1, 1);
 
         label_second_money = new QLabel(widget_3);
         label_second_money->setObjectName(QString::fromUtf8("label_second_money"));
-        label_second_money->setFont(font13);
+        label_second_money->setFont(font11);
         label_second_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_second_money->setAlignment(Qt::AlignCenter);
 
@@ -1499,13 +1108,13 @@ public:
 
         label_8 = new QLabel(widget_3);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        QFont font15;
-        font15.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font15.setPointSize(14);
-        font15.setBold(true);
-        font15.setItalic(false);
-        font15.setWeight(75);
-        label_8->setFont(font15);
+        QFont font13;
+        font13.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font13.setPointSize(14);
+        font13.setBold(true);
+        font13.setItalic(false);
+        font13.setWeight(75);
+        label_8->setFont(font13);
         label_8->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_8->setAlignment(Qt::AlignCenter);
 
@@ -1527,7 +1136,7 @@ public:
 
         label_18 = new QLabel(widget_3);
         label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setFont(font14);
+        label_18->setFont(font12);
         label_18->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_4->addWidget(label_18, 2, 2, 1, 1);
@@ -1540,7 +1149,7 @@ public:
 
         label_third_money = new QLabel(widget_3);
         label_third_money->setObjectName(QString::fromUtf8("label_third_money"));
-        label_third_money->setFont(font13);
+        label_third_money->setFont(font11);
         label_third_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_third_money->setAlignment(Qt::AlignCenter);
 
@@ -1651,16 +1260,6 @@ public:
 #if QT_CONFIG(shortcut)
         button_summit->setShortcut(QCoreApplication::translate("MainWindow", "Enter", nullptr));
 #endif // QT_CONFIG(shortcut)
-        label_date_2->setText(QCoreApplication::translate("MainWindow", "\345\271\263\345\200\215\351\231\220\347\272\242\357\274\232", nullptr));
-        label_limit->setText(QString());
-        label_date_4->setText(QCoreApplication::translate("MainWindow", "\347\277\273\345\200\215\351\231\220\347\272\242\357\274\232", nullptr));
-        label_tieLimit->setText(QString());
-        label_date_6->setText(QCoreApplication::translate("MainWindow", "\351\227\2621\357\274\232", nullptr));
-        one_win_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        label_date_9->setText(QCoreApplication::translate("MainWindow", "\351\227\2622\357\274\232", nullptr));
-        two_win_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
-        label_date_11->setText(QCoreApplication::translate("MainWindow", "\351\227\2623\357\274\232", nullptr));
-        three_win_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         groupBox_6->setTitle(QString());
         label_134->setText(QCoreApplication::translate("MainWindow", "\346\234\254\345\261\200\346\212\225\346\263\250\346\234\200\345\244\247\345\211\215\344\270\211", nullptr));
         label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/1.png\"/></p></body></html>", nullptr));

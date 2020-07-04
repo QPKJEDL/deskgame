@@ -75,4 +75,10 @@
         <file>image/pukepai/413.png</file>
         <file>image/useless.png</file>
     </qresource>
+    <qresource prefix="/icon">
+        <file>image/icon/1.png</file>
+        <file>image/icon/2.png</file>
+        <file>image/icon/3.png</file>
+        <file>image/icon/money.png</file>
+    </qresource>
 </RCC>

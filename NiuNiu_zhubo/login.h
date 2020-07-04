@@ -8,7 +8,6 @@
 #include <QPushButton>
 #include <QNetworkRequest>
 #include <QNetworkAccessManager>
-#include "mainwindow.h"
 
 namespace Ui {
 class Login;
@@ -18,18 +17,17 @@ class Login : public QWidget
     Q_OBJECT
 public:
     explicit Login(QWidget *parent = nullptr);
+    ~Login();
 
-private:
+public:
     Ui::Login *ui;
-    MainWindow *window;
-    // login 请求
-    QNetworkRequest* m_request;
-    QNetworkAccessManager* m_accessManager;
+
+    QString get_live_user();
+    QString get_password();
+    QPushButton* get_login_Button();
 
 private slots:
-    void on_login();
     void on_cancel();
-    void finishedSlot(QNetworkReply *reply);
 };
 
 #endif // LOGINWINDOW_H

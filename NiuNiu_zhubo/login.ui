@@ -6,18 +6,23 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>475</width>
-    <height>313</height>
+    <width>532</width>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">width:585px;
+height:394px;
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 81, 118, 255), stop:1 rgba(46, 48, 74, 255));</string>
+  </property>
   <widget class="QPushButton" name="pu_cancel">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>206</y>
+     <x>70</x>
+     <y>326</y>
      <width>387</width>
      <height>80</height>
     </rect>
@@ -51,7 +56,7 @@ border-radius:16px;
   <widget class="QComboBox" name="comboBox">
    <property name="geometry">
     <rect>
-     <x>19</x>
+     <x>40</x>
      <y>19</y>
      <width>439</width>
      <height>79</height>
@@ -83,8 +88,8 @@ color: rgb(255, 255, 255);</string>
   <widget class="QPushButton" name="pu_enter">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>120</y>
+     <x>70</x>
+     <y>240</y>
      <width>387</width>
      <height>80</height>
     </rect>
@@ -114,6 +119,116 @@ border-radius:16px;
    <property name="text">
     <string>登录</string>
    </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>120</y>
+     <width>493</width>
+     <height>98</height>
+    </rect>
+   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+        </property>
+        <property name="text">
+         <string>主播荷官账号  </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="userid">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>42</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>25</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">width:305px;
+height:43px;
+background:rgba(255,255,255,1);
+border-radius:4px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>20</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(255, 255, 255);
+background-color: transparent;</string>
+        </property>
+        <property name="text">
+         <string>主播荷官密码  </string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="passwd">
+        <property name="minimumSize">
+         <size>
+          <width>300</width>
+          <height>42</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>微软雅黑</family>
+          <pointsize>25</pointsize>
+         </font>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">width:305px;
+height:43px;
+background:rgba(255,255,255,1);
+border-radius:4px;</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="echoMode">
+         <enum>QLineEdit::Password</enum>
+        </property>
+        <property name="dragEnabled">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

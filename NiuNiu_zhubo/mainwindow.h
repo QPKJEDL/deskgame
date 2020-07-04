@@ -5,9 +5,14 @@
 #include <QLabel>
 #include <string>
 #include <QMainWindow>
+
+#include <QNetworkReply>
+#include <QNetworkRequest>
+#include <QTcpSocket>
 using namespace std;
 
 #include "mod/MNetManager.h"
+#include "login.h"
 
 typedef struct{
     int num = 0;
@@ -83,6 +88,7 @@ private slots:
 
     void line_finish();
 
+    void pu_login();
     void pu_stop();
     void pu_locate();
 
@@ -91,6 +97,11 @@ private slots:
     void on_responsed(QNetworkReply* reply,int status);
     void on_count_down();
 
+    void Request_first_login();
+    void Request_second_login(QString live_user, QString password);
+    void Request_top_three();
+    void Request_top_five();
+    
     void Request_faPai(CARD card);
     void Request_summit();
     void Request_useless();
@@ -99,6 +110,10 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    Login *login_window;
+    //Live *live_window;
+    QPushButton *pu_money;
 
     QTimer* timer_focus;
     QTimer* timer_opacity;
@@ -121,7 +136,18 @@ private:
     int count_down;
 
     MNetManager *manager;
+    MNetManager *second_manager;
     QMap<int,exe> _map;
+    QString _long_id;
+    QString _long_token;
+
+    ////////////////////////////added by kris,2020-6-16
+    QTcpSocket *m_tcpsocket;
+    QString userStr;
+    bool m_login;
+
+    // 聊天信息条数
+    int chat_num = 0;
 
 private:
     void quarter_increase();
@@ -144,6 +170,9 @@ private:
     void phase_kaiPai();
     void phase_finish();
 
+    void responsed_first_login(QNetworkReply *reply);
+    void responsed_second_login(QNetworkReply *reply);
+    void responsed_top_three(QNetworkReply *reply);
     void responsed_start(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);
     void responsed_record(QNetworkReply *reply);

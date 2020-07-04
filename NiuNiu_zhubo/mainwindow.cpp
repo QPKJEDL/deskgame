@@ -15,9 +15,10 @@
 #include <QJsonArray>
 #include <vector>
 #include <QMessageBox>
+#include <QHostAddress>
 using namespace std;
 
-enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT};
+enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY};
 
 //typedef void (MainWindow::*exe)(QNetworkReply *reply);
 
@@ -38,9 +39,6 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(timer_focus, SIGNAL(timeout()), this, SLOT(update()));
     // 设置焦点到 定位按钮
     ui->button_locate->setFocus();
-    // 初始化限红
-    ui->label_limit->setText(limit);
-    ui->label_tieLimit->setText(tieLimit);
 
     // 初始化透明度相关
     timer_opacity = new QTimer(this);
@@ -77,13 +75,16 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(SUMMIT,&MainWindow::responsed_summit);
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
+    _map.insert(LOGIN,&MainWindow::responsed_first_login);
+    _map.insert(SECONDLOGIN,&MainWindow::responsed_second_login);
+    _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
 
    manager = new MNetManager;
    manager->setIp("101.32.22.231:8210");
-   manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
    connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
-   request_game_record();
+   login_window = new Login();
+   connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
 
   //M
   //闲家一
@@ -125,150 +126,17 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
   //M
   //初始化结果列表，80 个QLabel
   quarter = 0;
-  //第一局
-  FOURLABELS *labels_one = new FOURLABELS;
-  labels_one->zhuang = ui->zhuang_one;
-  labels_one->one = ui->one_one;
-  labels_one->two = ui->two_one;
-  labels_one->three = ui->three_one;
-  this->result_list.append(labels_one);
-  //
-  FOURLABELS *labels_two = new FOURLABELS;
-  labels_two->zhuang = ui->zhuang_two;
-  labels_two->one = ui->one_two;
-  labels_two->two = ui->two_two;
-  labels_two->three = ui->three_two;
-  this->result_list.append(labels_two);
-  //
-  FOURLABELS *labels_three = new FOURLABELS;
-  labels_three->zhuang = ui->zhuang_three;
-  labels_three->one = ui->one_three;
-  labels_three->two = ui->two_three;
-  labels_three->three = ui->three_three;
-  this->result_list.append(labels_three);
-  //
-  FOURLABELS *labels_four = new FOURLABELS;
-  labels_four->zhuang = ui->zhuang_four;
-  labels_four->one = ui->one_four;
-  labels_four->two = ui->two_four;
-  labels_four->three = ui->three_four;
-  this->result_list.append(labels_four);
-  //
-  FOURLABELS *labels_five = new FOURLABELS;
-  labels_five->zhuang = ui->zhuang_five;
-  labels_five->one = ui->one_five;
-  labels_five->two = ui->two_five;
-  labels_five->three = ui->three_five;
-  this->result_list.append(labels_five);
-  //
-  FOURLABELS *labels_six = new FOURLABELS;
-  labels_six->zhuang = ui->zhuang_six;
-  labels_six->one = ui->one_six;
-  labels_six->two = ui->two_six;
-  labels_six->three = ui->three_six;
-  this->result_list.append(labels_six);
-  //
-  FOURLABELS *labels_seven = new FOURLABELS;
-  labels_seven->zhuang = ui->zhuang_seven;
-  labels_seven->one = ui->one_seven;
-  labels_seven->two = ui->two_seven;
-  labels_seven->three = ui->three_seven;
-  this->result_list.append(labels_seven);
-  //
-  FOURLABELS *labels_eight = new FOURLABELS;
-  labels_eight->zhuang = ui->zhuang_eight;
-  labels_eight->one = ui->one_eight;
-  labels_eight->two = ui->two_eight;
-  labels_eight->three = ui->three_eight;
-  this->result_list.append(labels_eight);
-  //
-  FOURLABELS *labels_nine = new FOURLABELS;
-  labels_nine->zhuang = ui->zhuang_nine;
-  labels_nine->one = ui->one_nine;
-  labels_nine->two = ui->two_nine;
-  labels_nine->three = ui->three_nine;
-  this->result_list.append(labels_nine);
-  //
-  FOURLABELS *labels_ten = new FOURLABELS;
-  labels_ten->zhuang = ui->zhuang_ten;
-  labels_ten->one = ui->one_ten;
-  labels_ten->two = ui->two_ten;
-  labels_ten->three = ui->three_ten;
-  this->result_list.append(labels_ten);
-  //第十一局
-  FOURLABELS *labels_eleven = new FOURLABELS;
-  labels_eleven->zhuang = ui->zhuang_ele;
-  labels_eleven->one = ui->one_ele;
-  labels_eleven->two = ui->two_ele;
-  labels_eleven->three = ui->three_ele;
-  this->result_list.append(labels_eleven);
-  //
-  FOURLABELS *labels_twe = new FOURLABELS;
-  labels_twe->zhuang = ui->zhuang_twe;
-  labels_twe->one = ui->one_twe;
-  labels_twe->two = ui->two_twe;
-  labels_twe->three = ui->three_twe;
-  this->result_list.append(labels_twe);
-  //
-  FOURLABELS *labels_thr = new FOURLABELS;
-  labels_thr->zhuang = ui->zhuang_thr;
-  labels_thr->one = ui->one_thr;
-  labels_thr->two = ui->two_thr;
-  labels_thr->three = ui->three_thr;
-  this->result_list.append(labels_thr);
-  //
-  FOURLABELS *labels_fourteen = new FOURLABELS;
-  labels_fourteen->zhuang = ui->zhuang_fourteen;
-  labels_fourteen->one = ui->one_fourteen;
-  labels_fourteen->two = ui->two_fourteen;
-  labels_fourteen->three = ui->three_fourteen;
-  this->result_list.append(labels_fourteen);
-  //
-  FOURLABELS *labels_fif = new FOURLABELS;
-  labels_fif->zhuang = ui->zhuang_fif;
-  labels_fif->one = ui->one_fif;
-  labels_fif->two = ui->two_fif;
-  labels_fif->three = ui->three_fif;
-  this->result_list.append(labels_fif);
-  //
-  FOURLABELS *labels_sixteen = new FOURLABELS;
-  labels_sixteen->zhuang = ui->zhuang_sixteen;
-  labels_sixteen->one = ui->one_sixteen;
-  labels_sixteen->two = ui->two_sixteen;
-  labels_sixteen->three = ui->three_sixteen;
-  this->result_list.append(labels_sixteen);
-  //
-  FOURLABELS *labels_seventeen = new FOURLABELS;
-  labels_seventeen->zhuang = ui->zhuang_seventeen;
-  labels_seventeen->one = ui->one_seventeen;
-  labels_seventeen->two = ui->two_seventeen;
-  labels_seventeen->three = ui->three_seventeen;
-  this->result_list.append(labels_seventeen);
-  //
-  FOURLABELS *labels_eighteen = new FOURLABELS;
-  labels_eighteen->zhuang = ui->zhuang_eighteen;
-  labels_eighteen->one = ui->one_eighteen;
-  labels_eighteen->two = ui->two_eighteen;
-  labels_eighteen->three = ui->three_eighteen;
-  this->result_list.append(labels_eighteen);
-  //
-  FOURLABELS *labels_ninteen = new FOURLABELS;
-  labels_ninteen->zhuang = ui->zhuang_ninteen;
-  labels_ninteen->one = ui->one_ninteen;
-  labels_ninteen->two = ui->two_ninteen;
-  labels_ninteen->three = ui->three_ninteen;
-  this->result_list.append(labels_ninteen);
-  //
-  FOURLABELS *labels_twt = new FOURLABELS;
-  labels_twt->zhuang = ui->zhuang_twt;
-  labels_twt->one = ui->one_twt;
-  labels_twt->two = ui->two_twt;
-  labels_twt->three = ui->three_twt;
-  this->result_list.append(labels_twt);
+
+  //// added by mengjinhao 0619
+  m_tcpsocket = new QTcpSocket(this);
+  //    m_tcpsocket->abort();
+  //    m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
+  connect(m_tcpsocket,SIGNAL(connected()),this,SLOT(connectedServer()));
+  connect(m_tcpsocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
+  //// end added
+
   //M
   ui->lineEdit_2->setVisible(false);
-
-  this->showFullScreen();
 }
 
 //判断是否是炸弹12，五花牛11
@@ -589,8 +457,6 @@ void MainWindow::result(){
             case(0):{
                 //闲家1 赢
                 result += "闲1 ";
-                int j = stoi(ui->one_win_times->text().toStdString());
-                ui->one_win_times->setText(QString::fromStdString(to_string(j+1)));
 
                 result_list[quarter]->one->setText(PaixingToResult(vec[i].paiXing));
                 result_list[quarter]->one->setStyleSheet("image: url(:/image/blue.png)");
@@ -613,8 +479,6 @@ void MainWindow::result(){
             case(1):{
                 //闲家2 赢
                 result += "闲2 ";
-                int j = stoi(ui->two_win_times->text().toStdString());
-                ui->two_win_times->setText(QString::fromStdString(to_string(j+1)));
 
                 result_list[quarter]->two->setText(PaixingToResult(vec[i].paiXing));
                 result_list[quarter]->two->setStyleSheet("image: url(:/image/blue.png)");
@@ -636,8 +500,6 @@ void MainWindow::result(){
             case(2):{
                 //闲家3 赢
                 result += "闲3 ";
-                int j = stoi(ui->three_win_times->text().toStdString());
-                ui->three_win_times->setText(QString::fromStdString(to_string(j+1)));
 
                 result_list[quarter]->three->setText(PaixingToResult(vec[i].paiXing));
                 result_list[quarter]->three->setStyleSheet("image: url(:/image/blue.png)");
@@ -729,11 +591,9 @@ void MainWindow::result(){
     }
     if(result == ""){
         ui->pu_result->setText(QString("庄赢"));
-        ui->who_win->setText("庄赢");
     }
     else{
         ui->pu_result->setText(result);
-        ui->who_win->setText(result);
     }
 
     quarter_increase();
@@ -755,7 +615,7 @@ void MainWindow::on_responsed(QNetworkReply *reply, int status)
 }
 
 void MainWindow::update_date(){
-    ui->label_date->setText(QDateTime::currentDateTime().toString("yyyy-MM-dd    dddd    hh:mm:ss"));
+
 }
 
 void MainWindow::on_timeout()
@@ -1100,6 +960,58 @@ void MainWindow::phase_finish()
     ui->pu_init->setEnabled(true);
 }
 
+void MainWindow::responsed_first_login(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        qDebug() << "zhubo login success";
+
+        QJsonObject data = json.value("data").toObject();
+        unsigned int desk_id = data.value("desk_id").toInt();
+        QString desk_token = data.value("desk_token").toString();
+
+        manager->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
+        manager->setRawHeader("desk_token",desk_token.toUtf8());
+
+        Request_second_login(login_window->get_live_user(),login_window->get_password());
+    }
+    else{
+        QMessageBox box;
+        box.setText("荷官登录失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_second_login(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+
+    if(status == 1){
+        QJsonObject data = json.value("data").toObject();
+        _long_id = data.value("userid").toString();
+        _long_token = data.value("token").toString();
+        second_manager->setRawHeader("userid",_long_id.toUtf8());
+        second_manager->setRawHeader("token",_long_token.toUtf8());
+
+        m_tcpsocket->abort();
+        m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
+    }
+    else{
+        QMessageBox box;
+        box.setText("主播登录失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_top_three(QNetworkReply *reply)
+{
+
+}
+
 void MainWindow::responsed_start(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
@@ -1114,7 +1026,6 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
 
         ui->pu_start->setEnabled(false);
-        ui->who_win->setText(QString(""));
         count_down = 30;
         timer_Countdown->start(1000);
     }
@@ -1184,9 +1095,6 @@ void MainWindow::responsed_record(QNetworkReply *reply)
         unsigned int one = data.at(0)["x1wincount"].toInt();
         unsigned int two = data.at(0)["x2wincount"].toInt();
         unsigned int three = data.at(0)["x3wincount"].toInt();
-        ui->one_win_times->setText(QString::number(one));
-        ui->two_win_times->setText(QString::number(two));
-        ui->three_win_times->setText(QString::number(three));
 
         QJsonArray list = data.at(0)["list"].toArray();
         apply_game_record(list);
@@ -1317,9 +1225,6 @@ void MainWindow::responsed_init(QNetworkReply *reply)
             result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
         }
-        ui->one_win_times->setText("");
-        ui->two_win_times->setText("");
-        ui->three_win_times->setText("");
         quarter = 0;
     }
     else{
@@ -1349,6 +1254,11 @@ void MainWindow::line_finish()
     Data.append(QString::number(location));
 
     manager->postData(Data);
+}
+
+void MainWindow::pu_login()
+{
+    Request_first_login();
 }
 
 void MainWindow::Request_summit(){
@@ -1812,16 +1722,45 @@ void MainWindow::quarter_increase()
 void MainWindow::on_count_down()
 {
     // 刷新倒计时
-    ui->who_win->setText(QString::number(count_down));
     count_down--;
 
     // 如果倒计时为 -1
     if(count_down == -1){
         // 停止倒计时
         timer_Countdown->stop();
-        ui->who_win->setText(QString(""));
         // 启用定位
         ui->button_locate->setEnabled(true);
     }
+}
+
+void MainWindow::Request_first_login()
+{
+    QByteArray postData;
+    QString str = "desk=a5&password=123456";
+    postData.append(str);
+    manager->setStatus(LOGIN);
+    manager->setInterface("dutch_login");
+    manager->postData(postData);
+}
+
+void MainWindow::Request_second_login(QString live_user, QString password)
+{
+    second_manager->setInterface("live_login");
+    second_manager->setStatus(SECONDLOGIN);
+    QByteArray postData;
+    postData.append(QString("live_user=" + live_user));
+    postData.append(QString("&password=" + password));
+    second_manager->postData(postData);
+}
+
+void MainWindow::Request_top_three()
+{
+    manager->setInterface("");
+
+}
+
+void MainWindow::Request_top_five()
+{
+
 }
 

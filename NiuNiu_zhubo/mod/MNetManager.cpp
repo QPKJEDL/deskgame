@@ -9,10 +9,14 @@ MNetManager::MNetManager(QObject *parent) : QObject(parent){
     connect(_manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(onFinished(QNetworkReply*)));
 }
 
-void MNetManager::InitRequest(QString header, QString id, QString token){
+void MNetManager::setHeader(QString header)
+{
     _request->setHeader(QNetworkRequest::ContentTypeHeader,header);
-    _request->setRawHeader("desk_id",id.toUtf8());
-    _request->setRawHeader("desk_token",token.toUtf8());
+}
+
+void MNetManager::setRawHeader(QByteArray name, QByteArray rawHeader)
+{
+    _request->setRawHeader(name,rawHeader);
 }
 
 void MNetManager::setIp(QString ip){

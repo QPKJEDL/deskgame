@@ -173,6 +173,9 @@ private:
     QString userStr;
     bool m_login;
 
+    // 聊天信息条数
+    int chat_num = 0;
+
 
 private slots:
     void pu_init();
