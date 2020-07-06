@@ -19,8 +19,18 @@ public:
 
     void update_name(QString str);
 
+signals:
+
+    void banUser(int);
+
+private slots:
+
+    void pu_name();
+
 private:
     Ui::QQChat *ui;
+public:
+    int talkid;
 };
 
 #endif // QQCHAT_H

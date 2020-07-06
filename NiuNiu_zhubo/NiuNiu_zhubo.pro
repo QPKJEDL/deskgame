@@ -25,6 +25,7 @@ SOURCES += \
     mod/MNetManager.cpp
 
 HEADERS += \
+    Structure.h \
     login.h \
     mainwindow.h \
     mod/MNetManager.h

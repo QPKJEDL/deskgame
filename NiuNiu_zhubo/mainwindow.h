@@ -1,66 +1,23 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QList>
 #include <QLabel>
-#include <string>
 #include <QMainWindow>
-
 #include <QNetworkReply>
 #include <QNetworkRequest>
 #include <QTcpSocket>
+#include <QList>
+#include <string>
 using namespace std;
 
 #include "mod/MNetManager.h"
 #include "login.h"
 
-typedef struct{
-    int num = 0;
-    int color = -1;
-    bool hua = false;
-    QLabel *label;
-    string face = ""; //面板
-}CARD;
-
-typedef struct node{
-    int num;// 0 代表闲家1 3代表庄家
-    struct node *next;
-    CARD data[5] = {};
-}players;
-
-//分针走一轮，时针走一格
-typedef struct{
-    int man = 0;//第几个玩家
-    int num = 0;//第几张牌
-    void increase(){
-        if(++man == 4){
-            num++;
-            man = 0;
-        }
-    }
-}NUMBER;
-
-typedef struct{
-    int paiXing;
-    CARD biggest;
-}PAIRESULT;
-
-
-typedef struct{
-    QLabel *zhuang;
-    QLabel *one;
-    QLabel *two;
-    QLabel *three;
-}FOURLABELS;
-
-typedef struct{
-    string face;
-    bool win;
-} LABELRESULT;
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
+
+
 class QNetworkReply;
 class QGraphicsOpacityEffect;
 
@@ -68,17 +25,21 @@ class MNetManager;
 class MainWindow;
 typedef void (MainWindow::*exe)(QNetworkReply *);
 
-
+#include "Structure.h"
 
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    MainWindow(int id, QString token, QString limit, QString tieLimit, QWidget *parent = nullptr);
+    MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
     QString m_str;
+
+    void pintosend(QDataStream& stream, QString id, QString token);
+    void sendLoginMsg(QDataStream& stream);
+
 protected:
     void keyPressEvent(QKeyEvent *event);
 
@@ -86,27 +47,26 @@ private slots:
     void update();
     void update_date();
 
-    void line_finish();
+    void while_line_finish();
+    void while_timeout();
+    void while_responsed(QNetworkReply* reply,int status);
+    void while_count_down();
+    void while_readyRead();
+    void while_connected();
 
+    void pu_exit();
     void pu_login();
     void pu_stop();
     void pu_locate();
+    void pu_first_login();
+    void pu_summit();
+    void pu_useless();
+    void pu_start();
+    void pu_init();
 
-    void on_timeout();
-    void on_exit();
-    void on_responsed(QNetworkReply* reply,int status);
-    void on_count_down();
+private:
+    void sendMessage(QString id,QString token);
 
-    void Request_first_login();
-    void Request_second_login(QString live_user, QString password);
-    void Request_top_three();
-    void Request_top_five();
-    
-    void Request_faPai(CARD card);
-    void Request_summit();
-    void Request_useless();
-    void Request_start();
-    void Request_initialize();
 
 private:
     Ui::MainWindow *ui;
@@ -122,12 +82,10 @@ private:
     QGraphicsOpacityEffect* m_graphiceffect;
     QGraphicsOpacityEffect* n_graphiceffect;
 
-    int quarter;
     bool m_light;
     QLabel *label_name;
     QString m_edit_last;
     players *head;
-    QList<FOURLABELS*> result_list;
 
     bool m_fapai;
 
@@ -141,22 +99,19 @@ private:
     QString _long_id;
     QString _long_token;
 
-    ////////////////////////////added by kris,2020-6-16
     QTcpSocket *m_tcpsocket;
     QString userStr;
-    bool m_login;
+    bool m_login = true;
 
     // 聊天信息条数
     int chat_num = 0;
 
 private:
-    void quarter_increase();
     void LabelPaixu(players *head);
     void wait(CARD card);
     void result();
 
-    void request_game_record();
-    void request_room_info();
+
     void request_room_card();
 
     void apply_summit();
@@ -170,17 +125,26 @@ private:
     void phase_kaiPai();
     void phase_finish();
 
+    void Request_first_login();
+    void Request_second_login(QString live_user, QString password);
+    void Request_top_three();
+    void Request_faPai(CARD card);
+    void Request_summit();
+    void Request_useless();
+    void Request_start();
+    void Request_initialize();
+    void request_room_info();
+
     void responsed_first_login(QNetworkReply *reply);
     void responsed_second_login(QNetworkReply *reply);
-    void responsed_top_three(QNetworkReply *reply);
     void responsed_start(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);
-    void responsed_record(QNetworkReply *reply);
     void responsed_roomcard(QNetworkReply *reply);
     void responsed_locate(QNetworkReply *reply);
     void responsed_fapai(QNetworkReply *reply);
     void responsed_summit(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
+    void responsed_top_three(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

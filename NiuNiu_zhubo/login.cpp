@@ -14,6 +14,7 @@ Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
     ui->setupUi(this);
     setWindowTitle("登录");
     this->show();
+    connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
 }
 
 Login::~Login()
@@ -38,5 +39,6 @@ QString Login::get_password()
 
 QPushButton *Login::get_login_Button()
 {
+    qDebug() << "get_login_Button";
     return ui->pu_enter;
 }

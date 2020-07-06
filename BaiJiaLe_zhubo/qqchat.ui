@@ -32,7 +32,7 @@
     <string notr="true">color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;</string>
    </property>
    <property name="text">
-    <string>孟金豪</string>
+    <string/>
    </property>
   </widget>
   <widget class="QLabel" name="label">
@@ -55,10 +55,10 @@
 background-color: rgb(170, 170, 127);</string>
    </property>
    <property name="text">
-    <string>你好吗</string>
+    <string/>
    </property>
    <property name="alignment">
-    <set>Qt::AlignCenter</set>
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
    </property>
   </widget>
  </widget>

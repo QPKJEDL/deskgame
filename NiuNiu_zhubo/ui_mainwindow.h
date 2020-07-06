@@ -494,8 +494,6 @@ public:
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setEnabled(true);
-        groupBox_4->setMinimumSize(QSize(1340, 435));
-        groupBox_4->setMaximumSize(QSize(1400, 435));
         QFont font8;
         font8.setPointSize(22);
         groupBox_4->setFont(font8);
@@ -897,6 +895,8 @@ public:
 
         verticalLayout_8->addLayout(horizontalLayout_23);
 
+        verticalLayout_8->setStretch(0, 3);
+        verticalLayout_8->setStretch(1, 1);
 
         horizontalLayout_19->addWidget(groupBox_4);
 
@@ -909,18 +909,15 @@ public:
 
         groupBox_5 = new QGroupBox(centralwidget);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setMinimumSize(QSize(160, 300));
-        groupBox_5->setMaximumSize(QSize(220, 435));
         groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 32, 57);"));
+        groupBox_5->setAlignment(Qt::AlignCenter);
         verticalLayout_4 = new QVBoxLayout(groupBox_5);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         label_locate = new QLabel(groupBox_5);
         label_locate->setObjectName(QString::fromUtf8("label_locate"));
-        label_locate->setMaximumSize(QSize(200, 200));
         QFont font9;
-        font9.setPointSize(32);
-        font9.setBold(true);
-        font9.setWeight(75);
+        font9.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font9.setPointSize(90);
         label_locate->setFont(font9);
         label_locate->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_locate->setAlignment(Qt::AlignCenter);
@@ -954,8 +951,7 @@ public:
         button_locate = new QPushButton(groupBox_5);
         button_locate->setObjectName(QString::fromUtf8("button_locate"));
         button_locate->setEnabled(false);
-        button_locate->setMinimumSize(QSize(120, 50));
-        button_locate->setMaximumSize(QSize(200, 70));
+        button_locate->setMinimumSize(QSize(0, 70));
         button_locate->setFont(font2);
         button_locate->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -968,8 +964,7 @@ public:
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
         button_useless->setEnabled(false);
-        button_useless->setMinimumSize(QSize(120, 50));
-        button_useless->setMaximumSize(QSize(200, 70));
+        button_useless->setMinimumSize(QSize(0, 70));
         button_useless->setFont(font1);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -982,8 +977,7 @@ public:
         button_summit = new QPushButton(groupBox_5);
         button_summit->setObjectName(QString::fromUtf8("button_summit"));
         button_summit->setEnabled(false);
-        button_summit->setMinimumSize(QSize(120, 40));
-        button_summit->setMaximumSize(QSize(200, 70));
+        button_summit->setMinimumSize(QSize(0, 70));
         button_summit->setFont(font2);
         button_summit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -996,6 +990,8 @@ public:
 
         horizontalLayout_19->addWidget(groupBox_5);
 
+        horizontalLayout_19->setStretch(0, 4);
+        horizontalLayout_19->setStretch(2, 1);
 
         verticalLayout_11->addLayout(horizontalLayout_19);
 

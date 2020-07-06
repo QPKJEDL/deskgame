@@ -20,11 +20,9 @@ using namespace std;
 
 enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY};
 
-//typedef void (MainWindow::*exe)(QNetworkReply *reply);
-
 static QString URL = "101.32.22.231:8210";
 //static QString URL = "129.211.114.135:8210";
-MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWidget *parent)
+MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_edit_last("")
@@ -50,25 +48,24 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     timer_date->start(200);
 
 
-    connect(timer_opacity, SIGNAL(timeout()), this, SLOT(on_timeout()));
+    connect(timer_opacity, SIGNAL(timeout()), this, SLOT(while_timeout()));
     connect(ui->button_locate,SIGNAL(clicked()),this,SLOT(pu_locate()));
-    connect(ui->lineEdit_2,SIGNAL(returnPressed()),this,SLOT(line_finish()));
-    connect(ui->button_summit,SIGNAL(clicked()),this,SLOT(Request_summit()));
-    connect(ui->pu_exit,SIGNAL(clicked()),this,SLOT(on_exit()));
-    connect(ui->button_useless,SIGNAL(clicked()),this,SLOT(Request_useless()));
+    connect(ui->lineEdit_2,SIGNAL(returnPressed()),this,SLOT(while_line_finish()));
+    connect(ui->button_summit,SIGNAL(clicked()),this,SLOT(pu_summit()));
+    connect(ui->pu_exit,SIGNAL(clicked()),this,SLOT(pu_exit()));
+    connect(ui->button_useless,SIGNAL(clicked()),this,SLOT(pu_useless()));
 
     // 开始按钮
-    connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(Request_start()));
+    connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(pu_start()));
     // 倒计时计数器
     timer_Countdown = new QTimer(this);
-    connect(timer_Countdown,SIGNAL(timeout()),this,SLOT(on_count_down()));
+    connect(timer_Countdown,SIGNAL(timeout()),this,SLOT(while_count_down()));
 
     // 初始化按钮
-    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(Request_initialize()));
+    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
 
     _map.insert(START,&MainWindow::responsed_start);
     _map.insert(ROOMINFO,&MainWindow::responsed_roominfo);
-    _map.insert(RECORD,&MainWindow::responsed_record);
     _map.insert(ROOMCARD,&MainWindow::responsed_roomcard);
     _map.insert(LOCATE,&MainWindow::responsed_locate);
     _map.insert(FAPAI,&MainWindow::responsed_fapai);
@@ -80,10 +77,17 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
 
    manager = new MNetManager;
-   manager->setIp("101.32.22.231:8210");
-   connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
+   manager->setIp("129.211.114.135:8210");
+   manager->setHeader("application/x-www-form-urlencoded");
+   connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(while_responsed(QNetworkReply*,int)));
+
+   second_manager = new MNetManager;
+   second_manager->setIp("129.211.114.135:8210");
+   second_manager->setHeader("application/x-www-form-urlencoded");
+   connect(second_manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(while_responsed(QNetworkReply*,int)));
 
    login_window = new Login();
+   qDebug() << login_window->get_login_Button()->text();
    connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
 
   //M
@@ -125,14 +129,13 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
   zhuang->next = head;
   //M
   //初始化结果列表，80 个QLabel
-  quarter = 0;
 
   //// added by mengjinhao 0619
   m_tcpsocket = new QTcpSocket(this);
   //    m_tcpsocket->abort();
   //    m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
-  connect(m_tcpsocket,SIGNAL(connected()),this,SLOT(connectedServer()));
-  connect(m_tcpsocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
+  connect(m_tcpsocket,SIGNAL(connected()),this,SLOT(while_connected()));
+  connect(m_tcpsocket,SIGNAL(readyRead()),this,SLOT(while_readyRead()));
   //// end added
 
   //M
@@ -346,6 +349,76 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::pintosend(QDataStream &stream, QString id, QString token)
+{
+    int length        = 35 + id.length();
+    qDebug() << "LENGTH = " << length;
+
+
+    int seq        = 1;
+    qint8 cmd        = 15;
+    qint8 vervion    = 1;
+    qint8 flag       = 0;
+    qint8 kong       = 0;
+
+    qint8 temp7 = 0;
+
+    qint8 tokensize = (qint8)token.length();
+    QString desk_id(id);
+    qint8 desk_idsize = (qint8)desk_id.length();
+
+
+
+    stream << length;
+    stream << seq;
+    stream << cmd;
+
+    stream << vervion;
+    stream << flag;
+    stream << kong;
+
+    stream << temp7;
+    stream << tokensize;
+
+
+    stream.writeRawData(token.toLocal8Bit().constData(),tokensize);
+
+    stream << desk_idsize;
+
+    stream.writeRawData(desk_id.toLocal8Bit().constData(),desk_idsize);
+}
+
+void MainWindow::sendLoginMsg(QDataStream &stream)
+{
+    int length        = 8;
+
+
+    int seq          = 2;
+    qint8 cmd        = 18;
+    qint8 vervion    = 1;
+    qint8 flag       = 0;
+    qint8 kong       = 0;
+
+    qint64 temp7 = 16;
+
+    //QString token("939175818fba9f401894d315bde357c4");
+    //qint8 tokensize = (qint8)token.length();
+    //QString desk_id("6");
+    //qint8 desk_idsize = (qint8)desk_id.length();
+
+
+
+    stream << length;
+    stream << seq;
+    stream << cmd;
+
+    stream << vervion;
+    stream << flag;
+    stream << kong;
+
+    stream << temp7;
+}
+
 string intToFace(int str){
     vector<string> Cards = {"A","2","3","4","5","6","7","8","9","10","J","Q","K"};
     return Cards[str - 1];
@@ -437,7 +510,6 @@ void MainWindow::result(){
 
     //所有牌型收集完毕，开始比较
     //庄家结果
-    result_list[quarter]->zhuang->setText(PaixingToResult(zhuang.paiXing));
 
 //    if(quarter < 19){
 //        result_list[quarter]->zhuang->setText(PaixingToResult(zhuang.paiXing));
@@ -458,9 +530,6 @@ void MainWindow::result(){
                 //闲家1 赢
                 result += "闲1 ";
 
-                result_list[quarter]->one->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->one->setStyleSheet("image: url(:/image/blue.png)");
-
 //                if(quarter < 19){
 //                    result_list[quarter]->one->setText(PaixingToResult(vec[i].paiXing));
 //                    result_list[quarter]->one->setStyleSheet("image: url(:/image/blue.png)");
@@ -480,9 +549,6 @@ void MainWindow::result(){
                 //闲家2 赢
                 result += "闲2 ";
 
-                result_list[quarter]->two->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->two->setStyleSheet("image: url(:/image/blue.png)");
-
 //                if(quarter < 19){
 //                    result_list[quarter]->two->setText(PaixingToResult(vec[i].paiXing));
 //                    result_list[quarter]->two->setStyleSheet("image: url(:/image/blue.png)");
@@ -500,9 +566,6 @@ void MainWindow::result(){
             case(2):{
                 //闲家3 赢
                 result += "闲3 ";
-
-                result_list[quarter]->three->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->three->setStyleSheet("image: url(:/image/blue.png)");
 
 //                if(quarter < 19){
 //                    result_list[quarter]->three->setText(PaixingToResult(vec[i].paiXing));
@@ -526,9 +589,6 @@ void MainWindow::result(){
             case(0):{
                 //闲家1 输
 
-                result_list[quarter]->one->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->one->setStyleSheet("image: url(:/image/gray.png)");
-
 //                if(quarter < 19){
 //                    result_list[quarter]->one->setText(PaixingToResult(vec[i].paiXing));
 //                    result_list[quarter]->one->setStyleSheet("image: url(:/image/gray.png)");
@@ -546,9 +606,6 @@ void MainWindow::result(){
             }
             case(1):{
                 //闲家2 输
-
-                result_list[quarter]->two->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->two->setStyleSheet("image: url(:/image/gray.png)");
 
 //                if(quarter < 19){
 //                    result_list[quarter]->two->setText(PaixingToResult(vec[i].paiXing));
@@ -568,9 +625,6 @@ void MainWindow::result(){
             }
             case(2):{
                 //闲家3 输
-
-                result_list[quarter]->three->setText(PaixingToResult(vec[i].paiXing));
-                result_list[quarter]->three->setStyleSheet("image: url(:/image/gray.png)");
 
 //                if(quarter < 19){
 //                    result_list[quarter]->three->setText(PaixingToResult(vec[i].paiXing));
@@ -595,8 +649,6 @@ void MainWindow::result(){
     else{
         ui->pu_result->setText(result);
     }
-
-    quarter_increase();
 }
 
 void MainWindow::update()
@@ -604,7 +656,7 @@ void MainWindow::update()
     ui->lineEdit->setFocus();
 }
 
-void MainWindow::on_responsed(QNetworkReply *reply, int status)
+void MainWindow::while_responsed(QNetworkReply *reply, int status)
 {
     if(_map.find(status) != _map.end()){
         (this->*(_map[status]))(reply);
@@ -618,7 +670,7 @@ void MainWindow::update_date(){
 
 }
 
-void MainWindow::on_timeout()
+void MainWindow::while_timeout()
 {
     qreal i = m_graphiceffect->opacity();
     if(number.num == 5){
@@ -660,6 +712,11 @@ void MainWindow::pu_locate()
     ui->button_locate->setEnabled(false);
     ui->lineEdit_2->setFocus();
     manager->setStatus(LOCATE);
+}
+
+void MainWindow::pu_first_login()
+{
+    Request_first_login();
 }
 
 void MainWindow::LabelPaixu(players *head){
@@ -739,13 +796,6 @@ void MainWindow::apply_locate(){
     ui->opration_show->setText("停止下注");
 }
 
-void MainWindow::request_game_record()
-{
-    manager->setInterface("HeGuanNnGameRecord");
-    manager->setStatus(RECORD);
-    manager->postData(QByteArray());
-}
-
 QString PaixingToShow(QString paixing){
     if(paixing == "没牛"){
         return "N";
@@ -793,46 +843,6 @@ void MainWindow::request_room_card()
     Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
     manager->postData(Data);
-}
-
-void MainWindow::apply_game_record(QJsonArray array)
-{
-    for(int i = array.count() - 1;i >= 0;i--){
-        unsigned int status = array.at(i)["status"].toInt();
-        if(status == 2){
-            result_list.at(quarter)->zhuang->setStyleSheet("image: url(:/image/useless.png)");
-            result_list.at(quarter)->one->setStyleSheet("image: url(:/image/useless.png)");
-            result_list.at(quarter)->two->setStyleSheet("image: url(:/image/useless.png)");
-            result_list.at(quarter)->three->setStyleSheet("image: url(:/image/useless.png)");
-        }
-        else{
-            QString bankerNum = array.at(i)["bankernum"].toString();
-            QString oneNum = array.at(i)["x1num"].toString();
-            QString twoNum = array.at(i)["x2num"].toString();
-            QString threeNum = array.at(i)["x3num"].toString();
-
-            QString bankershow = PaixingToShow(bankerNum);
-            QString oneShow = PaixingToShow(oneNum);
-            QString twoShow = PaixingToShow(twoNum);
-            QString threeShow = PaixingToShow(threeNum);
-
-            result_list.at(quarter)->zhuang->setText(bankershow);
-            result_list.at(quarter)->one->setText(oneShow);
-            result_list.at(quarter)->two->setText(twoShow);
-            result_list.at(quarter)->three->setText(threeShow);
-
-            array.at(i)["x1result"].toString() == "win" ?
-                result_list.at(quarter)->one->setStyleSheet("image: url(:/image/blue.png)")
-                      : result_list.at(quarter)->one->setStyleSheet("image: url(:/image/gray.png)");
-            array.at(i)["x2result"].toString() == "win" ?
-                result_list.at(quarter)->two->setStyleSheet("image: url(:/image/blue.png)")
-                      : result_list.at(quarter)->two->setStyleSheet("image: url(:/image/gray.png)");
-            array.at(i)["x3result"].toString() == "win" ?
-                result_list.at(quarter)->three->setStyleSheet("image: url(:/image/blue.png)")
-                      : result_list.at(quarter)->three->setStyleSheet("image: url(:/image/gray.png)");
-        }
-        quarter_increase();
-    }
 }
 
 void MainWindow::apply_room_card(QJsonArray zhuang, QJsonArray one, QJsonArray two, QJsonArray three)
@@ -1009,7 +1019,58 @@ void MainWindow::responsed_second_login(QNetworkReply *reply)
 
 void MainWindow::responsed_top_three(QNetworkReply *reply)
 {
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonObject data = json.value("data").toObject();
+        QJsonArray topThree = data.value("top3").toArray();
+        int i = topThree.count();
+        int h = 0;
+        auto f = [](QString bet,QLabel *label){
+            QString path = ":/result/image/result/";
+            if(bet == "player"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/player.png\"/></p></body></html>");
+            }
+            else if(bet == "banker"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/banker.png\"/></p></body></html>");
+            }
+            else if(bet == "tie"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/tie.png\"/></p></body></html>");
+            }
+            else if(bet == "playerPair"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/playerpair.png\"/></p></body></html>");
+            }
+            else if(bet == "bankerPair"){
+                label->setText("<html><head/><body><p><img src=\":/bet/image/bet/bankerpair.png\"/></p></body></html>");
+            }
+        };
+        auto f2 = [&](QLabel *m,QLabel *b,QLabel *n){
+            QJsonObject ob = topThree.at(h).toObject();
+            int money = ob.value("Money").toInt();
+            QString bet = ob.value("Bet").toString();
+            QString NickName = ob.value("NickName").toString();
 
+            n->setText(NickName);
+            m->setText(QString::number(money) + "元");
+            f(bet,b);
+        };
+
+        if(h < i){
+            f2(ui->label_first_money,ui->label_first_bet,ui->label_first_name);
+            if(++h < i){
+                f2(ui->label_second_money,ui->label_second_bet,ui->label_second_name);
+                if(++h < i){
+                    f2(ui->label_third_money,ui->label_third_bet,ui->label_third_name);
+                }
+            }
+        }
+    }
+    else{
+        QMessageBox box;
+        box.setText("获取下注前三失败");
+        box.exec();
+    }
 }
 
 void MainWindow::responsed_start(QNetworkReply *reply)
@@ -1079,30 +1140,6 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
     else{
         QMessageBox box;
         box.setText("牛牛获取房间信息失败");
-        box.exec();
-    }
-}
-
-void MainWindow::responsed_record(QNetworkReply *reply)
-{
-    QByteArray bytes = reply->readAll();
-    QJsonObject json = QJsonDocument::fromJson(bytes).object();
-
-    unsigned int status = json.value("status").toInt();
-    if(status == 1){
-        QJsonArray data = json.value("data").toArray();
-
-        unsigned int one = data.at(0)["x1wincount"].toInt();
-        unsigned int two = data.at(0)["x2wincount"].toInt();
-        unsigned int three = data.at(0)["x3wincount"].toInt();
-
-        QJsonArray list = data.at(0)["list"].toArray();
-        apply_game_record(list);
-        request_room_info();
-    }
-    else{
-        QMessageBox box;
-        box.setText("牛牛游戏记录请求失败");
         box.exec();
     }
 }
@@ -1219,13 +1256,6 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         unsigned int pave_num = json.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-        for(int i = 0;i < 20;i++){
-            result_list[i]->zhuang->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->one->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
-        }
-        quarter = 0;
     }
     else{
         QMessageBox box;
@@ -1234,7 +1264,7 @@ void MainWindow::responsed_init(QNetworkReply *reply)
     }
 }
 
-void MainWindow::line_finish()
+void MainWindow::while_line_finish()
 {
     bool ok = false;
     location = ui->lineEdit_2->text().toInt(&ok);
@@ -1320,261 +1350,7 @@ void MainWindow::apply_summit()
     ui->button_useless->setEnabled(false);
 }
 
-//void MainWindow::finishedSlot(QNetworkReply* reply)
-//{
-//    if (reply->error() == QNetworkReply::NoError) {
-//            QByteArray bytes = reply->readAll();
-//            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
-//            QJsonObject json_object2 = json_object.value("data").toObject();
-
-//            if (m_post_type == QString("start")) {
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-
-//                qDebug() << info  << endl;
-//                qDebug() << status  << endl;
-//                //M 应用靴次和铺次
-//                if(status == 1){
-//                    // 开始请求成功
-//                    // 应用靴次和铺次
-//                    unsigned int boot_num = json_object2.value("boot_num").toInt();
-//                    unsigned int pave_num = json_object2.value("pave_num").toInt();
-//                    ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
-//                    ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-
-//                    // 禁用开始按钮
-//                    ui->pu_start->setEnabled(false);
-//                    ui->who_win->setText(QString(""));
-//                    timer_Countdown->start(1000);
-//                    // 倒计时恢复为 30
-//                    count_down = 30;
-//                }
-//                else{
-//                    // 开始请求失败
-//                    // 启用开始按钮
-//                    ui->pu_start->setEnabled(true);
-
-//                    // 报告错误
-//                    QMessageBox box;
-//                    box.setText("请求开局失败");
-//                    box.exec();
-//                }
-//            }
-//            else if(m_post_type == QString("roominfo")){
-//                // 响应房间信息
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-
-//                if(status == 1){
-//                    QJsonArray json_array = json_object.value("data").toArray();
-//                    // 刷新靴次
-//                    unsigned int boot_num = json_array.at(0)["BootNum"].toInt(); //json_object2.value("BootNum").toInt();
-//                    qDebug() << "boot_room : " << boot_num;
-//                    ui->xue_times->setText(QString::number(boot_num));
-//                    // 刷新铺次
-//                    unsigned int PaveNum = json_array.at(0)["PaveNum"].toInt(); //json_object2.value("PaveNum").toInt();
-//                    ui->pu_times->setText(QString::number(PaveNum));
-//                    qDebug() << "PaveNum : " << PaveNum;
-//                    // 刷新台桌
-//                    QString DeskName = json_array.at(0)["DeskName"].toString(); //json_object2.value("DeskName").toString();
-//                    ui->desk_num->setText(DeskName);
-//                    qDebug() << "desk id : " << DeskName;
-//                    // 获取时间戳
-//                    unsigned int GameStarTime = json_array.at(0)["GameStarTime"].toInt(); //json_object2.value("GameStarTime").toInt();
-//                    unsigned int Systime = json_array.at(0)["Systime"].toInt();
-//                    // 获取房间状态
-//                    unsigned int phase = json_array.at(0)["Phase"].toInt();
-//                    qDebug() << "phase : " << phase;
-//                    switch (phase) {
-//                    case 0:
-//                        // 洗牌中
-//                        phase_zero();
-//                        break;
-//                    case 1:
-//                        // 倒计时
-//                        phase_countDown(GameStarTime,Systime);
-//                        break;
-//                    case 2:
-//                        // 开牌中
-//                        phase_kaiPai();
-//                        break;
-//                    case 3:
-//                        // 结算完成
-//                        phase_finish();
-//                        break;
-//                    }
-//                }
-//                else{
-//                    QMessageBox box;
-//                    box.setText("获取房间信息失败");
-//                    box.exec();
-//                }
-//            }
-//            else if(m_post_type == QString("record")){
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-
-//                if(status == 1){
-//                    QJsonArray json_array = json_object.value("data").toArray();
-//                    QJsonArray array = json_array.at(0)["list"].toArray();
-
-//                    // 应用赢得次数
-//                    // 闲家1
-//                    unsigned int x1wincount = json_array.at(0)["x1wincount"].toInt();
-//                    ui->one_win_times->setText(QString::number(x1wincount));
-//                    // 闲家2
-//                    unsigned int x2wincount = json_array.at(0)["x2wincount"].toInt();
-//                    ui->two_win_times->setText(QString::number(x2wincount));
-//                    // 闲家3
-//                    unsigned int x3wincount = json_array.at(0)["x3wincount"].toInt();
-//                    ui->three_win_times->setText(QString::number(x3wincount));
-
-//                    on_game_record(array);
-//                    request_room_info();
-//                }
-//                else{
-//                    // 游戏记录信息请求失败
-//                    QMessageBox box;
-//                    box.setText("游戏记录信息请求失败");
-//                    box.exec();
-//                }
-//            }
-//            else if(m_post_type == "room_card"){
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-//                qDebug() << "info : " << info << "  sttus : " << status;
-//                if(status == 1){
-//                    QString l = json_object2.value("LocationNum").toString();
-//                    qDebug() << "location : " << l;
-//                    location = l.toInt();
-//                    ui->label_locate->setText(l);
-//                    if(location == 0){
-//                        ui->button_locate->setEnabled(true);
-//                    }
-//                    else{
-//                        QJsonArray zhuang = json_object2.value("BankerCard").toArray();
-//                        QJsonArray one = json_object2.value("IdleOneCard").toArray();
-//                        QJsonArray two = json_object2.value("IdleTwoCard").toArray();
-//                        QJsonArray three = json_object2.value("IdleThreeCard").toArray();
-//                        on_room_card(zhuang,one,two,three);
-//                        ui->button_useless->setEnabled(true);
-//                    }
-//                }
-//                else{
-//                    // 游戏记录信息请求失败
-//                    QMessageBox box;
-//                    box.setText("本局游戏信息请求失败");
-//                    box.exec();
-//                }
-//            }
-//            else if (m_post_type == QString("locate")) {
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-
-//                if(status){
-//                    // 定位请求成功
-//                    m_fapai = true;
-//                    this->locate_success();
-//                }
-//                else{
-//                    // 定位请求失败
-//                    // 启用定位按钮
-//                    ui->button_locate->setEnabled(true);
-
-//                    // 提示错误
-//                    QMessageBox box;
-//                    box.setText("定位请求失败");
-//                    box.exec();
-//                }
-
-//            } else if (m_post_type == QString("fapai")) {
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-//                if(status == 1){
-//                    // M 更新荷官端显示牌
-//                    m_fapai = true;
-//                    // 更新牌
-//                    wait(strToCard(m_edit_last.toStdString()));
-//                }
-//                else{
-//                    // 将扫码机设为空字符串，等待重新扫码
-//                    m_edit_last = "";
-//                    // 提示重新扫码
-//                    QMessageBox box;
-//                    box.setText("刷牌失败");
-//                    box.exec();
-//                }
-//            } else if (m_post_type == QString("summit")) {
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-//                qDebug() << "summit : " << info << " - " << status;
-//                if(status == 1){
-//                    // 提交请求成功
-//                    this->on_summit();
-//                }
-//                else{
-//                    // 提交请求失败
-//                    // 重新启用提交按钮
-//                    ui->button_summit->setEnabled(true);
-
-//                    // 提示重新提交
-//                    QMessageBox box;
-//                    box.setText("提交请求失败");
-//                    box.exec();
-//                }
-//            } else if (m_post_type == QString("useless")) {
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-//                if(status == 1){
-//                    // 作废请求成功
-//                    this->on_useless();
-//                }
-//                else{
-//                    ui->button_useless->setEnabled(true);
-
-//                    // 提示作废失败
-//                    QMessageBox box;
-//                    box.setText("作废失败");
-//                    box.exec();
-//                    return;
-//                }
-//            }else if(m_post_type == QString("end")){
-//                //? 终止的接口
-//                qDebug() << "endyes";
-//            }else if(m_post_type == QString("init")){
-//                QString info = json_object.value("info").toString();
-//                unsigned int status = json_object.value("status").toInt();
-//                if(status == 1){
-//                    // 初始化请求成功
-//                    // 应用靴次和铺次
-//                    unsigned int boot_num = json_object2.value("boot_num").toInt();
-//                    unsigned int pave_num = json_object2.value("pave_num").toInt();
-//                    ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
-//                    ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-//                }
-//                else{
-//                    // 初始化请求失败
-//                    QMessageBox box;
-//                    box.setText("初始化失败");
-//                    box.exec();
-//                }
-//            }
-//        }
-//         else
-//         {
-//             qDebug() << "finishedSlot errors here";
-//             qDebug( "found error .... code: %d\n", (int)reply->error());
-//             qDebug() << reply->errorString();
-
-//             QMessageBox box;
-//             box.setText("网络连接错误");
-//             box.exec();
-//             return;
-//         }
-//         reply->deleteLater();
-//}
-
-void MainWindow::on_exit(){
+void MainWindow::pu_exit(){
     this->close();
 }
 
@@ -1600,14 +1376,6 @@ void MainWindow::apply_useless(){
     ui->button_locate->setFocus();
     // 禁用提交
     ui->button_summit->setEnabled(false);
-
-    // 该把作废了
-    result_list.at(quarter)->zhuang->setStyleSheet("image: url(:/image/useless.png)");
-    result_list.at(quarter)->one->setStyleSheet("image: url(:/image/useless.png)");
-    result_list.at(quarter)->two->setStyleSheet("image: url(:/image/useless.png)");
-    result_list.at(quarter)->three->setStyleSheet("image: url(:/image/useless.png)");
-
-    quarter_increase();
 
     // 停止闪烁
     timer_opacity->stop();
@@ -1680,33 +1448,188 @@ void MainWindow::Request_initialize()
     }
 }
 
-void MainWindow::quarter_increase()
+void MainWindow::while_readyRead()
 {
-    if(quarter < 19){
-        quarter++;
-    }
-    else{
-        for(int q = 0;q < 19;q++){
-            result_list[q]->zhuang->setText(result_list[q+1]->zhuang->text());
-            result_list[q]->one->setText(result_list[q+1]->one->text());
-            result_list[q]->two->setText(result_list[q+1]->two->text());
-            result_list[q]->three->setText(result_list[q+1]->three->text());
+    if (m_login) {
+        int    length  = 0;
+        int    seq     = 0;
 
-            result_list[q]->zhuang->setStyleSheet(result_list[q+1]->zhuang->styleSheet());
-            result_list[q]->one->setStyleSheet(result_list[q+1]->one->styleSheet());
-            result_list[q]->two->setStyleSheet(result_list[q+1]->two->styleSheet());
-            result_list[q]->three->setStyleSheet(result_list[q+1]->three->styleSheet());
+        qint8  cmd     = 0;
+        qint8  version = 0;
+        qint8  flag    = 0;
+        qint8  kong    = 0;
+
+        int    mark    = 0;
+        QString string;
+        QByteArray block = m_tcpsocket->readAll();
+        QDataStream in(block);
+        in.setVersion(QDataStream::Qt_5_14);
+        in >> length;
+        in >> seq;
+        in >> cmd;
+        in >> version;
+        in >> flag;
+        in >> kong;
+        in >> mark;
+
+        qDebug() << length;
+        qDebug() << seq;
+        qDebug() << cmd;
+        qDebug() << version;
+        qDebug() << flag;
+        qDebug() << kong;
+        qDebug() << mark;
+
+        if (mark == 0) {
+            qDebug() << QString("login success！");
+            QByteArray block;
+
+            QDataStream out(&block, QIODevice::WriteOnly);
+            out.setVersion(QDataStream::Qt_5_14);
+
+            sendLoginMsg(out);
+
+            m_tcpsocket->write(block);
+            m_login = false;
+
+            login_window->close();
+            this->show();
+            this->showFullScreen();
+            request_room_info();
         }
-        result_list[19]->zhuang->setText("");
-        result_list[19]->one->setText("");
-        result_list[19]->two->setText("");
-        result_list[19]->three->setText("");
+        else{
+            qDebug() << "login faild";
+        }
+    } else {
+        int    length  = 0;
+        int    seq     = 0;
 
-        result_list[19]->zhuang->setStyleSheet("image: url(:/image/blue.png)");
-        result_list[19]->one->setStyleSheet("image: url(:/image/blue.png)");
-        result_list[19]->two->setStyleSheet("image: url(:/image/blue.png)");
-        result_list[19]->three->setStyleSheet("image: url(:/image/blue.png)");
+        qint8  cmd     = 0;
+        qint8  version = 0;
+        qint8  flag    = 0;
+        qint8  kong    = 0;
+
+        qint64    sendid    = 0;
+        qint64    receiveid = 0;
+
+        //QString   receivedata("");
+
+        QByteArray block = m_tcpsocket->readAll();
+        QDataStream in(block);
+        in.setVersion(QDataStream::Qt_5_14);
+        in >> length;
+        in >> seq;
+        in >> cmd;
+        in >> version;
+        in >> flag;
+        in >> kong;
+        in >> sendid;
+        in >> receiveid;
+
+        //in >> receivedata;
+        int strsize = length - sizeof(qint64) * 2;
+
+        char* p = new char[strsize];
+
+
+        in.readRawData(p, strsize);
+
+        QByteArray receivedata(p,strsize);
+
+        delete[] p;
+
+        //QByteArray jbyte = receivedata.toUtf8();
+
+        QJsonObject json_object = QJsonDocument::fromJson(receivedata).object();
+
+        int Cmd = json_object.value("Cmd").toInt();
+        int Deskid = 0;
+        int Boot_num = 0;
+        int Pave_num = 0;
+        int CountDown = 0;
+        int Phase     = 0;
+        qint64 GameStarTime = 0;
+
+        int LocationNum = 0;
+        QString Desk_name("");
+        QString Result("");
+        int Sumgetmoney = 0;
+        int Balance = 0;
+
+        if (Cmd == 2 || Cmd == 3|| Cmd == 4 || Cmd == 5) {
+            Deskid = json_object.value("DeskId").toInt();
+            Boot_num = json_object.value("Boot_num").toInt();
+            Pave_num = json_object.value("Pave_num").toInt();
+
+            CountDown = json_object.value("CountDown").toInt();
+            Phase = json_object.value("Phase").toInt();
+
+            GameStarTime = json_object.value("GameStarTime").toInt();
+
+        } else if (Cmd == 6) {
+            Deskid = json_object.value("DeskId").toInt();
+            Boot_num = json_object.value("Boot_num").toInt();
+            Pave_num = json_object.value("Pave_num").toInt();
+
+            CountDown = json_object.value("CountDown").toInt();
+            Phase = json_object.value("Phase").toInt();
+
+            GameStarTime = json_object.value("GameStarTime").toInt();
+
+        } else if (Cmd == 7) {
+            Boot_num = json_object.value("Boot_num").toInt();
+            Pave_num = json_object.value("Pave_num").toInt();
+
+            Desk_name = json_object.value("Desk_name").toString();
+            Result = json_object.value("Result").toString();
+
+            Sumgetmoney = json_object.value("Sumgetmoney").toInt();
+            Balance = json_object.value("Balance").toInt();
+        } else if (Cmd == 8) {
+            Deskid = json_object.value("DeskId").toInt();
+            LocationNum = json_object.value("LocationNum").toInt();
+        }
+
+
+        qDebug() << "length" << length;
+        qDebug() << "seq" <<seq;
+        qDebug() << "cmd" <<cmd;
+        qDebug() << "version" <<version;
+        qDebug() << "flag" <<flag;
+        qDebug() << "kong" <<kong;
+        qDebug() << "sendid" <<sendid;
+        qDebug() << "receiveid" <<receiveid;
+
+
     }
+    //in >>
+    //textEdit->append(string + '\n');
+    qDebug() << "read message success";
+}
+
+void MainWindow::sendMessage(QString id, QString token)
+{
+    qDebug() << "request long link login" << id << "  -token-  " << token;
+    //int typee = 1;
+    QString string; //= lineEdit->text();
+    QByteArray block;
+    //QFile file("a.txt");
+    //file.open(QIODevice::WriteOnly);
+
+    QDataStream out(&block, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_5_14);
+
+    pintosend(out,id,token);
+    //out<<userStr;
+    // out<<type;
+    // out<<string;
+    m_tcpsocket->write(block);
+}
+
+void MainWindow::while_connected()
+{
+    sendMessage(_long_id,_long_token);
+    qDebug() << "connected server success......";
 }
 
 //void MainWindow::on_start()
@@ -1719,8 +1642,9 @@ void MainWindow::quarter_increase()
 //    count_down = 30;
 //}
 
-void MainWindow::on_count_down()
+void MainWindow::while_count_down()
 {
+    ui->label_locate->setText(QString::number(count_down));
     // 刷新倒计时
     count_down--;
 
@@ -1728,15 +1652,36 @@ void MainWindow::on_count_down()
     if(count_down == -1){
         // 停止倒计时
         timer_Countdown->stop();
+        ui->label_locate->setText("");
         // 启用定位
         ui->button_locate->setEnabled(true);
     }
 }
 
+void MainWindow::pu_summit()
+{
+    Request_summit();
+}
+
+void MainWindow::pu_useless()
+{
+    Request_useless();
+}
+
+void MainWindow::pu_start()
+{
+    Request_start();
+}
+
+void MainWindow::pu_init()
+{
+    Request_initialize();
+}
+
 void MainWindow::Request_first_login()
 {
     QByteArray postData;
-    QString str = "desk=a5&password=123456";
+    QString str = "desk=a2&password=123456";
     postData.append(str);
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
@@ -1756,11 +1701,9 @@ void MainWindow::Request_second_login(QString live_user, QString password)
 void MainWindow::Request_top_three()
 {
     manager->setInterface("");
-
+    manager->setStatus(TOPTHREE);
+    QByteArray postData;
+    postData.append("boot_num=" + ui->xue_times->text());
+    postData.append("&pave_num=" + ui->pu_times->text());
+    manager->postData(postData);
 }
-
-void MainWindow::Request_top_five()
-{
-
-}
-

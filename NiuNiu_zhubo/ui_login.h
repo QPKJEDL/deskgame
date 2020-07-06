@@ -157,6 +157,9 @@ public:
         comboBox->setItemText(0, QCoreApplication::translate("Login", "\347\211\233\347\211\233\357\274\210CS3\357\274\211", nullptr));
 
         pu_enter->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_enter->setShortcut(QCoreApplication::translate("Login", "Enter", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_2->setText(QCoreApplication::translate("Login", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));
         userid->setText(QString());
         label_3->setText(QCoreApplication::translate("Login", "\344\270\273\346\222\255\350\215\267\345\256\230\345\257\206\347\240\201  ", nullptr));

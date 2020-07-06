@@ -23,20 +23,23 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    mod/MNetManager.cpp
+    mod/MNetManager.cpp \
+    qqchat.cpp
 
 HEADERS += \
     form.h \
     live.h \
     login.h \
     mainwindow.h \
-    mod/MNetManager.h
+    mod/MNetManager.h \
+    qqchat.h
 
 FORMS += \
     form.ui \
     live.ui \
     login.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    qqchat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

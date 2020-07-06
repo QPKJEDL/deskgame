@@ -12,7 +12,7 @@
 //QString URL = "192.168.0.104:8210";
 //QString URL = "129.211.114.135:8210";
 
-enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY};
+enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,BAN};
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
     _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
     _map.insert(TOPFIVE,&MainWindow::responsed_top_five);
     _map.insert(MONEY,&MainWindow::responsed_money);
+    _map.insert(BAN,&MainWindow::responsed_ban);
 
 
     manager = new MNetManager;
@@ -248,6 +249,11 @@ void MainWindow::pu_money_list()
     request_money();
 }
 
+void MainWindow::pu_ban(int talkid)
+{
+    request_ban(talkid);
+}
+
 void MainWindow::on_money()
 {
     live_window->show();
@@ -406,6 +412,15 @@ void MainWindow::request_money()
     postData.append("&type=" + QString::number(live_window->type));
     postData.append("&begin=" + live_window->get_time_begin());
     postData.append("&end=" + live_window->get_time_end());
+    second_manager->postData(postData);
+}
+
+void MainWindow::request_ban(int talkid)
+{
+    second_manager->setInterface("live_ban_user");
+    QByteArray postData;
+    postData.append("talkid=" + QString::number(talkid));
+    second_manager->setStatus(BAN);
     second_manager->postData(postData);
 }
 
@@ -814,8 +829,10 @@ void MainWindow::responsed_top_five(QNetworkReply *reply)
             QJsonObject ob = topFive.at(h).toObject();
             QString NickName = ob.value("NickName").toString();
             double num = ob.value("Num").toInt();
-            n->setText(QString::number(num));
-            a->setText(NickName);
+            if(num != 0){
+                n->setText(QString::number(num));
+                a->setText(NickName);
+            }
         };
 
         if(h < i){
@@ -854,6 +871,27 @@ void MainWindow::responsed_money(QNetworkReply *reply)
         QMessageBox box;
         box.setText("获取打赏记录失败");
         box.exec();
+    }
+}
+
+void MainWindow::responsed_ban(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QLabel *label = new QLabel();
+        label->setStyleSheet("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;");
+        label->setText("禁言成功");
+        label->setMaximumSize(100,50);
+        ui->ChatPanel->addWidget(label);
+    }
+    else{
+        QLabel *label = new QLabel();
+        label->setStyleSheet("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;");
+        label->setText("禁言失败");
+        label->setMaximumSize(100,50);
+        ui->ChatPanel->addWidget(label);
     }
 }
 
@@ -959,11 +997,6 @@ void MainWindow::tc_enter()
 
 void MainWindow::on_cancel()
 {
-    QQChat *qc = new QQChat();
-    qc->update_input(QString::number(chat_num++));
-    ui->ChatPanel->addWidget(qc);
-    return;
-
     // 初始化结果值
     m_game = -1;
     m_playerPair = 0;
@@ -980,6 +1013,7 @@ void MainWindow::on_cancel()
     // 启用结算按钮
     ui->pu_enter->setEnabled(true);
 }
+
 ///////////////////////////////added by kris,2020-6-16
 void MainWindow::pintosend(QDataStream &stream,QString id,QString token)
 {
@@ -1032,7 +1066,7 @@ void MainWindow::sendLoginMsg(QDataStream &stream)
     qint8 flag       = 0;
     qint8 kong       = 0;
 
-    qint64 temp7 = 16;
+    qint64 temp7 = _long_id.toLong();
 
     //QString token("939175818fba9f401894d315bde357c4");
     //qint8 tokensize = (qint8)token.length();
@@ -1093,7 +1127,7 @@ void MainWindow::readMessage()
             QDataStream out(&block, QIODevice::WriteOnly);
             out.setVersion(QDataStream::Qt_5_14);
 
-            //sendLoginMsg(out);
+            sendLoginMsg(out);
 
             m_tcpsocket->write(block);
             m_login = false;
@@ -1143,58 +1177,72 @@ void MainWindow::readMessage()
         QByteArray receivedata(p,strsize);
 
         delete[] p;
+        qDebug() << receivedata;
 
         //QByteArray jbyte = receivedata.toUtf8();
 
         QJsonObject json_object = QJsonDocument::fromJson(receivedata).object();
 
-        int Cmd = json_object.value("Cmd").toInt();
-        int Deskid = 0;
-        int Boot_num = 0;
-        int Pave_num = 0;
-        int CountDown = 0;
-        int Phase     = 0;
-        qint64 GameStarTime = 0;
+        QString text = json_object.value("text").toString();
+        QJsonObject user = json_object.value("user").toObject();
+        QString username = user.value("username").toString();
+        QString talkid = user.value("userid").toString();
 
-        int LocationNum = 0;
-        QString Desk_name("");
-        QString Result("");
-        int Sumgetmoney = 0;
-        int Balance = 0;
+        QQChat *qc = new QQChat();
+        connect(qc,SIGNAL(banUser(int)),this,SLOT(pu_ban(int)));
+        qc->update_input(text);
+        qc->update_name(username);
+        qc->talkid = talkid.toInt();
+        ui->ChatPanel->addWidget(qc);
 
-        if (Cmd == 2 || Cmd == 3|| Cmd == 4 || Cmd == 5) {
-            Deskid = json_object.value("DeskId").toInt();
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
 
-            CountDown = json_object.value("CountDown").toInt();
-            Phase = json_object.value("Phase").toInt();
+//        int Cmd = json_object.value("Cmd").toInt();
+//        int Deskid = 0;
+//        int Boot_num = 0;
+//        int Pave_num = 0;
+//        int CountDown = 0;
+//        int Phase     = 0;
+//        qint64 GameStarTime = 0;
 
-            GameStarTime = json_object.value("GameStarTime").toInt();
+//        int LocationNum = 0;
+//        QString Desk_name("");
+//        QString Result("");
+//        int Sumgetmoney = 0;
+//        int Balance = 0;
 
-        } else if (Cmd == 6) {
-            Deskid = json_object.value("DeskId").toInt();
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
+//        if (Cmd == 2 || Cmd == 3|| Cmd == 4 || Cmd == 5) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
 
-            CountDown = json_object.value("CountDown").toInt();
-            Phase = json_object.value("Phase").toInt();
+//            CountDown = json_object.value("CountDown").toInt();
+//            Phase = json_object.value("Phase").toInt();
 
-            GameStarTime = json_object.value("GameStarTime").toInt();
+//            GameStarTime = json_object.value("GameStarTime").toInt();
 
-        } else if (Cmd == 7) {
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
+//        } else if (Cmd == 6) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
 
-            Desk_name = json_object.value("Desk_name").toString();
-            Result = json_object.value("Result").toString();
+//            CountDown = json_object.value("CountDown").toInt();
+//            Phase = json_object.value("Phase").toInt();
 
-            Sumgetmoney = json_object.value("Sumgetmoney").toInt();
-            Balance = json_object.value("Balance").toInt();
-        } else if (Cmd == 8) {
-            Deskid = json_object.value("DeskId").toInt();
-            LocationNum = json_object.value("LocationNum").toInt();
-        }
+//            GameStarTime = json_object.value("GameStarTime").toInt();
+
+//        } else if (Cmd == 7) {
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
+
+//            Desk_name = json_object.value("Desk_name").toString();
+//            Result = json_object.value("Result").toString();
+
+//            Sumgetmoney = json_object.value("Sumgetmoney").toInt();
+//            Balance = json_object.value("Balance").toInt();
+//        } else if (Cmd == 8) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            LocationNum = json_object.value("LocationNum").toInt();
+//        }
 
 
         qDebug() << "length" << length;

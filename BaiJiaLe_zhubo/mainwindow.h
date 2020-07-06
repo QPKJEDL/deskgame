@@ -190,6 +190,7 @@ private slots:
     void pu_login();
     void pu_leave();
     void pu_money_list();
+    void pu_ban(int talkid);
 
     void on_money();
     void on_cancel();
@@ -224,6 +225,7 @@ private:
     void request_top_five();
 
     void request_money();
+    void request_ban(int talkid);
 
     // 刷新重启前结果
     void result_list(QJsonArray array);
@@ -246,5 +248,6 @@ private:
     void responsed_top_three(QNetworkReply *reply);
     void responsed_top_five(QNetworkReply *reply);
     void responsed_money(QNetworkReply *reply);
+    void responsed_ban(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

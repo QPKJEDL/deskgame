@@ -42,7 +42,7 @@ public:
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);border:1px solid ; border-radius: 8px;\n"
 "background-color: rgb(170, 170, 127);"));
-        label->setAlignment(Qt::AlignCenter);
+        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
         retranslateUi(QQChat);
 
@@ -52,8 +52,8 @@ public:
     void retranslateUi(QWidget *QQChat)
     {
         QQChat->setWindowTitle(QCoreApplication::translate("QQChat", "Form", nullptr));
-        pushButton->setText(QCoreApplication::translate("QQChat", "\345\255\237\351\207\221\350\261\252", nullptr));
-        label->setText(QCoreApplication::translate("QQChat", "\344\275\240\345\245\275\345\220\227", nullptr));
+        pushButton->setText(QString());
+        label->setText(QString());
     } // retranslateUi
 
 };
