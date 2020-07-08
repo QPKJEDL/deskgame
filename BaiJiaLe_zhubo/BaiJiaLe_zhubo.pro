@@ -19,26 +19,39 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
     form.cpp \
-    live.cpp \
-    login.cpp \
     main.cpp \
     mainwindow.cpp \
     mod/MNetManager.cpp \
+    mod/mod_chat/MChat.cpp \
+    mod/mod_gameover/MGameOver.cpp \
+    mod/mod_leave/MLeave.cpp \
+    mod/mod_login/MLogin.cpp \
+    mod/mod_money/MMoney.cpp \
+    mod/mod_roominfo/MRoomInfo.cpp \
+    mod/mod_topThree/MTopThree.cpp \
     qqchat.cpp
 
 HEADERS += \
     form.h \
-    live.h \
-    login.h \
     mainwindow.h \
     mod/MNetManager.h \
+    mod/mod_chat/MChat.h \
+    mod/mod_gameover/MGameOver.h \
+    mod/mod_leave/MLeave.h \
+    mod/mod_login/MLogin.h \
+    mod/mod_money/MMoney.h \
+    mod/mod_roominfo/MRoomInfo.h \
+    mod/mod_topThree/MTopThree.h \
     qqchat.h
 
 FORMS += \
     form.ui \
-    live.ui \
-    login.ui \
     mainwindow.ui \
+    mod/mod_chat/MChat.ui \
+    mod/mod_gameover/MGameOver.ui \
+    mod/mod_login/MLogin.ui \
+    mod/mod_money/MMoney.ui \
+    mod/mod_topThree/MTopThree.ui \
     qqchat.ui
 
 # Default rules for deployment.

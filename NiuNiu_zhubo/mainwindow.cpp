@@ -75,6 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     _map.insert(LOGIN,&MainWindow::responsed_first_login);
     _map.insert(SECONDLOGIN,&MainWindow::responsed_second_login);
     _map.insert(TOPTHREE,&MainWindow::responsed_top_three);
+    _map.insert(MONEY,&MainWindow::responsed_money);
 
    manager = new MNetManager;
    manager->setIp("129.211.114.135:8210");
@@ -87,7 +88,6 @@ MainWindow::MainWindow(QWidget *parent)
    connect(second_manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(while_responsed(QNetworkReply*,int)));
 
    login_window = new Login();
-   qDebug() << login_window->get_login_Button()->text();
    connect(login_window->get_login_Button(),SIGNAL(clicked()),this,SLOT(pu_login()));
 
   //M
@@ -140,6 +140,9 @@ MainWindow::MainWindow(QWidget *parent)
 
   //M
   ui->lineEdit_2->setVisible(false);
+
+  live_window = new Live();
+  connect(live_window,SIGNAL(request_money_list()),this,SLOT(pu_money_list()));
 }
 
 //判断是否是炸弹12，五花牛11
@@ -935,6 +938,18 @@ void MainWindow::request_room_info()
     manager->postData(QByteArray());
 }
 
+void MainWindow::request_money()
+{
+    second_manager->setStatus(MONEY);
+    second_manager->setInterface("live_reward_list");
+    QByteArray postData;
+    postData.append("lastid=" + QString::number(live_window->lastid));
+    postData.append("&type=" + QString::number(live_window->type));
+    postData.append("&begin=" + live_window->get_time_begin());
+    postData.append("&end=" + live_window->get_time_end());
+    second_manager->postData(postData);
+}
+
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
@@ -1069,6 +1084,22 @@ void MainWindow::responsed_top_three(QNetworkReply *reply)
     else{
         QMessageBox box;
         box.setText("获取下注前三失败");
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_money(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QJsonArray data = json.value("data").toArray();
+        live_window->update_panel(data);
+    }
+    else{
+        QMessageBox box;
+        box.setText("获取打赏记录失败");
         box.exec();
     }
 }
@@ -1676,6 +1707,16 @@ void MainWindow::pu_start()
 void MainWindow::pu_init()
 {
     Request_initialize();
+}
+
+void MainWindow::pu_money_list()
+{
+    request_money();
+}
+
+void MainWindow::on_money()
+{
+    live_window->show();
 }
 
 void MainWindow::Request_first_login()

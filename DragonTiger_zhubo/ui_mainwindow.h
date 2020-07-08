@@ -17,7 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -50,7 +50,10 @@ public:
     QLabel *label_same;
     QLabel *label_minLimit;
     QLabel *label_tieMinLimit;
-    QTextEdit *textEdit;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
+    QVBoxLayout *verticalLayout_10;
+    QGridLayout *ChatPanel;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout;
@@ -381,88 +384,25 @@ public:
 
         verticalLayout_9->addWidget(groupBox);
 
-        textEdit = new QTextEdit(centralwidget);
-        textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        QPalette palette1;
-        QBrush brush6(QColor(255, 170, 255, 255));
-        brush6.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::WindowText, brush6);
-        QBrush brush7(QColor(30, 40, 50, 255));
-        brush7.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Button, brush7);
-        palette1.setBrush(QPalette::Active, QPalette::Light, brush);
-        QBrush brush8(QColor(255, 212, 255, 255));
-        brush8.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Midlight, brush8);
-        QBrush brush9(QColor(127, 85, 127, 255));
-        brush9.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Dark, brush9);
-        QBrush brush10(QColor(170, 113, 170, 255));
-        brush10.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::Mid, brush10);
-        palette1.setBrush(QPalette::Active, QPalette::Text, brush6);
-        palette1.setBrush(QPalette::Active, QPalette::BrightText, brush);
-        QBrush brush11(QColor(0, 0, 0, 255));
-        brush11.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::ButtonText, brush11);
-        palette1.setBrush(QPalette::Active, QPalette::Base, brush7);
-        palette1.setBrush(QPalette::Active, QPalette::Window, brush7);
-        palette1.setBrush(QPalette::Active, QPalette::Shadow, brush11);
-        palette1.setBrush(QPalette::Active, QPalette::AlternateBase, brush8);
-        QBrush brush12(QColor(255, 255, 220, 255));
-        brush12.setStyle(Qt::SolidPattern);
-        palette1.setBrush(QPalette::Active, QPalette::ToolTipBase, brush12);
-        palette1.setBrush(QPalette::Active, QPalette::ToolTipText, brush11);
-        QBrush brush13(QColor(0, 0, 0, 128));
-        brush13.setStyle(Qt::SolidPattern);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Active, QPalette::PlaceholderText, brush13);
-#endif
-        palette1.setBrush(QPalette::Inactive, QPalette::WindowText, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::Button, brush7);
-        palette1.setBrush(QPalette::Inactive, QPalette::Light, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::Midlight, brush8);
-        palette1.setBrush(QPalette::Inactive, QPalette::Dark, brush9);
-        palette1.setBrush(QPalette::Inactive, QPalette::Mid, brush10);
-        palette1.setBrush(QPalette::Inactive, QPalette::Text, brush6);
-        palette1.setBrush(QPalette::Inactive, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Inactive, QPalette::ButtonText, brush11);
-        palette1.setBrush(QPalette::Inactive, QPalette::Base, brush7);
-        palette1.setBrush(QPalette::Inactive, QPalette::Window, brush7);
-        palette1.setBrush(QPalette::Inactive, QPalette::Shadow, brush11);
-        palette1.setBrush(QPalette::Inactive, QPalette::AlternateBase, brush8);
-        palette1.setBrush(QPalette::Inactive, QPalette::ToolTipBase, brush12);
-        palette1.setBrush(QPalette::Inactive, QPalette::ToolTipText, brush11);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush13);
-#endif
-        palette1.setBrush(QPalette::Disabled, QPalette::WindowText, brush9);
-        palette1.setBrush(QPalette::Disabled, QPalette::Button, brush7);
-        palette1.setBrush(QPalette::Disabled, QPalette::Light, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::Midlight, brush8);
-        palette1.setBrush(QPalette::Disabled, QPalette::Dark, brush9);
-        palette1.setBrush(QPalette::Disabled, QPalette::Mid, brush10);
-        palette1.setBrush(QPalette::Disabled, QPalette::Text, brush9);
-        palette1.setBrush(QPalette::Disabled, QPalette::BrightText, brush);
-        palette1.setBrush(QPalette::Disabled, QPalette::ButtonText, brush9);
-        palette1.setBrush(QPalette::Disabled, QPalette::Base, brush7);
-        palette1.setBrush(QPalette::Disabled, QPalette::Window, brush7);
-        palette1.setBrush(QPalette::Disabled, QPalette::Shadow, brush11);
-        palette1.setBrush(QPalette::Disabled, QPalette::AlternateBase, brush6);
-        palette1.setBrush(QPalette::Disabled, QPalette::ToolTipBase, brush12);
-        palette1.setBrush(QPalette::Disabled, QPalette::ToolTipText, brush11);
-#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
-        palette1.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush13);
-#endif
-        textEdit->setPalette(palette1);
-        QFont font4;
-        font4.setPointSize(40);
-        textEdit->setFont(font4);
+        scrollArea = new QScrollArea(centralwidget);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1383, 708));
+        verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
+        ChatPanel = new QGridLayout();
+        ChatPanel->setObjectName(QString::fromUtf8("ChatPanel"));
 
-        verticalLayout_9->addWidget(textEdit);
+        verticalLayout_10->addLayout(ChatPanel);
 
-        verticalLayout_9->setStretch(0, 13);
-        verticalLayout_9->setStretch(1, 30);
+        scrollArea->setWidget(scrollAreaWidgetContents);
+
+        verticalLayout_9->addWidget(scrollArea);
+
+        verticalLayout_9->setStretch(0, 2);
+        verticalLayout_9->setStretch(1, 5);
 
         horizontalLayout_2->addLayout(verticalLayout_9);
 
@@ -501,10 +441,10 @@ public:
         pu_enter = new QPushButton(widget_2);
         pu_enter->setObjectName(QString::fromUtf8("pu_enter"));
         pu_enter->setEnabled(false);
-        QFont font5;
-        font5.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font5.setPointSize(16);
-        pu_enter->setFont(font5);
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font4.setPointSize(16);
+        pu_enter->setFont(font4);
         pu_enter->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(121, 61, 3);background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0.153409 rgba(252, 238, 205, 255), stop:1 rgba(153, 118, 97, 255));border:1px solid grey; border-radius: 0px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0.1875 rgba(153, 118, 97, 255), stop:1 rgba(252, 238, 205, 255));}\n"
@@ -520,7 +460,7 @@ public:
         pu_cancel = new QPushButton(widget_2);
         pu_cancel->setObjectName(QString::fromUtf8("pu_cancel"));
         pu_cancel->setEnabled(false);
-        pu_cancel->setFont(font5);
+        pu_cancel->setFont(font4);
         pu_cancel->setCursor(QCursor(Qt::ArrowCursor));
         pu_cancel->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(121, 61, 3);background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:1, y2:1, stop:0.153409 rgba(252, 238, 205, 255), stop:1 rgba(153, 118, 97, 255));border:1px solid grey; border-radius: 0px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -663,10 +603,10 @@ public:
 
         label_first_money = new QLabel(widget_3);
         label_first_money->setObjectName(QString::fromUtf8("label_first_money"));
-        QFont font6;
-        font6.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font6.setPointSize(20);
-        label_first_money->setFont(font6);
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font5.setPointSize(20);
+        label_first_money->setFont(font5);
         label_first_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_first_money->setAlignment(Qt::AlignCenter);
 
@@ -680,19 +620,19 @@ public:
 
         label_13 = new QLabel(widget_3);
         label_13->setObjectName(QString::fromUtf8("label_13"));
-        QFont font7;
-        font7.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font7.setPointSize(14);
-        font7.setBold(true);
-        font7.setWeight(75);
-        label_13->setFont(font7);
+        QFont font6;
+        font6.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font6.setPointSize(14);
+        font6.setBold(true);
+        font6.setWeight(75);
+        label_13->setFont(font6);
         label_13->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_4->addWidget(label_13, 1, 2, 1, 1);
 
         label_second_money = new QLabel(widget_3);
         label_second_money->setObjectName(QString::fromUtf8("label_second_money"));
-        label_second_money->setFont(font6);
+        label_second_money->setFont(font5);
         label_second_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_second_money->setAlignment(Qt::AlignCenter);
 
@@ -700,13 +640,13 @@ public:
 
         label_8 = new QLabel(widget_3);
         label_8->setObjectName(QString::fromUtf8("label_8"));
-        QFont font8;
-        font8.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font8.setPointSize(14);
-        font8.setBold(true);
-        font8.setItalic(false);
-        font8.setWeight(75);
-        label_8->setFont(font8);
+        QFont font7;
+        font7.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
+        font7.setPointSize(14);
+        font7.setBold(true);
+        font7.setItalic(false);
+        font7.setWeight(75);
+        label_8->setFont(font7);
         label_8->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_8->setAlignment(Qt::AlignCenter);
 
@@ -728,7 +668,7 @@ public:
 
         label_18 = new QLabel(widget_3);
         label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setFont(font7);
+        label_18->setFont(font6);
         label_18->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         gridLayout_4->addWidget(label_18, 2, 2, 1, 1);
@@ -741,7 +681,7 @@ public:
 
         label_third_money = new QLabel(widget_3);
         label_third_money->setObjectName(QString::fromUtf8("label_third_money"));
-        label_third_money->setFont(font6);
+        label_third_money->setFont(font5);
         label_third_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_third_money->setAlignment(Qt::AlignCenter);
 
@@ -848,10 +788,10 @@ public:
 
         label_first_num = new QLabel(groupBox_5);
         label_first_num->setObjectName(QString::fromUtf8("label_first_num"));
-        QFont font9;
-        font9.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font9.setPointSize(30);
-        label_first_num->setFont(font9);
+        QFont font8;
+        font8.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font8.setPointSize(30);
+        label_first_num->setFont(font8);
         label_first_num->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
         label_first_num->setAlignment(Qt::AlignCenter);
@@ -896,7 +836,7 @@ public:
 
         label_fourth_num = new QLabel(groupBox_5);
         label_fourth_num->setObjectName(QString::fromUtf8("label_fourth_num"));
-        label_fourth_num->setFont(font9);
+        label_fourth_num->setFont(font8);
         label_fourth_num->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
         label_fourth_num->setAlignment(Qt::AlignCenter);
@@ -905,7 +845,7 @@ public:
 
         label_fifth_num = new QLabel(groupBox_5);
         label_fifth_num->setObjectName(QString::fromUtf8("label_fifth_num"));
-        label_fifth_num->setFont(font9);
+        label_fifth_num->setFont(font8);
         label_fifth_num->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
         label_fifth_num->setAlignment(Qt::AlignCenter);
@@ -914,7 +854,7 @@ public:
 
         label_third_num = new QLabel(groupBox_5);
         label_third_num->setObjectName(QString::fromUtf8("label_third_num"));
-        label_third_num->setFont(font9);
+        label_third_num->setFont(font8);
         label_third_num->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
         label_third_num->setAlignment(Qt::AlignCenter);
@@ -923,7 +863,7 @@ public:
 
         label_second_num = new QLabel(groupBox_5);
         label_second_num->setObjectName(QString::fromUtf8("label_second_num"));
-        label_second_num->setFont(font9);
+        label_second_num->setFont(font8);
         label_second_num->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(74, 15, 12);"));
         label_second_num->setAlignment(Qt::AlignCenter);

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1033</width>
-    <height>613</height>
+    <width>1422</width>
+    <height>828</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -228,7 +228,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_zhuang">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -257,7 +257,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_xian">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -485,7 +485,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_same">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -514,7 +514,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_zhuangdui">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -543,7 +543,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_xiandui">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -737,8 +737,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>725</width>
-           <height>371</height>
+           <width>1114</width>
+           <height>571</height>
           </rect>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -752,7 +752,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
      </layout>
     </item>
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="222,361,482">
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="222,360,482">
       <item>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="styleSheet">
@@ -1004,302 +1004,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
       </item>
       <item>
        <widget class="QGroupBox" name="groupBox_3">
-        <property name="styleSheet">
-         <string notr="true">QGroupBox{color: rgb(0, 0, 0);background-image: url(:/button/pu_yellow.png);solid grey; border-radius: 8px;}</string>
-        </property>
         <property name="title">
          <string/>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_4" stretch="1,3">
-         <property name="spacing">
-          <number>0</number>
-         </property>
-         <property name="leftMargin">
-          <number>0</number>
-         </property>
-         <property name="topMargin">
-          <number>0</number>
-         </property>
-         <property name="rightMargin">
-          <number>0</number>
-         </property>
-         <property name="bottomMargin">
-          <number>0</number>
-         </property>
-         <item>
-          <widget class="QLabel" name="label_134">
-           <property name="font">
-            <font>
-             <family>方正粗黑宋简体</family>
-             <pointsize>20</pointsize>
-            </font>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(0, 101, 255);</string>
-           </property>
-           <property name="text">
-            <string>本局投注最大前三</string>
-           </property>
-           <property name="alignment">
-            <set>Qt::AlignCenter</set>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QWidget" name="widget_3" native="true">
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(39, 39, 57);</string>
-           </property>
-           <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,2,1,1,2">
-            <property name="topMargin">
-             <number>1</number>
-            </property>
-            <property name="bottomMargin">
-             <number>1</number>
-            </property>
-            <property name="horizontalSpacing">
-             <number>0</number>
-            </property>
-            <property name="verticalSpacing">
-             <number>1</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="QLabel" name="label">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icon/image/icon/1.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="3">
-             <widget class="QLabel" name="label_first_bet">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="0">
-             <widget class="QLabel" name="label_11">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icon/image/icon/2.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QLabel" name="label_first_name">
-              <property name="font">
-               <font>
-                <family>方正粗黑宋简体</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="1">
-             <widget class="QLabel" name="label_second_name">
-              <property name="font">
-               <font>
-                <family>方正粗黑宋简体</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="4">
-             <widget class="QLabel" name="label_first_money">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="3">
-             <widget class="QLabel" name="label_second_bet">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="2">
-             <widget class="QLabel" name="label_13">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>14</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string>投注</string>
-              </property>
-             </widget>
-            </item>
-            <item row="1" column="4">
-             <widget class="QLabel" name="label_second_money">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="2">
-             <widget class="QLabel" name="label_3">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>14</pointsize>
-                <weight>75</weight>
-                <italic>false</italic>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string>投注</string>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="0">
-             <widget class="QLabel" name="label_16">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/icon/image/icon/3.png&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="1">
-             <widget class="QLabel" name="label_third_name">
-              <property name="font">
-               <font>
-                <family>方正粗黑宋简体</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="2">
-             <widget class="QLabel" name="label_18">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>14</pointsize>
-                <weight>75</weight>
-                <bold>true</bold>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string>投注</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="3">
-             <widget class="QLabel" name="label_third_bet">
-              <property name="styleSheet">
-               <string notr="true"/>
-              </property>
-              <property name="text">
-               <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-              </property>
-             </widget>
-            </item>
-            <item row="2" column="4">
-             <widget class="QLabel" name="label_third_money">
-              <property name="font">
-               <font>
-                <family>微软雅黑</family>
-                <pointsize>20</pointsize>
-               </font>
-              </property>
-              <property name="styleSheet">
-               <string notr="true">color: rgb(255, 255, 255);</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="alignment">
-               <set>Qt::AlignCenter</set>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </widget>
-         </item>
-        </layout>
        </widget>
       </item>
       <item>

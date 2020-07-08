@@ -8,6 +8,7 @@
 #include <QTcpSocket>
 #include <QList>
 #include <string>
+#include "live.h"
 using namespace std;
 
 #include "mod/MNetManager.h"
@@ -63,6 +64,8 @@ private slots:
     void pu_useless();
     void pu_start();
     void pu_init();
+    void pu_money_list();
+    void on_money();
 
 private:
     void sendMessage(QString id,QString token);
@@ -72,7 +75,7 @@ private:
     Ui::MainWindow *ui;
 
     Login *login_window;
-    //Live *live_window;
+    Live *live_window;
     QPushButton *pu_money;
 
     QTimer* timer_focus;
@@ -134,6 +137,7 @@ private:
     void Request_start();
     void Request_initialize();
     void request_room_info();
+    void request_money();
 
     void responsed_first_login(QNetworkReply *reply);
     void responsed_second_login(QNetworkReply *reply);
@@ -146,5 +150,6 @@ private:
     void responsed_useless(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
     void responsed_top_three(QNetworkReply *reply);
+    void responsed_money(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

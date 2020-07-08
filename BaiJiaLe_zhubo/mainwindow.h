@@ -7,11 +7,19 @@
 #include <QTimer>
 #include <QLabel>
 #include <QTcpSocket>
-#include "form.h"
-#include "login.h"
-#include "live.h"
+#include "mod/mod_money/MMoney.h"
+#include "mod/mod_login/MLogin.h"
 #include "mod/MNetManager.h"
+#include "mod/mod_topThree/MTopThree.h"
+#include "mod/mod_leave/MLeave.h"
+#include "mod/mod_gameover/MGameOver.h"
+#include "mod/mod_roominfo/MRoomInfo.h"
 
+class MMoney;
+class MLogin;
+class MTopThree;
+class MGameOver;
+class MRoomInfo;
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -123,21 +131,9 @@ public:
     ~MainWindow();
 
     void initlimit(QStringList& list  );
-    //////////////////////////////
-    //added by kris,2020-6-16
-    //添加长连接相关代码。
-    ////////////////////////////////
-
-    void pintosend(QDataStream& stream, QString id, QString token);
-
-    void sendLoginMsg(QDataStream& stream);
-    /////////////////////////////////////////////////
 
 private:
     Ui::MainWindow *ui;
-    Login *login_window;
-    Live *live_window;
-    QPushButton *pu_money;
     // 网络
     MNetManager *manager;
     MNetManager *second_manager;
@@ -160,9 +156,6 @@ private:
     QString m_playerPair_str;
     QString m_bankerPair_str;
 
-    // 确定弹窗
-    Form *form;
-
     // 结果链表
     Link* m_link_reslut;
     Link* m_link_reslut_head;
@@ -182,50 +175,22 @@ private slots:
     void pu_start();
     void pu_changeXue();
     void pu_useless();
-    void pu_zhuang();
-    void pu_zhuangdui();
-    void pu_xian();
-    void pu_xiandui();
-    void pu_same();
-    void pu_login();
-    void pu_leave();
-    void pu_money_list();
-    void pu_ban(int talkid);
 
-    void on_money();
-    void on_cancel();
-    void on_enter();
     void on_responsed(QNetworkReply* reply,int status);
 
     // 倒计时
     void count_down();
-    // 弹窗
-    void tc_enter();
-    void tc_cancel();
-    /////////////////////added by kris,2020-6-16
-    void readMessage();
-    void sendMessage(QString id,QString token);
-    void connectedServer();
 
 private:
     void on_init();
     void apply_start();
 
-    void request_first_login();
-    void reqeust_second_login(QString live_user, QString password);
     void request_init();
-    void request_room_info();
     void request_result_list();
     void request_start();
     void request_changeXue();
     void request_useless();
-    void request_gameover();
-
-    void request_top_three();
     void request_top_five();
-
-    void request_money();
-    void request_ban(int talkid);
 
     // 刷新重启前结果
     void result_list(QJsonArray array);
@@ -236,18 +201,20 @@ private:
     void phase_kaiPai();
     void phase_finish();
 
-    void responsed_login(QNetworkReply *reply);
-    void responsed_second_login(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
-    void responsed_roominfo(QNetworkReply *reply);
     void responsed_record(QNetworkReply *reply);
     void responsed_start(QNetworkReply *reply);
     void responsed_changeBoot(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
-    void responsed_gameover(QNetworkReply *reply);
-    void responsed_top_three(QNetworkReply *reply);
     void responsed_top_five(QNetworkReply *reply);
-    void responsed_money(QNetworkReply *reply);
-    void responsed_ban(QNetworkReply *reply);
+
+    // 模块
+private:
+    MLogin *module_login;
+    MMoney *module_money;
+    MTopThree *module_topThree;
+    MLeave *module_leave;
+    MGameOver *module_gameOver;
+    MRoomInfo *module_roomInfo;
 };
 #endif // MAINWINDOW_H

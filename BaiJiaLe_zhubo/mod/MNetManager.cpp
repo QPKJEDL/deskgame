@@ -29,7 +29,9 @@ void MNetManager::setStatus(int status)
 }
 
 void MNetManager::setInterface(QString interface){
+    qDebug() << interface;
     _request->setUrl(QUrl("http://" + _ip + "/" + interface));
+    qDebug() << interface;
 }
 
 void MNetManager::postData(QByteArray data){

@@ -5,12 +5,12 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QHostAddress>
-
+#include "qqchat.h"
 QString URL = "101.32.22.231:8210";
 
 // lh a1 // bjl a5 // nn a2
 
-enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY};
+enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY,BAN};
 
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
@@ -78,6 +78,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     _map.insert(TOPFIVE,&MainWindow::responsed_top_five);
     _map.insert(SECONDLOGIN,&MainWindow::responsed_second_login);
     _map.insert(MONEY,&MainWindow::responsed_money);
+    _map.insert(BAN,&MainWindow::responsed_ban);
 
     // 链接槽函数
     connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
@@ -161,7 +162,7 @@ void MainWindow::sendLoginMsg(QDataStream &stream)
     qint8 flag       = 0;
     qint8 kong       = 0;
 
-    qint64 temp7 = 16;
+    qint64 temp7 = _long_id.toLong();
 
     stream << length;
     stream << seq;
@@ -295,6 +296,15 @@ void MainWindow::request_money()
     postData.append("&type=" + QString::number(live_window->type));
     postData.append("&begin=" + live_window->get_time_begin());
     postData.append("&end=" + live_window->get_time_end());
+    second_manager->postData(postData);
+}
+
+void MainWindow::request_ban(int talkid)
+{
+    second_manager->setInterface("live_ban_user");
+    QByteArray postData;
+    postData.append("talkid=" + QString::number(talkid));
+    second_manager->setStatus(BAN);
     second_manager->postData(postData);
 }
 
@@ -714,6 +724,27 @@ void MainWindow::responsed_money(QNetworkReply *reply)
     }
 }
 
+void MainWindow::responsed_ban(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        QLabel *label = new QLabel();
+        label->setStyleSheet("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;");
+        label->setText("禁言成功");
+        label->setMaximumSize(100,50);
+        ui->ChatPanel->addWidget(label);
+    }
+    else{
+        QLabel *label = new QLabel();
+        label->setStyleSheet("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;");
+        label->setText("禁言失败");
+        label->setMaximumSize(100,50);
+        ui->ChatPanel->addWidget(label);
+    }
+}
+
 void MainWindow::pu_login()
 {
     request_login();
@@ -722,6 +753,11 @@ void MainWindow::pu_login()
 void MainWindow::pu_money_list()
 {
     request_money();
+}
+
+void MainWindow::pu_ban(int talkid)
+{
+    request_ban(talkid);
 }
 
 void MainWindow::on_money()
@@ -1063,7 +1099,7 @@ void MainWindow::readMessage()
             QDataStream out(&block, QIODevice::WriteOnly);
             out.setVersion(QDataStream::Qt_5_14);
 
-            //sendLoginMsg(out);
+            sendLoginMsg(out);
 
             m_tcpsocket->write(block);
             m_login = false;
@@ -1118,53 +1154,52 @@ void MainWindow::readMessage()
 
         QJsonObject json_object = QJsonDocument::fromJson(receivedata).object();
 
-        int Cmd = json_object.value("Cmd").toInt();
-        int Deskid = 0;
-        int Boot_num = 0;
-        int Pave_num = 0;
-        int CountDown = 0;
-        int Phase     = 0;
-        qint64 GameStarTime = 0;
+        QString text = json_object.value("text").toString();
+        QJsonObject user = json_object.value("user").toObject();
+        QString username = user.value("username").toString();
+        QString talkid = user.value("userid").toString();
 
-        int LocationNum = 0;
-        QString Desk_name("");
-        QString Result("");
-        int Sumgetmoney = 0;
-        int Balance = 0;
+        QQChat *qc = new QQChat();
+        connect(qc,SIGNAL(banUser(int)),this,SLOT(pu_ban(int)));
+        qc->update_input(text);
+        qc->update_name(username);
+        qc->talkid = talkid.toInt();
+        ui->ChatPanel->addWidget(qc);
 
-        if (Cmd == 2 || Cmd == 3|| Cmd == 4 || Cmd == 5) {
-            Deskid = json_object.value("DeskId").toInt();
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
 
-            CountDown = json_object.value("CountDown").toInt();
-            Phase = json_object.value("Phase").toInt();
+//        if (Cmd == 2 || Cmd == 3|| Cmd == 4 || Cmd == 5) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
 
-            GameStarTime = json_object.value("GameStarTime").toInt();
+//            CountDown = json_object.value("CountDown").toInt();
+//            Phase = json_object.value("Phase").toInt();
 
-        } else if (Cmd == 6) {
-            Deskid = json_object.value("DeskId").toInt();
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
+//            GameStarTime = json_object.value("GameStarTime").toInt();
 
-            CountDown = json_object.value("CountDown").toInt();
-            Phase = json_object.value("Phase").toInt();
+//        } else if (Cmd == 6) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
 
-            GameStarTime = json_object.value("GameStarTime").toInt();
+//            CountDown = json_object.value("CountDown").toInt();
+//            Phase = json_object.value("Phase").toInt();
 
-        } else if (Cmd == 7) {
-            Boot_num = json_object.value("Boot_num").toInt();
-            Pave_num = json_object.value("Pave_num").toInt();
+//            GameStarTime = json_object.value("GameStarTime").toInt();
 
-            Desk_name = json_object.value("Desk_name").toString();
-            Result = json_object.value("Result").toString();
+//        } else if (Cmd == 7) {
+//            Boot_num = json_object.value("Boot_num").toInt();
+//            Pave_num = json_object.value("Pave_num").toInt();
 
-            Sumgetmoney = json_object.value("Sumgetmoney").toInt();
-            Balance = json_object.value("Balance").toInt();
-        } else if (Cmd == 8) {
-            Deskid = json_object.value("DeskId").toInt();
-            LocationNum = json_object.value("LocationNum").toInt();
-        }
+//            Desk_name = json_object.value("Desk_name").toString();
+//            Result = json_object.value("Result").toString();
+
+//            Sumgetmoney = json_object.value("Sumgetmoney").toInt();
+//            Balance = json_object.value("Balance").toInt();
+//        } else if (Cmd == 8) {
+//            Deskid = json_object.value("DeskId").toInt();
+//            LocationNum = json_object.value("LocationNum").toInt();
+//        }
 
 
         qDebug() << "length" << length;

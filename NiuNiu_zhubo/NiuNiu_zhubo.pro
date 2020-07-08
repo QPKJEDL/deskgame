@@ -19,6 +19,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    live.cpp \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -26,11 +27,13 @@ SOURCES += \
 
 HEADERS += \
     Structure.h \
+    live.h \
     login.h \
     mainwindow.h \
     mod/MNetManager.h
 
 FORMS += \
+    live.ui \
     login.ui \
     mainwindow.ui
 
