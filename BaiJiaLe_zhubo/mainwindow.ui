@@ -228,7 +228,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_zhuang">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -257,7 +257,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_xian">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -485,7 +485,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_same">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -514,7 +514,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_zhuangdui">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -543,7 +543,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <item>
             <widget class="QPushButton" name="pu_xiandui">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="maximumSize">
               <size>
@@ -737,7 +737,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>1114</width>
+           <width>1161</width>
            <height>571</height>
           </rect>
          </property>
@@ -824,7 +824,7 @@ color: rgb(255, 255, 255);</string>
             <item>
              <widget class="QPushButton" name="pu_enter">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="font">
                <font>
@@ -851,7 +851,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
             <item>
              <widget class="QPushButton" name="pu_cancel">
               <property name="enabled">
-               <bool>true</bool>
+               <bool>false</bool>
               </property>
               <property name="font">
                <font>
@@ -1012,7 +1012,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
       <item>
        <widget class="QGroupBox" name="groupBox_4">
         <property name="styleSheet">
-         <string notr="true">background-color: rgb(252, 238, 205);</string>
+         <string notr="true"/>
         </property>
         <property name="title">
          <string/>
@@ -1030,449 +1030,6 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          <property name="bottomMargin">
           <number>2</number>
          </property>
-         <item>
-          <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1,6">
-           <property name="spacing">
-            <number>0</number>
-           </property>
-           <item>
-            <widget class="QLabel" name="label_137">
-             <property name="font">
-              <font>
-               <family>方正粗黑宋简体</family>
-               <pointsize>20</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">background-color: qlineargradient(spread:reflect, x1:1, y1:0.523045, x2:1, y2:0, stop:0 rgba(193, 42, 40, 255), stop:1 rgba(167, 38, 35, 255));
-color: rgb(255, 255, 255);</string>
-             </property>
-             <property name="text">
-              <string>本靴连续中注三铺以上</string>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
-           <item>
-            <layout class="QGridLayout" name="gridLayout_5" columnstretch="4,2,1,1">
-             <property name="horizontalSpacing">
-              <number>0</number>
-             </property>
-             <property name="verticalSpacing">
-              <number>1</number>
-             </property>
-             <item row="0" column="0">
-              <widget class="QLabel" name="label_bingo_one">
-               <property name="maximumSize">
-                <size>
-                 <width>319</width>
-                 <height>90</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="3">
-              <widget class="QLabel" name="label_14">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>铺</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="label_8">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>连中</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="0">
-              <widget class="QLabel" name="label_bingo_five">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="0">
-              <widget class="QLabel" name="label_bingo_three">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
-              <widget class="QLabel" name="label_bingo_two">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="0">
-              <widget class="QLabel" name="label_bingo_four">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2">
-              <widget class="QLabel" name="label_first_num">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>30</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="1">
-              <widget class="QLabel" name="label_15">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>连中</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="1">
-              <widget class="QLabel" name="label_19">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>连中</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="1">
-              <widget class="QLabel" name="label_20">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>连中</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="1">
-              <widget class="QLabel" name="label_21">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>连中</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="2">
-              <widget class="QLabel" name="label_fourth_num">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>30</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="2">
-              <widget class="QLabel" name="label_fifth_num">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>30</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2">
-              <widget class="QLabel" name="label_third_num">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>30</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2">
-              <widget class="QLabel" name="label_second_num">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>30</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string/>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="3">
-              <widget class="QLabel" name="label_26">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>铺</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="3">
-              <widget class="QLabel" name="label_27">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>铺</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <widget class="QLabel" name="label_28">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>铺</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-             <item row="4" column="3">
-              <widget class="QLabel" name="label_29">
-               <property name="font">
-                <font>
-                 <family>方正粗黑宋简体</family>
-                 <pointsize>20</pointsize>
-                </font>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">color: rgb(255, 255, 255);
-background-color: rgb(74, 15, 12);</string>
-               </property>
-               <property name="text">
-                <string>铺</string>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignCenter</set>
-               </property>
-              </widget>
-             </item>
-            </layout>
-           </item>
-          </layout>
-         </item>
         </layout>
        </widget>
       </item>

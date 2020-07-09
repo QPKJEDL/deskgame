@@ -41,13 +41,11 @@ void MRoomInfo::responsed_room_info(QNetworkReply *reply)
         arg->deskId->setText(DeskName);
 
         unsigned int phase = data.at(0)["Phase"].toInt();
-        emit send_phase(phase);
+        unsigned int starTime = data.at(0)["GameStarTime"].toInt();
+        unsigned int sysTime = data.at(0)["Systime"].toInt();
+        unsigned int countDown = data.at(0)["CountDown"].toInt();
+        emit send_phase(phase,starTime,sysTime,countDown);
     }
-}
-
-void MRoomInfo::on_logined()
-{
-    request_room_info();
 }
 
 void MRoomInfo::on_responsed(QNetworkReply *reply, int status)

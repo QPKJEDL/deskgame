@@ -51,7 +51,7 @@ public:
     {
         if (MGameOver->objectName().isEmpty())
             MGameOver->setObjectName(QString::fromUtf8("MGameOver"));
-        MGameOver->resize(537, 282);
+        MGameOver->resize(533, 271);
         MGameOver->setStyleSheet(QString::fromUtf8("background-color: rgb(39, 39, 39);"));
         verticalLayout = new QVBoxLayout(MGameOver);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));

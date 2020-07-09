@@ -25,11 +25,11 @@ MainWindow::MainWindow(QMainWindow *parent)
 
     login_window = new Login();
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     pu_money = new QPushButton(this);
@@ -381,7 +381,7 @@ void MainWindow::responsed_second_login(QNetworkReply *reply)
         second_manager->setRawHeader("token",_long_token.toUtf8());
 
         m_tcpsocket->abort();
-        m_tcpsocket->connectToHost(QHostAddress(QString("129.211.114.135")),23001);
+        m_tcpsocket->connectToHost(QHostAddress(QString("101.32.22.231")),23001);
     }
     else{
         QMessageBox box;
@@ -895,7 +895,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=a1&password=123456");
+    postData.append("desk=vip11&password=7c6f50493eed622b");
     manager->postData(postData);
 }
 

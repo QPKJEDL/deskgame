@@ -28,15 +28,14 @@ private:
     QMap<int,exe_roomInfo> _map;
 
 private:
-    void request_room_info();
     void responsed_room_info(QNetworkReply *reply);
 
 public slots:
-    void on_logined();
+    void request_room_info();
     void on_responsed(QNetworkReply* reply,int status);
 
 signals:
-    void send_phase(int);
+    void send_phase(int,int,int,int);
 };
 
 #endif // MROOMINFO_H

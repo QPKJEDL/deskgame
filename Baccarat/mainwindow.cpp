@@ -1090,7 +1090,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=cs1&password=147963");
+    postData.append("desk=VIP2&password=e5134a96afacbcb0");
     manager->postData(postData);
 }
 

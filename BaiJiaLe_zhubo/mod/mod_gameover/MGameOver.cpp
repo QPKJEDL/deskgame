@@ -35,7 +35,7 @@ MGameOver::MGameOver(MGameOverArg *arg, QWidget *parent)
     connect(arg->tie,SIGNAL(clicked()),this,SLOT(pu_tie()));
     connect(arg->enter,SIGNAL(clicked()),this,SLOT(pu_enter()));
     connect(arg->banker,SIGNAL(clicked()),this,SLOT(pu_banker()));
-    connect(arg->cancel,SIGNAL(clicked()),this,SLOT(pu_cancel()));
+    connect(arg->cancel,SIGNAL(clicked()),this,SLOT(clear()));
     connect(arg->player,SIGNAL(clicked()),this,SLOT(pu_player()));
     connect(arg->bankerPair,SIGNAL(clicked()),this,SLOT(pu_bankerPair()));
     connect(arg->playerPair,SIGNAL(clicked()),this,SLOT(pu_playerPair()));
@@ -100,15 +100,15 @@ void MGameOver::pu_enter()
     ui->label_boot->setText(arg->boot->text());
     ui->label_pave->setText(arg->pave->text());
     ui->label_result->setText(arg->result->text());
-
+    this->setWindowFlags(Qt::FramelessWindowHint);
     this->show();
 }
 
-void MGameOver::pu_cancel()
+void MGameOver::clear()
 {
-    score_game = -1;
-    score_playerPair = -1;
-    score_bankerPair = -1;
+    score_game = 0;
+    score_playerPair = 0;
+    score_bankerPair = 0;
     arg->result->setText("");
 
     enable({arg->banker,arg->player,arg->tie,arg->bankerPair,arg->playerPair,arg->enter});
@@ -153,6 +153,7 @@ void MGameOver::request_gameover()
         json.insert("playerPair",score_playerPair);
         json.insert("bankerPair",score_bankerPair);
         postData.append(QString("&game_num=" + QString(QJsonDocument(json).toJson())));
+        qDebug() << postData;
         arg->manager->postData(postData);
     }
 }
@@ -163,9 +164,31 @@ void MGameOver::responsed_gameover(QNetworkReply *reply)
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        emit gameOver(score_game,score_bankerPair,score_playerPair);
+        auto f = [](int score)->QString{
+            switch (score) {
+            case 7:{
+                return "庄";
+            }
+            case 4:{
+                return "闲";
+            }
+            case 1:{
+                return "和";
+            }
+            case 5:{
+                return "闲对";
+            }
+            case 2:{
+                return "庄对";
+            }
+            }
+            return "";
+        };
+
+        emit gameOver(f(score_game),f(score_bankerPair),f(score_playerPair));
         disable({arg->enter,arg->cancel,arg->banker,arg->player,arg->tie,arg->bankerPair,arg->playerPair});
         arg->result->setText("");
+        this->hide();
     }
     else{
         enable({arg->enter,arg->cancel});

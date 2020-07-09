@@ -5,7 +5,7 @@ MLeave::MLeave(QPushButton *button, QWidget *widget, QObject *parent) : QObject(
     this->button = button;
     this->widget = widget;
 
-    connect(this->button,SLOT(clicked()),this,SLOT(pu_button()));
+    connect(this->button,SIGNAL(clicked()),this,SLOT(pu_button()));
 }
 
 void MLeave::pu_button()

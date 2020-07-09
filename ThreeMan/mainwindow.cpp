@@ -77,7 +77,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(INIT,&MainWindow::responsed_init);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 

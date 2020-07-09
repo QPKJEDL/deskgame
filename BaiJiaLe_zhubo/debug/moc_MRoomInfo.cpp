@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MRoomInfo_t {
     QByteArrayData data[8];
-    char stringdata0[74];
+    char stringdata0[81];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,14 +35,14 @@ static const qt_meta_stringdata_MRoomInfo_t qt_meta_stringdata_MRoomInfo = {
 QT_MOC_LITERAL(0, 0, 9), // "MRoomInfo"
 QT_MOC_LITERAL(1, 10, 10), // "send_phase"
 QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 10), // "on_logined"
-QT_MOC_LITERAL(4, 33, 12), // "on_responsed"
-QT_MOC_LITERAL(5, 46, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(6, 61, 5), // "reply"
-QT_MOC_LITERAL(7, 67, 6) // "status"
+QT_MOC_LITERAL(3, 22, 17), // "request_room_info"
+QT_MOC_LITERAL(4, 40, 12), // "on_responsed"
+QT_MOC_LITERAL(5, 53, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(6, 68, 5), // "reply"
+QT_MOC_LITERAL(7, 74, 6) // "status"
 
     },
-    "MRoomInfo\0send_phase\0\0on_logined\0"
+    "MRoomInfo\0send_phase\0\0request_room_info\0"
     "on_responsed\0QNetworkReply*\0reply\0"
     "status"
 };
@@ -62,14 +62,14 @@ static const uint qt_meta_data_MRoomInfo[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   29,    2, 0x06 /* Public */,
+       1,    4,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   32,    2, 0x0a /* Public */,
-       4,    2,   33,    2, 0x0a /* Public */,
+       3,    0,   38,    2, 0x0a /* Public */,
+       4,    2,   39,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,    2,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,8 +84,8 @@ void MRoomInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         auto *_t = static_cast<MRoomInfo *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->send_phase((*reinterpret_cast< int(*)>(_a[1]))); break;
-        case 1: _t->on_logined(); break;
+        case 0: _t->send_phase((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
+        case 1: _t->request_room_info(); break;
         case 2: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
         }
@@ -103,7 +103,7 @@ void MRoomInfo::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MRoomInfo::*)(int );
+            using _t = void (MRoomInfo::*)(int , int , int , int );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MRoomInfo::send_phase)) {
                 *result = 0;
                 return;
@@ -153,9 +153,9 @@ int MRoomInfo::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MRoomInfo::send_phase(int _t1)
+void MRoomInfo::send_phase(int _t1, int _t2, int _t3, int _t4)
 {
-    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t4))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP

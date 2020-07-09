@@ -18,39 +18,52 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-    form.cpp \
     main.cpp \
     mainwindow.cpp \
     mod/MNetManager.cpp \
+    mod/mod_changeBoot/MChangeBoot.cpp \
     mod/mod_chat/MChat.cpp \
     mod/mod_gameover/MGameOver.cpp \
+    mod/mod_init/MInit.cpp \
     mod/mod_leave/MLeave.cpp \
     mod/mod_login/MLogin.cpp \
     mod/mod_money/MMoney.cpp \
+    mod/mod_phase/MPhase.cpp \
+    mod/mod_record/MRecord.cpp \
     mod/mod_roominfo/MRoomInfo.cpp \
+    mod/mod_start/MStart.cpp \
+    mod/mod_topFive/MTopFive.cpp \
     mod/mod_topThree/MTopThree.cpp \
+    mod/mod_useless/MUseless.cpp \
     qqchat.cpp
 
 HEADERS += \
-    form.h \
     mainwindow.h \
     mod/MNetManager.h \
+    mod/mod_changeBoot/MChangeBoot.h \
     mod/mod_chat/MChat.h \
     mod/mod_gameover/MGameOver.h \
+    mod/mod_init/MInit.h \
     mod/mod_leave/MLeave.h \
     mod/mod_login/MLogin.h \
     mod/mod_money/MMoney.h \
+    mod/mod_phase/MPhase.h \
+    mod/mod_record/MRecord.h \
     mod/mod_roominfo/MRoomInfo.h \
+    mod/mod_start/MStart.h \
+    mod/mod_topFive/MTopFive.h \
     mod/mod_topThree/MTopThree.h \
+    mod/mod_useless/MUseless.h \
     qqchat.h
 
 FORMS += \
-    form.ui \
     mainwindow.ui \
     mod/mod_chat/MChat.ui \
     mod/mod_gameover/MGameOver.ui \
     mod/mod_login/MLogin.ui \
     mod/mod_money/MMoney.ui \
+    mod/mod_phase/MPhase.ui \
+    mod/mod_topFive/MTopFive.ui \
     mod/mod_topThree/MTopThree.ui \
     qqchat.ui
 

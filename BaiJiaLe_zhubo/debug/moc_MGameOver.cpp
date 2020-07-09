@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MGameOver_t {
     QByteArrayData data[16];
-    char stringdata0[148];
+    char stringdata0[144];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,20 +41,20 @@ QT_MOC_LITERAL(5, 44, 9), // "pu_player"
 QT_MOC_LITERAL(6, 54, 13), // "pu_playerPair"
 QT_MOC_LITERAL(7, 68, 6), // "pu_tie"
 QT_MOC_LITERAL(8, 75, 8), // "pu_enter"
-QT_MOC_LITERAL(9, 84, 9), // "pu_cancel"
-QT_MOC_LITERAL(10, 94, 12), // "on_responsed"
-QT_MOC_LITERAL(11, 107, 14), // "QNetworkReply*"
-QT_MOC_LITERAL(12, 122, 5), // "reply"
-QT_MOC_LITERAL(13, 128, 6), // "status"
-QT_MOC_LITERAL(14, 135, 6), // "pu_yes"
-QT_MOC_LITERAL(15, 142, 5) // "pu_no"
+QT_MOC_LITERAL(9, 84, 12), // "on_responsed"
+QT_MOC_LITERAL(10, 97, 14), // "QNetworkReply*"
+QT_MOC_LITERAL(11, 112, 5), // "reply"
+QT_MOC_LITERAL(12, 118, 6), // "status"
+QT_MOC_LITERAL(13, 125, 6), // "pu_yes"
+QT_MOC_LITERAL(14, 132, 5), // "pu_no"
+QT_MOC_LITERAL(15, 138, 5) // "clear"
 
     },
     "MGameOver\0gameOver\0\0pu_banker\0"
     "pu_bankerPair\0pu_player\0pu_playerPair\0"
-    "pu_tie\0pu_enter\0pu_cancel\0on_responsed\0"
+    "pu_tie\0pu_enter\0on_responsed\0"
     "QNetworkReply*\0reply\0status\0pu_yes\0"
-    "pu_no"
+    "pu_no\0clear"
 };
 #undef QT_MOC_LITERAL
 
@@ -81,13 +81,13 @@ static const uint qt_meta_data_MGameOver[] = {
        6,    0,   79,    2, 0x08 /* Private */,
        7,    0,   80,    2, 0x08 /* Private */,
        8,    0,   81,    2, 0x08 /* Private */,
-       9,    0,   82,    2, 0x08 /* Private */,
-      10,    2,   83,    2, 0x08 /* Private */,
+       9,    2,   82,    2, 0x08 /* Private */,
+      13,    0,   87,    2, 0x08 /* Private */,
       14,    0,   88,    2, 0x08 /* Private */,
-      15,    0,   89,    2, 0x08 /* Private */,
+      15,    0,   89,    2, 0x0a /* Public */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int,    2,    2,    2,
+    QMetaType::Void, QMetaType::QString, QMetaType::QString, QMetaType::QString,    2,    2,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -96,8 +96,8 @@ static const uint qt_meta_data_MGameOver[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 10, QMetaType::Int,   11,   12,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 11, QMetaType::Int,   12,   13,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -110,23 +110,23 @@ void MGameOver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         auto *_t = static_cast<MGameOver *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->gameOver((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3]))); break;
+        case 0: _t->gameOver((*reinterpret_cast< QString(*)>(_a[1])),(*reinterpret_cast< QString(*)>(_a[2])),(*reinterpret_cast< QString(*)>(_a[3]))); break;
         case 1: _t->pu_banker(); break;
         case 2: _t->pu_bankerPair(); break;
         case 3: _t->pu_player(); break;
         case 4: _t->pu_playerPair(); break;
         case 5: _t->pu_tie(); break;
         case 6: _t->pu_enter(); break;
-        case 7: _t->pu_cancel(); break;
-        case 8: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
-        case 9: _t->pu_yes(); break;
-        case 10: _t->pu_no(); break;
+        case 7: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
+        case 8: _t->pu_yes(); break;
+        case 9: _t->pu_no(); break;
+        case 10: _t->clear(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
         switch (_id) {
         default: *reinterpret_cast<int*>(_a[0]) = -1; break;
-        case 8:
+        case 7:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -137,7 +137,7 @@ void MGameOver::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MGameOver::*)(int , int , int );
+            using _t = void (MGameOver::*)(QString , QString , QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MGameOver::gameOver)) {
                 *result = 0;
                 return;
@@ -187,7 +187,7 @@ int MGameOver::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MGameOver::gameOver(int _t1, int _t2, int _t3)
+void MGameOver::gameOver(QString _t1, QString _t2, QString _t3)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t2))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t3))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

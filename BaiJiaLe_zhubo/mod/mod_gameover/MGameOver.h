@@ -40,9 +40,9 @@ private:
     Ui::MGameOver *ui;
 
     MGameOverArg *arg;
-    int score_game = -1;
-    int score_playerPair = -1;
-    int score_bankerPair = -1;
+    int score_game = 0;
+    int score_playerPair = 0;
+    int score_bankerPair = 0;
 
     QMap<int,exe_gameover> _map;
 
@@ -53,7 +53,6 @@ private slots:
     void pu_playerPair();
     void pu_tie();
     void pu_enter();
-    void pu_cancel();
     void on_responsed(QNetworkReply* reply,int status);
     void pu_yes();
     void pu_no();
@@ -62,8 +61,11 @@ private:
     void request_gameover();
     void responsed_gameover(QNetworkReply *reply);
 
+public slots:
+    void clear();
+
 signals:
-    void gameOver(int,int,int);
+    void gameOver(QString,QString,QString);
 };
 
 #endif // MGAMEOVER_H

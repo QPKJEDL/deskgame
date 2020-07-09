@@ -28,8 +28,6 @@ class MTopThree : public QWidget
 public:
     explicit MTopThree(MTopThreeArg *arg);
     ~MTopThree();
-    void request_top_three();
-    void clear();
 
 private:
     Ui::MTopThree *ui;
@@ -38,6 +36,10 @@ private:
 
 private slots:
     void on_responsed(QNetworkReply* reply,int status);
+
+public slots:
+    void request_top_three();
+    void clear();
 
 private:
     void responsed_top_three(QNetworkReply *reply);
