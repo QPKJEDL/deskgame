@@ -54,7 +54,7 @@ void enable(std::initializer_list<QPushButton*> list){
 void MGameOver::pu_banker()
 {
     score_game = 7;
-    arg->result->setText(arg->result->text().append("庄赢"));
+    arg->result->setText(arg->result->text().append("龙赢"));
     disable({arg->banker,arg->player,arg->tie});
     enable({arg->enter,arg->cancel});
 }
@@ -62,7 +62,7 @@ void MGameOver::pu_banker()
 void MGameOver::pu_player()
 {
     score_game = 4;
-    arg->result->setText(arg->result->text().append("闲赢"));
+    arg->result->setText(arg->result->text().append("虎赢"));
     disable({arg->banker,arg->player,arg->tie});
     enable({arg->enter,arg->cancel});
 }
@@ -89,8 +89,6 @@ void MGameOver::pu_enter()
 void MGameOver::clear()
 {
     score_game = 0;
-    score_playerPair = 0;
-    score_bankerPair = 0;
     arg->result->setText("");
 
     enable({arg->banker,arg->player,arg->tie,arg->enter});
@@ -130,12 +128,7 @@ void MGameOver::request_gameover()
         QByteArray postData;
         postData.append("boot_num=" + arg->boot->text());
         postData.append("&pave_num=" + arg->pave->text());
-        QJsonObject json;
-        json.insert("game",score_game);
-        json.insert("playerPair",score_playerPair);
-        json.insert("bankerPair",score_bankerPair);
-        postData.append(QString("&game_num=" + QString(QJsonDocument(json).toJson())));
-        qDebug() << postData;
+        postData.append("&game_num=" + QString::number(score_game));
         arg->manager->postData(postData);
     }
 }

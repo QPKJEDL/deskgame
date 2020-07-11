@@ -15,6 +15,7 @@ release/MStart.o
 release/MTopFive.o
 release/MTopThree.o
 release/MUseless.o
+release/qqchat.o
 release/qrc_qrc.o
 release/moc_mainwindow.o
 release/moc_MNetManager.o
@@ -32,3 +33,4 @@ release/moc_MStart.o
 release/moc_MTopFive.o
 release/moc_MTopThree.o
 release/moc_MUseless.o
+release/moc_qqchat.o

@@ -21,7 +21,7 @@ public:
 
 signals:
 
-    void banUser(int);
+    void banUser(QString);
 
 private slots:
 
@@ -30,7 +30,7 @@ private slots:
 private:
     Ui::QQChat *ui;
 public:
-    int talkid;
+    QString talkid;
 };
 
 #endif // QQCHAT_H

@@ -15,6 +15,8 @@ MLogin::MLogin(MLoginArg *arg) :
 
     this->arg = new MLoginArg();
 
+    this->arg->userid = arg->userid;
+    this->arg->passwd = arg->passwd;
     this->arg->IP = arg->IP;
     this->arg->widget = arg->widget;
     this->arg->tcpsocket = arg->tcpsocket;
@@ -131,7 +133,7 @@ void MLogin::responsed_first_login(QNetworkReply *reply)
     if(status == 1){
         QJsonObject data = json.value("data").toObject();
 
-        unsigned int desk_id = data.value("desk_id").toInt();
+        desk_id = data.value("desk_id").toInt();
         QString desk_token = data.value("desk_token").toString();
         arg->manager_first->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
         arg->manager_first->setRawHeader("desk_token",desk_token.toUtf8());
@@ -178,7 +180,7 @@ void MLogin::responsed_second_login(QNetworkReply *reply)
 void MLogin::request_first_login()
 {
     QByteArray postData;
-    QString str = "desk=a5&password=123456";
+    QString str = "desk=" + arg->userid +"&password=" + arg->passwd;
     postData.append(str);
     qDebug() << arg->interface_first;
     arg->manager_first->setInterface(arg->interface_first);
@@ -194,6 +196,7 @@ void MLogin::request_second_login()
     QByteArray postData;
     postData.append(QString("live_user=" + ui->userid->text()));
     postData.append(QString("&password=" + ui->passwd->text()));
+    postData.append(QString("&desk_id=") + QString::number(desk_id));
     arg->manager_second->postData(postData);
 }
 

@@ -39,8 +39,6 @@ private:
 
     MGameOverArg *arg;
     int score_game = 0;
-    int score_playerPair = 0;
-    int score_bankerPair = 0;
 
     QMap<int,exe_gameover> _map;
 

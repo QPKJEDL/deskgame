@@ -21,7 +21,10 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
 
 void MInit::pu_init()
 {
-    request_init();
+    int choose = QMessageBox::question(this,QString("作废"),QString("确认作废?"),QMessageBox::Yes | QMessageBox::No);
+    if(choose == QMessageBox::Yes){
+        request_init();
+    }
 }
 
 void MInit::on_responsed(QNetworkReply *reply, int status)

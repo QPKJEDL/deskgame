@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 网络初始化
     manager = new MNetManager;
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -1090,7 +1090,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=VIP2&password=e5134a96afacbcb0");
+    postData.append("desk=a5&password=123456");
     manager->postData(postData);
 }
 

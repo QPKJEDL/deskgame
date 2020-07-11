@@ -72,9 +72,7 @@ public:
     QLabel *label_pus;
     QLabel *label_6;
     QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_6;
     QGroupBox *groupBox_5;
-    QVBoxLayout *verticalLayout_8;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -505,19 +503,12 @@ public:
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setStyleSheet(QString::fromUtf8(""));
-        verticalLayout_6 = new QVBoxLayout(groupBox_4);
-        verticalLayout_6->setSpacing(0);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
 
         verticalLayout_3->addWidget(groupBox_4);
 
         groupBox_5 = new QGroupBox(centralwidget);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
         groupBox_5->setStyleSheet(QString::fromUtf8(""));
-        verticalLayout_8 = new QVBoxLayout(groupBox_5);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(2, 2, 2, 2);
 
         verticalLayout_3->addWidget(groupBox_5);
 

@@ -21,7 +21,10 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
 
 void MInit::pu_init()
 {
-    request_init();
+    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化?"),QMessageBox::Yes | QMessageBox::No);
+    if(choose == QMessageBox::Yes){
+        request_init();
+    }
 }
 
 void MInit::on_responsed(QNetworkReply *reply, int status)

@@ -83,7 +83,7 @@ void MPhase::on_started()
 
 void MPhase::on_finished()
 {
-    enabled({arg->start});
+    enabled({arg->start,arg->changeBoot});
 }
 
 void MPhase::on_useless()

@@ -63,12 +63,12 @@ void MRecord::on_useless()
 
 void MRecord::append(QString game)
 {
-    QString path = QString(":/result/image/result/");
+    QString path = QString(":/result/");
     if(game == "龙"){
         path.append("long");
     }
     else if(game == "虎"){
-        path.append("hu");
+        path.append("tiger");
     }
     else if(game == "和"){
         path.append("same");
@@ -112,8 +112,16 @@ void MRecord::responsed_record(QNetworkReply *reply)
 
 void MRecord::update_panel(QJsonArray array)
 {
+    link = head;
+    while(link->next != nullptr){
+        link->data->setText("");
+        link->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+        link = link->next;
+    }
+    link = head;
+
     for(int i = 0;i < array.count();i++){
-        QString game = array.at(i)["game"].toString();
+        QString game = array.at(i)["winner"].toString();
 
         append(game);
     }

@@ -18,7 +18,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTextEdit>
 #include <QtWidgets/QVBoxLayout>
@@ -56,70 +55,6 @@ public:
     QHBoxLayout *horizontalLayout_19;
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_8;
-    QHBoxLayout *horizontalLayout_22;
-    QSpacerItem *horizontalSpacer_13;
-    QVBoxLayout *verticalLayout_5;
-    QHBoxLayout *horizontalLayout_3;
-    QSpacerItem *horizontalSpacer_3;
-    QLabel *xian3_result;
-    QSpacerItem *horizontalSpacer_4;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *three_three_pic;
-    QLabel *three_two_pic;
-    QLabel *three_one_pic;
-    QHBoxLayout *horizontalLayout_7;
-    QSpacerItem *horizontalSpacer;
-    QLabel *three_five_pic;
-    QLabel *three_four_pic;
-    QSpacerItem *horizontalSpacer_2;
-    QLabel *label_xian3;
-    QSpacerItem *horizontalSpacer_14;
-    QVBoxLayout *verticalLayout_6;
-    QHBoxLayout *horizontalLayout_4;
-    QSpacerItem *horizontalSpacer_5;
-    QLabel *xian2_result;
-    QSpacerItem *horizontalSpacer_6;
-    QHBoxLayout *horizontalLayout_8;
-    QLabel *two_three_pic;
-    QLabel *two_two_pic;
-    QLabel *two_one_pic;
-    QHBoxLayout *horizontalLayout_5;
-    QSpacerItem *horizontalSpacer_7;
-    QHBoxLayout *horizontalLayout_9;
-    QLabel *two_four_pic_2;
-    QLabel *two_four_pic;
-    QSpacerItem *horizontalSpacer_8;
-    QLabel *label_xian2;
-    QSpacerItem *horizontalSpacer_15;
-    QVBoxLayout *verticalLayout_7;
-    QHBoxLayout *horizontalLayout_18;
-    QSpacerItem *horizontalSpacer_9;
-    QLabel *xian1_result;
-    QSpacerItem *horizontalSpacer_10;
-    QHBoxLayout *horizontalLayout_11;
-    QLabel *one_three_pic;
-    QLabel *one_two_pic;
-    QLabel *one_one_pic;
-    QHBoxLayout *horizontalLayout_20;
-    QSpacerItem *horizontalSpacer_11;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *one_five_pic;
-    QLabel *one_four_pic;
-    QSpacerItem *horizontalSpacer_12;
-    QLabel *label_xian1;
-    QSpacerItem *horizontalSpacer_16;
-    QHBoxLayout *horizontalLayout_23;
-    QSpacerItem *horizontalSpacer_17;
-    QHBoxLayout *horizontalLayout_21;
-    QLabel *label_zhuang;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *zhuang_five_pic;
-    QLabel *zhuang_four_pic;
-    QLabel *zhuang_three_pic;
-    QLabel *zhuang_two_pic;
-    QLabel *zhuang_one_pic;
-    QLabel *zhuang_result;
-    QSpacerItem *horizontalSpacer_18;
     QLineEdit *lineEdit;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout_4;
@@ -134,24 +69,6 @@ public:
     QTextEdit *textEdit;
     QGroupBox *groupBox_6;
     QVBoxLayout *verticalLayout_9;
-    QLabel *label_134;
-    QWidget *widget_3;
-    QGridLayout *gridLayout_4;
-    QLabel *label_7;
-    QLabel *label_first_bet;
-    QLabel *label_12;
-    QLabel *label_first_name;
-    QLabel *label_second_name;
-    QLabel *label_first_money;
-    QLabel *label_second_bet;
-    QLabel *label_13;
-    QLabel *label_second_money;
-    QLabel *label_8;
-    QLabel *label_16;
-    QLabel *label_third_name;
-    QLabel *label_18;
-    QLabel *label_third_bet;
-    QLabel *label_third_money;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -500,403 +417,6 @@ public:
         groupBox_4->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 48, 90);"));
         verticalLayout_8 = new QVBoxLayout(groupBox_4);
         verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        horizontalLayout_22 = new QHBoxLayout();
-        horizontalLayout_22->setObjectName(QString::fromUtf8("horizontalLayout_22"));
-        horizontalSpacer_13 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_13);
-
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_3);
-
-        xian3_result = new QLabel(groupBox_4);
-        xian3_result->setObjectName(QString::fromUtf8("xian3_result"));
-        xian3_result->setMinimumSize(QSize(81, 41));
-        xian3_result->setMaximumSize(QSize(120, 60));
-        xian3_result->setFont(font8);
-        xian3_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(200, 140, 0);"));
-        xian3_result->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_3->addWidget(xian3_result);
-
-        horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_3->addItem(horizontalSpacer_4);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_3);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        three_three_pic = new QLabel(groupBox_4);
-        three_three_pic->setObjectName(QString::fromUtf8("three_three_pic"));
-        three_three_pic->setMinimumSize(QSize(67, 99));
-        three_three_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_6->addWidget(three_three_pic);
-
-        three_two_pic = new QLabel(groupBox_4);
-        three_two_pic->setObjectName(QString::fromUtf8("three_two_pic"));
-        three_two_pic->setMinimumSize(QSize(67, 99));
-        three_two_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_6->addWidget(three_two_pic);
-
-        three_one_pic = new QLabel(groupBox_4);
-        three_one_pic->setObjectName(QString::fromUtf8("three_one_pic"));
-        three_one_pic->setMinimumSize(QSize(67, 99));
-        three_one_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_6->addWidget(three_one_pic);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_6);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer);
-
-        three_five_pic = new QLabel(groupBox_4);
-        three_five_pic->setObjectName(QString::fromUtf8("three_five_pic"));
-        three_five_pic->setMinimumSize(QSize(67, 99));
-        three_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_7->addWidget(three_five_pic);
-
-        three_four_pic = new QLabel(groupBox_4);
-        three_four_pic->setObjectName(QString::fromUtf8("three_four_pic"));
-        three_four_pic->setMinimumSize(QSize(67, 99));
-        three_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_7->addWidget(three_four_pic);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_7->addItem(horizontalSpacer_2);
-
-
-        verticalLayout_5->addLayout(horizontalLayout_7);
-
-        label_xian3 = new QLabel(groupBox_4);
-        label_xian3->setObjectName(QString::fromUtf8("label_xian3"));
-        label_xian3->setFont(font7);
-        label_xian3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_xian3->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_5->addWidget(label_xian3);
-
-
-        horizontalLayout_22->addLayout(verticalLayout_5);
-
-        horizontalSpacer_14 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_14);
-
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        horizontalSpacer_5 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_5);
-
-        xian2_result = new QLabel(groupBox_4);
-        xian2_result->setObjectName(QString::fromUtf8("xian2_result"));
-        xian2_result->setMinimumSize(QSize(81, 41));
-        xian2_result->setFont(font8);
-        xian2_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(200, 140, 0);"));
-        xian2_result->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(xian2_result);
-
-        horizontalSpacer_6 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_4->addItem(horizontalSpacer_6);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_4);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
-        two_three_pic = new QLabel(groupBox_4);
-        two_three_pic->setObjectName(QString::fromUtf8("two_three_pic"));
-        two_three_pic->setMinimumSize(QSize(67, 99));
-        two_three_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_8->addWidget(two_three_pic);
-
-        two_two_pic = new QLabel(groupBox_4);
-        two_two_pic->setObjectName(QString::fromUtf8("two_two_pic"));
-        two_two_pic->setMinimumSize(QSize(67, 99));
-        two_two_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_8->addWidget(two_two_pic);
-
-        two_one_pic = new QLabel(groupBox_4);
-        two_one_pic->setObjectName(QString::fromUtf8("two_one_pic"));
-        two_one_pic->setMinimumSize(QSize(67, 99));
-        two_one_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_8->addWidget(two_one_pic);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_8);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalSpacer_7 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_7);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        two_four_pic_2 = new QLabel(groupBox_4);
-        two_four_pic_2->setObjectName(QString::fromUtf8("two_four_pic_2"));
-        two_four_pic_2->setMinimumSize(QSize(67, 99));
-        two_four_pic_2->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_9->addWidget(two_four_pic_2);
-
-        two_four_pic = new QLabel(groupBox_4);
-        two_four_pic->setObjectName(QString::fromUtf8("two_four_pic"));
-        two_four_pic->setMinimumSize(QSize(67, 99));
-        two_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_9->addWidget(two_four_pic);
-
-
-        horizontalLayout_5->addLayout(horizontalLayout_9);
-
-        horizontalSpacer_8 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_5->addItem(horizontalSpacer_8);
-
-
-        verticalLayout_6->addLayout(horizontalLayout_5);
-
-        label_xian2 = new QLabel(groupBox_4);
-        label_xian2->setObjectName(QString::fromUtf8("label_xian2"));
-        label_xian2->setFont(font7);
-        label_xian2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_xian2->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_6->addWidget(label_xian2);
-
-
-        horizontalLayout_22->addLayout(verticalLayout_6);
-
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_15);
-
-        verticalLayout_7 = new QVBoxLayout();
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        horizontalLayout_18 = new QHBoxLayout();
-        horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
-        horizontalSpacer_9 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_18->addItem(horizontalSpacer_9);
-
-        xian1_result = new QLabel(groupBox_4);
-        xian1_result->setObjectName(QString::fromUtf8("xian1_result"));
-        xian1_result->setMinimumSize(QSize(81, 41));
-        xian1_result->setFont(font8);
-        xian1_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(200, 140, 0);"));
-        xian1_result->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_18->addWidget(xian1_result);
-
-        horizontalSpacer_10 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_18->addItem(horizontalSpacer_10);
-
-
-        verticalLayout_7->addLayout(horizontalLayout_18);
-
-        horizontalLayout_11 = new QHBoxLayout();
-        horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
-        one_three_pic = new QLabel(groupBox_4);
-        one_three_pic->setObjectName(QString::fromUtf8("one_three_pic"));
-        one_three_pic->setMinimumSize(QSize(67, 99));
-        one_three_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_11->addWidget(one_three_pic);
-
-        one_two_pic = new QLabel(groupBox_4);
-        one_two_pic->setObjectName(QString::fromUtf8("one_two_pic"));
-        one_two_pic->setMinimumSize(QSize(67, 99));
-        one_two_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_11->addWidget(one_two_pic);
-
-        one_one_pic = new QLabel(groupBox_4);
-        one_one_pic->setObjectName(QString::fromUtf8("one_one_pic"));
-        one_one_pic->setMinimumSize(QSize(67, 99));
-        one_one_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_11->addWidget(one_one_pic);
-
-
-        verticalLayout_7->addLayout(horizontalLayout_11);
-
-        horizontalLayout_20 = new QHBoxLayout();
-        horizontalLayout_20->setObjectName(QString::fromUtf8("horizontalLayout_20"));
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_20->addItem(horizontalSpacer_11);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        one_five_pic = new QLabel(groupBox_4);
-        one_five_pic->setObjectName(QString::fromUtf8("one_five_pic"));
-        one_five_pic->setMinimumSize(QSize(67, 99));
-        one_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_10->addWidget(one_five_pic);
-
-        one_four_pic = new QLabel(groupBox_4);
-        one_four_pic->setObjectName(QString::fromUtf8("one_four_pic"));
-        one_four_pic->setMinimumSize(QSize(67, 99));
-        one_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_10->addWidget(one_four_pic);
-
-
-        horizontalLayout_20->addLayout(horizontalLayout_10);
-
-        horizontalSpacer_12 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_20->addItem(horizontalSpacer_12);
-
-
-        verticalLayout_7->addLayout(horizontalLayout_20);
-
-        label_xian1 = new QLabel(groupBox_4);
-        label_xian1->setObjectName(QString::fromUtf8("label_xian1"));
-        label_xian1->setFont(font7);
-        label_xian1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_xian1->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_7->addWidget(label_xian1);
-
-
-        horizontalLayout_22->addLayout(verticalLayout_7);
-
-        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_22->addItem(horizontalSpacer_16);
-
-
-        verticalLayout_8->addLayout(horizontalLayout_22);
-
-        horizontalLayout_23 = new QHBoxLayout();
-        horizontalLayout_23->setObjectName(QString::fromUtf8("horizontalLayout_23"));
-        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_23->addItem(horizontalSpacer_17);
-
-        horizontalLayout_21 = new QHBoxLayout();
-        horizontalLayout_21->setObjectName(QString::fromUtf8("horizontalLayout_21"));
-        label_zhuang = new QLabel(groupBox_4);
-        label_zhuang->setObjectName(QString::fromUtf8("label_zhuang"));
-        label_zhuang->setFont(font7);
-        label_zhuang->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);"));
-
-        horizontalLayout_21->addWidget(label_zhuang);
-
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        zhuang_five_pic = new QLabel(groupBox_4);
-        zhuang_five_pic->setObjectName(QString::fromUtf8("zhuang_five_pic"));
-        zhuang_five_pic->setMinimumSize(QSize(67, 99));
-        zhuang_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_2->addWidget(zhuang_five_pic);
-
-        zhuang_four_pic = new QLabel(groupBox_4);
-        zhuang_four_pic->setObjectName(QString::fromUtf8("zhuang_four_pic"));
-        zhuang_four_pic->setMinimumSize(QSize(67, 99));
-        zhuang_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_2->addWidget(zhuang_four_pic);
-
-        zhuang_three_pic = new QLabel(groupBox_4);
-        zhuang_three_pic->setObjectName(QString::fromUtf8("zhuang_three_pic"));
-        zhuang_three_pic->setMinimumSize(QSize(67, 99));
-        zhuang_three_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_2->addWidget(zhuang_three_pic);
-
-        zhuang_two_pic = new QLabel(groupBox_4);
-        zhuang_two_pic->setObjectName(QString::fromUtf8("zhuang_two_pic"));
-        zhuang_two_pic->setMinimumSize(QSize(67, 99));
-        zhuang_two_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_2->addWidget(zhuang_two_pic);
-
-        zhuang_one_pic = new QLabel(groupBox_4);
-        zhuang_one_pic->setObjectName(QString::fromUtf8("zhuang_one_pic"));
-        zhuang_one_pic->setMinimumSize(QSize(67, 99));
-        zhuang_one_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(0, 32, 57);"));
-
-        horizontalLayout_2->addWidget(zhuang_one_pic);
-
-
-        horizontalLayout_21->addLayout(horizontalLayout_2);
-
-        zhuang_result = new QLabel(groupBox_4);
-        zhuang_result->setObjectName(QString::fromUtf8("zhuang_result"));
-        zhuang_result->setMinimumSize(QSize(81, 41));
-        zhuang_result->setMaximumSize(QSize(91, 32));
-        zhuang_result->setFont(font8);
-        zhuang_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
-"background-color: rgb(200, 140, 0);"));
-        zhuang_result->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_21->addWidget(zhuang_result);
-
-
-        horizontalLayout_23->addLayout(horizontalLayout_21);
-
-        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_23->addItem(horizontalSpacer_18);
-
-
-        verticalLayout_8->addLayout(horizontalLayout_23);
-
-        verticalLayout_8->setStretch(0, 3);
-        verticalLayout_8->setStretch(1, 1);
 
         horizontalLayout_19->addWidget(groupBox_4);
 
@@ -926,7 +446,6 @@ public:
 
         label = new QLabel(groupBox_5);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setMinimumSize(QSize(0, 60));
         label->setMaximumSize(QSize(16777215, 50));
         QFont font10;
         font10.setPointSize(20);
@@ -941,7 +460,6 @@ public:
         lineEdit_2 = new QLineEdit(groupBox_5);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setEnabled(true);
-        lineEdit_2->setMinimumSize(QSize(0, 50));
         lineEdit_2->setFont(font10);
         lineEdit_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         lineEdit_2->setAlignment(Qt::AlignCenter);
@@ -1009,158 +527,11 @@ public:
 
         groupBox_6 = new QGroupBox(centralwidget);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
-        groupBox_6->setStyleSheet(QString::fromUtf8("background-color: rgb(252, 238, 205);"));
+        groupBox_6->setStyleSheet(QString::fromUtf8(""));
         verticalLayout_9 = new QVBoxLayout(groupBox_6);
         verticalLayout_9->setSpacing(0);
         verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
         verticalLayout_9->setContentsMargins(2, 2, 2, 2);
-        label_134 = new QLabel(groupBox_6);
-        label_134->setObjectName(QString::fromUtf8("label_134"));
-        label_134->setFont(font3);
-        label_134->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 101, 255);"));
-        label_134->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_9->addWidget(label_134);
-
-        widget_3 = new QWidget(groupBox_6);
-        widget_3->setObjectName(QString::fromUtf8("widget_3"));
-        widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(39, 39, 57);"));
-        gridLayout_4 = new QGridLayout(widget_3);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        gridLayout_4->setHorizontalSpacing(0);
-        gridLayout_4->setVerticalSpacing(1);
-        gridLayout_4->setContentsMargins(-1, 1, -1, 1);
-        label_7 = new QLabel(widget_3);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_7, 0, 0, 1, 1);
-
-        label_first_bet = new QLabel(widget_3);
-        label_first_bet->setObjectName(QString::fromUtf8("label_first_bet"));
-        label_first_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_first_bet, 0, 3, 1, 1);
-
-        label_12 = new QLabel(widget_3);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_12, 1, 0, 1, 1);
-
-        label_first_name = new QLabel(widget_3);
-        label_first_name->setObjectName(QString::fromUtf8("label_first_name"));
-        label_first_name->setFont(font3);
-        label_first_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_first_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_first_name, 0, 1, 1, 1);
-
-        label_second_name = new QLabel(widget_3);
-        label_second_name->setObjectName(QString::fromUtf8("label_second_name"));
-        label_second_name->setFont(font3);
-        label_second_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_second_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_second_name, 1, 1, 1, 1);
-
-        label_first_money = new QLabel(widget_3);
-        label_first_money->setObjectName(QString::fromUtf8("label_first_money"));
-        QFont font11;
-        font11.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font11.setPointSize(20);
-        label_first_money->setFont(font11);
-        label_first_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_first_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_first_money, 0, 4, 1, 1);
-
-        label_second_bet = new QLabel(widget_3);
-        label_second_bet->setObjectName(QString::fromUtf8("label_second_bet"));
-        label_second_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_second_bet, 1, 3, 1, 1);
-
-        label_13 = new QLabel(widget_3);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        QFont font12;
-        font12.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font12.setPointSize(14);
-        font12.setBold(true);
-        font12.setWeight(75);
-        label_13->setFont(font12);
-        label_13->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_4->addWidget(label_13, 1, 2, 1, 1);
-
-        label_second_money = new QLabel(widget_3);
-        label_second_money->setObjectName(QString::fromUtf8("label_second_money"));
-        label_second_money->setFont(font11);
-        label_second_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_second_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_second_money, 1, 4, 1, 1);
-
-        label_8 = new QLabel(widget_3);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        QFont font13;
-        font13.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font13.setPointSize(14);
-        font13.setBold(true);
-        font13.setItalic(false);
-        font13.setWeight(75);
-        label_8->setFont(font13);
-        label_8->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_8->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_8, 0, 2, 1, 1);
-
-        label_16 = new QLabel(widget_3);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-        label_16->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_16, 2, 0, 1, 1);
-
-        label_third_name = new QLabel(widget_3);
-        label_third_name->setObjectName(QString::fromUtf8("label_third_name"));
-        label_third_name->setFont(font3);
-        label_third_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_third_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_third_name, 2, 1, 1, 1);
-
-        label_18 = new QLabel(widget_3);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setFont(font12);
-        label_18->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_4->addWidget(label_18, 2, 2, 1, 1);
-
-        label_third_bet = new QLabel(widget_3);
-        label_third_bet->setObjectName(QString::fromUtf8("label_third_bet"));
-        label_third_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_third_bet, 2, 3, 1, 1);
-
-        label_third_money = new QLabel(widget_3);
-        label_third_money->setObjectName(QString::fromUtf8("label_third_money"));
-        label_third_money->setFont(font11);
-        label_third_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_third_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_third_money, 2, 4, 1, 1);
-
-        gridLayout_4->setColumnStretch(0, 1);
-        gridLayout_4->setColumnStretch(1, 2);
-        gridLayout_4->setColumnStretch(2, 1);
-        gridLayout_4->setColumnStretch(3, 1);
-        gridLayout_4->setColumnStretch(4, 2);
-
-        verticalLayout_9->addWidget(widget_3);
-
-        verticalLayout_9->setStretch(0, 1);
-        verticalLayout_9->setStretch(1, 3);
 
         horizontalLayout_24->addWidget(groupBox_6);
 
@@ -1170,8 +541,8 @@ public:
         verticalLayout_11->addLayout(horizontalLayout_24);
 
         verticalLayout_11->setStretch(0, 1);
-        verticalLayout_11->setStretch(1, 5);
-        verticalLayout_11->setStretch(2, 5);
+        verticalLayout_11->setStretch(1, 3);
+        verticalLayout_11->setStretch(2, 6);
         MainWindow->setCentralWidget(centralwidget);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -1212,34 +583,6 @@ public:
         label_9->setText(QCoreApplication::translate("MainWindow", "\351\223\272\346\254\241", nullptr));
         pu_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         groupBox_4->setTitle(QString());
-        xian3_result->setText(QString());
-        three_three_pic->setText(QString());
-        three_two_pic->setText(QString());
-        three_one_pic->setText(QString());
-        three_five_pic->setText(QString());
-        three_four_pic->setText(QString());
-        label_xian3->setText(QCoreApplication::translate("MainWindow", "\351\227\2623", nullptr));
-        xian2_result->setText(QString());
-        two_three_pic->setText(QString());
-        two_two_pic->setText(QString());
-        two_one_pic->setText(QString());
-        two_four_pic_2->setText(QString());
-        two_four_pic->setText(QString());
-        label_xian2->setText(QCoreApplication::translate("MainWindow", "\351\227\2622", nullptr));
-        xian1_result->setText(QString());
-        one_three_pic->setText(QString());
-        one_two_pic->setText(QString());
-        one_one_pic->setText(QString());
-        one_five_pic->setText(QString());
-        one_four_pic->setText(QString());
-        label_xian1->setText(QCoreApplication::translate("MainWindow", "\351\227\2621", nullptr));
-        label_zhuang->setText(QCoreApplication::translate("MainWindow", "\345\272\204\345\256\266", nullptr));
-        zhuang_five_pic->setText(QString());
-        zhuang_four_pic->setText(QString());
-        zhuang_three_pic->setText(QString());
-        zhuang_two_pic->setText(QString());
-        zhuang_one_pic->setText(QString());
-        zhuang_result->setText(QString());
         groupBox_5->setTitle(QString());
         label_locate->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\345\256\232\344\275\215", nullptr));
@@ -1257,22 +600,6 @@ public:
         button_summit->setShortcut(QCoreApplication::translate("MainWindow", "Enter", nullptr));
 #endif // QT_CONFIG(shortcut)
         groupBox_6->setTitle(QString());
-        label_134->setText(QCoreApplication::translate("MainWindow", "\346\234\254\345\261\200\346\212\225\346\263\250\346\234\200\345\244\247\345\211\215\344\270\211", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/1.png\"/></p></body></html>", nullptr));
-        label_first_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/2.png\"/></p></body></html>", nullptr));
-        label_first_name->setText(QString());
-        label_second_name->setText(QString());
-        label_first_money->setText(QString());
-        label_second_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_second_money->setText(QString());
-        label_8->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/3.png\"/></p></body></html>", nullptr));
-        label_third_name->setText(QString());
-        label_18->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_third_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_third_money->setText(QString());
     } // retranslateUi
 
 };

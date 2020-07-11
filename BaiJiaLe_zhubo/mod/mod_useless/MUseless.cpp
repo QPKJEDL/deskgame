@@ -21,7 +21,10 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
 
 void MUseless::pu_useless()
 {
-    request_useless();
+    int choose = QMessageBox::question(this,QString("作废"),QString("确认作废?"),QMessageBox::Yes | QMessageBox::No);
+    if(choose == QMessageBox::Yes){
+        request_useless();
+    }
 }
 
 void MUseless::on_responsed(QNetworkReply *reply, int status)
@@ -36,16 +39,13 @@ void MUseless::on_responsed(QNetworkReply *reply, int status)
 
 void MUseless::request_useless()
 {
-    int choose = QMessageBox::question(this,QString("作废"),QString("确认作废?"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
-        arg->manager->setStatus(arg->status);
-        arg->manager->setInterface(arg->interface);
-        QByteArray postData;
-        postData.append(QString("boot_num=") + arg->boot->text());
-        postData.append((QString("&pave_num=")) + arg->pave->text());
-        arg->manager->postData(postData);
-        arg->useless->setEnabled(false);
-    }
+    arg->manager->setStatus(arg->status);
+    arg->manager->setInterface(arg->interface);
+    QByteArray postData;
+    postData.append(QString("boot_num=") + arg->boot->text());
+    postData.append((QString("&pave_num=")) + arg->pave->text());
+    arg->manager->postData(postData);
+    arg->useless->setEnabled(false);
 }
 
 void MUseless::responsed_useless(QNetworkReply *reply)

@@ -11,8 +11,11 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -20,29 +23,53 @@ QT_BEGIN_NAMESPACE
 class Ui_QQChat
 {
 public:
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_2;
     QPushButton *pushButton;
     QLabel *label;
+    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QWidget *QQChat)
     {
         if (QQChat->objectName().isEmpty())
             QQChat->setObjectName(QString::fromUtf8("QQChat"));
-        QQChat->resize(480, 143);
+        QQChat->resize(1450, 60);
+        QQChat->setMinimumSize(QSize(1450, 60));
+        QQChat->setMaximumSize(QSize(1450, 60));
+        verticalLayout = new QVBoxLayout(QQChat);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         pushButton = new QPushButton(QQChat);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setGeometry(QRect(10, 10, 121, 41));
+        pushButton->setMinimumSize(QSize(0, 40));
+        pushButton->setMaximumSize(QSize(16777215, 40));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font.setPointSize(15);
         pushButton->setFont(font);
-        pushButton->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;"));
+        pushButton->setStyleSheet(QString::fromUtf8("background-color: rgba(255, 255, 255, 0);"));
+
+        horizontalLayout_2->addWidget(pushButton);
+
         label = new QLabel(QQChat);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 60, 461, 71));
+        label->setMinimumSize(QSize(0, 40));
+        label->setMaximumSize(QSize(16777215, 40));
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);border:1px solid ; border-radius: 8px;\n"
-"background-color: rgb(170, 170, 127);"));
+"background-color: rgb(204, 168, 89);"));
         label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout_2->addWidget(label);
+
+        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_2->addItem(horizontalSpacer_2);
+
+
+        verticalLayout->addLayout(horizontalLayout_2);
+
 
         retranslateUi(QQChat);
 

@@ -9,7 +9,7 @@ QString URL = "101.32.22.231:8210";
 
 // lh a1 // bjl a5 // nn a2
 
-enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY,BAN};
+enum {CHAT,LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY,BAN};
 
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
@@ -18,18 +18,20 @@ MainWindow::MainWindow(QMainWindow *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
 
     // 模块
     MLoginArg loginArg;
-    loginArg.IP = "129.211.114.135";
+    loginArg.userid = "VIP11";
+    loginArg.passwd = "7c6f50493eed622b";
+    loginArg.IP = "101.32.22.231";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;
@@ -55,10 +57,10 @@ MainWindow::MainWindow(QMainWindow *parent)
     threeArg.times_xue = ui->label_xues;
     threeArg.interface = "lh_bet_top_three";
     module_topThree = new MTopThree(&threeArg);
-    QVBoxLayout *vbox = new QVBoxLayout(ui->groupBox_3);
+    QVBoxLayout *vbox = new QVBoxLayout(ui->groupBox_4);
     vbox->addWidget(module_topThree);
     vbox->setMargin(0);
-    ui->groupBox_3->setLayout(vbox);
+    ui->groupBox_4->setLayout(vbox);
 
     MTopFiveArg fiveArg;
     fiveArg.status = TOPFIVE;
@@ -67,10 +69,10 @@ MainWindow::MainWindow(QMainWindow *parent)
     fiveArg.times_xue = ui->label_xues;
     fiveArg.interface = "lh_bingo_top_five";
     module_topFive = new MTopFive(&fiveArg);
-    QVBoxLayout *vbox_five = new QVBoxLayout(ui->groupBox_4);
+    QVBoxLayout *vbox_five = new QVBoxLayout(ui->groupBox_5);
     vbox_five->addWidget(module_topFive);
     vbox_five->setMargin(0);
-    ui->groupBox_4->setLayout(vbox_five);
+    ui->groupBox_5->setLayout(vbox_five);
 
     MGameOverArg gameOverArg;
     gameOverArg.tie = ui->pu_same;
@@ -147,11 +149,19 @@ MainWindow::MainWindow(QMainWindow *parent)
     MInitArg initArg;
     initArg.boot = ui->label_xues;
     initArg.pave = ui->label_pus;
-    initArg.status = CHANGEBOOT;
+    initArg.status = INIT;
     initArg.manager = manager;
     initArg.init = ui->pu_init;
     initArg.interface = "lh_desk_ini";
     module_init = new MInit(&initArg);
+
+    MChatArg chatArg;
+    chatArg.grid = ui->ChatPanel;
+    chatArg.status = CHAT;
+    chatArg.manager = second_manager;
+    chatArg.interface = "live_ban_user";
+    chatArg.tcpSocket = m_tcpsocket;
+    module_chat = new MChat(&chatArg);
 
     module_leave = new MLeave(ui->pu_leave,this);
 
@@ -168,7 +178,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
     connect(module_phase,SIGNAL(timeout()),module_topFive,SLOT(request_top_five()));
     connect(module_phase,SIGNAL(timeout()),module_gameOver,SLOT(clear()));
-    connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_phase,SLOT(on_finished()));
+    connect(module_gameOver,SIGNAL(gameOver(QString)),module_phase,SLOT(on_finished()));
 }
 
 MainWindow::~MainWindow()

@@ -7,10 +7,8 @@
 #include <QJsonArray>
 #include <QHostAddress>
 
-#include "qqchat.h"
-
 //QString URL = "192.168.0.104:8210";
-//QString URL = "129.211.114.135:8210";
+//QString URL = "129.211.114.135:8210";101.32.22.231:8210
 
 enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,BAN};
 
@@ -21,18 +19,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
 
     // 模块
     MLoginArg loginArg;
-    loginArg.IP = "129.211.114.135";
+    loginArg.userid = "VIP2";
+    loginArg.passwd = "e5134a96afacbcb0";
+    loginArg.IP = "101.32.22.231";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;
@@ -155,14 +155,25 @@ MainWindow::MainWindow(QWidget *parent)
     MInitArg initArg;
     initArg.boot = ui->label_times_xue;
     initArg.pave = ui->label_times_pu;
-    initArg.status = CHNAGEBOOT;
+    initArg.status = INIT;
     initArg.manager = manager;
     initArg.init = ui->pu_init;
     initArg.interface = "bjl_desk_ini";
     module_init = new MInit(&initArg);
 
+    MChatArg chatArg;
+    chatArg.grid = ui->gridLayout_3;
+    chatArg.status = BAN;
+    chatArg.manager = second_manager;
+    chatArg.interface = "live_ban_user";
+    chatArg.tcpSocket = m_tcpsocket;
+    module_chat = new MChat(&chatArg);
+
     module_leave = new MLeave(ui->pu_leave,this);
 
+    connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
+    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
+    connect(module_record,SIGNAL(finished()),module_topThree,SLOT(request_top_three()));
 
     connect(module_init,SIGNAL(inited()),module_record,SLOT(request_record()));
     connect(module_changeBoot,SIGNAL(changed()),module_phase,SLOT(on_finished()));
@@ -170,13 +181,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(module_useless,SIGNAL(uselessed()),module_record,SLOT(on_useless()));
     connect(module_useless,SIGNAL(uselessed()),module_phase,SLOT(on_useless()));
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_started()));
-    connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
-    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
+    connect(module_start,SIGNAL(successed()),module_topFive,SLOT(request_top_five()));
+
     connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_record,SLOT(request_record()));
     connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_record,SLOT(apply_record(QString,QString,QString)));
-    connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
-    connect(module_phase,SIGNAL(timeout()),module_topFive,SLOT(request_top_five()));
     connect(module_phase,SIGNAL(timeout()),module_gameOver,SLOT(clear()));
+    connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
     connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_phase,SLOT(on_finished()));
 }
 

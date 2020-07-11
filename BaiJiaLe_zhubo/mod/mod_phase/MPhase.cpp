@@ -69,6 +69,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
     }
     case 2:{
         enabled({arg->leave,arg->banker,arg->bankerPair,arg->player,arg->playerPair,arg->tie,arg->enter,arg->cancel,arg->useless});
+        emit timeout();
         break;
     }
     case 3:{

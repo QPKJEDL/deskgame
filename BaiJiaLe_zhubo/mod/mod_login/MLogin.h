@@ -6,6 +6,9 @@
 
 class MNetManager;
 typedef struct{
+    QString userid;
+    QString passwd;
+
     QWidget *widget;
     MNetManager *manager_first;
     MNetManager *manager_second;
@@ -40,6 +43,7 @@ public:
 private:
     Ui::MLogin *ui;
     MLoginArg *arg;
+    unsigned int desk_id;
     QString _long_id;
     QString _long_token;
     QMap<int,exe_login> _map;

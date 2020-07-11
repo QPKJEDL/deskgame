@@ -1,7 +1,9 @@
 #include "MChat.h"
+#include "qqchat.h"
 #include "ui_MChat.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMessageBox>
 
 MChat::MChat(MChatArg *arg) :
     QWidget(nullptr),
@@ -17,7 +19,8 @@ MChat::MChat(MChatArg *arg) :
     this->arg->interface = arg->interface;
     this->arg->tcpSocket = arg->tcpSocket;
 
-    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(pu_name()));
+    _map.insert(arg->status,&MChat::responsed_ban);
+    connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
     connect(arg->tcpSocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
 }
 
@@ -26,13 +29,23 @@ MChat::~MChat()
     delete ui;
 }
 
-void MChat::request_ban()
+void MChat::request_ban(QString uid)
 {
     arg->manager->setInterface(arg->interface);
     QByteArray postData;
-    postData.append("talkid=" + ui->label_id->text());
+    postData.append("talkid=" + uid);
     arg->manager->setStatus(arg->status);
     arg->manager->postData(postData);
+}
+
+void MChat::on_responsed(QNetworkReply *reply, int status)
+{
+    if(_map.find(status) != _map.end()){
+        (this->*(_map[status]))(reply);
+    }
+    else{
+        qDebug() << "unknow status";
+    }
 }
 
 void MChat::responsed_ban(QNetworkReply *reply)
@@ -50,11 +63,6 @@ void MChat::responsed_ban(QNetworkReply *reply)
         label->setText("禁言失败");
     }
     arg->grid->addWidget(label);
-}
-
-void MChat::pu_name()
-{
-    request_ban();
 }
 
 void MChat::readMessage()
@@ -82,7 +90,10 @@ void MChat::readMessage()
     in >> kong;
     in >> sendid;
     in >> receiveid;
-
+    qDebug() << cmd;
+    if(cmd == 0){
+        return;
+    }
     int strsize = length - sizeof(qint64) * 2;
 
     char* p = new char[strsize];
@@ -95,15 +106,19 @@ void MChat::readMessage()
     qDebug() << receivedata;
 
     QJsonObject json = QJsonDocument::fromJson(receivedata).object();
-    QString text = json.value("text").toString();
-    QJsonObject user = json.value("user").toObject();
-    QString username = user.value("username").toString();
-    QString talkid = user.value("userid").toString();
 
-    Ui::MChat *new_ui = new Ui::MChat();
-    new_ui->setupUi(this);
-    new_ui->pushButton->setText(username);
-    new_ui->label->setText(text);
-    new_ui->label_id->setText(talkid);
+    unsigned int Cmd = json.value("Cmd").toInt();
+    if(Cmd == 66){
+        QString nickname = json.value("nickname").toString();
+        QString uid = json.value("uid").toString();
+        QString msg = json.value("msg").toString();
+        qDebug() << msg;
+        QQChat *new_ui = new QQChat();
+        new_ui->update_name(nickname);
+        new_ui->talkid = uid;
+        new_ui->update_input(msg);
+        arg->grid->addWidget(new_ui);
+        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(request_ban(QString)));
+    }
 }
 

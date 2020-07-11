@@ -202,7 +202,13 @@ public:
         label_pave->setText(QString());
         label_result->setText(QCoreApplication::translate("MGameOver", "\345\272\204\350\265\242", nullptr));
         pu_yes->setText(QCoreApplication::translate("MGameOver", "\347\241\256\345\256\232", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_yes->setShortcut(QCoreApplication::translate("MGameOver", "Enter", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_no->setText(QCoreApplication::translate("MGameOver", "\345\217\226\346\266\210", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_no->setShortcut(QCoreApplication::translate("MGameOver", "Esc", nullptr));
+#endif // QT_CONFIG(shortcut)
     } // retranslateUi
 
 };

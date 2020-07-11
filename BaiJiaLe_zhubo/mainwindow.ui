@@ -103,6 +103,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              <property name="text">
               <string>开局（6）</string>
              </property>
+             <property name="shortcut">
+              <string>6</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -131,6 +134,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              </property>
              <property name="text">
               <string>换靴（+）</string>
+             </property>
+             <property name="shortcut">
+              <string>+</string>
              </property>
             </widget>
            </item>
@@ -161,6 +167,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              <property name="text">
               <string>停止（/）</string>
              </property>
+             <property name="shortcut">
+              <string>/</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -190,6 +199,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              <property name="text">
               <string>离开（.）</string>
              </property>
+             <property name="shortcut">
+              <string>.</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -218,6 +230,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              </property>
              <property name="text">
               <string>作废（0）</string>
+             </property>
+             <property name="shortcut">
+              <string>0</string>
              </property>
             </widget>
            </item>
@@ -251,6 +266,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              </property>
              <property name="text">
               <string>庄（7）</string>
+             </property>
+             <property name="shortcut">
+              <string>7</string>
              </property>
             </widget>
            </item>
@@ -480,6 +498,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              <property name="text">
               <string>闲（4）</string>
              </property>
+             <property name="shortcut">
+              <string>4</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -508,6 +529,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              </property>
              <property name="text">
               <string>和（1）</string>
+             </property>
+             <property name="shortcut">
+              <string>1</string>
              </property>
             </widget>
            </item>
@@ -538,6 +562,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              <property name="text">
               <string>庄对（2）</string>
              </property>
+             <property name="shortcut">
+              <string>2</string>
+             </property>
             </widget>
            </item>
            <item>
@@ -566,6 +593,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
              </property>
              <property name="text">
               <string>闲对（5）</string>
+             </property>
+             <property name="shortcut">
+              <string>5</string>
              </property>
             </widget>
            </item>
@@ -741,9 +771,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <height>571</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <layout class="QGridLayout" name="ChatPanel"/>
+           <layout class="QGridLayout" name="gridLayout_3"/>
           </item>
          </layout>
         </widget>
@@ -1017,20 +1047,6 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
         <property name="title">
          <string/>
         </property>
-        <layout class="QVBoxLayout" name="verticalLayout_8">
-         <property name="leftMargin">
-          <number>2</number>
-         </property>
-         <property name="topMargin">
-          <number>2</number>
-         </property>
-         <property name="rightMargin">
-          <number>2</number>
-         </property>
-         <property name="bottomMargin">
-          <number>2</number>
-         </property>
-        </layout>
        </widget>
       </item>
      </layout>

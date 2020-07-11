@@ -15,6 +15,8 @@ MLogin::MLogin(MLoginArg *arg) :
 
     this->arg = new MLoginArg();
 
+    this->arg->userid = arg->userid;
+    this->arg->passwd = arg->passwd;
     this->arg->IP = arg->IP;
     this->arg->widget = arg->widget;
     this->arg->tcpsocket = arg->tcpsocket;
@@ -178,7 +180,7 @@ void MLogin::responsed_second_login(QNetworkReply *reply)
 void MLogin::request_first_login()
 {
     QByteArray postData;
-    QString str = "desk=a5&password=123456";
+    QString str = "desk=" + arg->userid + "&password=" + arg->passwd;
     postData.append(str);
     qDebug() << arg->interface_first;
     arg->manager_first->setInterface(arg->interface_first);

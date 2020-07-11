@@ -73,17 +73,7 @@ border-radius:5px;</string>
        </property>
        <item>
         <property name="text">
-         <string>A1</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>A2</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>A3</string>
+         <string>VIP11</string>
         </property>
        </item>
       </widget>

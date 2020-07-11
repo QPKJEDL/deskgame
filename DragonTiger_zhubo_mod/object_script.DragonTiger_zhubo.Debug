@@ -15,6 +15,7 @@ debug/MStart.o
 debug/MTopFive.o
 debug/MTopThree.o
 debug/MUseless.o
+debug/qqchat.o
 debug/qrc_qrc.o
 debug/moc_mainwindow.o
 debug/moc_MNetManager.o
@@ -32,3 +33,4 @@ debug/moc_MStart.o
 debug/moc_MTopFive.o
 debug/moc_MTopThree.o
 debug/moc_MUseless.o
+debug/moc_qqchat.o

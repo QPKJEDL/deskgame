@@ -56,8 +56,8 @@ public:
     QLabel *label_tieMinLimit;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_10;
-    QGridLayout *ChatPanel;
+    QVBoxLayout *verticalLayout_4;
+    QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout;
@@ -77,7 +77,6 @@ public:
     QLabel *label_140;
     QGroupBox *groupBox_3;
     QGroupBox *groupBox_4;
-    QVBoxLayout *verticalLayout_8;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -390,12 +389,12 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1161, 571));
-        verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        ChatPanel = new QGridLayout();
-        ChatPanel->setObjectName(QString::fromUtf8("ChatPanel"));
+        verticalLayout_4 = new QVBoxLayout(scrollAreaWidgetContents);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
 
-        verticalLayout_10->addLayout(ChatPanel);
+        verticalLayout_4->addLayout(gridLayout_3);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 
@@ -548,9 +547,6 @@ public:
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setStyleSheet(QString::fromUtf8(""));
-        verticalLayout_8 = new QVBoxLayout(groupBox_4);
-        verticalLayout_8->setObjectName(QString::fromUtf8("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(2, 2, 2, 2);
 
         verticalLayout_5->addWidget(groupBox_4);
 
@@ -575,15 +571,45 @@ public:
         groupBox->setTitle(QString());
         pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_changeXue->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264\357\274\210+\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_changeXue->setShortcut(QCoreApplication::translate("MainWindow", "+", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_stop->setText(QCoreApplication::translate("MainWindow", "\345\201\234\346\255\242\357\274\210/\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_stop->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_leave->setText(QCoreApplication::translate("MainWindow", "\347\246\273\345\274\200\357\274\210.\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_leave->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_zhuang->setText(QCoreApplication::translate("MainWindow", "\345\272\204\357\274\2107\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_zhuang->setShortcut(QCoreApplication::translate("MainWindow", "7", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_xian->setText(QCoreApplication::translate("MainWindow", "\351\227\262\357\274\2104\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_xian->setShortcut(QCoreApplication::translate("MainWindow", "4", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_same->setText(QCoreApplication::translate("MainWindow", "\345\222\214\357\274\2101\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_same->setShortcut(QCoreApplication::translate("MainWindow", "1", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_zhuangdui->setText(QCoreApplication::translate("MainWindow", "\345\272\204\345\257\271\357\274\2102\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_zhuangdui->setShortcut(QCoreApplication::translate("MainWindow", "2", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_xiandui->setText(QCoreApplication::translate("MainWindow", "\351\227\262\345\257\271\357\274\2105\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_xiandui->setShortcut(QCoreApplication::translate("MainWindow", "5", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_123->setText(QCoreApplication::translate("MainWindow", "\345\217\260   \346\241\214   \351\231\220   \347\272\242", nullptr));
         label_minLimit->setText(QString());
         label_122->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><span style=\" color:#ff0000;\">\345\272\204</span><span style=\" color:#0055ff;\">\351\227\262</span></p></body></html>", nullptr));

@@ -41,7 +41,8 @@ public slots:
     void request_record();
     void apply_record(QString game,QString bankerPair,QString playerPair);
     void on_useless();
-
+signals:
+    void finished();
 
 private slots:
     void on_responsed(QNetworkReply* reply,int status);

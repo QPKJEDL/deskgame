@@ -62,7 +62,7 @@ static const uint qt_meta_data_QQChat[] = {
        3,    0,   27,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void, QMetaType::Int,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -76,14 +76,14 @@ void QQChat::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         auto *_t = static_cast<QQChat *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->banUser((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 0: _t->banUser((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->pu_name(); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (QQChat::*)(int );
+            using _t = void (QQChat::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&QQChat::banUser)) {
                 *result = 0;
                 return;
@@ -133,7 +133,7 @@ int QQChat::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void QQChat::banUser(int _t1)
+void QQChat::banUser(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);

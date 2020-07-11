@@ -34,7 +34,8 @@ SOURCES += \
     mod/mod_start/MStart.cpp \
     mod/mod_topFive/MTopFive.cpp \
     mod/mod_topThree/MTopThree.cpp \
-    mod/mod_useless/MUseless.cpp
+    mod/mod_useless/MUseless.cpp \
+    qqchat.cpp
 
 HEADERS += \
     mainwindow.h \
@@ -52,7 +53,8 @@ HEADERS += \
     mod/mod_start/MStart.h \
     mod/mod_topFive/MTopFive.h \
     mod/mod_topThree/MTopThree.h \
-    mod/mod_useless/MUseless.h
+    mod/mod_useless/MUseless.h \
+    qqchat.h
 
 FORMS += \
     mainwindow.ui \
@@ -62,7 +64,8 @@ FORMS += \
     mod/mod_money/MMoney.ui \
     mod/mod_phase/MPhase.ui \
     mod/mod_topFive/MTopFive.ui \
-    mod/mod_topThree/MTopThree.ui
+    mod/mod_topThree/MTopThree.ui \
+    qqchat.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

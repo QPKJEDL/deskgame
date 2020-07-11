@@ -79,7 +79,7 @@ public:
     void retranslateUi(QWidget *MPhase)
     {
         MPhase->setWindowTitle(QCoreApplication::translate("MPhase", "Form", nullptr));
-        label->setText(QCoreApplication::translate("MPhase", "2", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };

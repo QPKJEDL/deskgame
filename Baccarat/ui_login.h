@@ -78,7 +78,7 @@ public:
         Login->setWindowTitle(QCoreApplication::translate("Login", "Form", nullptr));
         pu_cancel->setText(QCoreApplication::translate("Login", "\345\217\226\346\266\210", nullptr));
         pu_enter->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("Login", "\347\231\276\345\256\266\344\271\220\357\274\210CS1\357\274\211", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("Login", "\347\231\276\345\256\266\344\271\220\357\274\210A5\357\274\211", nullptr));
 
     } // retranslateUi
 

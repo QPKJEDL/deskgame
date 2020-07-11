@@ -110,6 +110,7 @@ void MRecord::responsed_record(QNetworkReply *reply)
         QJsonArray data = json.value("data").toArray();
         QJsonArray array = data.at(0)["list"].toArray();
         update_panel(array);
+        emit finished();
     }
     else{
         QMessageBox box;

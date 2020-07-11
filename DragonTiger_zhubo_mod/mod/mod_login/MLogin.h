@@ -6,6 +6,9 @@
 
 class MNetManager;
 typedef struct{
+    QString userid;
+    QString passwd;
+
     QWidget *widget;
     MNetManager *manager_first;
     MNetManager *manager_second;

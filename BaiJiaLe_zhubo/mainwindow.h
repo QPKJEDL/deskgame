@@ -21,6 +21,7 @@
 #include "mod/mod_changeBoot/MChangeBoot.h"
 #include "mod/mod_init/MInit.h"
 #include "mod/mod_topFive/MTopFive.h"
+#include "mod/mod_chat/MChat.h"
 
 class MMoney;
 class MLogin;
@@ -35,6 +36,7 @@ class MUseless;
 class MChangeBoot;
 class MInit;
 class MTopFive;
+class MChat;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -70,5 +72,6 @@ private:
     MChangeBoot *module_changeBoot;
     MInit *module_init;
     MTopFive *module_topFive;
+    MChat *module_chat;
 };
 #endif // MAINWINDOW_H
