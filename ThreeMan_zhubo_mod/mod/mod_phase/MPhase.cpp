@@ -16,7 +16,6 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->leave = arg->leave;
     this->arg->start = arg->start;
     this->arg->useless = arg->useless;
-    this->arg->changeBoot = arg->changeBoot;
 
     this->arg->locate = arg->locate;
     this->arg->location = arg->location;
@@ -25,6 +24,8 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->status_locate = arg->status_locate;
     this->arg->manager = arg->manager;
     this->arg->interface_locate = arg->interface_locate;
+
+    this->move(800,400);
 
     this->timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(on_timeout()));
@@ -82,7 +83,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
     count_down = countDown;
     switch (phase) {
     case 0:{
-        enabled({arg->start,arg->changeBoot,arg->leave,arg->init});
+        enabled({arg->start,arg->leave,arg->init});
         break;
     }
     case 1:{
@@ -99,7 +100,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         break;
     }
     case 3:{
-        enabled({arg->start,arg->changeBoot,arg->leave,arg->init});
+        enabled({arg->start,arg->leave,arg->init});
         break;
     }
     }

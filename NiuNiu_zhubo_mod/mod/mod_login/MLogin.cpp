@@ -109,7 +109,7 @@ void MLogin::readMessage()
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_5_14);
 
-        sendLoginMsg(out,_long_id);
+        sendLoginMsg(out,QString::number(desk_id));
 
         arg->tcpsocket->write(block);
 

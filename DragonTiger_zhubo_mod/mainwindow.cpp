@@ -96,6 +96,8 @@ MainWindow::MainWindow(QMainWindow *parent)
     roomInfoArg.interface = "HeGuanRoominfo";
     roomInfoArg.timesBoot = ui->label_xues;
     roomInfoArg.timesPave = ui->label_pus;
+    roomInfoArg.limit = ui->label_minLimit;
+    roomInfoArg.tieLimit = ui->label_tieMinLimit;
     module_roomInfo = new MRoomInfo(&roomInfoArg);
 
     MPhaseArg phaseArg;

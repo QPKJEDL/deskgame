@@ -3,11 +3,13 @@ release/mainwindow.o
 release/MNetManager.o
 release/MChangeBoot.o
 release/MChat.o
+release/MDialog.o
 release/MInit.o
 release/MLeave.o
 release/MLogin.o
 release/MMoney.o
 release/MPhase.o
+release/MReword.o
 release/MRoomCard.o
 release/MRoomInfo.o
 release/MStart.o
@@ -20,11 +22,13 @@ release/moc_mainwindow.o
 release/moc_MNetManager.o
 release/moc_MChangeBoot.o
 release/moc_MChat.o
+release/moc_MDialog.o
 release/moc_MInit.o
 release/moc_MLeave.o
 release/moc_MLogin.o
 release/moc_MMoney.o
 release/moc_MPhase.o
+release/moc_MReword.o
 release/moc_MRoomCard.o
 release/moc_MRoomInfo.o
 release/moc_MStart.o

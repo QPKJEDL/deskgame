@@ -243,7 +243,7 @@ public:
     void retranslateUi(QWidget *MLogin)
     {
         MLogin->setWindowTitle(QCoreApplication::translate("MLogin", "Form", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "VIP11", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "\351\276\231\350\231\216_VIP11", nullptr));
 
         label_2->setText(QCoreApplication::translate("MLogin", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));
         userid->setText(QString());

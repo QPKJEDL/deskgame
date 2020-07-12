@@ -9,6 +9,10 @@ typedef struct{
     QString interface;
     MNetManager *manager;
 
+    QLabel *limit;
+    QLabel *tieLimit;
+    QLabel *pairLimit;
+
     QLabel *timesBoot;
     QLabel *timesPave;
     QLabel *deskId;

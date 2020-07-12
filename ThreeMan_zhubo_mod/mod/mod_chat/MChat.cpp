@@ -66,6 +66,8 @@ void MChat::responsed_ban(QNetworkReply *reply)
     arg->grid->addWidget(label);
 }
 
+void cmd_equal_twenty(QDataStream *in,int length);
+
 void MChat::readMessage()
 {
     // 解析包的格式
@@ -77,8 +79,7 @@ void MChat::readMessage()
     qint8 flag = 0;
     qint8 kong = 0;
 
-    qint64 sendid = 0;
-    qint64 receiveid = 0;
+
 
     QByteArray block = arg->tcpSocket->readAll();
     QDataStream in(block);
@@ -89,25 +90,27 @@ void MChat::readMessage()
     in >> version;
     in >> flag;
     in >> kong;
-    in >> sendid;
-    in >> receiveid;
-    qDebug() << cmd;
-    if(cmd == 0){
-        return;
+
+    if(cmd == 20){
+        cmd_equal_twenty(&in,length);
     }
+    else if (cmd == 4){
+        cmd_equal_four(&in,length);
+    }
+}
+
+void MChat::cmd_equal_twenty(QDataStream *in,int length){
+    qint64 sendid = 0;
+    qint64 receiveid = 0;
+    *in >> sendid;
+    *in >> receiveid;
+
     int strsize = length - sizeof(qint64) * 2;
-
     char* p = new char[strsize];
-
-    in.readRawData(p, strsize);
-
+    in->readRawData(p,strsize);
     QByteArray receivedata(p,strsize);
-
-    delete[] p;
-    qDebug() << receivedata;
-
     QJsonObject json = QJsonDocument::fromJson(receivedata).object();
-
+    qDebug() << json;
     unsigned int Cmd = json.value("Cmd").toInt();
     if(Cmd == 66){
         QString nickname = json.value("nickname").toString();
@@ -122,4 +125,31 @@ void MChat::readMessage()
         connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(request_ban(QString)));
     }
 }
+
+void MChat::cmd_equal_four(QDataStream *in,int length){
+    qint64 sendid = 0;
+    qint64 receiveid = 0;
+    qint32 timestamp = 0;
+    qint32 msgid = 0;
+    *in >> sendid;
+    *in >> receiveid;
+    *in >> timestamp;
+    *in >> msgid;
+
+
+    int strsize = length - sizeof(qint64) * 3;
+    char* p = new char[strsize];
+    in->readRawData(p,strsize);
+    QByteArray receivedata(p,strsize);
+    QJsonObject json = QJsonDocument::fromJson(receivedata).object();
+    qDebug() << json;
+    unsigned int Cmd = json.value("Cmd").toInt();
+    if(Cmd == 14){
+        QString UserAccount = json.value("UserAccount").toString();
+        unsigned int money = json.value("Money").toInt();
+        emit show_reword(UserAccount,money);
+    }
+}
+
+
 

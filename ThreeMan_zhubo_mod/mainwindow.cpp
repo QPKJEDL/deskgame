@@ -29,11 +29,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
@@ -41,9 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_2->setVisible(false);
     /////////////////////////////////////////////////////////////////////////////
     MLoginArg loginArg;
-    loginArg.userid = "svip8";
-    loginArg.passwd = "123456";
-    loginArg.IP = "129.211.114.135";
+    loginArg.userid = "VIP12";
+    loginArg.passwd = "d3e45d040dab70d0";
+    loginArg.IP = "101.32.22.231";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;
@@ -75,7 +75,7 @@ MainWindow::MainWindow(QWidget *parent)
     phaseArg.locate = ui->button_locate;
     phaseArg.input = ui->lineEdit_2;
     phaseArg.location = ui->label_locate;
-    module_phase = new MPhase(&phaseArg);
+    module_phase = new MPhase(&phaseArg,this);
 
     MRoomCardArg roomCardArg;
     roomCardArg.boot = ui->xue_times;
@@ -165,8 +165,12 @@ MainWindow::MainWindow(QWidget *parent)
     chatArg.tcpSocket = m_tcpsocket;
     module_chat = new MChat(&chatArg);
 
+    module_reword = new MReword(this);
+    connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
+
     module_leave = new MLeave(ui->pu_exit,this);
 
+    connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
     connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
     connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
     connect(module_phase,SIGNAL(located(int)),module_roomCard,SLOT(locate(int)));

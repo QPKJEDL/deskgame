@@ -74,7 +74,8 @@ void MLogin::connectedServer()
 
     QDataStream out(&block,QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_5_14);
-
+    qDebug() << "_long_id : " << _long_id;
+    qDebug() << "_long_id : " << _long_token;
     printToSend(out,_long_id,_long_token);
 
     arg->tcpsocket->write(block);
@@ -109,7 +110,7 @@ void MLogin::readMessage()
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_5_14);
 
-        sendLoginMsg(out,_long_id);
+        sendLoginMsg(out,QString::number(desk_id));
 
         arg->tcpsocket->write(block);
 

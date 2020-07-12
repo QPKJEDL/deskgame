@@ -3,6 +3,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include "mod/mod_dialog/MDialog.h"
 
 MChangeBoot::MChangeBoot(MChangeBootArg *arg,QWidget *parent) : QWidget(parent)
 {
@@ -23,8 +24,12 @@ void MChangeBoot::pu_changeBoot(){
 
 void MChangeBoot::request_changeBoot()
 {
-    int choose = QMessageBox::question(this,QString("换靴"),QString("确认换靴？"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否关闭?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
         arg->manager->setStatus(arg->status);
         arg->manager->setInterface(arg->interface);
         arg->manager->postData(QByteArray());

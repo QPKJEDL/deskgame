@@ -26,17 +26,17 @@ public:
     QVBoxLayout *verticalLayout;
     QHBoxLayout *horizontalLayout;
     QPushButton *pushButton;
+    QLabel *label;
     QSpacerItem *horizontalSpacer;
     QLabel *label_id;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label;
-    QSpacerItem *horizontalSpacer_2;
 
     void setupUi(QWidget *MChat)
     {
         if (MChat->objectName().isEmpty())
             MChat->setObjectName(QString::fromUtf8("MChat"));
-        MChat->resize(746, 104);
+        MChat->resize(1450, 60);
+        MChat->setMinimumSize(QSize(1450, 60));
+        MChat->setMaximumSize(QSize(1450, 60));
         verticalLayout = new QVBoxLayout(MChat);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         horizontalLayout = new QHBoxLayout();
@@ -44,6 +44,7 @@ public:
         pushButton = new QPushButton(MChat);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
         pushButton->setMinimumSize(QSize(0, 40));
+        pushButton->setMaximumSize(QSize(16777215, 40));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font.setPointSize(15);
@@ -51,6 +52,16 @@ public:
         pushButton->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;"));
 
         horizontalLayout->addWidget(pushButton);
+
+        label = new QLabel(MChat);
+        label->setObjectName(QString::fromUtf8("label"));
+        label->setMaximumSize(QSize(16777215, 40));
+        label->setFont(font);
+        label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);border:1px solid ; border-radius: 8px;\n"
+"background-color: rgb(170, 170, 127);"));
+        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+
+        horizontalLayout->addWidget(label);
 
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -65,24 +76,6 @@ public:
 
         verticalLayout->addLayout(horizontalLayout);
 
-        horizontalLayout_2 = new QHBoxLayout();
-        horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label = new QLabel(MChat);
-        label->setObjectName(QString::fromUtf8("label"));
-        label->setFont(font);
-        label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);border:1px solid ; border-radius: 8px;\n"
-"background-color: rgb(170, 170, 127);"));
-        label->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
-
-        horizontalLayout_2->addWidget(label);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_2);
-
-
-        verticalLayout->addLayout(horizontalLayout_2);
-
 
         retranslateUi(MChat);
 
@@ -93,8 +86,8 @@ public:
     {
         MChat->setWindowTitle(QCoreApplication::translate("MChat", "Form", nullptr));
         pushButton->setText(QString());
-        label_id->setText(QString());
         label->setText(QString());
+        label_id->setText(QString());
     } // retranslateUi
 
 };

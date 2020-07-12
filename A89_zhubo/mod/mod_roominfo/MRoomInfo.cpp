@@ -37,6 +37,7 @@ void MRoomInfo::responsed_room_info(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
 
+
         arg->timesBoot->setText(QString::number(BootNum));
         arg->timesPave->setText(QString::number((PaveNum)));
         arg->deskId->setText(DeskName);

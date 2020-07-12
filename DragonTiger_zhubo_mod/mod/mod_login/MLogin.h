@@ -43,6 +43,7 @@ public:
 private:
     Ui::MLogin *ui;
     MLoginArg *arg;
+    unsigned int desk_id;
     QString _long_id;
     QString _long_token;
     QMap<int,exe_login> _map;

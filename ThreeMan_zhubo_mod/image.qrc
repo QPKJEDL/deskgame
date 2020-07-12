@@ -87,5 +87,6 @@
         <file>image/icon/2.png</file>
         <file>image/icon/3.png</file>
         <file>image/icon/money.png</file>
+        <file>image/icon/reword.png</file>
     </qresource>
 </RCC>

@@ -13,6 +13,8 @@ typedef struct{
     QLabel *timesBoot;
     QLabel *timesPave;
     QLabel *deskId;
+
+
 }MRoomInfoArg;
 
 class MRoomInfo;

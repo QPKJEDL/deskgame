@@ -30,7 +30,8 @@ public:
     ~MChat();
 
 private:
-
+    void cmd_equal_twenty(QDataStream *in,int length);
+    void cmd_equal_four(QDataStream *in,int length);
     void responsed_ban(QNetworkReply *reply);
 
 private:
@@ -46,6 +47,9 @@ private slots:
 
 public:
     int talkid;
+
+signals:
+    void show_reword(QString user,int money);
 };
 
 #endif // MCHAT_H

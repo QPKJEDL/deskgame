@@ -73,8 +73,6 @@ public:
 
         comboBox = new QComboBox(MLogin);
         comboBox->addItem(QString());
-        comboBox->addItem(QString());
-        comboBox->addItem(QString());
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setMinimumSize(QSize(439, 79));
         comboBox->setMaximumSize(QSize(16777215, 100));
@@ -245,9 +243,7 @@ public:
     void retranslateUi(QWidget *MLogin)
     {
         MLogin->setWindowTitle(QCoreApplication::translate("MLogin", "Form", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "A1", nullptr));
-        comboBox->setItemText(1, QCoreApplication::translate("MLogin", "A2", nullptr));
-        comboBox->setItemText(2, QCoreApplication::translate("MLogin", "A3", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "\344\270\211\345\205\254_VIP12", nullptr));
 
         label_2->setText(QCoreApplication::translate("MLogin", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));
         userid->setText(QString());

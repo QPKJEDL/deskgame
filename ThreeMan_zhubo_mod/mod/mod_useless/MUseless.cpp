@@ -3,6 +3,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
+#include <mod/mod_dialog/MDialog.h>
 
 MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
 {
@@ -21,8 +22,12 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
 
 void MUseless::pu_useless()
 {
-    int choose = QMessageBox::question(this,QString("作废"),QString("确认作废?"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
         request_useless();
     }
 }

@@ -13,7 +13,6 @@ class MPhase;
 typedef struct{
     QPushButton *init;
     QPushButton *start;
-    QPushButton *changeBoot;
     QPushButton *leave;
     QPushButton *useless;
 

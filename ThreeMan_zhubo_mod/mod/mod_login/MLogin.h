@@ -46,6 +46,7 @@ private:
     QString _long_id;
     QString _long_token;
     QMap<int,exe_login> _map;
+    unsigned int desk_id;
 
 private slots:
     void pu_login();

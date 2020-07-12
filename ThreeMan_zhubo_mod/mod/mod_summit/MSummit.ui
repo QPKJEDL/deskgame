@@ -13,6 +13,28 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>210</x>
+     <y>280</y>
+     <width>91</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton{color: rgb(255, 255, 255);background: rgb(252, 238, 205);border:1px solid grey; border-radius: 8px;}
+QPushButton:hover{border-color:rgb(139,170,105)}
+QPushButton:pressed{border-color:gray;background-color:rgb(153, 118, 97);}
+QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
+}
+background-color: ;
+color:;</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

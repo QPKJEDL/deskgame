@@ -121,6 +121,14 @@ void MRecord::responsed_record(QNetworkReply *reply)
 
 void MRecord::update_panel(QJsonArray array)
 {
+    link = head;
+    while(link->next != nullptr){
+        link->data->setText("");
+        link->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+        link = link->next;
+    }
+    link = head;
+
     for(int i = 0;i < array.count();i++){
         QString game = array.at(i)["game"].toString();
         QString bankerPair = array.at(i)["bankerPair"].toString();

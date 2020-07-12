@@ -94,12 +94,15 @@ MainWindow::MainWindow(QWidget *parent)
     module_gameOver = new MGameOver(&gameOverArg);
 
     MRoomInfoArg roomInfoArg;
-    roomInfoArg.deskId = ui->label_desk_id;
     roomInfoArg.status = ROOMINFO;
     roomInfoArg.manager = manager;
     roomInfoArg.interface = "HeGuanRoominfo";
+    roomInfoArg.deskId = ui->label_desk_id;
     roomInfoArg.timesBoot = ui->label_times_xue;
     roomInfoArg.timesPave = ui->label_times_pu;
+    roomInfoArg.limit = ui->label_minLimit;
+    roomInfoArg.pairLimit = ui->label_pairMinLimit;
+    roomInfoArg.tieLimit = ui->label_tieMinLimit;
     module_roomInfo = new MRoomInfo(&roomInfoArg);
 
     MPhaseArg phaseArg;

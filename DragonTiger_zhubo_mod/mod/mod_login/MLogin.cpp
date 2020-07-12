@@ -109,7 +109,7 @@ void MLogin::readMessage()
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_5_14);
 
-        sendLoginMsg(out,_long_id);
+        sendLoginMsg(out,QString::number(desk_id));
 
         arg->tcpsocket->write(block);
 
@@ -133,7 +133,7 @@ void MLogin::responsed_first_login(QNetworkReply *reply)
     if(status == 1){
         QJsonObject data = json.value("data").toObject();
 
-        unsigned int desk_id = data.value("desk_id").toInt();
+        desk_id = data.value("desk_id").toInt();
         QString desk_token = data.value("desk_token").toString();
         arg->manager_first->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
         arg->manager_first->setRawHeader("desk_token",desk_token.toUtf8());
@@ -196,6 +196,7 @@ void MLogin::request_second_login()
     QByteArray postData;
     postData.append(QString("live_user=" + ui->userid->text()));
     postData.append(QString("&password=" + ui->passwd->text()));
+    postData.append(QString("&desk_id=") + QString::number(desk_id));
     arg->manager_second->postData(postData);
 }
 
