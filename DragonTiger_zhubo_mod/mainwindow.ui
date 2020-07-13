@@ -204,7 +204,7 @@ QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_
            <item>
             <widget class="QPushButton" name="pu_useless">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="minimumSize">
               <size>

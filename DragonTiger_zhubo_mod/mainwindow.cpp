@@ -111,7 +111,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     phaseArg.player = ui->pu_tiger;
     phaseArg.useless = ui->pu_useless;
     phaseArg.changeBoot = ui->pu_changeXue;
-    module_phase = new MPhase(&phaseArg);
+    module_phase = new MPhase(&phaseArg,this);
 
     MRecordArg recordArg;
     recordArg.boot = ui->label_xues;

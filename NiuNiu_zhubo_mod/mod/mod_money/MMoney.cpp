@@ -19,7 +19,7 @@ MMoney::MMoney(MMoneyArg *arg):
 
     button_money = new QPushButton(arg->widget);
     button_money->setMinimumSize(150,150);
-    button_money->move(1400,400);
+    button_money->move(1300,500);
     button_money->setStyleSheet("background-color: transparent;border-image: url(:/icon/image/icon/money.png);");
     button_money->show();
 
@@ -49,7 +49,8 @@ void MMoney::update_panel(QJsonArray data)
     auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money){
         QString num_creatime = list.at(num)["creatime"].toString();
         QString num_deskName = list.at(num)["deskName"].toString();
-        unsigned int num_money = list.at(num)["money"].toInt();
+        double num_money = list.at(num)["money"].toDouble();
+        num_money = num_money / 100.0;
         if(num_money == 0){
             stop = true;
         }
@@ -169,6 +170,7 @@ void MMoney::pu_search()
 void MMoney::pu_money()
 {
     this->show();
+    pu_today();
 }
 
 void MMoney::on_responsed(QNetworkReply *reply, int status)

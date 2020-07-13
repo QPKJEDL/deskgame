@@ -44,6 +44,7 @@ private slots:
     void readMessage();
     void request_ban(QString uid);
     void on_responsed(QNetworkReply *reply, int status);
+    void pu_name(QString uid);
 
 public:
     int talkid;

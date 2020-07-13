@@ -3,11 +3,13 @@ debug/mainwindow.o
 debug/MNetManager.o
 debug/MChangeBoot.o
 debug/MChat.o
+debug/MDialog.o
 debug/MInit.o
 debug/MLeave.o
 debug/MLogin.o
 debug/MMoney.o
 debug/MPhase.o
+debug/MReword.o
 debug/MRoomCard.o
 debug/MRoomInfo.o
 debug/MStart.o
@@ -20,11 +22,13 @@ debug/moc_mainwindow.o
 debug/moc_MNetManager.o
 debug/moc_MChangeBoot.o
 debug/moc_MChat.o
+debug/moc_MDialog.o
 debug/moc_MInit.o
 debug/moc_MLeave.o
 debug/moc_MLogin.o
 debug/moc_MMoney.o
 debug/moc_MPhase.o
+debug/moc_MReword.o
 debug/moc_MRoomCard.o
 debug/moc_MRoomInfo.o
 debug/moc_MStart.o

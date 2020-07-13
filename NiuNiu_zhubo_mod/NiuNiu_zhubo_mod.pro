@@ -24,9 +24,11 @@ SOURCES += \
     mod/MNetManager.cpp \
     mod/mod_changeBoot/MChangeBoot.cpp \
     mod/mod_chat/MChat.cpp \
+    mod/mod_dialog/MDialog.cpp \
     mod/mod_init/MInit.cpp \
     mod/mod_leave/MLeave.cpp \
     mod/mod_login/MLogin.cpp \
+    mod/mod_money/MMoney.cpp \
     mod/mod_phase/MPhase.cpp \
     mod/mod_roomCard/MRoomCard.cpp \
     mod/mod_roominfo/MRoomInfo.cpp \
@@ -42,9 +44,11 @@ HEADERS += \
     mod/MNetManager.h \
     mod/mod_changeBoot/MChangeBoot.h \
     mod/mod_chat/MChat.h \
+    mod/mod_dialog/MDialog.h \
     mod/mod_init/MInit.h \
     mod/mod_leave/MLeave.h \
     mod/mod_login/MLogin.h \
+    mod/mod_money/MMoney.h \
     mod/mod_phase/MPhase.h \
     mod/mod_roomCard/MRoomCard.h \
     mod/mod_roominfo/MRoomInfo.h \
@@ -57,7 +61,9 @@ HEADERS += \
 FORMS += \
     mainwindow.ui \
     mod/mod_chat/MChat.ui \
+    mod/mod_dialog/MDialog.ui \
     mod/mod_login/MLogin.ui \
+    mod/mod_money/MMoney.ui \
     mod/mod_phase/MPhase.ui \
     mod/mod_roomCard/MRoomCard.ui \
     mod/mod_summit/MSummit.ui \

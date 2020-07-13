@@ -876,6 +876,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <property name="text">
                <string>确定</string>
               </property>
+              <property name="shortcut">
+               <string>Enter</string>
+              </property>
              </widget>
             </item>
             <item>
@@ -899,6 +902,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               </property>
               <property name="text">
                <string>取消</string>
+              </property>
+              <property name="shortcut">
+               <string>Esc</string>
               </property>
              </widget>
             </item>

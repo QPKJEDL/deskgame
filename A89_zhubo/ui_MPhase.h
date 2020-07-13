@@ -32,7 +32,7 @@ public:
         MPhase->resize(427, 291);
         MPhase->setMinimumSize(QSize(427, 291));
         MPhase->setMaximumSize(QSize(427, 291));
-        MPhase->setStyleSheet(QString::fromUtf8("border-image: url(:/icon/image/icon/4.png);"));
+        MPhase->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         verticalLayout = new QVBoxLayout(MPhase);
         verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -64,7 +64,7 @@ public:
     void retranslateUi(QWidget *MPhase)
     {
         MPhase->setWindowTitle(QCoreApplication::translate("MPhase", "Form", nullptr));
-        label->setText(QCoreApplication::translate("MPhase", "23", nullptr));
+        label->setText(QString());
     } // retranslateUi
 
 };

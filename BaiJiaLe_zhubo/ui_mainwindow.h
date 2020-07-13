@@ -621,7 +621,13 @@ public:
         label_desk_id->setText(QCoreApplication::translate("MainWindow", "A5", nullptr));
         label_result->setText(QString());
         pu_enter->setText(QCoreApplication::translate("MainWindow", "\347\241\256\345\256\232", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_enter->setShortcut(QCoreApplication::translate("MainWindow", "Enter", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_cancel->setText(QCoreApplication::translate("MainWindow", "\345\217\226\346\266\210", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_cancel->setShortcut(QCoreApplication::translate("MainWindow", "Esc", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_135->setText(QCoreApplication::translate("MainWindow", "\347\254\254", nullptr));
         label_times_xue->setText(QString());
         label_139->setText(QCoreApplication::translate("MainWindow", "\351\235\264", nullptr));

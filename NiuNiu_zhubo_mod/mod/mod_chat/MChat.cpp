@@ -1,8 +1,10 @@
 #include "MChat.h"
-#include "ui_MChat.h"
 #include "qqchat.h"
+#include "ui_MChat.h"
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMessageBox>
+#include "mod/mod_dialog/MDialog.h"
 
 MChat::MChat(MChatArg *arg) :
     QWidget(nullptr),
@@ -20,7 +22,6 @@ MChat::MChat(MChatArg *arg) :
 
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
-    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(pu_name()));
     connect(arg->tcpSocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
 }
 
@@ -29,11 +30,11 @@ MChat::~MChat()
     delete ui;
 }
 
-void MChat::request_ban()
+void MChat::request_ban(QString uid)
 {
     arg->manager->setInterface(arg->interface);
     QByteArray postData;
-    postData.append("talkid=" + ui->label_id->text());
+    postData.append("talkid=" + uid);
     arg->manager->setStatus(arg->status);
     arg->manager->postData(postData);
 }
@@ -45,6 +46,18 @@ void MChat::on_responsed(QNetworkReply *reply, int status)
     }
     else{
         qDebug() << "unknow status";
+    }
+}
+
+void MChat::pu_name(QString uid)
+{
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否禁言?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_ban(uid);
     }
 }
 
@@ -65,6 +78,8 @@ void MChat::responsed_ban(QNetworkReply *reply)
     arg->grid->addWidget(label);
 }
 
+void cmd_equal_twenty(QDataStream *in,int length);
+
 void MChat::readMessage()
 {
     // 解析包的格式
@@ -76,8 +91,7 @@ void MChat::readMessage()
     qint8 flag = 0;
     qint8 kong = 0;
 
-    qint64 sendid = 0;
-    qint64 receiveid = 0;
+
 
     QByteArray block = arg->tcpSocket->readAll();
     QDataStream in(block);
@@ -88,23 +102,27 @@ void MChat::readMessage()
     in >> version;
     in >> flag;
     in >> kong;
-    in >> sendid;
-    in >> receiveid;
-    if(cmd == 0){
-        return;
+
+    if(cmd == 20){
+        cmd_equal_twenty(&in,length);
     }
+    else if (cmd == 4){
+        cmd_equal_four(&in,length);
+    }
+}
+
+void MChat::cmd_equal_twenty(QDataStream *in,int length){
+    qint64 sendid = 0;
+    qint64 receiveid = 0;
+    *in >> sendid;
+    *in >> receiveid;
+
     int strsize = length - sizeof(qint64) * 2;
-
     char* p = new char[strsize];
-
-    in.readRawData(p, strsize);
-
+    in->readRawData(p,strsize);
     QByteArray receivedata(p,strsize);
-
-    delete[] p;
-    qDebug() << receivedata;
-
     QJsonObject json = QJsonDocument::fromJson(receivedata).object();
+    qDebug() << json;
     unsigned int Cmd = json.value("Cmd").toInt();
     if(Cmd == 66){
         QString nickname = json.value("nickname").toString();
@@ -116,7 +134,34 @@ void MChat::readMessage()
         new_ui->talkid = uid;
         new_ui->update_input(msg);
         arg->grid->addWidget(new_ui);
-        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(request_ban()));
+        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(pu_name(QString)));
     }
 }
+
+void MChat::cmd_equal_four(QDataStream *in,int length){
+    qint64 sendid = 0;
+    qint64 receiveid = 0;
+    qint32 timestamp = 0;
+    qint32 msgid = 0;
+    *in >> sendid;
+    *in >> receiveid;
+    *in >> timestamp;
+    *in >> msgid;
+
+
+    int strsize = length - sizeof(qint64) * 3;
+    char* p = new char[strsize];
+    in->readRawData(p,strsize);
+    QByteArray receivedata(p,strsize);
+    QJsonObject json = QJsonDocument::fromJson(receivedata).object();
+    qDebug() << json;
+    unsigned int Cmd = json.value("Cmd").toInt();
+    if(Cmd == 14){
+        QString UserAccount = json.value("UserAccount").toString();
+        unsigned int money = json.value("Money").toInt();
+        emit show_reword(UserAccount,money);
+    }
+}
+
+
 

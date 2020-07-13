@@ -25,6 +25,7 @@ using namespace std;
 #include "mod/mod_topThree/MTopThree.h"
 #include "mod/mod_changeBoot/MChangeBoot.h"
 #include "mod/mod_chat/MChat.h"
+#include "mod/mod_money/MMoney.h"
 
 class MLogin;
 class MRoomInfo;
@@ -38,6 +39,7 @@ class MLeave;
 class MTopThree;
 class MChangeBoot;
 class MChat;
+class MMoney;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -84,5 +86,6 @@ private:
     MTopThree *module_topThree;
     MChangeBoot *module_changeBoot;
     MChat *module_chat;
+    MMoney *module_money;
 };
 #endif // MAINWINDOW_H

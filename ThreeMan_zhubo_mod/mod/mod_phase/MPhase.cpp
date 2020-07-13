@@ -109,6 +109,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
 void MPhase::on_finished()
 {
     enabled({arg->start});
+    disabled({arg->locate});
 }
 
 void MPhase::on_start()

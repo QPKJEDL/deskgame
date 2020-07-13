@@ -255,7 +255,8 @@ public:
         label_seven_creatime = new QLabel(MMoney);
         label_seven_creatime->setObjectName(QString::fromUtf8("label_seven_creatime"));
         label_seven_creatime->setFont(font2);
-        label_seven_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_seven_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+"color: rgb(255, 255, 255);"));
         label_seven_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_seven_creatime, 8, 0, 1, 1);
@@ -272,7 +273,7 @@ public:
         label_three_creatime = new QLabel(MMoney);
         label_three_creatime->setObjectName(QString::fromUtf8("label_three_creatime"));
         label_three_creatime->setFont(font2);
-        label_three_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_three_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);color: rgb(255, 255, 255);"));
         label_three_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_three_creatime, 4, 0, 1, 1);
@@ -382,7 +383,7 @@ public:
         label_five_creatime = new QLabel(MMoney);
         label_five_creatime->setObjectName(QString::fromUtf8("label_five_creatime"));
         label_five_creatime->setFont(font2);
-        label_five_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_five_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);color: rgb(255, 255, 255);"));
         label_five_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_five_creatime, 6, 0, 1, 1);
@@ -722,7 +723,7 @@ public:
         label_43->setText(QCoreApplication::translate("MMoney", "\347\261\273\345\236\213", nullptr));
         label_40->setText(QCoreApplication::translate("MMoney", "\345\217\260\346\241\214", nullptr));
         label_44->setText(QCoreApplication::translate("MMoney", "\346\211\223\350\265\217\346\200\273\351\207\221\351\242\235\357\274\232", nullptr));
-        label_45->setText(QCoreApplication::translate("MMoney", "00", nullptr));
+        label_45->setText(QString());
         pu_front_page->setText(QCoreApplication::translate("MMoney", "\344\270\212\344\270\200\351\241\265", nullptr));
         pu_next_page->setText(QCoreApplication::translate("MMoney", "\344\270\213\344\270\200\351\241\265", nullptr));
     } // retranslateUi

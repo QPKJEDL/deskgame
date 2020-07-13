@@ -220,7 +220,7 @@ void MRoomCard::while_timeout()
     qreal opacity = graphiceffect->opacity();
     if(NUM.num == 3){
         graphiceffect->setOpacity(1);
-        link->data[4].label->setGraphicsEffect(graphiceffect);
+        link->data[2].label->setGraphicsEffect(graphiceffect);
         timer_opacity->stop();
         return;
     }

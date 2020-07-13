@@ -21,6 +21,8 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->changeBoot = arg->changeBoot;
     this->arg->playerPair = arg->playerPair;
 
+    this->move(800,400);
+
     this->timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(on_timeout()));
 
@@ -69,7 +71,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
     }
     case 2:{
         enabled({arg->leave,arg->banker,arg->bankerPair,arg->player,arg->playerPair,arg->tie,arg->enter,arg->cancel,arg->useless});
-        emit timeout();
+        //emit timeout();
         break;
     }
     case 3:{

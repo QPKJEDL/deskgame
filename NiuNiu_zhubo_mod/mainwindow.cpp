@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
   phaseArg.locate = ui->button_locate;
   phaseArg.input = ui->lineEdit_2;
   phaseArg.location = ui->label_locate;
-  module_phase = new MPhase(&phaseArg);
+  module_phase = new MPhase(&phaseArg,this);
 
   MRoomCardArg roomCardArg;
   roomCardArg.boot = ui->xue_times;
@@ -159,6 +159,13 @@ MainWindow::MainWindow(QWidget *parent)
   chatArg.interface = "live_ban_user";
   chatArg.tcpSocket = m_tcpsocket;
   module_chat = new MChat(&chatArg);
+
+  MMoneyArg moneyArg;
+  moneyArg.interface = "live_reward_list";
+  moneyArg.status = MONEY;
+  moneyArg.widget = this;
+  moneyArg.manager = second_manager;
+  module_money = new MMoney(&moneyArg);
 
   module_leave = new MLeave(ui->pu_exit,this);
 

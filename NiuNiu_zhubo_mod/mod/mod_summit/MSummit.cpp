@@ -1,4 +1,5 @@
 #include "MSummit.h"
+#include "mod/mod_dialog/MDialog.h"
 #include "ui_MSummit.h"
 #include "QMessageBox"
 #include <QJsonDocument>
@@ -69,7 +70,15 @@ void MSummit::on_responsed(QNetworkReply *reply, int status)
 void MSummit::pu_summit()
 {
     arg->button->setEnabled(false);
-    request_summit();
+
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_summit();
+    }
 }
 
 void MSummit::cardFinished()

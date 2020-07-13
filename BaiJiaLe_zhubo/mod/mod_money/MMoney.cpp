@@ -49,7 +49,8 @@ void MMoney::update_panel(QJsonArray data)
     auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money){
         QString num_creatime = list.at(num)["creatime"].toString();
         QString num_deskName = list.at(num)["deskName"].toString();
-        unsigned int num_money = list.at(num)["money"].toInt();
+        double num_money = list.at(num)["money"].toDouble();
+        num_money = num_money / 100.0;
         if(num_money == 0){
             stop = true;
         }
@@ -169,6 +170,7 @@ void MMoney::pu_search()
 void MMoney::pu_money()
 {
     this->show();
+    pu_today();
 }
 
 void MMoney::on_responsed(QNetworkReply *reply, int status)

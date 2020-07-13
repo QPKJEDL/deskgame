@@ -171,7 +171,7 @@ public:
 
         pu_useless = new QPushButton(groupBox);
         pu_useless->setObjectName(QString::fromUtf8("pu_useless"));
-        pu_useless->setEnabled(false);
+        pu_useless->setEnabled(true);
         pu_useless->setMinimumSize(QSize(80, 50));
         pu_useless->setFont(font);
         pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}\n"

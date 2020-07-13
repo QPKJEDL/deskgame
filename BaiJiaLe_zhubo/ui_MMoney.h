@@ -255,7 +255,8 @@ public:
         label_seven_creatime = new QLabel(MMoney);
         label_seven_creatime->setObjectName(QString::fromUtf8("label_seven_creatime"));
         label_seven_creatime->setFont(font2);
-        label_seven_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_seven_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+"color: rgb(255, 255, 255);"));
         label_seven_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_seven_creatime, 8, 0, 1, 1);
@@ -272,7 +273,8 @@ public:
         label_three_creatime = new QLabel(MMoney);
         label_three_creatime->setObjectName(QString::fromUtf8("label_three_creatime"));
         label_three_creatime->setFont(font2);
-        label_three_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_three_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+"color: rgb(255, 255, 255);"));
         label_three_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_three_creatime, 4, 0, 1, 1);
@@ -382,7 +384,8 @@ public:
         label_five_creatime = new QLabel(MMoney);
         label_five_creatime->setObjectName(QString::fromUtf8("label_five_creatime"));
         label_five_creatime->setFont(font2);
-        label_five_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);"));
+        label_five_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+"color: rgb(255, 255, 255);"));
         label_five_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_five_creatime, 6, 0, 1, 1);

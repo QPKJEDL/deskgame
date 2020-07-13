@@ -25,6 +25,8 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->manager = arg->manager;
     this->arg->interface_locate = arg->interface_locate;
 
+    this->move(800,400);
+
     this->timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(on_timeout()));
 

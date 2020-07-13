@@ -4,6 +4,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QMessageBox>
+#include "mod/mod_dialog/MDialog.h"
 
 MChat::MChat(MChatArg *arg) :
     QWidget(nullptr),
@@ -21,7 +22,6 @@ MChat::MChat(MChatArg *arg) :
 
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
-    connect(ui->pushButton,SIGNAL(clicked()),this,SLOT(pu_name()));
     connect(arg->tcpSocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
 }
 
@@ -46,6 +46,18 @@ void MChat::on_responsed(QNetworkReply *reply, int status)
     }
     else{
         qDebug() << "unknow status";
+    }
+}
+
+void MChat::pu_name(QString uid)
+{
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_ban(uid);
     }
 }
 
@@ -122,7 +134,7 @@ void MChat::cmd_equal_twenty(QDataStream *in,int length){
         new_ui->talkid = uid;
         new_ui->update_input(msg);
         arg->grid->addWidget(new_ui);
-        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(request_ban(QString)));
+        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(pu_name(QString)));
     }
 }
 

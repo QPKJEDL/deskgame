@@ -35,7 +35,7 @@ public:
         if (MPhase->objectName().isEmpty())
             MPhase->setObjectName(QString::fromUtf8("MPhase"));
         MPhase->resize(414, 313);
-        MPhase->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
+        MPhase->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         verticalLayout = new QVBoxLayout(MPhase);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalSpacer = new QSpacerItem(20, 37, QSizePolicy::Minimum, QSizePolicy::Expanding);

@@ -44,12 +44,14 @@ MMoney::~MMoney()
 void MMoney::update_panel(QJsonArray data)
 {
     QJsonArray list = data.at(0)["list"].toArray();
-
+    qDebug() << list;
     bool stop = false;
-    auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money){
+    auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money,QLabel *name,QLabel *type){
         QString num_creatime = list.at(num)["creatime"].toString();
         QString num_deskName = list.at(num)["deskName"].toString();
-        unsigned int num_money = list.at(num)["money"].toInt();
+        double account = list.at(num)["account"].toDouble();
+        double num_money = list.at(num)["money"].toDouble();
+        num_money = num_money / 100.0;
         if(num_money == 0){
             stop = true;
         }
@@ -57,21 +59,25 @@ void MMoney::update_panel(QJsonArray data)
             creatime->setText("");
             deskName->setText("");
             money->setText("");
+            name->setText("");
+            type->setText("");
             return;
         }
         creatime->setText(num_creatime);
         deskName->setText(num_deskName);
+        name->setText(QString::number(account,'.',0));
         money->setText(QString::number(num_money));
+        type->setText("用户打赏");
     };
     first_id = list.at(6)["id"].toInt();
     second_id = list.at(0)["id"].toInt();
-    fun(0,ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money);
-    fun(1,ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money);
-    fun(2,ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money);
-    fun(3,ui->label_four_creatime,ui->label_four_deskNum,ui->label_four_money);
-    fun(4,ui->label_five_creatime,ui->label_five_deskNum,ui->label_five_money);
-    fun(5,ui->label_six_creatime,ui->label_six_deskNum,ui->label_six_money);
-    fun(6,ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money);
+    fun(0,ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money,ui->label_one_name,ui->label_type_one);
+    fun(1,ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money,ui->label_two_name,ui->label_type_two);
+    fun(2,ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money,ui->label_three_name,ui->label_type_three);
+    fun(3,ui->label_four_creatime,ui->label_four_deskNum,ui->label_four_money,ui->label_four_name,ui->label_type_four);
+    fun(4,ui->label_five_creatime,ui->label_five_deskNum,ui->label_five_money,ui->label_five_name,ui->label_type_five);
+    fun(5,ui->label_six_creatime,ui->label_six_deskNum,ui->label_six_money,ui->label_six_name,ui->label_type_six);
+    fun(6,ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money,ui->label_seven_name,ui->label_type_seven);
 }
 
 void MMoney::request_money()
@@ -169,6 +175,7 @@ void MMoney::pu_search()
 void MMoney::pu_money()
 {
     this->show();
+    pu_today();
 }
 
 void MMoney::on_responsed(QNetworkReply *reply, int status)

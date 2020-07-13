@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MSummit_t {
-    QByteArrayData data[9];
-    char stringdata0[82];
+    QByteArrayData data[7];
+    char stringdata0[69];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,14 +38,11 @@ QT_MOC_LITERAL(2, 17, 0), // ""
 QT_MOC_LITERAL(3, 18, 12), // "on_responsed"
 QT_MOC_LITERAL(4, 31, 14), // "QNetworkReply*"
 QT_MOC_LITERAL(5, 46, 9), // "pu_summit"
-QT_MOC_LITERAL(6, 56, 6), // "pu_yes"
-QT_MOC_LITERAL(7, 63, 5), // "pu_no"
-QT_MOC_LITERAL(8, 69, 12) // "cardFinished"
+QT_MOC_LITERAL(6, 56, 12) // "cardFinished"
 
     },
     "MSummit\0summited\0\0on_responsed\0"
-    "QNetworkReply*\0pu_summit\0pu_yes\0pu_no\0"
-    "cardFinished"
+    "QNetworkReply*\0pu_summit\0cardFinished"
 };
 #undef QT_MOC_LITERAL
 
@@ -55,7 +52,7 @@ static const uint qt_meta_data_MSummit[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -63,22 +60,18 @@ static const uint qt_meta_data_MSummit[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x06 /* Public */,
+       1,    0,   34,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    2,   45,    2, 0x08 /* Private */,
-       5,    0,   50,    2, 0x08 /* Private */,
-       6,    0,   51,    2, 0x08 /* Private */,
-       7,    0,   52,    2, 0x08 /* Private */,
-       8,    0,   53,    2, 0x0a /* Public */,
+       3,    2,   35,    2, 0x08 /* Private */,
+       5,    0,   40,    2, 0x08 /* Private */,
+       6,    0,   41,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void,
 
  // slots: parameters
     QMetaType::Void, 0x80000000 | 4, QMetaType::Int,    2,    2,
-    QMetaType::Void,
-    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -94,9 +87,7 @@ void MSummit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, voi
         case 0: _t->summited(); break;
         case 1: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 2: _t->pu_summit(); break;
-        case 3: _t->pu_yes(); break;
-        case 4: _t->pu_no(); break;
-        case 5: _t->cardFinished(); break;
+        case 3: _t->cardFinished(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -151,13 +142,13 @@ int MSummit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 4;
     }
     return _id;
 }

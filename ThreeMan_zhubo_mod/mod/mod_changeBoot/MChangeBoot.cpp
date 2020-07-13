@@ -19,21 +19,21 @@ MChangeBoot::MChangeBoot(MChangeBootArg *arg,QWidget *parent) : QWidget(parent)
 }
 
 void MChangeBoot::pu_changeBoot(){
-    request_changeBoot();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否换靴?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_changeBoot();
+    }
 }
 
 void MChangeBoot::request_changeBoot()
 {
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否关闭?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        arg->manager->setStatus(arg->status);
-        arg->manager->setInterface(arg->interface);
-        arg->manager->postData(QByteArray());
-    }
+    arg->manager->setStatus(arg->status);
+    arg->manager->setInterface(arg->interface);
+    arg->manager->postData(QByteArray());
 }
 
 void MChangeBoot::responsed_changeBoot(QNetworkReply *reply)

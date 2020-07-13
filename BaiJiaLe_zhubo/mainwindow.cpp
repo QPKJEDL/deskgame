@@ -118,7 +118,7 @@ MainWindow::MainWindow(QWidget *parent)
     phaseArg.bankerPair = ui->pu_zhuangdui;
     phaseArg.changeBoot = ui->pu_changeXue;
     phaseArg.playerPair = ui->pu_xiandui;
-    module_phase = new MPhase(&phaseArg);
+    module_phase = new MPhase(&phaseArg,this);
 
     MRecordArg recordArg;
     recordArg.boot = ui->label_times_xue;
@@ -172,6 +172,9 @@ MainWindow::MainWindow(QWidget *parent)
     chatArg.tcpSocket = m_tcpsocket;
     module_chat = new MChat(&chatArg);
 
+    module_reword = new MReword(this);
+    connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
+
     module_leave = new MLeave(ui->pu_leave,this);
 
     connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
@@ -185,12 +188,12 @@ MainWindow::MainWindow(QWidget *parent)
     connect(module_useless,SIGNAL(uselessed()),module_phase,SLOT(on_useless()));
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_started()));
     connect(module_start,SIGNAL(successed()),module_topFive,SLOT(request_top_five()));
-
     connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_record,SLOT(request_record()));
     connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_record,SLOT(apply_record(QString,QString,QString)));
     connect(module_phase,SIGNAL(timeout()),module_gameOver,SLOT(clear()));
     connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
     connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_phase,SLOT(on_finished()));
+    connect(module_gameOver,SIGNAL(gameOver(QString,QString,QString)),module_topThree,SLOT(clear()));
 }
 
 MainWindow::~MainWindow()

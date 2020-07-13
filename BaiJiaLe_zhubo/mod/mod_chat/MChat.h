@@ -30,6 +30,8 @@ public:
     ~MChat();
 
 private:
+    void cmd_equal_twenty(QDataStream *in,int length);
+    void cmd_equal_four(QDataStream *in,int length);
     void responsed_ban(QNetworkReply *reply);
 
 private:
@@ -39,12 +41,16 @@ private:
     QMap<int,exe_chat> _map;
 
 private slots:
-    void pu_name();
     void readMessage();
-    void request_ban();
+    void request_ban(QString uid);
     void on_responsed(QNetworkReply *reply, int status);
+    void pu_name(QString uid);
+
 public:
     int talkid;
+
+signals:
+    void show_reword(QString user,int money);
 };
 
 #endif // MCHAT_H

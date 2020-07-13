@@ -45,8 +45,6 @@ signals:
 private slots:
     void on_responsed(QNetworkReply*,int);
     void pu_summit();
-    void pu_yes();
-    void pu_no();
 
 public slots:
     void cardFinished();
