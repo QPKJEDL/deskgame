@@ -98,7 +98,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1463, 893);
+        MainWindow->resize(1917, 1047);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
@@ -229,6 +229,7 @@ public:
 
         label_min_red = new QLabel(groupBox_2);
         label_min_red->setObjectName(QString::fromUtf8("label_min_red"));
+        label_min_red->setMinimumSize(QSize(200, 0));
         label_min_red->setMaximumSize(QSize(210, 16777215));
         label_min_red->setFont(font1);
         label_min_red->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 74, 123);\n"
@@ -301,6 +302,7 @@ public:
 
         label_VIP_level = new QLabel(groupBox_2);
         label_VIP_level->setObjectName(QString::fromUtf8("label_VIP_level"));
+        label_VIP_level->setMinimumSize(QSize(210, 100));
         label_VIP_level->setFont(font1);
         label_VIP_level->setStyleSheet(QString::fromUtf8("background-color: rgb(2, 48, 84);\n"
 "color: rgb(255, 255, 0);"));
@@ -342,6 +344,7 @@ public:
 
         label_max_red = new QLabel(groupBox_2);
         label_max_red->setObjectName(QString::fromUtf8("label_max_red"));
+        label_max_red->setMinimumSize(QSize(210, 0));
         label_max_red->setFont(font3);
         label_max_red->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 74, 123);\n"
 "color: rgb(255, 255, 0);"));
@@ -666,7 +669,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1463, 23));
+        menubar->setGeometry(QRect(0, 0, 1917, 22));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));

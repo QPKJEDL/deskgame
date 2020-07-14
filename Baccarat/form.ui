@@ -57,6 +57,9 @@ color: rgb(170, 0, 0);</string>
    <property name="text">
     <string>确定</string>
    </property>
+   <property name="shortcut">
+    <string>Enter</string>
+   </property>
   </widget>
   <widget class="QPushButton" name="pu_cancel">
    <property name="geometry">
@@ -72,6 +75,9 @@ color: rgb(170, 0, 0);</string>
    </property>
    <property name="text">
     <string>取消</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">

@@ -120,7 +120,13 @@ public:
         Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
         label_result->setText(QCoreApplication::translate("Form", "\345\272\204\350\265\242", nullptr));
         pu_enter->setText(QCoreApplication::translate("Form", "\347\241\256\345\256\232", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_enter->setShortcut(QCoreApplication::translate("Form", "Enter", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_cancel->setText(QCoreApplication::translate("Form", "\345\217\226\346\266\210", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_cancel->setShortcut(QCoreApplication::translate("Form", "Esc", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_2->setText(QCoreApplication::translate("Form", "\345\217\260\346\241\214\345\217\267", nullptr));
         label_desk_id->setText(QString());
         label_3->setText(QCoreApplication::translate("Form", "\351\235\264\346\254\241", nullptr));

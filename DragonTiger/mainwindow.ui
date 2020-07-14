@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1463</width>
-    <height>893</height>
+    <width>1917</width>
+    <height>1047</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -259,6 +259,12 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          </item>
          <item>
           <widget class="QLabel" name="label_min_red">
+           <property name="minimumSize">
+            <size>
+             <width>200</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="maximumSize">
             <size>
              <width>210</width>
@@ -416,6 +422,12 @@ color: rgb(255, 255, 0);</string>
        </item>
        <item row="1" column="2">
         <widget class="QLabel" name="label_VIP_level">
+         <property name="minimumSize">
+          <size>
+           <width>210</width>
+           <height>100</height>
+          </size>
+         </property>
          <property name="font">
           <font>
            <family>方正粗黑宋简体</family>
@@ -500,6 +512,12 @@ color: rgb(85, 255, 0);</string>
          </item>
          <item>
           <widget class="QLabel" name="label_max_red">
+           <property name="minimumSize">
+            <size>
+             <width>210</width>
+             <height>0</height>
+            </size>
+           </property>
            <property name="font">
             <font>
              <family>方正粗黑宋简体</family>
@@ -1323,8 +1341,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1463</width>
-     <height>23</height>
+     <width>1917</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>

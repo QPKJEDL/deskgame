@@ -179,7 +179,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_start()));
     connect(module_summit,SIGNAL(summited()),module_roomCard,SLOT(clear()));
     connect(module_summit,SIGNAL(summited()),module_phase,SLOT(on_finished()));
-    connect(module_init,SIGNAL(inited()),module_phase,SLOT(on_start()));
+    connect(module_init,SIGNAL(inited()),module_phase,SLOT(on_finished()));
     connect(module_init,SIGNAL(inited()),module_roomCard,SLOT(clear()));
     connect(module_roomCard,SIGNAL(finished()),module_summit,SLOT(cardFinished()));
     connect(module_phase,SIGNAL(phase_kaipai()),module_roomCard,SLOT(request_roomCard()));

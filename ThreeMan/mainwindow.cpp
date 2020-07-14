@@ -1,3 +1,4 @@
+#include "mod/mod_dialog/MDialog.h"
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QKeyEvent>
@@ -1131,7 +1132,6 @@ void MainWindow::request_room_info()
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1139,7 +1139,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     // 倒计时中
     unsigned int time = end - start;
-    count_down = 30 - time;
+    count_down = count_down_num - time;
     timer_Countdown->start(1000);
 }
 
@@ -1154,7 +1154,6 @@ void MainWindow::phase_finish()
     // 结算完成
     // 启用该启用的按钮
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1173,7 +1172,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
 
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
-        count_down = 30;
+        count_down = count_down_num;
         timer_Countdown->start(1000);
     }
     else{
@@ -1196,6 +1195,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
+        count_down_num = data.at(0)["CountDown"].toInt();
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);
@@ -1388,7 +1388,7 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
         for(int i = 0;i < 20;i++){
-            result_list[i]->zhuang->setStyleSheet("image: url(:/image/blue.png)");
+            result_list[i]->zhuang->setStyleSheet("image: url(:/image/red.png)");
             result_list[i]->one->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
@@ -1438,15 +1438,22 @@ void MainWindow::line_finish()
 void MainWindow::Request_summit(){
     //发送提交请求
     //提交按钮作废
-    ui->button_summit->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_summit->setEnabled(false);
 
-    manager->setStatus(SUMMIT);
-    manager->setInterface("SgGetGameOver");
+        manager->setStatus(SUMMIT);
+        manager->setInterface("SgGetGameOver");
 
-    QByteArray Data;
-    Data.append("bootNum=");Data.append(ui->xue_times->text());
-    Data.append("&paveNum=");Data.append(ui->pu_times->text());
-    manager->postData(Data);
+        QByteArray Data;
+        Data.append("bootNum=");Data.append(ui->xue_times->text());
+        Data.append("&paveNum=");Data.append(ui->pu_times->text());
+        manager->postData(Data);
+    }
 }
 
 
@@ -1770,8 +1777,15 @@ void MainWindow::apply_summit()
 //}
 
 void MainWindow::on_exit(){
-    ui->pu_start->setDown(true);
-    this->close();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否关闭?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->pu_start->setDown(true);
+        this->close();
+    }
 }
 
 void MainWindow::on_responsed(QNetworkReply *reply, int status)
@@ -1787,16 +1801,23 @@ void MainWindow::on_responsed(QNetworkReply *reply, int status)
 void MainWindow::Request_useless(){
     // 请求作废
     // 禁用作废按钮
-    ui->button_useless->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_useless->setEnabled(false);
 
-    manager->setStatus(USELESS);
-    manager->setInterface("SgAbolish");
+        manager->setStatus(USELESS);
+        manager->setInterface("SgAbolish");
 
-    QByteArray Data;
-    Data.append("boot_num=");Data.append(ui->xue_times->text());
-    Data.append("&pave_num=");Data.append(ui->pu_times->text());
+        QByteArray Data;
+        Data.append("boot_num=");Data.append(ui->xue_times->text());
+        Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
-    manager->postData(Data);
+        manager->postData(Data);
+    }
 }
 
 void MainWindow::apply_useless(){
@@ -1885,9 +1906,12 @@ void MainWindow::Request_start(){
 
 void MainWindow::Request_initialize()
 {
-    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
-        // 请求初始化
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否初始化?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
         manager->setStatus(INIT);
         manager->setInterface("SgRonmInitialize");
         manager->postData(QByteArray());

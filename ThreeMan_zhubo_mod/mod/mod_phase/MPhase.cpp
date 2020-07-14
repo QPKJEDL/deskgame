@@ -157,6 +157,7 @@ void MPhase::responsed_locate(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         arg->location->setText(QString::number(location));
+        arg->input->setText("");
         arg->input->setVisible(false);
         emit located(location);
     }

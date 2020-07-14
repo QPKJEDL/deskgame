@@ -29,7 +29,7 @@ Login::Login(QWidget *parent) : QWidget(parent) ,ui(new Ui::Login)
 void Login::on_login()
 {
     QByteArray postData;
-    QString str = "desk=svip8&password=123456";
+    QString str = "desk=SVIP8&password=7f2d0517446b496e";
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }
@@ -67,7 +67,7 @@ void Login::finishedSlot(QNetworkReply* reply)
 
 
             window = new MainWindow(desk_id,desk_token,limit,tieLimit);
-            window->show();
+            window->showFullScreen();
             this->close();
         }
         else{

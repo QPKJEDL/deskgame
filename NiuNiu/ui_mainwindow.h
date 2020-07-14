@@ -17,6 +17,7 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -32,11 +33,10 @@ public:
     QGridLayout *gridLayout;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
-    QPushButton *pu_init;
-    QPushButton *xue_change;
+    QPushButton *pu_end;
     QPushButton *pu_start;
     QPushButton *pu_exit;
-    QPushButton *pu_end;
+    QPushButton *pu_init;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QLabel *desk_num;
@@ -214,13 +214,14 @@ public:
     QPushButton *button_useless;
     QPushButton *button_summit;
     QLabel *who_win;
+    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1409, 900);
+        MainWindow->resize(1732, 1119);
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         MainWindow->setFont(font);
@@ -229,7 +230,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 10, 1371, 80));
+        layoutWidget->setGeometry(QRect(20, 10, 1711, 81));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
@@ -241,38 +242,21 @@ public:
 ""));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        pu_init = new QPushButton(groupBox_2);
-        pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(false);
-        pu_init->setMinimumSize(QSize(120, 51));
-        pu_init->setMaximumSize(QSize(140, 60));
+        pu_end = new QPushButton(groupBox_2);
+        pu_end->setObjectName(QString::fromUtf8("pu_end"));
+        pu_end->setEnabled(false);
+        pu_end->setMaximumSize(QSize(140, 60));
         QFont font1;
         font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font1.setPointSize(18);
-        font1.setBold(false);
-        font1.setWeight(50);
-        pu_init->setFont(font1);
-        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+        font1.setPointSize(20);
+        pu_end->setFont(font1);
+        pu_end->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_init, 0, 2, 1, 1);
-
-        xue_change = new QPushButton(groupBox_2);
-        xue_change->setObjectName(QString::fromUtf8("xue_change"));
-        xue_change->setEnabled(false);
-        xue_change->setMinimumSize(QSize(120, 51));
-        xue_change->setMaximumSize(QSize(140, 60));
-        xue_change->setFont(font1);
-        xue_change->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        gridLayout_2->addWidget(xue_change, 0, 1, 1, 1);
+        gridLayout_2->addWidget(pu_end, 0, 2, 1, 1);
 
         pu_start = new QPushButton(groupBox_2);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
@@ -299,30 +283,33 @@ public:
         pu_exit->setEnabled(true);
         pu_exit->setMinimumSize(QSize(120, 51));
         pu_exit->setMaximumSize(QSize(140, 60));
-        pu_exit->setFont(font1);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font3.setPointSize(18);
+        font3.setBold(false);
+        font3.setWeight(50);
+        pu_exit->setFont(font3);
         pu_exit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_exit, 0, 4, 1, 1);
+        gridLayout_2->addWidget(pu_exit, 0, 3, 1, 1);
 
-        pu_end = new QPushButton(groupBox_2);
-        pu_end->setObjectName(QString::fromUtf8("pu_end"));
-        pu_end->setEnabled(false);
-        pu_end->setMaximumSize(QSize(140, 60));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font3.setPointSize(20);
-        pu_end->setFont(font3);
-        pu_end->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+        pu_init = new QPushButton(groupBox_2);
+        pu_init->setObjectName(QString::fromUtf8("pu_init"));
+        pu_init->setEnabled(false);
+        pu_init->setMinimumSize(QSize(120, 51));
+        pu_init->setMaximumSize(QSize(140, 60));
+        pu_init->setFont(font3);
+        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_end, 0, 3, 1, 1);
+        gridLayout_2->addWidget(pu_init, 0, 1, 1, 1);
 
 
         gridLayout->addWidget(groupBox_2, 0, 1, 1, 1);
@@ -552,9 +539,9 @@ public:
 
         label_date = new QLabel(centralwidget);
         label_date->setObjectName(QString::fromUtf8("label_date"));
-        label_date->setGeometry(QRect(20, 90, 1371, 25));
-        label_date->setMinimumSize(QSize(1271, 25));
-        label_date->setMaximumSize(QSize(16777215, 36));
+        label_date->setGeometry(QRect(20, 100, 1711, 31));
+        label_date->setMinimumSize(QSize(1271, 31));
+        label_date->setMaximumSize(QSize(16777215, 48));
         QPalette palette3;
         palette3.setBrush(QPalette::Active, QPalette::WindowText, brush10);
         QBrush brush12(QColor(0, 73, 148, 255));
@@ -573,13 +560,13 @@ public:
         label_date->setPalette(palette3);
         QFont font8;
         font8.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font8.setPointSize(16);
+        font8.setPointSize(20);
         font8.setBold(true);
         font8.setWeight(75);
         label_date->setFont(font8);
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(20, 120, 1371, 241));
+        groupBox_3->setGeometry(QRect(20, 140, 1711, 321));
         groupBox_3->setStyleSheet(QString::fromUtf8("background-color: rgb(227, 227, 227);"));
         gridLayout_4 = new QGridLayout(groupBox_3);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
@@ -1532,7 +1519,7 @@ public:
 
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 370, 1371, 41));
+        layoutWidget1->setGeometry(QRect(20, 470, 1711, 51));
         horizontalLayout_17 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_17->setSpacing(60);
         horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
@@ -1558,12 +1545,7 @@ public:
         palette4.setBrush(QPalette::Disabled, QPalette::Base, brush12);
         palette4.setBrush(QPalette::Disabled, QPalette::Window, brush12);
         label_date_2->setPalette(palette4);
-        QFont font12;
-        font12.setFamily(QString::fromUtf8("\351\273\221\344\275\223"));
-        font12.setPointSize(20);
-        font12.setBold(true);
-        font12.setWeight(75);
-        label_date_2->setFont(font12);
+        label_date_2->setFont(font8);
 
         horizontalLayout_12->addWidget(label_date_2);
 
@@ -1605,12 +1587,12 @@ public:
         palette5.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush15);
 #endif
         label_limit->setPalette(palette5);
-        QFont font13;
-        font13.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font13.setPointSize(20);
-        font13.setBold(false);
-        font13.setWeight(50);
-        label_limit->setFont(font13);
+        QFont font12;
+        font12.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font12.setPointSize(20);
+        font12.setBold(false);
+        font12.setWeight(50);
+        label_limit->setFont(font12);
         label_limit->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         horizontalLayout_12->addWidget(label_limit);
@@ -1638,7 +1620,7 @@ public:
         palette6.setBrush(QPalette::Disabled, QPalette::Base, brush12);
         palette6.setBrush(QPalette::Disabled, QPalette::Window, brush12);
         label_date_4->setPalette(palette6);
-        label_date_4->setFont(font12);
+        label_date_4->setFont(font8);
 
         horizontalLayout_13->addWidget(label_date_4);
 
@@ -1680,7 +1662,7 @@ public:
         palette7.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush18);
 #endif
         label_tieLimit->setPalette(palette7);
-        label_tieLimit->setFont(font13);
+        label_tieLimit->setFont(font12);
         label_tieLimit->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
 
         horizontalLayout_13->addWidget(label_tieLimit);
@@ -1708,7 +1690,7 @@ public:
         palette8.setBrush(QPalette::Disabled, QPalette::Base, brush12);
         palette8.setBrush(QPalette::Disabled, QPalette::Window, brush12);
         label_date_6->setPalette(palette8);
-        label_date_6->setFont(font12);
+        label_date_6->setFont(font8);
         label_date_6->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_14->addWidget(label_date_6);
@@ -1751,7 +1733,7 @@ public:
         palette9.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush21);
 #endif
         one_win_times->setPalette(palette9);
-        one_win_times->setFont(font13);
+        one_win_times->setFont(font12);
         one_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         one_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -1780,7 +1762,7 @@ public:
         palette10.setBrush(QPalette::Disabled, QPalette::Base, brush12);
         palette10.setBrush(QPalette::Disabled, QPalette::Window, brush12);
         label_date_9->setPalette(palette10);
-        label_date_9->setFont(font12);
+        label_date_9->setFont(font8);
         label_date_9->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_15->addWidget(label_date_9);
@@ -1823,7 +1805,7 @@ public:
         palette11.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush24);
 #endif
         two_win_times->setPalette(palette11);
-        two_win_times->setFont(font13);
+        two_win_times->setFont(font12);
         two_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         two_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -1852,7 +1834,7 @@ public:
         palette12.setBrush(QPalette::Disabled, QPalette::Base, brush12);
         palette12.setBrush(QPalette::Disabled, QPalette::Window, brush12);
         label_date_11->setPalette(palette12);
-        label_date_11->setFont(font12);
+        label_date_11->setFont(font8);
         label_date_11->setAlignment(Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter);
 
         horizontalLayout_16->addWidget(label_date_11);
@@ -1895,7 +1877,7 @@ public:
         palette13.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush27);
 #endif
         three_win_times->setPalette(palette13);
-        three_win_times->setFont(font13);
+        three_win_times->setFont(font12);
         three_win_times->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         three_win_times->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
@@ -1906,7 +1888,7 @@ public:
 
         layoutWidget2 = new QWidget(centralwidget);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(20, 410, 1371, 452));
+        layoutWidget2->setGeometry(QRect(20, 530, 1711, 521));
         horizontalLayout_19 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
         horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
@@ -1920,31 +1902,31 @@ public:
         groupBox_4 = new QGroupBox(layoutWidget2);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setEnabled(true);
-        groupBox_4->setMinimumSize(QSize(1340, 435));
-        groupBox_4->setMaximumSize(QSize(1400, 435));
-        QFont font14;
-        font14.setPointSize(22);
-        groupBox_4->setFont(font14);
+        groupBox_4->setMinimumSize(QSize(1340, 511));
+        groupBox_4->setMaximumSize(QSize(1481, 511));
+        QFont font13;
+        font13.setPointSize(22);
+        groupBox_4->setFont(font13);
         groupBox_4->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 48, 90);"));
         xian3_result = new QLabel(groupBox_4);
         xian3_result->setObjectName(QString::fromUtf8("xian3_result"));
-        xian3_result->setGeometry(QRect(140, 10, 90, 41));
+        xian3_result->setGeometry(QRect(310, 10, 90, 41));
         xian3_result->setMinimumSize(QSize(81, 41));
         xian3_result->setMaximumSize(QSize(120, 60));
-        xian3_result->setFont(font14);
+        xian3_result->setFont(font13);
         xian3_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         xian3_result->setAlignment(Qt::AlignCenter);
         xian2_result = new QLabel(groupBox_4);
         xian2_result->setObjectName(QString::fromUtf8("xian2_result"));
-        xian2_result->setGeometry(QRect(540, 10, 90, 41));
-        xian2_result->setFont(font14);
+        xian2_result->setGeometry(QRect(700, 10, 90, 41));
+        xian2_result->setFont(font13);
         xian2_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         xian2_result->setAlignment(Qt::AlignCenter);
         layoutWidget_2 = new QWidget(groupBox_4);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(470, 60, 221, 101));
+        layoutWidget_2->setGeometry(QRect(630, 60, 251, 121));
         horizontalLayout_8 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -1974,20 +1956,20 @@ public:
 
         xian1_result = new QLabel(groupBox_4);
         xian1_result->setObjectName(QString::fromUtf8("xian1_result"));
-        xian1_result->setGeometry(QRect(940, 10, 90, 41));
-        xian1_result->setFont(font14);
+        xian1_result->setGeometry(QRect(1100, 10, 90, 41));
+        xian1_result->setFont(font13);
         xian1_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         xian1_result->setAlignment(Qt::AlignCenter);
         layoutWidget_3 = new QWidget(groupBox_4);
         layoutWidget_3->setObjectName(QString::fromUtf8("layoutWidget_3"));
-        layoutWidget_3->setGeometry(QRect(910, 170, 142, 101));
+        layoutWidget_3->setGeometry(QRect(1060, 190, 162, 121));
         horizontalLayout_10 = new QHBoxLayout(layoutWidget_3);
         horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
         horizontalLayout_10->setContentsMargins(0, 0, 0, 0);
         one_five_pic = new QLabel(layoutWidget_3);
         one_five_pic->setObjectName(QString::fromUtf8("one_five_pic"));
-        one_five_pic->setMinimumSize(QSize(67, 99));
+        one_five_pic->setMinimumSize(QSize(77, 119));
         one_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -1995,7 +1977,7 @@ public:
 
         one_four_pic = new QLabel(layoutWidget_3);
         one_four_pic->setObjectName(QString::fromUtf8("one_four_pic"));
-        one_four_pic->setMinimumSize(QSize(67, 99));
+        one_four_pic->setMinimumSize(QSize(77, 119));
         one_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2003,7 +1985,7 @@ public:
 
         layoutWidget_4 = new QWidget(groupBox_4);
         layoutWidget_4->setObjectName(QString::fromUtf8("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(880, 60, 221, 101));
+        layoutWidget_4->setGeometry(QRect(1030, 60, 251, 121));
         horizontalLayout_11 = new QHBoxLayout(layoutWidget_4);
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
@@ -2033,7 +2015,7 @@ public:
 
         layoutWidget3 = new QWidget(groupBox_4);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(510, 170, 142, 101));
+        layoutWidget3->setGeometry(QRect(670, 190, 161, 121));
         horizontalLayout_9 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
         horizontalLayout_9->setContentsMargins(0, 0, 0, 0);
@@ -2047,7 +2029,7 @@ public:
 
         two_four_pic = new QLabel(layoutWidget3);
         two_four_pic->setObjectName(QString::fromUtf8("two_four_pic"));
-        two_four_pic->setMinimumSize(QSize(67, 99));
+        two_four_pic->setMinimumSize(QSize(77, 119));
         two_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2055,22 +2037,22 @@ public:
 
         label_xian3 = new QLabel(groupBox_4);
         label_xian3->setObjectName(QString::fromUtf8("label_xian3"));
-        label_xian3->setGeometry(QRect(160, 280, 41, 31));
+        label_xian3->setGeometry(QRect(330, 320, 41, 31));
         label_xian3->setFont(font7);
         label_xian3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_xian2 = new QLabel(groupBox_4);
         label_xian2->setObjectName(QString::fromUtf8("label_xian2"));
-        label_xian2->setGeometry(QRect(560, 280, 41, 31));
+        label_xian2->setGeometry(QRect(720, 320, 41, 31));
         label_xian2->setFont(font7);
         label_xian2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_xian1 = new QLabel(groupBox_4);
         label_xian1->setObjectName(QString::fromUtf8("label_xian1"));
-        label_xian1->setGeometry(QRect(960, 280, 41, 31));
+        label_xian1->setGeometry(QRect(1110, 320, 41, 31));
         label_xian1->setFont(font7);
         label_xian1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         layoutWidget4 = new QWidget(groupBox_4);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(140, 320, 881, 101));
+        layoutWidget4->setGeometry(QRect(440, 360, 884, 121));
         horizontalLayout_18 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_18->setSpacing(60);
         horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
@@ -2084,7 +2066,7 @@ public:
 
         zhuang_five_pic = new QLabel(layoutWidget4);
         zhuang_five_pic->setObjectName(QString::fromUtf8("zhuang_five_pic"));
-        zhuang_five_pic->setMinimumSize(QSize(67, 99));
+        zhuang_five_pic->setMinimumSize(QSize(77, 119));
         zhuang_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2092,7 +2074,7 @@ public:
 
         zhuang_four_pic = new QLabel(layoutWidget4);
         zhuang_four_pic->setObjectName(QString::fromUtf8("zhuang_four_pic"));
-        zhuang_four_pic->setMinimumSize(QSize(67, 99));
+        zhuang_four_pic->setMinimumSize(QSize(77, 119));
         zhuang_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2100,7 +2082,7 @@ public:
 
         zhuang_three_pic = new QLabel(layoutWidget4);
         zhuang_three_pic->setObjectName(QString::fromUtf8("zhuang_three_pic"));
-        zhuang_three_pic->setMinimumSize(QSize(67, 99));
+        zhuang_three_pic->setMinimumSize(QSize(77, 119));
         zhuang_three_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2108,7 +2090,7 @@ public:
 
         zhuang_two_pic = new QLabel(layoutWidget4);
         zhuang_two_pic->setObjectName(QString::fromUtf8("zhuang_two_pic"));
-        zhuang_two_pic->setMinimumSize(QSize(67, 99));
+        zhuang_two_pic->setMinimumSize(QSize(77, 119));
         zhuang_two_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2116,7 +2098,7 @@ public:
 
         zhuang_one_pic = new QLabel(layoutWidget4);
         zhuang_one_pic->setObjectName(QString::fromUtf8("zhuang_one_pic"));
-        zhuang_one_pic->setMinimumSize(QSize(67, 99));
+        zhuang_one_pic->setMinimumSize(QSize(77, 119));
         zhuang_one_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2126,7 +2108,7 @@ public:
         zhuang_result->setObjectName(QString::fromUtf8("zhuang_result"));
         zhuang_result->setMinimumSize(QSize(81, 41));
         zhuang_result->setMaximumSize(QSize(91, 32));
-        zhuang_result->setFont(font14);
+        zhuang_result->setFont(font13);
         zhuang_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         zhuang_result->setAlignment(Qt::AlignCenter);
@@ -2135,7 +2117,7 @@ public:
 
         layoutWidget5 = new QWidget(groupBox_4);
         layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(71, 60, 221, 101));
+        layoutWidget5->setGeometry(QRect(241, 60, 251, 121));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -2165,13 +2147,12 @@ public:
 
         layoutWidget6 = new QWidget(groupBox_4);
         layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(110, 170, 142, 101));
+        layoutWidget6->setGeometry(QRect(280, 190, 161, 121));
         horizontalLayout_7 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
         three_five_pic = new QLabel(layoutWidget6);
         three_five_pic->setObjectName(QString::fromUtf8("three_five_pic"));
-        three_five_pic->setMinimumSize(QSize(67, 99));
         three_five_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2179,7 +2160,7 @@ public:
 
         three_four_pic = new QLabel(layoutWidget6);
         three_four_pic->setObjectName(QString::fromUtf8("three_four_pic"));
-        three_four_pic->setMinimumSize(QSize(67, 99));
+        three_four_pic->setMinimumSize(QSize(77, 119));
         three_four_pic->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(0, 32, 57);"));
 
@@ -2190,19 +2171,19 @@ public:
 
         groupBox_5 = new QGroupBox(layoutWidget2);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
-        groupBox_5->setMinimumSize(QSize(160, 300));
-        groupBox_5->setMaximumSize(QSize(220, 435));
+        groupBox_5->setMinimumSize(QSize(180, 511));
+        groupBox_5->setMaximumSize(QSize(220, 511));
         groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 32, 57);"));
         verticalLayout_4 = new QVBoxLayout(groupBox_5);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         label_locate = new QLabel(groupBox_5);
         label_locate->setObjectName(QString::fromUtf8("label_locate"));
         label_locate->setMaximumSize(QSize(200, 200));
-        QFont font15;
-        font15.setPointSize(32);
-        font15.setBold(true);
-        font15.setWeight(75);
-        label_locate->setFont(font15);
+        QFont font14;
+        font14.setPointSize(32);
+        font14.setBold(true);
+        font14.setWeight(75);
+        label_locate->setFont(font14);
         label_locate->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_locate->setAlignment(Qt::AlignCenter);
 
@@ -2212,9 +2193,9 @@ public:
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(0, 60));
         label->setMaximumSize(QSize(16777215, 50));
-        QFont font16;
-        font16.setPointSize(20);
-        label->setFont(font16);
+        QFont font15;
+        font15.setPointSize(20);
+        label->setFont(font15);
         label->setLayoutDirection(Qt::LeftToRight);
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -2226,7 +2207,7 @@ public:
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setEnabled(true);
         lineEdit_2->setMinimumSize(QSize(0, 50));
-        lineEdit_2->setFont(font16);
+        lineEdit_2->setFont(font15);
         lineEdit_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         lineEdit_2->setAlignment(Qt::AlignCenter);
 
@@ -2248,10 +2229,10 @@ public:
 
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
-        button_useless->setEnabled(false);
+        button_useless->setEnabled(true);
         button_useless->setMinimumSize(QSize(120, 50));
         button_useless->setMaximumSize(QSize(200, 70));
-        button_useless->setFont(font1);
+        button_useless->setFont(font3);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
@@ -2279,13 +2260,17 @@ public:
 
         who_win = new QLabel(centralwidget);
         who_win->setObjectName(QString::fromUtf8("who_win"));
-        who_win->setGeometry(QRect(70, 180, 931, 141));
-        QFont font17;
-        font17.setPointSize(160);
-        who_win->setFont(font17);
+        who_win->setGeometry(QRect(230, 180, 1291, 241));
+        QFont font16;
+        font16.setPointSize(160);
+        who_win->setFont(font16);
         who_win->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         who_win->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
+        menubar = new QMenuBar(MainWindow);
+        menubar->setObjectName(QString::fromUtf8("menubar"));
+        menubar->setGeometry(QRect(0, 0, 1732, 25));
+        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -2301,11 +2286,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
-        xue_change->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264(+)", nullptr));
-#if QT_CONFIG(shortcut)
-        xue_change->setShortcut(QCoreApplication::translate("MainWindow", "+", nullptr));
-#endif // QT_CONFIG(shortcut)
+        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
@@ -2314,7 +2295,7 @@ public:
 #if QT_CONFIG(shortcut)
         pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
 #endif // QT_CONFIG(shortcut)
-        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         groupBox->setTitle(QString());
         desk_num->setText(QString());
         label_11->setText(QCoreApplication::translate("MainWindow", "\347\273\223\346\236\234", nullptr));
@@ -2457,7 +2438,7 @@ public:
 #if QT_CONFIG(shortcut)
         button_locate->setShortcut(QCoreApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_CONFIG(shortcut)
-        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
+        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
 #if QT_CONFIG(shortcut)
         button_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
 #endif // QT_CONFIG(shortcut)

@@ -240,7 +240,7 @@ void MRoomCard::while_timeout()
     graphiceffect->setOpacity(opacity);
     link->data[NUM.num].label->setGraphicsEffect(graphiceffect);
 
-    graphiceffect_name->setOpacity(0.5);
+    graphiceffect_name->setOpacity(opacity);
     label_name->setGraphicsEffect(graphiceffect_name);
 }
 

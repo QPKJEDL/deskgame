@@ -128,6 +128,7 @@ private:
     // 倒计时
     QTimer *m_timer_count_down;
     int times;
+    int count_down_num;
 
     // 结果
     int m_result;
