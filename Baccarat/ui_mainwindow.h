@@ -18,8 +18,6 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QSpacerItem>
-#include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,12 +27,33 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralwidget;
+<<<<<<< HEAD
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_4;
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox_4;
     QVBoxLayout *verticalLayout_5;
     QGridLayout *gridLayout_5;
+=======
+    QVBoxLayout *verticalLayout_6;
+    QHBoxLayout *horizontalLayout_3;
+    QVBoxLayout *verticalLayout;
+    QGroupBox *groupBox;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout;
+    QPushButton *pu_init;
+    QPushButton *pu_start;
+    QPushButton *pu_changeXue;
+    QPushButton *pu_stop;
+    QPushButton *pu_leave;
+    QPushButton *pu_useless;
+    QPushButton *pu_zhuang;
+    QPushButton *pu_xian;
+    QPushButton *pu_same;
+    QPushButton *pu_zhuangdui;
+    QPushButton *pu_xiandui;
+    QGridLayout *gridLayout_2;
+>>>>>>> parent of 7a39d67... 0714
     QGroupBox *groupBox_2;
     QWidget *layoutWidget;
     QGridLayout *gridLayout;
@@ -84,6 +103,7 @@ public:
     QLabel *label_xwl_two;
     QLabel *label_xwl_three;
     QLabel *label_up_pave;
+<<<<<<< HEAD
     QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout;
     QGroupBox *groupBox;
@@ -106,16 +126,29 @@ public:
     QLabel *label_count_down;
     QMenuBar *menubar;
     QStatusBar *statusbar;
+=======
+    QGroupBox *groupBox_3;
+    QVBoxLayout *verticalLayout_4;
+    QGridLayout *gridLayout_4;
+    QGroupBox *groupBox_4;
+    QVBoxLayout *verticalLayout_5;
+    QGridLayout *gridLayout_5;
+>>>>>>> parent of 7a39d67... 0714
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+<<<<<<< HEAD
         MainWindow->resize(1917, 1047);
+=======
+        MainWindow->resize(1313, 762);
+>>>>>>> parent of 7a39d67... 0714
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setStyleSheet(QString::fromUtf8("background-color: rgb(30, 40, 50);"));
+<<<<<<< HEAD
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
         groupBox_3->setGeometry(QRect(9, 443, 1901, 271));
@@ -145,6 +178,238 @@ public:
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
         groupBox_2->setGeometry(QRect(1250, 0, 661, 441));
+=======
+        verticalLayout_6 = new QVBoxLayout(centralwidget);
+        verticalLayout_6->setSpacing(0);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        groupBox = new QGroupBox(centralwidget);
+        groupBox->setObjectName(QString::fromUtf8("groupBox"));
+        groupBox->setMaximumSize(QSize(16777215, 317));
+        groupBox->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
+        verticalLayout_3 = new QVBoxLayout(groupBox);
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setSizeConstraint(QLayout::SetDefaultConstraint);
+        horizontalLayout->setContentsMargins(9, 9, 9, 9);
+        pu_init = new QPushButton(groupBox);
+        pu_init->setObjectName(QString::fromUtf8("pu_init"));
+        pu_init->setEnabled(false);
+        pu_init->setMinimumSize(QSize(0, 50));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font.setPointSize(10);
+        pu_init->setFont(font);
+        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_init);
+
+        pu_start = new QPushButton(groupBox);
+        pu_start->setObjectName(QString::fromUtf8("pu_start"));
+        pu_start->setEnabled(false);
+        pu_start->setMinimumSize(QSize(0, 50));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font1.setPointSize(15);
+        pu_start->setFont(font1);
+        pu_start->setAcceptDrops(true);
+        pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_start);
+
+        pu_changeXue = new QPushButton(groupBox);
+        pu_changeXue->setObjectName(QString::fromUtf8("pu_changeXue"));
+        pu_changeXue->setEnabled(false);
+        pu_changeXue->setMinimumSize(QSize(0, 50));
+        pu_changeXue->setFont(font1);
+        pu_changeXue->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_changeXue);
+
+        pu_stop = new QPushButton(groupBox);
+        pu_stop->setObjectName(QString::fromUtf8("pu_stop"));
+        pu_stop->setEnabled(false);
+        pu_stop->setMinimumSize(QSize(0, 50));
+        pu_stop->setFont(font1);
+        pu_stop->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_stop);
+
+        pu_leave = new QPushButton(groupBox);
+        pu_leave->setObjectName(QString::fromUtf8("pu_leave"));
+        pu_leave->setEnabled(false);
+        pu_leave->setMinimumSize(QSize(0, 50));
+        pu_leave->setFont(font1);
+        pu_leave->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_leave);
+
+        pu_useless = new QPushButton(groupBox);
+        pu_useless->setObjectName(QString::fromUtf8("pu_useless"));
+        pu_useless->setEnabled(false);
+        pu_useless->setMinimumSize(QSize(0, 50));
+        pu_useless->setFont(font1);
+        pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
+"QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_useless);
+
+        pu_zhuang = new QPushButton(groupBox);
+        pu_zhuang->setObjectName(QString::fromUtf8("pu_zhuang"));
+        pu_zhuang->setEnabled(false);
+        pu_zhuang->setMinimumSize(QSize(0, 50));
+        pu_zhuang->setFont(font1);
+        pu_zhuang->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_zhuang);
+
+        pu_xian = new QPushButton(groupBox);
+        pu_xian->setObjectName(QString::fromUtf8("pu_xian"));
+        pu_xian->setEnabled(false);
+        pu_xian->setMinimumSize(QSize(0, 50));
+        QPalette palette;
+        QBrush brush(QColor(255, 255, 255, 255));
+        brush.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::WindowText, brush);
+        QBrush brush1(QColor(50, 73, 138, 255));
+        brush1.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Active, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Text, brush);
+        palette.setBrush(QPalette::Active, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Active, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Active, QPalette::Window, brush1);
+        QBrush brush2(QColor(255, 255, 255, 128));
+        brush2.setStyle(Qt::NoBrush);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush2);
+#endif
+        palette.setBrush(QPalette::Inactive, QPalette::WindowText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Button, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
+        palette.setBrush(QPalette::Inactive, QPalette::Window, brush1);
+        QBrush brush3(QColor(255, 255, 255, 128));
+        brush3.setStyle(Qt::NoBrush);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush3);
+#endif
+        palette.setBrush(QPalette::Disabled, QPalette::WindowText, brush);
+        QBrush brush4(QColor(99, 99, 99, 255));
+        brush4.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Button, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::ButtonText, brush);
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush4);
+        palette.setBrush(QPalette::Disabled, QPalette::Window, brush4);
+        QBrush brush5(QColor(255, 255, 255, 128));
+        brush5.setStyle(Qt::NoBrush);
+#if QT_VERSION >= QT_VERSION_CHECK(5, 12, 0)
+        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush5);
+#endif
+        pu_xian->setPalette(palette);
+        pu_xian->setFont(font1);
+        pu_xian->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_xian);
+
+        pu_same = new QPushButton(groupBox);
+        pu_same->setObjectName(QString::fromUtf8("pu_same"));
+        pu_same->setEnabled(false);
+        pu_same->setMinimumSize(QSize(0, 50));
+        pu_same->setFont(font1);
+        pu_same->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(60, 160, 74);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(39, 78, 55);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_same);
+
+        pu_zhuangdui = new QPushButton(groupBox);
+        pu_zhuangdui->setObjectName(QString::fromUtf8("pu_zhuangdui"));
+        pu_zhuangdui->setEnabled(false);
+        pu_zhuangdui->setMinimumSize(QSize(0, 50));
+        pu_zhuangdui->setFont(font1);
+        pu_zhuangdui->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_zhuangdui);
+
+        pu_xiandui = new QPushButton(groupBox);
+        pu_xiandui->setObjectName(QString::fromUtf8("pu_xiandui"));
+        pu_xiandui->setEnabled(false);
+        pu_xiandui->setMinimumSize(QSize(0, 50));
+        pu_xiandui->setFont(font1);
+        pu_xiandui->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        horizontalLayout->addWidget(pu_xiandui);
+
+
+        verticalLayout_3->addLayout(horizontalLayout);
+
+        gridLayout_2 = new QGridLayout();
+        gridLayout_2->setSpacing(1);
+        gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        gridLayout_2->setContentsMargins(9, 9, 9, 9);
+
+        verticalLayout_3->addLayout(gridLayout_2);
+
+        verticalLayout_3->setStretch(0, 1);
+        verticalLayout_3->setStretch(1, 3);
+
+        verticalLayout->addWidget(groupBox);
+
+
+        horizontalLayout_3->addLayout(verticalLayout);
+
+        groupBox_2 = new QGroupBox(centralwidget);
+        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setMaximumSize(QSize(16777215, 319));
+>>>>>>> parent of 7a39d67... 0714
         groupBox_2->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         layoutWidget = new QWidget(groupBox_2);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -154,10 +419,17 @@ public:
         gridLayout->setContentsMargins(0, 0, 0, 0);
         label_143 = new QLabel(layoutWidget);
         label_143->setObjectName(QString::fromUtf8("label_143"));
+<<<<<<< HEAD
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font.setPointSize(25);
         label_143->setFont(font);
+=======
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font2.setPointSize(25);
+        label_143->setFont(font2);
+>>>>>>> parent of 7a39d67... 0714
         label_143->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
 
         gridLayout->addWidget(label_143, 0, 2, 1, 1);
@@ -165,7 +437,11 @@ public:
         pu_cancel = new QPushButton(layoutWidget);
         pu_cancel->setObjectName(QString::fromUtf8("pu_cancel"));
         pu_cancel->setEnabled(false);
+<<<<<<< HEAD
         pu_cancel->setFont(font);
+=======
+        pu_cancel->setFont(font2);
+>>>>>>> parent of 7a39d67... 0714
         pu_cancel->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
 "QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
 "}\n"
@@ -176,17 +452,28 @@ public:
 
         label_126 = new QLabel(layoutWidget);
         label_126->setObjectName(QString::fromUtf8("label_126"));
+<<<<<<< HEAD
         QFont font1;
         font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font1.setPointSize(30);
         label_126->setFont(font1);
+=======
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font3.setPointSize(30);
+        label_126->setFont(font3);
+>>>>>>> parent of 7a39d67... 0714
         label_126->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
 
         gridLayout->addWidget(label_126, 0, 0, 1, 1);
 
         label_desk_id = new QLabel(layoutWidget);
         label_desk_id->setObjectName(QString::fromUtf8("label_desk_id"));
+<<<<<<< HEAD
         label_desk_id->setFont(font1);
+=======
+        label_desk_id->setFont(font3);
+>>>>>>> parent of 7a39d67... 0714
         label_desk_id->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
 
         gridLayout->addWidget(label_desk_id, 0, 1, 1, 1);
@@ -194,7 +481,11 @@ public:
         pu_enter = new QPushButton(layoutWidget);
         pu_enter->setObjectName(QString::fromUtf8("pu_enter"));
         pu_enter->setEnabled(false);
+<<<<<<< HEAD
         pu_enter->setFont(font);
+=======
+        pu_enter->setFont(font2);
+>>>>>>> parent of 7a39d67... 0714
         pu_enter->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}\n"
 "QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);\n"
 "}\n"
@@ -205,10 +496,17 @@ public:
 
         label_result = new QLabel(layoutWidget);
         label_result->setObjectName(QString::fromUtf8("label_result"));
+<<<<<<< HEAD
         QFont font2;
         font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font2.setPointSize(20);
         label_result->setFont(font2);
+=======
+        QFont font4;
+        font4.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font4.setPointSize(20);
+        label_result->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);"));
 
         gridLayout->addWidget(label_result, 0, 3, 1, 1);
@@ -221,7 +519,11 @@ public:
         gridLayout_3->setContentsMargins(0, 0, 0, 0);
         label_minLimit = new QLabel(layoutWidget1);
         label_minLimit->setObjectName(QString::fromUtf8("label_minLimit"));
+<<<<<<< HEAD
         label_minLimit->setFont(font2);
+=======
+        label_minLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_minLimit->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
 "background-color: rgb(0, 41, 80);"));
         label_minLimit->setAlignment(Qt::AlignCenter);
@@ -230,7 +532,11 @@ public:
 
         label_123 = new QLabel(layoutWidget1);
         label_123->setObjectName(QString::fromUtf8("label_123"));
+<<<<<<< HEAD
         label_123->setFont(font2);
+=======
+        label_123->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_123->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
         label_123->setAlignment(Qt::AlignCenter);
 
@@ -238,7 +544,11 @@ public:
 
         label_tieMinLimit = new QLabel(layoutWidget1);
         label_tieMinLimit->setObjectName(QString::fromUtf8("label_tieMinLimit"));
+<<<<<<< HEAD
         label_tieMinLimit->setFont(font2);
+=======
+        label_tieMinLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_tieMinLimit->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 41, 80);color: rgb(255, 255, 255);"));
         label_tieMinLimit->setAlignment(Qt::AlignCenter);
 
@@ -246,7 +556,11 @@ public:
 
         label_pairMaxLimit = new QLabel(layoutWidget1);
         label_pairMaxLimit->setObjectName(QString::fromUtf8("label_pairMaxLimit"));
+<<<<<<< HEAD
         label_pairMaxLimit->setFont(font2);
+=======
+        label_pairMaxLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_pairMaxLimit->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 41, 80);color: rgb(255, 255, 255);"));
         label_pairMaxLimit->setAlignment(Qt::AlignCenter);
 
@@ -254,7 +568,11 @@ public:
 
         label_maxLimit = new QLabel(layoutWidget1);
         label_maxLimit->setObjectName(QString::fromUtf8("label_maxLimit"));
+<<<<<<< HEAD
         label_maxLimit->setFont(font2);
+=======
+        label_maxLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_maxLimit->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 41, 80);color: rgb(255, 255, 255);"));
         label_maxLimit->setAlignment(Qt::AlignCenter);
 
@@ -262,7 +580,11 @@ public:
 
         label_127 = new QLabel(layoutWidget1);
         label_127->setObjectName(QString::fromUtf8("label_127"));
+<<<<<<< HEAD
         label_127->setFont(font2);
+=======
+        label_127->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_127->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
         label_127->setAlignment(Qt::AlignCenter);
 
@@ -270,7 +592,11 @@ public:
 
         label_122 = new QLabel(layoutWidget1);
         label_122->setObjectName(QString::fromUtf8("label_122"));
+<<<<<<< HEAD
         label_122->setFont(font2);
+=======
+        label_122->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_122->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 0);"));
         label_122->setAlignment(Qt::AlignCenter);
 
@@ -278,7 +604,11 @@ public:
 
         label_tieMaxLimit = new QLabel(layoutWidget1);
         label_tieMaxLimit->setObjectName(QString::fromUtf8("label_tieMaxLimit"));
+<<<<<<< HEAD
         label_tieMaxLimit->setFont(font2);
+=======
+        label_tieMaxLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_tieMaxLimit->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 41, 80);color: rgb(255, 255, 255);"));
         label_tieMaxLimit->setAlignment(Qt::AlignCenter);
 
@@ -286,7 +616,11 @@ public:
 
         label_128 = new QLabel(layoutWidget1);
         label_128->setObjectName(QString::fromUtf8("label_128"));
+<<<<<<< HEAD
         label_128->setFont(font2);
+=======
+        label_128->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_128->setStyleSheet(QString::fromUtf8("color: rgb(0, 255, 0);"));
         label_128->setAlignment(Qt::AlignCenter);
 
@@ -294,7 +628,11 @@ public:
 
         label_pairMinLimit = new QLabel(layoutWidget1);
         label_pairMinLimit->setObjectName(QString::fromUtf8("label_pairMinLimit"));
+<<<<<<< HEAD
         label_pairMinLimit->setFont(font2);
+=======
+        label_pairMinLimit->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_pairMinLimit->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 41, 80);color: rgb(255, 255, 255);"));
         label_pairMinLimit->setAlignment(Qt::AlignCenter);
 
@@ -302,7 +640,11 @@ public:
 
         label_129 = new QLabel(layoutWidget1);
         label_129->setObjectName(QString::fromUtf8("label_129"));
+<<<<<<< HEAD
         label_129->setFont(font2);
+=======
+        label_129->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_129->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 127);"));
         label_129->setAlignment(Qt::AlignCenter);
 
@@ -316,7 +658,11 @@ public:
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
         label_140 = new QLabel(layoutWidget2);
         label_140->setObjectName(QString::fromUtf8("label_140"));
+<<<<<<< HEAD
         label_140->setFont(font2);
+=======
+        label_140->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_140->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(255, 255, 0);"));
         label_140->setAlignment(Qt::AlignCenter);
 
@@ -324,7 +670,11 @@ public:
 
         label_result_zhuangDui = new QLabel(layoutWidget2);
         label_result_zhuangDui->setObjectName(QString::fromUtf8("label_result_zhuangDui"));
+<<<<<<< HEAD
         label_result_zhuangDui->setFont(font2);
+=======
+        label_result_zhuangDui->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result_zhuangDui->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_result_zhuangDui->setAlignment(Qt::AlignCenter);
 
@@ -332,7 +682,11 @@ public:
 
         label_137 = new QLabel(layoutWidget2);
         label_137->setObjectName(QString::fromUtf8("label_137"));
+<<<<<<< HEAD
         label_137->setFont(font2);
+=======
+        label_137->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_137->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(170, 0, 0);"));
         label_137->setAlignment(Qt::AlignCenter);
 
@@ -340,7 +694,11 @@ public:
 
         label_result_xian = new QLabel(layoutWidget2);
         label_result_xian->setObjectName(QString::fromUtf8("label_result_xian"));
+<<<<<<< HEAD
         label_result_xian->setFont(font2);
+=======
+        label_result_xian->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result_xian->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_result_xian->setAlignment(Qt::AlignCenter);
 
@@ -348,7 +706,11 @@ public:
 
         label_result_xianDui = new QLabel(layoutWidget2);
         label_result_xianDui->setObjectName(QString::fromUtf8("label_result_xianDui"));
+<<<<<<< HEAD
         label_result_xianDui->setFont(font2);
+=======
+        label_result_xianDui->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result_xianDui->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_result_xianDui->setAlignment(Qt::AlignCenter);
 
@@ -356,7 +718,11 @@ public:
 
         label_result_same = new QLabel(layoutWidget2);
         label_result_same->setObjectName(QString::fromUtf8("label_result_same"));
+<<<<<<< HEAD
         label_result_same->setFont(font2);
+=======
+        label_result_same->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result_same->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_result_same->setAlignment(Qt::AlignCenter);
 
@@ -364,7 +730,11 @@ public:
 
         label_139 = new QLabel(layoutWidget2);
         label_139->setObjectName(QString::fromUtf8("label_139"));
+<<<<<<< HEAD
         label_139->setFont(font2);
+=======
+        label_139->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_139->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(255, 255, 0);"));
         label_139->setAlignment(Qt::AlignCenter);
 
@@ -372,7 +742,11 @@ public:
 
         label_136 = new QLabel(layoutWidget2);
         label_136->setObjectName(QString::fromUtf8("label_136"));
+<<<<<<< HEAD
         label_136->setFont(font2);
+=======
+        label_136->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_136->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(0, 170, 0);"));
         label_136->setAlignment(Qt::AlignCenter);
 
@@ -380,7 +754,11 @@ public:
 
         label_times_pu = new QLabel(layoutWidget2);
         label_times_pu->setObjectName(QString::fromUtf8("label_times_pu"));
+<<<<<<< HEAD
         label_times_pu->setFont(font2);
+=======
+        label_times_pu->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_times_pu->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_times_pu->setAlignment(Qt::AlignCenter);
 
@@ -388,7 +766,11 @@ public:
 
         label_times_xue = new QLabel(layoutWidget2);
         label_times_xue->setObjectName(QString::fromUtf8("label_times_xue"));
+<<<<<<< HEAD
         label_times_xue->setFont(font2);
+=======
+        label_times_xue->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_times_xue->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_times_xue->setAlignment(Qt::AlignCenter);
 
@@ -396,7 +778,11 @@ public:
 
         label_134 = new QLabel(layoutWidget2);
         label_134->setObjectName(QString::fromUtf8("label_134"));
+<<<<<<< HEAD
         label_134->setFont(font2);
+=======
+        label_134->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_134->setStyleSheet(QString::fromUtf8("color: rgb(170, 0, 0);\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));"));
         label_134->setAlignment(Qt::AlignCenter);
@@ -405,7 +791,11 @@ public:
 
         label_138 = new QLabel(layoutWidget2);
         label_138->setObjectName(QString::fromUtf8("label_138"));
+<<<<<<< HEAD
         label_138->setFont(font2);
+=======
+        label_138->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_138->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(170, 255, 255);"));
         label_138->setAlignment(Qt::AlignCenter);
 
@@ -413,7 +803,11 @@ public:
 
         label_result_zhuang = new QLabel(layoutWidget2);
         label_result_zhuang->setObjectName(QString::fromUtf8("label_result_zhuang"));
+<<<<<<< HEAD
         label_result_zhuang->setFont(font2);
+=======
+        label_result_zhuang->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_result_zhuang->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_result_zhuang->setAlignment(Qt::AlignCenter);
 
@@ -421,7 +815,11 @@ public:
 
         label_135 = new QLabel(layoutWidget2);
         label_135->setObjectName(QString::fromUtf8("label_135"));
+<<<<<<< HEAD
         label_135->setFont(font2);
+=======
+        label_135->setFont(font4);
+>>>>>>> parent of 7a39d67... 0714
         label_135->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgba(0, 41, 80, 255), stop:1 rgba(63, 80, 155, 255));color: rgb(170, 255, 255);"));
         label_135->setAlignment(Qt::AlignCenter);
 
@@ -437,7 +835,14 @@ public:
         label = new QLabel(layoutWidget3);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(100, 16777215));
+<<<<<<< HEAD
         label->setFont(font);
+=======
+        QFont font5;
+        font5.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font5.setPointSize(18);
+        label->setFont(font5);
+>>>>>>> parent of 7a39d67... 0714
         label->setStyleSheet(QString::fromUtf8("border-radius: 8px;\n"
 "background-color: rgb(255, 255, 255);\n"
 "color: rgb(170, 0, 0);"));
@@ -471,7 +876,11 @@ public:
         label_2 = new QLabel(layoutWidget3);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setMaximumSize(QSize(100, 16777215));
+<<<<<<< HEAD
         label_2->setFont(font);
+=======
+        label_2->setFont(font5);
+>>>>>>> parent of 7a39d67... 0714
         label_2->setStyleSheet(QString::fromUtf8("border-radius: 8px;\n"
 "color: rgb(85, 170, 255);\n"
 "background-color: rgb(255, 255, 255);\n"
@@ -505,12 +914,17 @@ public:
 
         label_up_pave = new QLabel(layoutWidget3);
         label_up_pave->setObjectName(QString::fromUtf8("label_up_pave"));
+<<<<<<< HEAD
         label_up_pave->setFont(font);
+=======
+        label_up_pave->setFont(font2);
+>>>>>>> parent of 7a39d67... 0714
         label_up_pave->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 255, 255);\n"
 "border-radius: 8px;"));
 
         horizontalLayout_2->addWidget(label_up_pave);
 
+<<<<<<< HEAD
         layoutWidget4 = new QWidget(centralwidget);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
         layoutWidget4->setGeometry(QRect(10, 0, 1241, 441));
@@ -537,6 +951,44 @@ public:
         horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
         horizontalLayout->addItem(horizontalSpacer);
+=======
+        horizontalLayout_2->setStretch(0, 1);
+        horizontalLayout_2->setStretch(1, 1);
+        horizontalLayout_2->setStretch(2, 1);
+        horizontalLayout_2->setStretch(3, 1);
+        horizontalLayout_2->setStretch(4, 1);
+        horizontalLayout_2->setStretch(5, 1);
+        horizontalLayout_2->setStretch(6, 1);
+        horizontalLayout_2->setStretch(7, 1);
+        horizontalLayout_2->setStretch(8, 4);
+
+        verticalLayout_2->addLayout(horizontalLayout_2);
+
+        verticalLayout_2->setStretch(0, 2);
+        verticalLayout_2->setStretch(1, 6);
+        verticalLayout_2->setStretch(2, 4);
+        verticalLayout_2->setStretch(3, 1);
+
+        horizontalLayout_3->addWidget(groupBox_2);
+
+        horizontalLayout_3->setStretch(0, 1);
+        horizontalLayout_3->setStretch(1, 1);
+
+        verticalLayout_6->addLayout(horizontalLayout_3);
+
+        groupBox_3 = new QGroupBox(centralwidget);
+        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setMaximumSize(QSize(1440, 221));
+        groupBox_3->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);\n"
+""));
+        verticalLayout_4 = new QVBoxLayout(groupBox_3);
+        verticalLayout_4->setSpacing(2);
+        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        verticalLayout_4->setContentsMargins(9, 9, 9, 9);
+        gridLayout_4 = new QGridLayout();
+        gridLayout_4->setSpacing(1);
+        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+>>>>>>> parent of 7a39d67... 0714
 
         pu_init = new QPushButton(layoutWidget6);
         pu_init->setObjectName(QString::fromUtf8("pu_init"));
@@ -554,6 +1006,7 @@ public:
 
         horizontalLayout->addWidget(pu_init);
 
+<<<<<<< HEAD
         pu_start = new QPushButton(layoutWidget6);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
@@ -567,6 +1020,23 @@ public:
 "}"));
 
         horizontalLayout->addWidget(pu_start);
+=======
+        verticalLayout_6->addWidget(groupBox_3);
+
+        groupBox_4 = new QGroupBox(centralwidget);
+        groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
+        groupBox_4->setMaximumSize(QSize(1440, 220));
+        groupBox_4->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);\n"
+""));
+        verticalLayout_5 = new QVBoxLayout(groupBox_4);
+        verticalLayout_5->setSpacing(2);
+        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(5, 5, 5, 5);
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setSpacing(1);
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
+        gridLayout_5->setContentsMargins(9, 9, 9, 9);
+>>>>>>> parent of 7a39d67... 0714
 
         pu_changeXue = new QPushButton(layoutWidget6);
         pu_changeXue->setObjectName(QString::fromUtf8("pu_changeXue"));
@@ -700,6 +1170,7 @@ public:
 
         horizontalLayout->addWidget(pu_same);
 
+<<<<<<< HEAD
         pu_zhuangdui = new QPushButton(layoutWidget6);
         pu_zhuangdui->setObjectName(QString::fromUtf8("pu_zhuangdui"));
         pu_zhuangdui->setEnabled(false);
@@ -746,6 +1217,14 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
+=======
+        verticalLayout_6->addWidget(groupBox_4);
+
+        verticalLayout_6->setStretch(0, 2);
+        verticalLayout_6->setStretch(1, 2);
+        verticalLayout_6->setStretch(2, 2);
+        MainWindow->setCentralWidget(centralwidget);
+>>>>>>> parent of 7a39d67... 0714
 
         retranslateUi(MainWindow);
 
@@ -755,8 +1234,53 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+<<<<<<< HEAD
         groupBox_3->setTitle(QString());
         groupBox_4->setTitle(QString());
+=======
+        groupBox->setTitle(QString());
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
+        pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_changeXue->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_changeXue->setShortcut(QCoreApplication::translate("MainWindow", "+", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_stop->setText(QCoreApplication::translate("MainWindow", "\345\201\234\346\255\242", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_stop->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_leave->setText(QCoreApplication::translate("MainWindow", "\347\246\273\345\274\200", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_leave->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_zhuang->setText(QCoreApplication::translate("MainWindow", "\345\272\204(7)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_zhuang->setShortcut(QCoreApplication::translate("MainWindow", "7", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_xian->setText(QCoreApplication::translate("MainWindow", "\351\227\262(4)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_xian->setShortcut(QCoreApplication::translate("MainWindow", "4", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_same->setText(QCoreApplication::translate("MainWindow", "\345\222\214(1)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_same->setShortcut(QCoreApplication::translate("MainWindow", "1", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_zhuangdui->setText(QCoreApplication::translate("MainWindow", "\345\272\204\345\257\271(2)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_zhuangdui->setShortcut(QCoreApplication::translate("MainWindow", "2", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_xiandui->setText(QCoreApplication::translate("MainWindow", "\351\227\262\345\257\271(5)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_xiandui->setShortcut(QCoreApplication::translate("MainWindow", "5", nullptr));
+#endif // QT_CONFIG(shortcut)
+>>>>>>> parent of 7a39d67... 0714
         groupBox_2->setTitle(QString());
         label_143->setText(QCoreApplication::translate("MainWindow", "   \347\273\223\346\236\234", nullptr));
         pu_cancel->setText(QCoreApplication::translate("MainWindow", "\345\217\226\346\266\210", nullptr));

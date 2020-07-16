@@ -3,10 +3,8 @@ release/login.o
 release/main.o
 release/mainwindow.o
 release/MNetManager.o
-release/MDialog.o
 release/qrc_qrc.o
 release/moc_form.o
 release/moc_login.o
 release/moc_mainwindow.o
 release/moc_MNetManager.o
-release/moc_MDialog.o

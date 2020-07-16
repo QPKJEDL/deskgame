@@ -11,7 +11,7 @@ Login::Login(QWidget *parent) : QWidget(parent), ui(new Ui::Login)
     ui->setupUi(this);
     setWindowTitle("登录");
     connect(ui->pu_cancel,SIGNAL(clicked()),this,SLOT(on_cancel()));
-    this->showFullScreen();
+    this->show();
 }
 
 Login::~Login()

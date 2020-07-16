@@ -98,7 +98,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         break;
     }
     case 2:{
-        enabled({arg->leave});
+        enabled({arg->leave,arg->locate});
         emit phase_kaipai();
         break;
     }
@@ -160,7 +160,6 @@ void MPhase::responsed_locate(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         arg->location->setText(QString::number(location));
-        arg->input->setText("");
         arg->input->setVisible(false);
         emit located(location);
     }

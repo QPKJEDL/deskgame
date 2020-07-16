@@ -1,10 +1,10 @@
 debug/login.o
+debug/loginwindow.o
 debug/main.o
 debug/mainwindow.o
 debug/MNetManager.o
-debug/MDialog.o
 debug/qrc_image.o
 debug/moc_login.o
+debug/moc_loginwindow.o
 debug/moc_mainwindow.o
 debug/moc_MNetManager.o
-debug/moc_MDialog.o

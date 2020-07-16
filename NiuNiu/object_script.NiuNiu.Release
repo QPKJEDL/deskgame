@@ -1,10 +1,10 @@
 release/login.o
+release/loginwindow.o
 release/main.o
 release/mainwindow.o
 release/MNetManager.o
-release/MDialog.o
 release/qrc_image.o
 release/moc_login.o
+release/moc_loginwindow.o
 release/moc_mainwindow.o
 release/moc_MNetManager.o
-release/moc_MDialog.o

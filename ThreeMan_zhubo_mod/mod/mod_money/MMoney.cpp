@@ -43,12 +43,8 @@ MMoney::~MMoney()
 
 void MMoney::update_panel(QJsonArray data)
 {
-    double sum = data.at(0).toObject().value("sum").toDouble();
-    sum /= 100.0;
-    ui->label_sum->setText(QString::number(sum,'.',0));
-
     QJsonArray list = data.at(0)["list"].toArray();
-    qDebug() << list.at(0);
+    qDebug() << list;
     bool stop = false;
     auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money,QLabel *name,QLabel *type){
         QString num_creatime = list.at(num)["creatime"].toString();
@@ -103,7 +99,6 @@ void MMoney::responsed_money(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonArray data = json.value("data").toArray();
-
         update_panel(data);
     }
     else{

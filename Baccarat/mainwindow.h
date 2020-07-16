@@ -169,8 +169,6 @@ private:
     Link* m_link_reslut;
     Link* m_link_reslut_head;
 
-    int count_down_num;
-
 private slots:
     void pu_login();
     void pu_init();

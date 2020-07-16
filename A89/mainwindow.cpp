@@ -15,8 +15,6 @@
 #include <QJsonArray>
 #include <vector>
 #include <QMessageBox>
-#include "mod/mod_dialog/MDialog.h"
-
 using namespace std;
 
 enum {LOGIN,START,ROOMINFO,ROOMCARD,RECORD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,END};
@@ -394,15 +392,12 @@ void MainWindow::result(){
     // 庄结果
     result_list[quarter]->zhuang->setText(Banker);
 
-    QString result = "";
-
     if(one > zhuang){
         // 顺门赢
         result_list[quarter]->one->setText(ShunMen);
         result_list[quarter]->one->setStyleSheet("image: url(:/image/blue.png)");
         int win_times = ui->one_win_times->text().toInt();
         ui->one_win_times->setText(QString::number(win_times + 1));
-        result.append("顺门 ");
     }
     else{
         // 顺门输
@@ -415,7 +410,6 @@ void MainWindow::result(){
         result_list[quarter]->two->setStyleSheet("image: url(:/image/blue.png)");
         int win_times = ui->two_win_times->text().toInt();
         ui->two_win_times->setText(QString::number(win_times + 1));
-        result.append("天门 ");
     }
     else{
         // 天门输
@@ -428,19 +422,13 @@ void MainWindow::result(){
         result_list[quarter]->three->setStyleSheet("image: url(:/image/blue.png)");
         int win_times = ui->three_win_times->text().toInt();
         ui->three_win_times->setText(QString::number(win_times + 1));
-        result.append("反门 ");
     }
     else{
         // 反门输
         result_list[quarter]->three->setText(FanMen);
         result_list[quarter]->three->setStyleSheet("image: url(:/image/gray.png)");
     }
-    if(result == ""){
-        result.append("庄赢");
-    }
 
-    ui->who_win->setText(result);
-    ui->pu_result->setText(result);
 
     quarter_increase();
 }
@@ -515,12 +503,8 @@ void MainWindow::pu_login()
 
 void MainWindow::pu_init()
 {
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否初始化?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
+    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
+    if(choose == QMessageBox::Yes){
         request_init();
     }
 }
@@ -561,21 +545,12 @@ void MainWindow::pu_locate()
     ui->lineEdit_2->setVisible(true);
 
     ui->button_locate->setEnabled(false);
-
-    ui->lineEdit_2->setFocus();
 }
 
 void MainWindow::pu_summit()
 {
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否提交?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        ui->button_summit->setEnabled(false);
-        request_summit();
-    }
+    ui->button_summit->setEnabled(false);
+    request_summit();
 }
 
 void MainWindow::on_room_card(QJsonArray zhuang, QJsonArray one, QJsonArray two, QJsonArray three,string zhuang_result,string one_result,string two_result,string three_result)
@@ -657,6 +632,7 @@ void MainWindow::on_room_card(QJsonArray zhuang, QJsonArray one, QJsonArray two,
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
+    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -678,6 +654,7 @@ void MainWindow::phase_finish()
     // 结算完成
     // 启用该启用的按钮
     ui->pu_start->setEnabled(true);
+    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -860,7 +837,11 @@ void MainWindow::apply_record(QJsonArray array)
 void MainWindow::request_login()
 {
     QByteArray postData;
+<<<<<<< HEAD
     QString str = "desk=A8&password=123456";
+=======
+    QString str = "desk=a8&password=123456";
+>>>>>>> parent of 7a39d67... 0714
     postData.append(str);
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
@@ -1208,30 +1189,13 @@ void MainWindow::responsed_init(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
-    qDebug() << json;
     unsigned int status = json.value("status").toInt();
 
     if(status == 1){
-        QJsonObject data = json.value("data").toObject();
-        unsigned int boot_num = data.value("boot_num").toInt();
-        unsigned int pave_num = data.value("pave_num").toInt();
+        unsigned int boot_num = json.value("boot_num").toInt();
+        unsigned int pave_num = json.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-
-        for(int i = 0;i < 20;i++){
-            result_list[i]->zhuang->setStyleSheet("image: url(:/image/red.png)");
-            result_list[i]->one->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
-            result_list[i]->one->setText("");
-            result_list[i]->two->setText("");
-            result_list[i]->three->setText("");
-        }
-
-        ui->one_win_times->setText("");
-        ui->two_win_times->setText("");
-        ui->three_win_times->setText("");
-        quarter = 0;
     }
     else{
         ui->pu_init->setEnabled(true);
@@ -1248,27 +1212,13 @@ void MainWindow::responsed_end(QNetworkReply *reply)
 }
 
 void MainWindow::pu_exit(){
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否关闭?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        this->close();
-    }
+    this->close();
 }
 
 void MainWindow::pu_useless()
 {
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否作废?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        ui->button_useless->setEnabled(true);
-        request_useless();
-    }
+    ui->button_useless->setEnabled(true);
+    request_useless();
 }
 
 void MainWindow::on_responsed(QNetworkReply *reply, int status)

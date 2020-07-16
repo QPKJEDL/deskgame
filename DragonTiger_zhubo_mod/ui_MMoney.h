@@ -85,7 +85,7 @@ public:
     QLabel *label_40;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_44;
-    QLabel *label_sum;
+    QLabel *label_45;
     QSpacerItem *horizontalSpacer_4;
     QPushButton *pu_front_page;
     QPushButton *pu_next_page;
@@ -618,14 +618,14 @@ public:
 
         horizontalLayout_3->addWidget(label_44);
 
-        label_sum = new QLabel(MMoney);
-        label_sum->setObjectName(QString::fromUtf8("label_sum"));
-        label_sum->setFont(font1);
-        label_sum->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
+        label_45 = new QLabel(MMoney);
+        label_45->setObjectName(QString::fromUtf8("label_45"));
+        label_45->setFont(font1);
+        label_45->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "color: rgb(255, 255, 255);"));
-        label_sum->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
+        label_45->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
 
-        horizontalLayout_3->addWidget(label_sum);
+        horizontalLayout_3->addWidget(label_45);
 
         horizontalSpacer_4 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -723,7 +723,7 @@ public:
         label_43->setText(QCoreApplication::translate("MMoney", "\347\261\273\345\236\213", nullptr));
         label_40->setText(QCoreApplication::translate("MMoney", "\345\217\260\346\241\214", nullptr));
         label_44->setText(QCoreApplication::translate("MMoney", "\346\211\223\350\265\217\346\200\273\351\207\221\351\242\235\357\274\232", nullptr));
-        label_sum->setText(QString());
+        label_45->setText(QString());
         pu_front_page->setText(QCoreApplication::translate("MMoney", "\344\270\212\344\270\200\351\241\265", nullptr));
         pu_next_page->setText(QCoreApplication::translate("MMoney", "\344\270\213\344\270\200\351\241\265", nullptr));
     } // retranslateUi

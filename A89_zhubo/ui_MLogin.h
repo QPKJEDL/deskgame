@@ -55,7 +55,7 @@ public:
     {
         if (MLogin->objectName().isEmpty())
             MLogin->setObjectName(QString::fromUtf8("MLogin"));
-        MLogin->resize(1119, 657);
+        MLogin->resize(890, 580);
         MLogin->setStyleSheet(QString::fromUtf8("width:585px;\n"
 "height:394px;\n"
 "background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgba(81, 81, 118, 255), stop:1 rgba(46, 48, 74, 255));"));

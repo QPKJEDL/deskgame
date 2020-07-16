@@ -1,6 +1,5 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "mod/mod_dialog/MDialog.h"
 #include <QKeyEvent>
 #include <QDebug>
 #include <QTimer>
@@ -1069,13 +1068,14 @@ void MainWindow::request_room_info()
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
+    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
 void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     unsigned int time = end - start;
-    count_down = count_down_num - time;
+    count_down = 30 - time;
     timer_Countdown->start(1000);
 }
 
@@ -1096,6 +1096,7 @@ void MainWindow::phase_finish()
     // 结算完成
     // 启用该启用的按钮
     ui->pu_start->setEnabled(true);
+    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1111,11 +1112,15 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         unsigned int pave_num = data.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
+<<<<<<< HEAD
         location = 0;
         ui->label_locate->setText("");
+=======
+
+>>>>>>> parent of 7a39d67... 0714
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
-        count_down = count_down_num;
+        count_down = 30;
         timer_Countdown->start(1000);
     }
     else{
@@ -1138,7 +1143,6 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
-        count_down_num = data.at(0)["CountDown"].toInt();
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);
@@ -1177,7 +1181,7 @@ void MainWindow::responsed_record(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
-    qDebug() << json;
+
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonArray data = json.value("data").toArray();
@@ -1308,13 +1312,12 @@ void MainWindow::responsed_init(QNetworkReply *reply)
 
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        QJsonObject data = json.value("data").toObject();
-        unsigned int boot_num = data.value("boot_num").toInt();
-        unsigned int pave_num = data.value("pave_num").toInt();
+        unsigned int boot_num = json.value("boot_num").toInt();
+        unsigned int pave_num = json.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
         for(int i = 0;i < 20;i++){
-            result_list[i]->zhuang->setStyleSheet("image: url(:/image/red.png)");
+            result_list[i]->zhuang->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->one->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
@@ -1355,22 +1358,15 @@ void MainWindow::line_finish()
 
 void MainWindow::Request_summit(){
     //发送提交请求
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否提交?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        ui->button_summit->setEnabled(false);
+    ui->button_summit->setEnabled(false);
 
-        manager->setStatus(SUMMIT);
-        manager->setInterface("GetGameOver");
+    manager->setStatus(SUMMIT);
+    manager->setInterface("GetGameOver");
 
-        QByteArray Data;
-        Data.append("bootNum=");Data.append(ui->xue_times->text());
-        Data.append("&paveNum=");Data.append(ui->pu_times->text());
-        manager->postData(Data);
-    }
+    QByteArray Data;
+    Data.append("bootNum=");Data.append(ui->xue_times->text());
+    Data.append("&paveNum=");Data.append(ui->pu_times->text());
+    manager->postData(Data);
 }
 
 void MainWindow::apply_summit()
@@ -1419,44 +1415,280 @@ void MainWindow::apply_summit()
     ui->button_useless->setEnabled(false);
 }
 
+//void MainWindow::finishedSlot(QNetworkReply* reply)
+//{
+//    if (reply->error() == QNetworkReply::NoError) {
+//            QByteArray bytes = reply->readAll();
+//            QJsonObject json_object = QJsonDocument::fromJson(bytes).object();
+//            QJsonObject json_object2 = json_object.value("data").toObject();
+
+//            if (m_post_type == QString("start")) {
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+
+//                qDebug() << info  << endl;
+//                qDebug() << status  << endl;
+//                //M 应用靴次和铺次
+//                if(status == 1){
+//                    // 开始请求成功
+//                    // 应用靴次和铺次
+//                    unsigned int boot_num = json_object2.value("boot_num").toInt();
+//                    unsigned int pave_num = json_object2.value("pave_num").toInt();
+//                    ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
+//                    ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
+
+//                    // 禁用开始按钮
+//                    ui->pu_start->setEnabled(false);
+//                    ui->who_win->setText(QString(""));
+//                    timer_Countdown->start(1000);
+//                    // 倒计时恢复为 30
+//                    count_down = 30;
+//                }
+//                else{
+//                    // 开始请求失败
+//                    // 启用开始按钮
+//                    ui->pu_start->setEnabled(true);
+
+//                    // 报告错误
+//                    QMessageBox box;
+//                    box.setText("请求开局失败");
+//                    box.exec();
+//                }
+//            }
+//            else if(m_post_type == QString("roominfo")){
+//                // 响应房间信息
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+
+//                if(status == 1){
+//                    QJsonArray json_array = json_object.value("data").toArray();
+//                    // 刷新靴次
+//                    unsigned int boot_num = json_array.at(0)["BootNum"].toInt(); //json_object2.value("BootNum").toInt();
+//                    qDebug() << "boot_room : " << boot_num;
+//                    ui->xue_times->setText(QString::number(boot_num));
+//                    // 刷新铺次
+//                    unsigned int PaveNum = json_array.at(0)["PaveNum"].toInt(); //json_object2.value("PaveNum").toInt();
+//                    ui->pu_times->setText(QString::number(PaveNum));
+//                    qDebug() << "PaveNum : " << PaveNum;
+//                    // 刷新台桌
+//                    QString DeskName = json_array.at(0)["DeskName"].toString(); //json_object2.value("DeskName").toString();
+//                    ui->desk_num->setText(DeskName);
+//                    qDebug() << "desk id : " << DeskName;
+//                    // 获取时间戳
+//                    unsigned int GameStarTime = json_array.at(0)["GameStarTime"].toInt(); //json_object2.value("GameStarTime").toInt();
+//                    unsigned int Systime = json_array.at(0)["Systime"].toInt();
+//                    // 获取房间状态
+//                    unsigned int phase = json_array.at(0)["Phase"].toInt();
+//                    qDebug() << "phase : " << phase;
+//                    switch (phase) {
+//                    case 0:
+//                        // 洗牌中
+//                        phase_zero();
+//                        break;
+//                    case 1:
+//                        // 倒计时
+//                        phase_countDown(GameStarTime,Systime);
+//                        break;
+//                    case 2:
+//                        // 开牌中
+//                        phase_kaiPai();
+//                        break;
+//                    case 3:
+//                        // 结算完成
+//                        phase_finish();
+//                        break;
+//                    }
+//                }
+//                else{
+//                    QMessageBox box;
+//                    box.setText("获取房间信息失败");
+//                    box.exec();
+//                }
+//            }
+//            else if(m_post_type == QString("record")){
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+
+//                if(status == 1){
+//                    QJsonArray json_array = json_object.value("data").toArray();
+//                    QJsonArray array = json_array.at(0)["list"].toArray();
+
+//                    // 应用赢得次数
+//                    // 闲家1
+//                    unsigned int x1wincount = json_array.at(0)["x1wincount"].toInt();
+//                    ui->one_win_times->setText(QString::number(x1wincount));
+//                    // 闲家2
+//                    unsigned int x2wincount = json_array.at(0)["x2wincount"].toInt();
+//                    ui->two_win_times->setText(QString::number(x2wincount));
+//                    // 闲家3
+//                    unsigned int x3wincount = json_array.at(0)["x3wincount"].toInt();
+//                    ui->three_win_times->setText(QString::number(x3wincount));
+
+//                    on_game_record(array);
+//                    request_room_info();
+//                }
+//                else{
+//                    // 游戏记录信息请求失败
+//                    QMessageBox box;
+//                    box.setText("游戏记录信息请求失败");
+//                    box.exec();
+//                }
+//            }
+//            else if(m_post_type == "room_card"){
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+//                qDebug() << "info : " << info << "  sttus : " << status;
+//                if(status == 1){
+//                    QString l = json_object2.value("LocationNum").toString();
+//                    qDebug() << "location : " << l;
+//                    location = l.toInt();
+//                    ui->label_locate->setText(l);
+//                    if(location == 0){
+//                        ui->button_locate->setEnabled(true);
+//                    }
+//                    else{
+//                        QJsonArray zhuang = json_object2.value("BankerCard").toArray();
+//                        QJsonArray one = json_object2.value("IdleOneCard").toArray();
+//                        QJsonArray two = json_object2.value("IdleTwoCard").toArray();
+//                        QJsonArray three = json_object2.value("IdleThreeCard").toArray();
+//                        on_room_card(zhuang,one,two,three);
+//                        ui->button_useless->setEnabled(true);
+//                    }
+//                }
+//                else{
+//                    // 游戏记录信息请求失败
+//                    QMessageBox box;
+//                    box.setText("本局游戏信息请求失败");
+//                    box.exec();
+//                }
+//            }
+//            else if (m_post_type == QString("locate")) {
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+
+//                if(status){
+//                    // 定位请求成功
+//                    m_fapai = true;
+//                    this->locate_success();
+//                }
+//                else{
+//                    // 定位请求失败
+//                    // 启用定位按钮
+//                    ui->button_locate->setEnabled(true);
+
+//                    // 提示错误
+//                    QMessageBox box;
+//                    box.setText("定位请求失败");
+//                    box.exec();
+//                }
+
+//            } else if (m_post_type == QString("fapai")) {
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+//                if(status == 1){
+//                    // M 更新荷官端显示牌
+//                    m_fapai = true;
+//                    // 更新牌
+//                    wait(strToCard(m_edit_last.toStdString()));
+//                }
+//                else{
+//                    // 将扫码机设为空字符串，等待重新扫码
+//                    m_edit_last = "";
+//                    // 提示重新扫码
+//                    QMessageBox box;
+//                    box.setText("刷牌失败");
+//                    box.exec();
+//                }
+//            } else if (m_post_type == QString("summit")) {
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+//                qDebug() << "summit : " << info << " - " << status;
+//                if(status == 1){
+//                    // 提交请求成功
+//                    this->on_summit();
+//                }
+//                else{
+//                    // 提交请求失败
+//                    // 重新启用提交按钮
+//                    ui->button_summit->setEnabled(true);
+
+//                    // 提示重新提交
+//                    QMessageBox box;
+//                    box.setText("提交请求失败");
+//                    box.exec();
+//                }
+//            } else if (m_post_type == QString("useless")) {
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+//                if(status == 1){
+//                    // 作废请求成功
+//                    this->on_useless();
+//                }
+//                else{
+//                    ui->button_useless->setEnabled(true);
+
+//                    // 提示作废失败
+//                    QMessageBox box;
+//                    box.setText("作废失败");
+//                    box.exec();
+//                    return;
+//                }
+//            }else if(m_post_type == QString("end")){
+//                //? 终止的接口
+//                qDebug() << "endyes";
+//            }else if(m_post_type == QString("init")){
+//                QString info = json_object.value("info").toString();
+//                unsigned int status = json_object.value("status").toInt();
+//                if(status == 1){
+//                    // 初始化请求成功
+//                    // 应用靴次和铺次
+//                    unsigned int boot_num = json_object2.value("boot_num").toInt();
+//                    unsigned int pave_num = json_object2.value("pave_num").toInt();
+//                    ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
+//                    ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
+//                }
+//                else{
+//                    // 初始化请求失败
+//                    QMessageBox box;
+//                    box.setText("初始化失败");
+//                    box.exec();
+//                }
+//            }
+//        }
+//         else
+//         {
+//             qDebug() << "finishedSlot errors here";
+//             qDebug( "found error .... code: %d\n", (int)reply->error());
+//             qDebug() << reply->errorString();
+
+//             QMessageBox box;
+//             box.setText("网络连接错误");
+//             box.exec();
+//             return;
+//         }
+//         reply->deleteLater();
+//}
+
 void MainWindow::on_exit(){
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否关闭?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        this->close();
-    }
+    this->close();
 }
 
 void MainWindow::Request_useless(){
     // 请求作废
     // 禁用作废按钮
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否作废?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
-        ui->button_useless->setEnabled(false);
+    ui->button_useless->setEnabled(false);
 
-        manager->setStatus(USELESS);
-        manager->setInterface("NnAbolish");
+    manager->setStatus(USELESS);
+    manager->setInterface("NnAbolish");
 
-        QByteArray Data;
-        Data.append("boot_num=");Data.append(ui->xue_times->text());
-        Data.append("&pave_num=");Data.append(ui->pu_times->text());
+    QByteArray Data;
+    Data.append("boot_num=");Data.append(ui->xue_times->text());
+    Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
-        manager->postData(Data);
-    }
+    manager->postData(Data);
 }
 
 void MainWindow::apply_useless(){
-    if(location == 0){
-        ui->pu_start->setEnabled(true);
-        return;
-    }
     // 开始进行作废
     // 焦点到定位
     timer_focus->stop();
@@ -1534,12 +1766,8 @@ void MainWindow::Request_start(){
 
 void MainWindow::Request_initialize()
 {
-    MDialog *dlg = new MDialog();
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否初始化?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
-    if(ret == QDialog::Accepted){
+    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
+    if(choose == QMessageBox::Yes){
         // 请求初始化
         manager->setStatus(INIT);
         manager->setInterface("NnRonmInitialize");

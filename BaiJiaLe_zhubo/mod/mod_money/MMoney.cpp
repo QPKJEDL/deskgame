@@ -43,11 +43,6 @@ MMoney::~MMoney()
 
 void MMoney::update_panel(QJsonArray data)
 {
-    double sum = data.at(0).toObject().value("sum").toDouble();
-    sum /= 100.0;
-    ui->label_sum->setText(QString::number(sum,'.',0));
-
-
     QJsonArray list = data.at(0)["list"].toArray();
 
     bool stop = false;
