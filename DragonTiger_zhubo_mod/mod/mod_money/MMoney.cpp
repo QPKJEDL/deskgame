@@ -50,9 +50,10 @@ void MMoney::update_panel(QJsonArray data)
     QJsonArray list = data.at(0)["list"].toArray();
 
     bool stop = false;
-    auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money){
+    auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money,QLabel *name,QLabel *type){
         QString num_creatime = list.at(num)["creatime"].toString();
         QString num_deskName = list.at(num)["deskName"].toString();
+        double account = list.at(num)["account"].toDouble();
         double num_money = list.at(num)["money"].toDouble();
         num_money /= 100.0;
         if(num_money == 0){
@@ -62,21 +63,25 @@ void MMoney::update_panel(QJsonArray data)
             creatime->setText("");
             deskName->setText("");
             money->setText("");
+            name->setText("");
+            type->setText("");
             return;
         }
         creatime->setText(num_creatime);
         deskName->setText(num_deskName);
         money->setText(QString::number(num_money));
+        name->setText(QString::number(account,'.',0));
+        type->setText("用户打赏");
     };
     first_id = list.at(6)["id"].toInt();
     second_id = list.at(0)["id"].toInt();
-    fun(0,ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money);
-    fun(1,ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money);
-    fun(2,ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money);
-    fun(3,ui->label_four_creatime,ui->label_four_deskNum,ui->label_four_money);
-    fun(4,ui->label_five_creatime,ui->label_five_deskNum,ui->label_five_money);
-    fun(5,ui->label_six_creatime,ui->label_six_deskNum,ui->label_six_money);
-    fun(6,ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money);
+    fun(0,ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money,ui->label_name_one,ui->label_type_one);
+    fun(1,ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money,ui->label_name_two,ui->label_type_two);
+    fun(2,ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money,ui->label_name_three,ui->label_type_three);
+    fun(3,ui->label_four_creatime,ui->label_four_deskNum,ui->label_four_money,ui->label_name_four,ui->label_type_four);
+    fun(4,ui->label_five_creatime,ui->label_five_deskNum,ui->label_five_money,ui->label_name_five,ui->label_type_five);
+    fun(5,ui->label_six_creatime,ui->label_six_deskNum,ui->label_six_money,ui->label_name_six,ui->label_type_six);
+    fun(6,ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money,ui->label_name_seven,ui->label_type_seven);
 }
 
 void MMoney::request_money()

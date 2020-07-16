@@ -17,7 +17,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
-#include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
@@ -33,11 +32,10 @@ public:
     QGridLayout *gridLayout;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
+    QPushButton *pu_end;
     QPushButton *pu_init;
-    QPushButton *xue_change;
     QPushButton *pu_start;
     QPushButton *pu_exit;
-    QPushButton *pu_end;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QLabel *desk_num;
@@ -45,13 +43,13 @@ public:
     QLabel *label_11;
     QHBoxLayout *horizontalLayout;
     QLabel *pu_result;
-    QLabel *opration_show;
     QVBoxLayout *verticalLayout_2;
     QLabel *label_5;
     QLabel *xue_times;
     QVBoxLayout *verticalLayout_3;
     QLabel *label_9;
     QLabel *pu_times;
+    QLabel *opration_show;
     QLabel *label_date;
     QGroupBox *groupBox_3;
     QGridLayout *gridLayout_4;
@@ -77,116 +75,6 @@ public:
     QLabel *one_eighteen_2;
     QLabel *one_ninteen_2;
     QLabel *one_twt_2;
-    QHBoxLayout *horizontalLayout_3;
-    QLabel *label_16;
-    QLabel *one_one;
-    QLabel *one_two;
-    QLabel *one_three;
-    QLabel *one_four;
-    QLabel *one_five;
-    QLabel *one_six;
-    QLabel *one_seven;
-    QLabel *one_eight;
-    QLabel *one_nine;
-    QLabel *one_ten;
-    QLabel *one_ele;
-    QLabel *one_twe;
-    QLabel *one_thr;
-    QLabel *one_fourteen;
-    QLabel *one_fif;
-    QLabel *one_sixteen;
-    QLabel *one_seventeen;
-    QLabel *one_eighteen;
-    QLabel *one_ninteen;
-    QLabel *one_twt;
-    QHBoxLayout *horizontalLayout_10;
-    QLabel *label_21;
-    QLabel *one_one_3;
-    QLabel *one_two_3;
-    QLabel *one_three_3;
-    QLabel *one_four_3;
-    QLabel *one_five_3;
-    QLabel *one_six_3;
-    QLabel *one_seven_3;
-    QLabel *one_eight_3;
-    QLabel *one_nine_3;
-    QLabel *one_ten_3;
-    QLabel *one_ele_3;
-    QLabel *one_twe_3;
-    QLabel *one_thr_3;
-    QLabel *one_fourteen_3;
-    QLabel *one_fif_3;
-    QLabel *one_sixteen_3;
-    QLabel *one_seventeen_3;
-    QLabel *one_eighteen_3;
-    QLabel *one_ninteen_3;
-    QLabel *one_twt_3;
-    QHBoxLayout *horizontalLayout_2;
-    QLabel *label_15;
-    QLabel *zhuang_one;
-    QLabel *zhuang_two;
-    QLabel *zhuang_three;
-    QLabel *zhuang_four;
-    QLabel *zhuang_five;
-    QLabel *zhuang_six;
-    QLabel *zhuang_seven;
-    QLabel *zhuang_eight;
-    QLabel *zhuang_nine;
-    QLabel *zhuang_ten;
-    QLabel *zhuang_ele;
-    QLabel *zhuang_twe;
-    QLabel *zhuang_thr;
-    QLabel *zhuang_fourteen;
-    QLabel *zhuang_fif;
-    QLabel *zhuang_sixteen;
-    QLabel *zhuang_seventeen;
-    QLabel *zhuang_eighteen;
-    QLabel *zhuang_ninteen;
-    QLabel *zhuang_twt;
-    QHBoxLayout *horizontalLayout_4;
-    QLabel *label_17;
-    QLabel *two_one;
-    QLabel *two_two;
-    QLabel *two_three;
-    QLabel *two_four;
-    QLabel *two_five;
-    QLabel *two_six;
-    QLabel *two_seven;
-    QLabel *two_eight;
-    QLabel *two_nine;
-    QLabel *two_ten;
-    QLabel *two_ele;
-    QLabel *two_twe;
-    QLabel *two_thr;
-    QLabel *two_fourteen;
-    QLabel *two_fif;
-    QLabel *two_sixteen;
-    QLabel *two_seventeen;
-    QLabel *two_eighteen;
-    QLabel *two_ninteen;
-    QLabel *two_twt;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *label_18;
-    QLabel *three_one;
-    QLabel *three_two;
-    QLabel *three_three;
-    QLabel *three_four;
-    QLabel *three_five;
-    QLabel *three_six;
-    QLabel *three_seven;
-    QLabel *three_eight;
-    QLabel *three_nine;
-    QLabel *three_ten;
-    QLabel *three_ele;
-    QLabel *three_twe;
-    QLabel *three_thr;
-    QLabel *three_fourteen;
-    QLabel *three_fif;
-    QLabel *three_sixteen;
-    QLabel *three_seventeen;
-    QLabel *three_eighteen;
-    QLabel *three_ninteen;
-    QLabel *three_twt;
     QHBoxLayout *horizontalLayout_20;
     QLabel *label_22;
     QLabel *one_one_4;
@@ -209,6 +97,116 @@ public:
     QLabel *one_eighteen_4;
     QLabel *one_ninteen_4;
     QLabel *one_twt_4;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_16;
+    QLabel *one_one;
+    QLabel *one_two;
+    QLabel *one_three;
+    QLabel *one_four;
+    QLabel *one_five;
+    QLabel *one_six;
+    QLabel *one_seven;
+    QLabel *one_eight;
+    QLabel *one_nine;
+    QLabel *one_ten;
+    QLabel *one_ele;
+    QLabel *one_twe;
+    QLabel *one_thr;
+    QLabel *one_fourteen;
+    QLabel *one_fif;
+    QLabel *one_sixteen;
+    QLabel *one_seventeen;
+    QLabel *one_eighteen;
+    QLabel *one_ninteen;
+    QLabel *one_twt;
+    QHBoxLayout *horizontalLayout_2;
+    QLabel *label_15;
+    QLabel *zhuang_one;
+    QLabel *zhuang_two;
+    QLabel *zhuang_three;
+    QLabel *zhuang_four;
+    QLabel *zhuang_five;
+    QLabel *zhuang_six;
+    QLabel *zhuang_seven;
+    QLabel *zhuang_eight;
+    QLabel *zhuang_nine;
+    QLabel *zhuang_ten;
+    QLabel *zhuang_ele;
+    QLabel *zhuang_twe;
+    QLabel *zhuang_thr;
+    QLabel *zhuang_fourteen;
+    QLabel *zhuang_fif;
+    QLabel *zhuang_sixteen;
+    QLabel *zhuang_seventeen;
+    QLabel *zhuang_eighteen;
+    QLabel *zhuang_ninteen;
+    QLabel *zhuang_twt;
+    QHBoxLayout *horizontalLayout_5;
+    QLabel *label_18;
+    QLabel *three_one;
+    QLabel *three_two;
+    QLabel *three_three;
+    QLabel *three_four;
+    QLabel *three_five;
+    QLabel *three_six;
+    QLabel *three_seven;
+    QLabel *three_eight;
+    QLabel *three_nine;
+    QLabel *three_ten;
+    QLabel *three_ele;
+    QLabel *three_twe;
+    QLabel *three_thr;
+    QLabel *three_fourteen;
+    QLabel *three_fif;
+    QLabel *three_sixteen;
+    QLabel *three_seventeen;
+    QLabel *three_eighteen;
+    QLabel *three_ninteen;
+    QLabel *three_twt;
+    QHBoxLayout *horizontalLayout_10;
+    QLabel *label_21;
+    QLabel *one_one_3;
+    QLabel *one_two_3;
+    QLabel *one_three_3;
+    QLabel *one_four_3;
+    QLabel *one_five_3;
+    QLabel *one_six_3;
+    QLabel *one_seven_3;
+    QLabel *one_eight_3;
+    QLabel *one_nine_3;
+    QLabel *one_ten_3;
+    QLabel *one_ele_3;
+    QLabel *one_twe_3;
+    QLabel *one_thr_3;
+    QLabel *one_fourteen_3;
+    QLabel *one_fif_3;
+    QLabel *one_sixteen_3;
+    QLabel *one_seventeen_3;
+    QLabel *one_eighteen_3;
+    QLabel *one_ninteen_3;
+    QLabel *one_twt_3;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_17;
+    QLabel *two_one;
+    QLabel *two_two;
+    QLabel *two_three;
+    QLabel *two_four;
+    QLabel *two_five;
+    QLabel *two_six;
+    QLabel *two_seven;
+    QLabel *two_eight;
+    QLabel *two_nine;
+    QLabel *two_ten;
+    QLabel *two_ele;
+    QLabel *two_twe;
+    QLabel *two_thr;
+    QLabel *two_fourteen;
+    QLabel *two_fif;
+    QLabel *two_sixteen;
+    QLabel *two_seventeen;
+    QLabel *two_eighteen;
+    QLabel *two_ninteen;
+    QLabel *two_twt;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_17;
     QHBoxLayout *horizontalLayout_12;
@@ -297,14 +295,13 @@ public:
     QPushButton *button_useless;
     QPushButton *button_summit;
     QLabel *who_win;
-    QMenuBar *menubar;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1732, 1119);
+        MainWindow->resize(1742, 1131);
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         MainWindow->setFont(font);
@@ -325,48 +322,50 @@ public:
 ""));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
+        pu_end = new QPushButton(groupBox_2);
+        pu_end->setObjectName(QString::fromUtf8("pu_end"));
+        pu_end->setEnabled(false);
+        pu_end->setMaximumSize(QSize(140, 60));
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font1.setPointSize(20);
+        pu_end->setFont(font1);
+        pu_end->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        gridLayout_2->addWidget(pu_end, 0, 2, 1, 1);
+
         pu_init = new QPushButton(groupBox_2);
         pu_init->setObjectName(QString::fromUtf8("pu_init"));
         pu_init->setEnabled(false);
         pu_init->setMinimumSize(QSize(120, 51));
         pu_init->setMaximumSize(QSize(140, 60));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font1.setPointSize(18);
-        font1.setBold(false);
-        font1.setWeight(50);
-        pu_init->setFont(font1);
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font2.setPointSize(18);
+        font2.setBold(false);
+        font2.setWeight(50);
+        pu_init->setFont(font2);
         pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_init, 0, 2, 1, 1);
-
-        xue_change = new QPushButton(groupBox_2);
-        xue_change->setObjectName(QString::fromUtf8("xue_change"));
-        xue_change->setEnabled(false);
-        xue_change->setMinimumSize(QSize(120, 51));
-        xue_change->setMaximumSize(QSize(140, 60));
-        xue_change->setFont(font1);
-        xue_change->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        gridLayout_2->addWidget(xue_change, 0, 1, 1, 1);
+        gridLayout_2->addWidget(pu_init, 0, 1, 1, 1);
 
         pu_start = new QPushButton(groupBox_2);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
         pu_start->setMinimumSize(QSize(120, 51));
         pu_start->setMaximumSize(QSize(140, 60));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font2.setPointSize(18);
-        pu_start->setFont(font2);
+        QFont font3;
+        font3.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font3.setPointSize(18);
+        pu_start->setFont(font3);
         pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
@@ -380,33 +379,17 @@ public:
 
         pu_exit = new QPushButton(groupBox_2);
         pu_exit->setObjectName(QString::fromUtf8("pu_exit"));
-        pu_exit->setEnabled(false);
+        pu_exit->setEnabled(true);
         pu_exit->setMinimumSize(QSize(120, 51));
         pu_exit->setMaximumSize(QSize(140, 60));
-        pu_exit->setFont(font1);
+        pu_exit->setFont(font2);
         pu_exit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_exit, 0, 4, 1, 1);
-
-        pu_end = new QPushButton(groupBox_2);
-        pu_end->setObjectName(QString::fromUtf8("pu_end"));
-        pu_end->setEnabled(false);
-        pu_end->setMaximumSize(QSize(140, 60));
-        QFont font3;
-        font3.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font3.setPointSize(20);
-        pu_end->setFont(font3);
-        pu_end->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        gridLayout_2->addWidget(pu_end, 0, 3, 1, 1);
+        gridLayout_2->addWidget(pu_exit, 0, 3, 1, 1);
 
 
         gridLayout->addWidget(groupBox_2, 0, 1, 1, 1);
@@ -575,19 +558,6 @@ public:
 
         gridLayout_3->addLayout(verticalLayout, 0, 1, 1, 1);
 
-        opration_show = new QLabel(groupBox);
-        opration_show->setObjectName(QString::fromUtf8("opration_show"));
-        opration_show->setMaximumSize(QSize(16777215, 73));
-        QFont font7;
-        font7.setPointSize(20);
-        font7.setBold(true);
-        font7.setWeight(75);
-        opration_show->setFont(font7);
-        opration_show->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);"));
-        opration_show->setAlignment(Qt::AlignCenter);
-
-        gridLayout_3->addWidget(opration_show, 0, 2, 1, 1);
-
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         label_5 = new QLabel(groupBox);
@@ -631,12 +601,26 @@ public:
 
         gridLayout_3->addLayout(verticalLayout_3, 0, 4, 1, 1);
 
+        opration_show = new QLabel(groupBox);
+        opration_show->setObjectName(QString::fromUtf8("opration_show"));
+        opration_show->setMaximumSize(QSize(16777215, 73));
+        QFont font7;
+        font7.setPointSize(20);
+        font7.setBold(true);
+        font7.setWeight(75);
+        opration_show->setFont(font7);
+        opration_show->setStyleSheet(QString::fromUtf8("color: rgb(0, 170, 255);"));
+        opration_show->setAlignment(Qt::AlignCenter);
+
+        gridLayout_3->addWidget(opration_show, 0, 2, 1, 1);
+
 
         gridLayout->addWidget(groupBox, 0, 0, 1, 1);
 
         label_date = new QLabel(centralwidget);
         label_date->setObjectName(QString::fromUtf8("label_date"));
-        label_date->setGeometry(QRect(20, 100, 1711, 31));
+        label_date->setEnabled(true);
+        label_date->setGeometry(QRect(10, 1080, 1711, 31));
         label_date->setMinimumSize(QSize(1271, 31));
         label_date->setMaximumSize(QSize(16777215, 48));
         QPalette palette3;
@@ -913,6 +897,240 @@ public:
 
         gridLayout_4->addLayout(horizontalLayout_9, 4, 0, 1, 1);
 
+        horizontalLayout_20 = new QHBoxLayout();
+        horizontalLayout_20->setObjectName(QString::fromUtf8("horizontalLayout_20"));
+        label_22 = new QLabel(groupBox_3);
+        label_22->setObjectName(QString::fromUtf8("label_22"));
+        label_22->setMinimumSize(QSize(50, 50));
+        label_22->setFont(font9);
+        label_22->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
+        label_22->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(label_22);
+
+        one_one_4 = new QLabel(groupBox_3);
+        one_one_4->setObjectName(QString::fromUtf8("one_one_4"));
+        one_one_4->setEnabled(true);
+        one_one_4->setMinimumSize(QSize(50, 50));
+        one_one_4->setFont(font10);
+        one_one_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_one_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_one_4);
+
+        one_two_4 = new QLabel(groupBox_3);
+        one_two_4->setObjectName(QString::fromUtf8("one_two_4"));
+        one_two_4->setEnabled(true);
+        one_two_4->setMinimumSize(QSize(50, 50));
+        one_two_4->setFont(font10);
+        one_two_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_two_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_two_4);
+
+        one_three_4 = new QLabel(groupBox_3);
+        one_three_4->setObjectName(QString::fromUtf8("one_three_4"));
+        one_three_4->setEnabled(true);
+        one_three_4->setMinimumSize(QSize(50, 50));
+        one_three_4->setFont(font10);
+        one_three_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_three_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_three_4);
+
+        one_four_4 = new QLabel(groupBox_3);
+        one_four_4->setObjectName(QString::fromUtf8("one_four_4"));
+        one_four_4->setEnabled(true);
+        one_four_4->setMinimumSize(QSize(50, 50));
+        one_four_4->setFont(font10);
+        one_four_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_four_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_four_4);
+
+        one_five_4 = new QLabel(groupBox_3);
+        one_five_4->setObjectName(QString::fromUtf8("one_five_4"));
+        one_five_4->setEnabled(true);
+        one_five_4->setMinimumSize(QSize(50, 50));
+        one_five_4->setFont(font10);
+        one_five_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_five_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_five_4);
+
+        one_six_4 = new QLabel(groupBox_3);
+        one_six_4->setObjectName(QString::fromUtf8("one_six_4"));
+        one_six_4->setEnabled(true);
+        one_six_4->setMinimumSize(QSize(50, 50));
+        one_six_4->setFont(font10);
+        one_six_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_six_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_six_4);
+
+        one_seven_4 = new QLabel(groupBox_3);
+        one_seven_4->setObjectName(QString::fromUtf8("one_seven_4"));
+        one_seven_4->setEnabled(true);
+        one_seven_4->setMinimumSize(QSize(50, 50));
+        one_seven_4->setFont(font10);
+        one_seven_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_seven_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_seven_4);
+
+        one_eight_4 = new QLabel(groupBox_3);
+        one_eight_4->setObjectName(QString::fromUtf8("one_eight_4"));
+        one_eight_4->setEnabled(true);
+        one_eight_4->setMinimumSize(QSize(50, 50));
+        one_eight_4->setFont(font10);
+        one_eight_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_eight_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_eight_4);
+
+        one_nine_4 = new QLabel(groupBox_3);
+        one_nine_4->setObjectName(QString::fromUtf8("one_nine_4"));
+        one_nine_4->setEnabled(true);
+        one_nine_4->setMinimumSize(QSize(50, 50));
+        one_nine_4->setFont(font10);
+        one_nine_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_nine_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_nine_4);
+
+        one_ten_4 = new QLabel(groupBox_3);
+        one_ten_4->setObjectName(QString::fromUtf8("one_ten_4"));
+        one_ten_4->setEnabled(true);
+        one_ten_4->setMinimumSize(QSize(50, 50));
+        one_ten_4->setFont(font10);
+        one_ten_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_ten_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_ten_4);
+
+        one_ele_4 = new QLabel(groupBox_3);
+        one_ele_4->setObjectName(QString::fromUtf8("one_ele_4"));
+        one_ele_4->setEnabled(true);
+        one_ele_4->setMinimumSize(QSize(50, 50));
+        one_ele_4->setFont(font10);
+        one_ele_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_ele_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_ele_4);
+
+        one_twe_4 = new QLabel(groupBox_3);
+        one_twe_4->setObjectName(QString::fromUtf8("one_twe_4"));
+        one_twe_4->setEnabled(true);
+        one_twe_4->setMinimumSize(QSize(50, 50));
+        one_twe_4->setFont(font10);
+        one_twe_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_twe_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_twe_4);
+
+        one_thr_4 = new QLabel(groupBox_3);
+        one_thr_4->setObjectName(QString::fromUtf8("one_thr_4"));
+        one_thr_4->setEnabled(true);
+        one_thr_4->setMinimumSize(QSize(50, 50));
+        one_thr_4->setFont(font10);
+        one_thr_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_thr_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_thr_4);
+
+        one_fourteen_4 = new QLabel(groupBox_3);
+        one_fourteen_4->setObjectName(QString::fromUtf8("one_fourteen_4"));
+        one_fourteen_4->setEnabled(true);
+        one_fourteen_4->setMinimumSize(QSize(50, 50));
+        one_fourteen_4->setFont(font10);
+        one_fourteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_fourteen_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_fourteen_4);
+
+        one_fif_4 = new QLabel(groupBox_3);
+        one_fif_4->setObjectName(QString::fromUtf8("one_fif_4"));
+        one_fif_4->setEnabled(true);
+        one_fif_4->setMinimumSize(QSize(50, 50));
+        one_fif_4->setFont(font10);
+        one_fif_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_fif_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_fif_4);
+
+        one_sixteen_4 = new QLabel(groupBox_3);
+        one_sixteen_4->setObjectName(QString::fromUtf8("one_sixteen_4"));
+        one_sixteen_4->setEnabled(true);
+        one_sixteen_4->setMinimumSize(QSize(50, 50));
+        one_sixteen_4->setFont(font10);
+        one_sixteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_sixteen_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_sixteen_4);
+
+        one_seventeen_4 = new QLabel(groupBox_3);
+        one_seventeen_4->setObjectName(QString::fromUtf8("one_seventeen_4"));
+        one_seventeen_4->setEnabled(true);
+        one_seventeen_4->setMinimumSize(QSize(50, 50));
+        one_seventeen_4->setFont(font10);
+        one_seventeen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_seventeen_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_seventeen_4);
+
+        one_eighteen_4 = new QLabel(groupBox_3);
+        one_eighteen_4->setObjectName(QString::fromUtf8("one_eighteen_4"));
+        one_eighteen_4->setEnabled(true);
+        one_eighteen_4->setMinimumSize(QSize(50, 50));
+        one_eighteen_4->setFont(font10);
+        one_eighteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_eighteen_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_eighteen_4);
+
+        one_ninteen_4 = new QLabel(groupBox_3);
+        one_ninteen_4->setObjectName(QString::fromUtf8("one_ninteen_4"));
+        one_ninteen_4->setEnabled(true);
+        one_ninteen_4->setMinimumSize(QSize(50, 50));
+        one_ninteen_4->setFont(font10);
+        one_ninteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_ninteen_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_ninteen_4);
+
+        one_twt_4 = new QLabel(groupBox_3);
+        one_twt_4->setObjectName(QString::fromUtf8("one_twt_4"));
+        one_twt_4->setEnabled(true);
+        one_twt_4->setMinimumSize(QSize(50, 50));
+        one_twt_4->setFont(font10);
+        one_twt_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        one_twt_4->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_20->addWidget(one_twt_4);
+
+
+        gridLayout_4->addLayout(horizontalLayout_20, 6, 0, 1, 1);
+
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         label_16 = new QLabel(groupBox_3);
@@ -1147,240 +1365,6 @@ public:
 
         gridLayout_4->addLayout(horizontalLayout_3, 1, 0, 1, 1);
 
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
-        label_21 = new QLabel(groupBox_3);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
-        label_21->setMinimumSize(QSize(50, 50));
-        label_21->setFont(font9);
-        label_21->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
-        label_21->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(label_21);
-
-        one_one_3 = new QLabel(groupBox_3);
-        one_one_3->setObjectName(QString::fromUtf8("one_one_3"));
-        one_one_3->setEnabled(true);
-        one_one_3->setMinimumSize(QSize(50, 50));
-        one_one_3->setFont(font10);
-        one_one_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_one_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_one_3);
-
-        one_two_3 = new QLabel(groupBox_3);
-        one_two_3->setObjectName(QString::fromUtf8("one_two_3"));
-        one_two_3->setEnabled(true);
-        one_two_3->setMinimumSize(QSize(50, 50));
-        one_two_3->setFont(font10);
-        one_two_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_two_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_two_3);
-
-        one_three_3 = new QLabel(groupBox_3);
-        one_three_3->setObjectName(QString::fromUtf8("one_three_3"));
-        one_three_3->setEnabled(true);
-        one_three_3->setMinimumSize(QSize(50, 50));
-        one_three_3->setFont(font10);
-        one_three_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_three_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_three_3);
-
-        one_four_3 = new QLabel(groupBox_3);
-        one_four_3->setObjectName(QString::fromUtf8("one_four_3"));
-        one_four_3->setEnabled(true);
-        one_four_3->setMinimumSize(QSize(50, 50));
-        one_four_3->setFont(font10);
-        one_four_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_four_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_four_3);
-
-        one_five_3 = new QLabel(groupBox_3);
-        one_five_3->setObjectName(QString::fromUtf8("one_five_3"));
-        one_five_3->setEnabled(true);
-        one_five_3->setMinimumSize(QSize(50, 50));
-        one_five_3->setFont(font10);
-        one_five_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_five_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_five_3);
-
-        one_six_3 = new QLabel(groupBox_3);
-        one_six_3->setObjectName(QString::fromUtf8("one_six_3"));
-        one_six_3->setEnabled(true);
-        one_six_3->setMinimumSize(QSize(50, 50));
-        one_six_3->setFont(font10);
-        one_six_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_six_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_six_3);
-
-        one_seven_3 = new QLabel(groupBox_3);
-        one_seven_3->setObjectName(QString::fromUtf8("one_seven_3"));
-        one_seven_3->setEnabled(true);
-        one_seven_3->setMinimumSize(QSize(50, 50));
-        one_seven_3->setFont(font10);
-        one_seven_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_seven_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_seven_3);
-
-        one_eight_3 = new QLabel(groupBox_3);
-        one_eight_3->setObjectName(QString::fromUtf8("one_eight_3"));
-        one_eight_3->setEnabled(true);
-        one_eight_3->setMinimumSize(QSize(50, 50));
-        one_eight_3->setFont(font10);
-        one_eight_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_eight_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_eight_3);
-
-        one_nine_3 = new QLabel(groupBox_3);
-        one_nine_3->setObjectName(QString::fromUtf8("one_nine_3"));
-        one_nine_3->setEnabled(true);
-        one_nine_3->setMinimumSize(QSize(50, 50));
-        one_nine_3->setFont(font10);
-        one_nine_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_nine_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_nine_3);
-
-        one_ten_3 = new QLabel(groupBox_3);
-        one_ten_3->setObjectName(QString::fromUtf8("one_ten_3"));
-        one_ten_3->setEnabled(true);
-        one_ten_3->setMinimumSize(QSize(50, 50));
-        one_ten_3->setFont(font10);
-        one_ten_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_ten_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_ten_3);
-
-        one_ele_3 = new QLabel(groupBox_3);
-        one_ele_3->setObjectName(QString::fromUtf8("one_ele_3"));
-        one_ele_3->setEnabled(true);
-        one_ele_3->setMinimumSize(QSize(50, 50));
-        one_ele_3->setFont(font10);
-        one_ele_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_ele_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_ele_3);
-
-        one_twe_3 = new QLabel(groupBox_3);
-        one_twe_3->setObjectName(QString::fromUtf8("one_twe_3"));
-        one_twe_3->setEnabled(true);
-        one_twe_3->setMinimumSize(QSize(50, 50));
-        one_twe_3->setFont(font10);
-        one_twe_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_twe_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_twe_3);
-
-        one_thr_3 = new QLabel(groupBox_3);
-        one_thr_3->setObjectName(QString::fromUtf8("one_thr_3"));
-        one_thr_3->setEnabled(true);
-        one_thr_3->setMinimumSize(QSize(50, 50));
-        one_thr_3->setFont(font10);
-        one_thr_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_thr_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_thr_3);
-
-        one_fourteen_3 = new QLabel(groupBox_3);
-        one_fourteen_3->setObjectName(QString::fromUtf8("one_fourteen_3"));
-        one_fourteen_3->setEnabled(true);
-        one_fourteen_3->setMinimumSize(QSize(50, 50));
-        one_fourteen_3->setFont(font10);
-        one_fourteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_fourteen_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_fourteen_3);
-
-        one_fif_3 = new QLabel(groupBox_3);
-        one_fif_3->setObjectName(QString::fromUtf8("one_fif_3"));
-        one_fif_3->setEnabled(true);
-        one_fif_3->setMinimumSize(QSize(50, 50));
-        one_fif_3->setFont(font10);
-        one_fif_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_fif_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_fif_3);
-
-        one_sixteen_3 = new QLabel(groupBox_3);
-        one_sixteen_3->setObjectName(QString::fromUtf8("one_sixteen_3"));
-        one_sixteen_3->setEnabled(true);
-        one_sixteen_3->setMinimumSize(QSize(50, 50));
-        one_sixteen_3->setFont(font10);
-        one_sixteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_sixteen_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_sixteen_3);
-
-        one_seventeen_3 = new QLabel(groupBox_3);
-        one_seventeen_3->setObjectName(QString::fromUtf8("one_seventeen_3"));
-        one_seventeen_3->setEnabled(true);
-        one_seventeen_3->setMinimumSize(QSize(50, 50));
-        one_seventeen_3->setFont(font10);
-        one_seventeen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_seventeen_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_seventeen_3);
-
-        one_eighteen_3 = new QLabel(groupBox_3);
-        one_eighteen_3->setObjectName(QString::fromUtf8("one_eighteen_3"));
-        one_eighteen_3->setEnabled(true);
-        one_eighteen_3->setMinimumSize(QSize(50, 50));
-        one_eighteen_3->setFont(font10);
-        one_eighteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_eighteen_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_eighteen_3);
-
-        one_ninteen_3 = new QLabel(groupBox_3);
-        one_ninteen_3->setObjectName(QString::fromUtf8("one_ninteen_3"));
-        one_ninteen_3->setEnabled(true);
-        one_ninteen_3->setMinimumSize(QSize(50, 50));
-        one_ninteen_3->setFont(font10);
-        one_ninteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_ninteen_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_ninteen_3);
-
-        one_twt_3 = new QLabel(groupBox_3);
-        one_twt_3->setObjectName(QString::fromUtf8("one_twt_3"));
-        one_twt_3->setEnabled(true);
-        one_twt_3->setMinimumSize(QSize(50, 50));
-        one_twt_3->setFont(font10);
-        one_twt_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        one_twt_3->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_10->addWidget(one_twt_3);
-
-
-        gridLayout_4->addLayout(horizontalLayout_10, 5, 0, 1, 1);
-
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         label_15 = new QLabel(groupBox_3);
@@ -1614,240 +1598,6 @@ public:
 
 
         gridLayout_4->addLayout(horizontalLayout_2, 0, 0, 1, 1);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        label_17 = new QLabel(groupBox_3);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
-        label_17->setMinimumSize(QSize(50, 50));
-        label_17->setFont(font9);
-        label_17->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
-        label_17->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(label_17);
-
-        two_one = new QLabel(groupBox_3);
-        two_one->setObjectName(QString::fromUtf8("two_one"));
-        two_one->setEnabled(true);
-        two_one->setMinimumSize(QSize(50, 50));
-        two_one->setFont(font10);
-        two_one->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_one->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_one);
-
-        two_two = new QLabel(groupBox_3);
-        two_two->setObjectName(QString::fromUtf8("two_two"));
-        two_two->setEnabled(true);
-        two_two->setMinimumSize(QSize(50, 50));
-        two_two->setFont(font10);
-        two_two->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_two->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_two);
-
-        two_three = new QLabel(groupBox_3);
-        two_three->setObjectName(QString::fromUtf8("two_three"));
-        two_three->setEnabled(true);
-        two_three->setMinimumSize(QSize(50, 50));
-        two_three->setFont(font10);
-        two_three->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_three->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_three);
-
-        two_four = new QLabel(groupBox_3);
-        two_four->setObjectName(QString::fromUtf8("two_four"));
-        two_four->setEnabled(true);
-        two_four->setMinimumSize(QSize(50, 50));
-        two_four->setFont(font10);
-        two_four->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_four->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_four);
-
-        two_five = new QLabel(groupBox_3);
-        two_five->setObjectName(QString::fromUtf8("two_five"));
-        two_five->setEnabled(true);
-        two_five->setMinimumSize(QSize(50, 50));
-        two_five->setFont(font10);
-        two_five->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_five->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_five);
-
-        two_six = new QLabel(groupBox_3);
-        two_six->setObjectName(QString::fromUtf8("two_six"));
-        two_six->setEnabled(true);
-        two_six->setMinimumSize(QSize(50, 50));
-        two_six->setFont(font10);
-        two_six->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_six->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_six);
-
-        two_seven = new QLabel(groupBox_3);
-        two_seven->setObjectName(QString::fromUtf8("two_seven"));
-        two_seven->setEnabled(true);
-        two_seven->setMinimumSize(QSize(50, 50));
-        two_seven->setFont(font10);
-        two_seven->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_seven->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_seven);
-
-        two_eight = new QLabel(groupBox_3);
-        two_eight->setObjectName(QString::fromUtf8("two_eight"));
-        two_eight->setEnabled(true);
-        two_eight->setMinimumSize(QSize(50, 50));
-        two_eight->setFont(font10);
-        two_eight->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_eight->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_eight);
-
-        two_nine = new QLabel(groupBox_3);
-        two_nine->setObjectName(QString::fromUtf8("two_nine"));
-        two_nine->setEnabled(true);
-        two_nine->setMinimumSize(QSize(50, 50));
-        two_nine->setFont(font10);
-        two_nine->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_nine->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_nine);
-
-        two_ten = new QLabel(groupBox_3);
-        two_ten->setObjectName(QString::fromUtf8("two_ten"));
-        two_ten->setEnabled(true);
-        two_ten->setMinimumSize(QSize(50, 50));
-        two_ten->setFont(font10);
-        two_ten->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_ten->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_ten);
-
-        two_ele = new QLabel(groupBox_3);
-        two_ele->setObjectName(QString::fromUtf8("two_ele"));
-        two_ele->setEnabled(true);
-        two_ele->setMinimumSize(QSize(50, 50));
-        two_ele->setFont(font10);
-        two_ele->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_ele->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_ele);
-
-        two_twe = new QLabel(groupBox_3);
-        two_twe->setObjectName(QString::fromUtf8("two_twe"));
-        two_twe->setEnabled(true);
-        two_twe->setMinimumSize(QSize(50, 50));
-        two_twe->setFont(font10);
-        two_twe->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_twe->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_twe);
-
-        two_thr = new QLabel(groupBox_3);
-        two_thr->setObjectName(QString::fromUtf8("two_thr"));
-        two_thr->setEnabled(true);
-        two_thr->setMinimumSize(QSize(50, 50));
-        two_thr->setFont(font10);
-        two_thr->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_thr->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_thr);
-
-        two_fourteen = new QLabel(groupBox_3);
-        two_fourteen->setObjectName(QString::fromUtf8("two_fourteen"));
-        two_fourteen->setEnabled(true);
-        two_fourteen->setMinimumSize(QSize(50, 50));
-        two_fourteen->setFont(font10);
-        two_fourteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_fourteen->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_fourteen);
-
-        two_fif = new QLabel(groupBox_3);
-        two_fif->setObjectName(QString::fromUtf8("two_fif"));
-        two_fif->setEnabled(true);
-        two_fif->setMinimumSize(QSize(50, 50));
-        two_fif->setFont(font10);
-        two_fif->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_fif->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_fif);
-
-        two_sixteen = new QLabel(groupBox_3);
-        two_sixteen->setObjectName(QString::fromUtf8("two_sixteen"));
-        two_sixteen->setEnabled(true);
-        two_sixteen->setMinimumSize(QSize(50, 50));
-        two_sixteen->setFont(font10);
-        two_sixteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_sixteen->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_sixteen);
-
-        two_seventeen = new QLabel(groupBox_3);
-        two_seventeen->setObjectName(QString::fromUtf8("two_seventeen"));
-        two_seventeen->setEnabled(true);
-        two_seventeen->setMinimumSize(QSize(50, 50));
-        two_seventeen->setFont(font10);
-        two_seventeen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_seventeen->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_seventeen);
-
-        two_eighteen = new QLabel(groupBox_3);
-        two_eighteen->setObjectName(QString::fromUtf8("two_eighteen"));
-        two_eighteen->setEnabled(true);
-        two_eighteen->setMinimumSize(QSize(50, 50));
-        two_eighteen->setFont(font10);
-        two_eighteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_eighteen->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_eighteen);
-
-        two_ninteen = new QLabel(groupBox_3);
-        two_ninteen->setObjectName(QString::fromUtf8("two_ninteen"));
-        two_ninteen->setEnabled(true);
-        two_ninteen->setMinimumSize(QSize(50, 50));
-        two_ninteen->setFont(font10);
-        two_ninteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_ninteen->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_ninteen);
-
-        two_twt = new QLabel(groupBox_3);
-        two_twt->setObjectName(QString::fromUtf8("two_twt"));
-        two_twt->setEnabled(true);
-        two_twt->setMinimumSize(QSize(50, 50));
-        two_twt->setFont(font10);
-        two_twt->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
-"color: rgb(255, 255, 255);"));
-        two_twt->setAlignment(Qt::AlignCenter);
-
-        horizontalLayout_4->addWidget(two_twt);
-
-
-        gridLayout_4->addLayout(horizontalLayout_4, 2, 0, 1, 1);
 
         horizontalLayout_5 = new QHBoxLayout();
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
@@ -2085,239 +1835,473 @@ public:
 
         gridLayout_4->addLayout(horizontalLayout_5, 3, 0, 1, 1);
 
-        horizontalLayout_20 = new QHBoxLayout();
-        horizontalLayout_20->setObjectName(QString::fromUtf8("horizontalLayout_20"));
-        label_22 = new QLabel(groupBox_3);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
-        label_22->setMinimumSize(QSize(50, 50));
-        label_22->setFont(font9);
-        label_22->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
-        label_22->setAlignment(Qt::AlignCenter);
+        horizontalLayout_10 = new QHBoxLayout();
+        horizontalLayout_10->setObjectName(QString::fromUtf8("horizontalLayout_10"));
+        label_21 = new QLabel(groupBox_3);
+        label_21->setObjectName(QString::fromUtf8("label_21"));
+        label_21->setMinimumSize(QSize(50, 50));
+        label_21->setFont(font9);
+        label_21->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
+        label_21->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(label_22);
+        horizontalLayout_10->addWidget(label_21);
 
-        one_one_4 = new QLabel(groupBox_3);
-        one_one_4->setObjectName(QString::fromUtf8("one_one_4"));
-        one_one_4->setEnabled(true);
-        one_one_4->setMinimumSize(QSize(50, 50));
-        one_one_4->setFont(font10);
-        one_one_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_one_3 = new QLabel(groupBox_3);
+        one_one_3->setObjectName(QString::fromUtf8("one_one_3"));
+        one_one_3->setEnabled(true);
+        one_one_3->setMinimumSize(QSize(50, 50));
+        one_one_3->setFont(font10);
+        one_one_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_one_4->setAlignment(Qt::AlignCenter);
+        one_one_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_one_4);
+        horizontalLayout_10->addWidget(one_one_3);
 
-        one_two_4 = new QLabel(groupBox_3);
-        one_two_4->setObjectName(QString::fromUtf8("one_two_4"));
-        one_two_4->setEnabled(true);
-        one_two_4->setMinimumSize(QSize(50, 50));
-        one_two_4->setFont(font10);
-        one_two_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_two_3 = new QLabel(groupBox_3);
+        one_two_3->setObjectName(QString::fromUtf8("one_two_3"));
+        one_two_3->setEnabled(true);
+        one_two_3->setMinimumSize(QSize(50, 50));
+        one_two_3->setFont(font10);
+        one_two_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_two_4->setAlignment(Qt::AlignCenter);
+        one_two_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_two_4);
+        horizontalLayout_10->addWidget(one_two_3);
 
-        one_three_4 = new QLabel(groupBox_3);
-        one_three_4->setObjectName(QString::fromUtf8("one_three_4"));
-        one_three_4->setEnabled(true);
-        one_three_4->setMinimumSize(QSize(50, 50));
-        one_three_4->setFont(font10);
-        one_three_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_three_3 = new QLabel(groupBox_3);
+        one_three_3->setObjectName(QString::fromUtf8("one_three_3"));
+        one_three_3->setEnabled(true);
+        one_three_3->setMinimumSize(QSize(50, 50));
+        one_three_3->setFont(font10);
+        one_three_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_three_4->setAlignment(Qt::AlignCenter);
+        one_three_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_three_4);
+        horizontalLayout_10->addWidget(one_three_3);
 
-        one_four_4 = new QLabel(groupBox_3);
-        one_four_4->setObjectName(QString::fromUtf8("one_four_4"));
-        one_four_4->setEnabled(true);
-        one_four_4->setMinimumSize(QSize(50, 50));
-        one_four_4->setFont(font10);
-        one_four_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_four_3 = new QLabel(groupBox_3);
+        one_four_3->setObjectName(QString::fromUtf8("one_four_3"));
+        one_four_3->setEnabled(true);
+        one_four_3->setMinimumSize(QSize(50, 50));
+        one_four_3->setFont(font10);
+        one_four_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_four_4->setAlignment(Qt::AlignCenter);
+        one_four_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_four_4);
+        horizontalLayout_10->addWidget(one_four_3);
 
-        one_five_4 = new QLabel(groupBox_3);
-        one_five_4->setObjectName(QString::fromUtf8("one_five_4"));
-        one_five_4->setEnabled(true);
-        one_five_4->setMinimumSize(QSize(50, 50));
-        one_five_4->setFont(font10);
-        one_five_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_five_3 = new QLabel(groupBox_3);
+        one_five_3->setObjectName(QString::fromUtf8("one_five_3"));
+        one_five_3->setEnabled(true);
+        one_five_3->setMinimumSize(QSize(50, 50));
+        one_five_3->setFont(font10);
+        one_five_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_five_4->setAlignment(Qt::AlignCenter);
+        one_five_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_five_4);
+        horizontalLayout_10->addWidget(one_five_3);
 
-        one_six_4 = new QLabel(groupBox_3);
-        one_six_4->setObjectName(QString::fromUtf8("one_six_4"));
-        one_six_4->setEnabled(true);
-        one_six_4->setMinimumSize(QSize(50, 50));
-        one_six_4->setFont(font10);
-        one_six_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_six_3 = new QLabel(groupBox_3);
+        one_six_3->setObjectName(QString::fromUtf8("one_six_3"));
+        one_six_3->setEnabled(true);
+        one_six_3->setMinimumSize(QSize(50, 50));
+        one_six_3->setFont(font10);
+        one_six_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_six_4->setAlignment(Qt::AlignCenter);
+        one_six_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_six_4);
+        horizontalLayout_10->addWidget(one_six_3);
 
-        one_seven_4 = new QLabel(groupBox_3);
-        one_seven_4->setObjectName(QString::fromUtf8("one_seven_4"));
-        one_seven_4->setEnabled(true);
-        one_seven_4->setMinimumSize(QSize(50, 50));
-        one_seven_4->setFont(font10);
-        one_seven_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_seven_3 = new QLabel(groupBox_3);
+        one_seven_3->setObjectName(QString::fromUtf8("one_seven_3"));
+        one_seven_3->setEnabled(true);
+        one_seven_3->setMinimumSize(QSize(50, 50));
+        one_seven_3->setFont(font10);
+        one_seven_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_seven_4->setAlignment(Qt::AlignCenter);
+        one_seven_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_seven_4);
+        horizontalLayout_10->addWidget(one_seven_3);
 
-        one_eight_4 = new QLabel(groupBox_3);
-        one_eight_4->setObjectName(QString::fromUtf8("one_eight_4"));
-        one_eight_4->setEnabled(true);
-        one_eight_4->setMinimumSize(QSize(50, 50));
-        one_eight_4->setFont(font10);
-        one_eight_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_eight_3 = new QLabel(groupBox_3);
+        one_eight_3->setObjectName(QString::fromUtf8("one_eight_3"));
+        one_eight_3->setEnabled(true);
+        one_eight_3->setMinimumSize(QSize(50, 50));
+        one_eight_3->setFont(font10);
+        one_eight_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_eight_4->setAlignment(Qt::AlignCenter);
+        one_eight_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_eight_4);
+        horizontalLayout_10->addWidget(one_eight_3);
 
-        one_nine_4 = new QLabel(groupBox_3);
-        one_nine_4->setObjectName(QString::fromUtf8("one_nine_4"));
-        one_nine_4->setEnabled(true);
-        one_nine_4->setMinimumSize(QSize(50, 50));
-        one_nine_4->setFont(font10);
-        one_nine_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_nine_3 = new QLabel(groupBox_3);
+        one_nine_3->setObjectName(QString::fromUtf8("one_nine_3"));
+        one_nine_3->setEnabled(true);
+        one_nine_3->setMinimumSize(QSize(50, 50));
+        one_nine_3->setFont(font10);
+        one_nine_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_nine_4->setAlignment(Qt::AlignCenter);
+        one_nine_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_nine_4);
+        horizontalLayout_10->addWidget(one_nine_3);
 
-        one_ten_4 = new QLabel(groupBox_3);
-        one_ten_4->setObjectName(QString::fromUtf8("one_ten_4"));
-        one_ten_4->setEnabled(true);
-        one_ten_4->setMinimumSize(QSize(50, 50));
-        one_ten_4->setFont(font10);
-        one_ten_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_ten_3 = new QLabel(groupBox_3);
+        one_ten_3->setObjectName(QString::fromUtf8("one_ten_3"));
+        one_ten_3->setEnabled(true);
+        one_ten_3->setMinimumSize(QSize(50, 50));
+        one_ten_3->setFont(font10);
+        one_ten_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_ten_4->setAlignment(Qt::AlignCenter);
+        one_ten_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_ten_4);
+        horizontalLayout_10->addWidget(one_ten_3);
 
-        one_ele_4 = new QLabel(groupBox_3);
-        one_ele_4->setObjectName(QString::fromUtf8("one_ele_4"));
-        one_ele_4->setEnabled(true);
-        one_ele_4->setMinimumSize(QSize(50, 50));
-        one_ele_4->setFont(font10);
-        one_ele_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_ele_3 = new QLabel(groupBox_3);
+        one_ele_3->setObjectName(QString::fromUtf8("one_ele_3"));
+        one_ele_3->setEnabled(true);
+        one_ele_3->setMinimumSize(QSize(50, 50));
+        one_ele_3->setFont(font10);
+        one_ele_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_ele_4->setAlignment(Qt::AlignCenter);
+        one_ele_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_ele_4);
+        horizontalLayout_10->addWidget(one_ele_3);
 
-        one_twe_4 = new QLabel(groupBox_3);
-        one_twe_4->setObjectName(QString::fromUtf8("one_twe_4"));
-        one_twe_4->setEnabled(true);
-        one_twe_4->setMinimumSize(QSize(50, 50));
-        one_twe_4->setFont(font10);
-        one_twe_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_twe_3 = new QLabel(groupBox_3);
+        one_twe_3->setObjectName(QString::fromUtf8("one_twe_3"));
+        one_twe_3->setEnabled(true);
+        one_twe_3->setMinimumSize(QSize(50, 50));
+        one_twe_3->setFont(font10);
+        one_twe_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_twe_4->setAlignment(Qt::AlignCenter);
+        one_twe_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_twe_4);
+        horizontalLayout_10->addWidget(one_twe_3);
 
-        one_thr_4 = new QLabel(groupBox_3);
-        one_thr_4->setObjectName(QString::fromUtf8("one_thr_4"));
-        one_thr_4->setEnabled(true);
-        one_thr_4->setMinimumSize(QSize(50, 50));
-        one_thr_4->setFont(font10);
-        one_thr_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_thr_3 = new QLabel(groupBox_3);
+        one_thr_3->setObjectName(QString::fromUtf8("one_thr_3"));
+        one_thr_3->setEnabled(true);
+        one_thr_3->setMinimumSize(QSize(50, 50));
+        one_thr_3->setFont(font10);
+        one_thr_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_thr_4->setAlignment(Qt::AlignCenter);
+        one_thr_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_thr_4);
+        horizontalLayout_10->addWidget(one_thr_3);
 
-        one_fourteen_4 = new QLabel(groupBox_3);
-        one_fourteen_4->setObjectName(QString::fromUtf8("one_fourteen_4"));
-        one_fourteen_4->setEnabled(true);
-        one_fourteen_4->setMinimumSize(QSize(50, 50));
-        one_fourteen_4->setFont(font10);
-        one_fourteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_fourteen_3 = new QLabel(groupBox_3);
+        one_fourteen_3->setObjectName(QString::fromUtf8("one_fourteen_3"));
+        one_fourteen_3->setEnabled(true);
+        one_fourteen_3->setMinimumSize(QSize(50, 50));
+        one_fourteen_3->setFont(font10);
+        one_fourteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_fourteen_4->setAlignment(Qt::AlignCenter);
+        one_fourteen_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_fourteen_4);
+        horizontalLayout_10->addWidget(one_fourteen_3);
 
-        one_fif_4 = new QLabel(groupBox_3);
-        one_fif_4->setObjectName(QString::fromUtf8("one_fif_4"));
-        one_fif_4->setEnabled(true);
-        one_fif_4->setMinimumSize(QSize(50, 50));
-        one_fif_4->setFont(font10);
-        one_fif_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_fif_3 = new QLabel(groupBox_3);
+        one_fif_3->setObjectName(QString::fromUtf8("one_fif_3"));
+        one_fif_3->setEnabled(true);
+        one_fif_3->setMinimumSize(QSize(50, 50));
+        one_fif_3->setFont(font10);
+        one_fif_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_fif_4->setAlignment(Qt::AlignCenter);
+        one_fif_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_fif_4);
+        horizontalLayout_10->addWidget(one_fif_3);
 
-        one_sixteen_4 = new QLabel(groupBox_3);
-        one_sixteen_4->setObjectName(QString::fromUtf8("one_sixteen_4"));
-        one_sixteen_4->setEnabled(true);
-        one_sixteen_4->setMinimumSize(QSize(50, 50));
-        one_sixteen_4->setFont(font10);
-        one_sixteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_sixteen_3 = new QLabel(groupBox_3);
+        one_sixteen_3->setObjectName(QString::fromUtf8("one_sixteen_3"));
+        one_sixteen_3->setEnabled(true);
+        one_sixteen_3->setMinimumSize(QSize(50, 50));
+        one_sixteen_3->setFont(font10);
+        one_sixteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_sixteen_4->setAlignment(Qt::AlignCenter);
+        one_sixteen_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_sixteen_4);
+        horizontalLayout_10->addWidget(one_sixteen_3);
 
-        one_seventeen_4 = new QLabel(groupBox_3);
-        one_seventeen_4->setObjectName(QString::fromUtf8("one_seventeen_4"));
-        one_seventeen_4->setEnabled(true);
-        one_seventeen_4->setMinimumSize(QSize(50, 50));
-        one_seventeen_4->setFont(font10);
-        one_seventeen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_seventeen_3 = new QLabel(groupBox_3);
+        one_seventeen_3->setObjectName(QString::fromUtf8("one_seventeen_3"));
+        one_seventeen_3->setEnabled(true);
+        one_seventeen_3->setMinimumSize(QSize(50, 50));
+        one_seventeen_3->setFont(font10);
+        one_seventeen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_seventeen_4->setAlignment(Qt::AlignCenter);
+        one_seventeen_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_seventeen_4);
+        horizontalLayout_10->addWidget(one_seventeen_3);
 
-        one_eighteen_4 = new QLabel(groupBox_3);
-        one_eighteen_4->setObjectName(QString::fromUtf8("one_eighteen_4"));
-        one_eighteen_4->setEnabled(true);
-        one_eighteen_4->setMinimumSize(QSize(50, 50));
-        one_eighteen_4->setFont(font10);
-        one_eighteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_eighteen_3 = new QLabel(groupBox_3);
+        one_eighteen_3->setObjectName(QString::fromUtf8("one_eighteen_3"));
+        one_eighteen_3->setEnabled(true);
+        one_eighteen_3->setMinimumSize(QSize(50, 50));
+        one_eighteen_3->setFont(font10);
+        one_eighteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_eighteen_4->setAlignment(Qt::AlignCenter);
+        one_eighteen_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_eighteen_4);
+        horizontalLayout_10->addWidget(one_eighteen_3);
 
-        one_ninteen_4 = new QLabel(groupBox_3);
-        one_ninteen_4->setObjectName(QString::fromUtf8("one_ninteen_4"));
-        one_ninteen_4->setEnabled(true);
-        one_ninteen_4->setMinimumSize(QSize(50, 50));
-        one_ninteen_4->setFont(font10);
-        one_ninteen_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_ninteen_3 = new QLabel(groupBox_3);
+        one_ninteen_3->setObjectName(QString::fromUtf8("one_ninteen_3"));
+        one_ninteen_3->setEnabled(true);
+        one_ninteen_3->setMinimumSize(QSize(50, 50));
+        one_ninteen_3->setFont(font10);
+        one_ninteen_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_ninteen_4->setAlignment(Qt::AlignCenter);
+        one_ninteen_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_ninteen_4);
+        horizontalLayout_10->addWidget(one_ninteen_3);
 
-        one_twt_4 = new QLabel(groupBox_3);
-        one_twt_4->setObjectName(QString::fromUtf8("one_twt_4"));
-        one_twt_4->setEnabled(true);
-        one_twt_4->setMinimumSize(QSize(50, 50));
-        one_twt_4->setFont(font10);
-        one_twt_4->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+        one_twt_3 = new QLabel(groupBox_3);
+        one_twt_3->setObjectName(QString::fromUtf8("one_twt_3"));
+        one_twt_3->setEnabled(true);
+        one_twt_3->setMinimumSize(QSize(50, 50));
+        one_twt_3->setFont(font10);
+        one_twt_3->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
 "color: rgb(255, 255, 255);"));
-        one_twt_4->setAlignment(Qt::AlignCenter);
+        one_twt_3->setAlignment(Qt::AlignCenter);
 
-        horizontalLayout_20->addWidget(one_twt_4);
+        horizontalLayout_10->addWidget(one_twt_3);
 
 
-        gridLayout_4->addLayout(horizontalLayout_20, 6, 0, 1, 1);
+        gridLayout_4->addLayout(horizontalLayout_10, 5, 0, 1, 1);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        label_17 = new QLabel(groupBox_3);
+        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_17->setMinimumSize(QSize(50, 50));
+        label_17->setFont(font9);
+        label_17->setStyleSheet(QString::fromUtf8("color: rgb(0, 85, 255);"));
+        label_17->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(label_17);
+
+        two_one = new QLabel(groupBox_3);
+        two_one->setObjectName(QString::fromUtf8("two_one"));
+        two_one->setEnabled(true);
+        two_one->setMinimumSize(QSize(50, 50));
+        two_one->setFont(font10);
+        two_one->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_one->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_one);
+
+        two_two = new QLabel(groupBox_3);
+        two_two->setObjectName(QString::fromUtf8("two_two"));
+        two_two->setEnabled(true);
+        two_two->setMinimumSize(QSize(50, 50));
+        two_two->setFont(font10);
+        two_two->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_two->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_two);
+
+        two_three = new QLabel(groupBox_3);
+        two_three->setObjectName(QString::fromUtf8("two_three"));
+        two_three->setEnabled(true);
+        two_three->setMinimumSize(QSize(50, 50));
+        two_three->setFont(font10);
+        two_three->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_three->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_three);
+
+        two_four = new QLabel(groupBox_3);
+        two_four->setObjectName(QString::fromUtf8("two_four"));
+        two_four->setEnabled(true);
+        two_four->setMinimumSize(QSize(50, 50));
+        two_four->setFont(font10);
+        two_four->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_four->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_four);
+
+        two_five = new QLabel(groupBox_3);
+        two_five->setObjectName(QString::fromUtf8("two_five"));
+        two_five->setEnabled(true);
+        two_five->setMinimumSize(QSize(50, 50));
+        two_five->setFont(font10);
+        two_five->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_five->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_five);
+
+        two_six = new QLabel(groupBox_3);
+        two_six->setObjectName(QString::fromUtf8("two_six"));
+        two_six->setEnabled(true);
+        two_six->setMinimumSize(QSize(50, 50));
+        two_six->setFont(font10);
+        two_six->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_six->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_six);
+
+        two_seven = new QLabel(groupBox_3);
+        two_seven->setObjectName(QString::fromUtf8("two_seven"));
+        two_seven->setEnabled(true);
+        two_seven->setMinimumSize(QSize(50, 50));
+        two_seven->setFont(font10);
+        two_seven->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_seven->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_seven);
+
+        two_eight = new QLabel(groupBox_3);
+        two_eight->setObjectName(QString::fromUtf8("two_eight"));
+        two_eight->setEnabled(true);
+        two_eight->setMinimumSize(QSize(50, 50));
+        two_eight->setFont(font10);
+        two_eight->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_eight->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_eight);
+
+        two_nine = new QLabel(groupBox_3);
+        two_nine->setObjectName(QString::fromUtf8("two_nine"));
+        two_nine->setEnabled(true);
+        two_nine->setMinimumSize(QSize(50, 50));
+        two_nine->setFont(font10);
+        two_nine->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_nine->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_nine);
+
+        two_ten = new QLabel(groupBox_3);
+        two_ten->setObjectName(QString::fromUtf8("two_ten"));
+        two_ten->setEnabled(true);
+        two_ten->setMinimumSize(QSize(50, 50));
+        two_ten->setFont(font10);
+        two_ten->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_ten->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_ten);
+
+        two_ele = new QLabel(groupBox_3);
+        two_ele->setObjectName(QString::fromUtf8("two_ele"));
+        two_ele->setEnabled(true);
+        two_ele->setMinimumSize(QSize(50, 50));
+        two_ele->setFont(font10);
+        two_ele->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_ele->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_ele);
+
+        two_twe = new QLabel(groupBox_3);
+        two_twe->setObjectName(QString::fromUtf8("two_twe"));
+        two_twe->setEnabled(true);
+        two_twe->setMinimumSize(QSize(50, 50));
+        two_twe->setFont(font10);
+        two_twe->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_twe->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_twe);
+
+        two_thr = new QLabel(groupBox_3);
+        two_thr->setObjectName(QString::fromUtf8("two_thr"));
+        two_thr->setEnabled(true);
+        two_thr->setMinimumSize(QSize(50, 50));
+        two_thr->setFont(font10);
+        two_thr->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_thr->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_thr);
+
+        two_fourteen = new QLabel(groupBox_3);
+        two_fourteen->setObjectName(QString::fromUtf8("two_fourteen"));
+        two_fourteen->setEnabled(true);
+        two_fourteen->setMinimumSize(QSize(50, 50));
+        two_fourteen->setFont(font10);
+        two_fourteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_fourteen->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_fourteen);
+
+        two_fif = new QLabel(groupBox_3);
+        two_fif->setObjectName(QString::fromUtf8("two_fif"));
+        two_fif->setEnabled(true);
+        two_fif->setMinimumSize(QSize(50, 50));
+        two_fif->setFont(font10);
+        two_fif->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_fif->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_fif);
+
+        two_sixteen = new QLabel(groupBox_3);
+        two_sixteen->setObjectName(QString::fromUtf8("two_sixteen"));
+        two_sixteen->setEnabled(true);
+        two_sixteen->setMinimumSize(QSize(50, 50));
+        two_sixteen->setFont(font10);
+        two_sixteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_sixteen->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_sixteen);
+
+        two_seventeen = new QLabel(groupBox_3);
+        two_seventeen->setObjectName(QString::fromUtf8("two_seventeen"));
+        two_seventeen->setEnabled(true);
+        two_seventeen->setMinimumSize(QSize(50, 50));
+        two_seventeen->setFont(font10);
+        two_seventeen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_seventeen->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_seventeen);
+
+        two_eighteen = new QLabel(groupBox_3);
+        two_eighteen->setObjectName(QString::fromUtf8("two_eighteen"));
+        two_eighteen->setEnabled(true);
+        two_eighteen->setMinimumSize(QSize(50, 50));
+        two_eighteen->setFont(font10);
+        two_eighteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_eighteen->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_eighteen);
+
+        two_ninteen = new QLabel(groupBox_3);
+        two_ninteen->setObjectName(QString::fromUtf8("two_ninteen"));
+        two_ninteen->setEnabled(true);
+        two_ninteen->setMinimumSize(QSize(50, 50));
+        two_ninteen->setFont(font10);
+        two_ninteen->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_ninteen->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_ninteen);
+
+        two_twt = new QLabel(groupBox_3);
+        two_twt->setObjectName(QString::fromUtf8("two_twt"));
+        two_twt->setEnabled(true);
+        two_twt->setMinimumSize(QSize(50, 50));
+        two_twt->setFont(font10);
+        two_twt->setStyleSheet(QString::fromUtf8("image: url(:/image/blue.png);\n"
+"color: rgb(255, 255, 255);"));
+        two_twt->setAlignment(Qt::AlignCenter);
+
+        horizontalLayout_4->addWidget(two_twt);
+
+
+        gridLayout_4->addLayout(horizontalLayout_4, 2, 0, 1, 1);
 
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
@@ -3281,7 +3265,7 @@ public:
         button_locate->setEnabled(false);
         button_locate->setMinimumSize(QSize(120, 50));
         button_locate->setMaximumSize(QSize(200, 70));
-        button_locate->setFont(font2);
+        button_locate->setFont(font3);
         button_locate->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
@@ -3295,7 +3279,7 @@ public:
         button_useless->setEnabled(false);
         button_useless->setMinimumSize(QSize(120, 50));
         button_useless->setMaximumSize(QSize(200, 70));
-        button_useless->setFont(font1);
+        button_useless->setFont(font2);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
@@ -3309,7 +3293,7 @@ public:
         button_summit->setEnabled(false);
         button_summit->setMinimumSize(QSize(120, 40));
         button_summit->setMaximumSize(QSize(200, 70));
-        button_summit->setFont(font2);
+        button_summit->setFont(font3);
         button_summit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
@@ -3330,10 +3314,6 @@ public:
         who_win->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         who_win->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
-        menubar = new QMenuBar(MainWindow);
-        menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1732, 23));
-        MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
@@ -3349,20 +3329,25 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
-        xue_change->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
-        pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
-        pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
         pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
+        pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
+#endif // QT_CONFIG(shortcut)
         groupBox->setTitle(QString());
         desk_num->setText(QCoreApplication::translate("MainWindow", "A11", nullptr));
         label_11->setText(QCoreApplication::translate("MainWindow", "\347\273\223\346\236\234", nullptr));
         pu_result->setText(QString());
-        opration_show->setText(QCoreApplication::translate("MainWindow", "\345\267\262\345\256\214\347\273\223", nullptr));
         label_5->setText(QCoreApplication::translate("MainWindow", "\351\235\264\346\254\241", nullptr));
         xue_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
         label_9->setText(QCoreApplication::translate("MainWindow", "\351\223\272\346\254\241", nullptr));
         pu_times->setText(QCoreApplication::translate("MainWindow", "0", nullptr));
+        opration_show->setText(QCoreApplication::translate("MainWindow", "\345\267\262\345\256\214\347\273\223", nullptr));
         label_date->setText(QString());
         groupBox_3->setTitle(QString());
         label_20->setText(QCoreApplication::translate("MainWindow", "4", nullptr));
@@ -3386,111 +3371,6 @@ public:
         one_eighteen_2->setText(QString());
         one_ninteen_2->setText(QString());
         one_twt_2->setText(QString());
-        label_16->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
-        one_one->setText(QString());
-        one_two->setText(QString());
-        one_three->setText(QString());
-        one_four->setText(QString());
-        one_five->setText(QString());
-        one_six->setText(QString());
-        one_seven->setText(QString());
-        one_eight->setText(QString());
-        one_nine->setText(QString());
-        one_ten->setText(QString());
-        one_ele->setText(QString());
-        one_twe->setText(QString());
-        one_thr->setText(QString());
-        one_fourteen->setText(QString());
-        one_fif->setText(QString());
-        one_sixteen->setText(QString());
-        one_seventeen->setText(QString());
-        one_eighteen->setText(QString());
-        one_ninteen->setText(QString());
-        one_twt->setText(QString());
-        label_21->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
-        one_one_3->setText(QString());
-        one_two_3->setText(QString());
-        one_three_3->setText(QString());
-        one_four_3->setText(QString());
-        one_five_3->setText(QString());
-        one_six_3->setText(QString());
-        one_seven_3->setText(QString());
-        one_eight_3->setText(QString());
-        one_nine_3->setText(QString());
-        one_ten_3->setText(QString());
-        one_ele_3->setText(QString());
-        one_twe_3->setText(QString());
-        one_thr_3->setText(QString());
-        one_fourteen_3->setText(QString());
-        one_fif_3->setText(QString());
-        one_sixteen_3->setText(QString());
-        one_seventeen_3->setText(QString());
-        one_eighteen_3->setText(QString());
-        one_ninteen_3->setText(QString());
-        one_twt_3->setText(QString());
-        label_15->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
-        zhuang_one->setText(QString());
-        zhuang_two->setText(QString());
-        zhuang_three->setText(QString());
-        zhuang_four->setText(QString());
-        zhuang_five->setText(QString());
-        zhuang_six->setText(QString());
-        zhuang_seven->setText(QString());
-        zhuang_eight->setText(QString());
-        zhuang_nine->setText(QString());
-        zhuang_ten->setText(QString());
-        zhuang_ele->setText(QString());
-        zhuang_twe->setText(QString());
-        zhuang_thr->setText(QString());
-        zhuang_fourteen->setText(QString());
-        zhuang_fif->setText(QString());
-        zhuang_sixteen->setText(QString());
-        zhuang_seventeen->setText(QString());
-        zhuang_eighteen->setText(QString());
-        zhuang_ninteen->setText(QString());
-        zhuang_twt->setText(QString());
-        label_17->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
-        two_one->setText(QString());
-        two_two->setText(QString());
-        two_three->setText(QString());
-        two_four->setText(QString());
-        two_five->setText(QString());
-        two_six->setText(QString());
-        two_seven->setText(QString());
-        two_eight->setText(QString());
-        two_nine->setText(QString());
-        two_ten->setText(QString());
-        two_ele->setText(QString());
-        two_twe->setText(QString());
-        two_thr->setText(QString());
-        two_fourteen->setText(QString());
-        two_fif->setText(QString());
-        two_sixteen->setText(QString());
-        two_seventeen->setText(QString());
-        two_eighteen->setText(QString());
-        two_ninteen->setText(QString());
-        two_twt->setText(QString());
-        label_18->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
-        three_one->setText(QString());
-        three_two->setText(QString());
-        three_three->setText(QString());
-        three_four->setText(QString());
-        three_five->setText(QString());
-        three_six->setText(QString());
-        three_seven->setText(QString());
-        three_eight->setText(QString());
-        three_nine->setText(QString());
-        three_ten->setText(QString());
-        three_ele->setText(QString());
-        three_twe->setText(QString());
-        three_thr->setText(QString());
-        three_fourteen->setText(QString());
-        three_fif->setText(QString());
-        three_sixteen->setText(QString());
-        three_seventeen->setText(QString());
-        three_eighteen->setText(QString());
-        three_ninteen->setText(QString());
-        three_twt->setText(QString());
         label_22->setText(QCoreApplication::translate("MainWindow", "6", nullptr));
         one_one_4->setText(QString());
         one_two_4->setText(QString());
@@ -3512,6 +3392,111 @@ public:
         one_eighteen_4->setText(QString());
         one_ninteen_4->setText(QString());
         one_twt_4->setText(QString());
+        label_16->setText(QCoreApplication::translate("MainWindow", "1", nullptr));
+        one_one->setText(QString());
+        one_two->setText(QString());
+        one_three->setText(QString());
+        one_four->setText(QString());
+        one_five->setText(QString());
+        one_six->setText(QString());
+        one_seven->setText(QString());
+        one_eight->setText(QString());
+        one_nine->setText(QString());
+        one_ten->setText(QString());
+        one_ele->setText(QString());
+        one_twe->setText(QString());
+        one_thr->setText(QString());
+        one_fourteen->setText(QString());
+        one_fif->setText(QString());
+        one_sixteen->setText(QString());
+        one_seventeen->setText(QString());
+        one_eighteen->setText(QString());
+        one_ninteen->setText(QString());
+        one_twt->setText(QString());
+        label_15->setText(QCoreApplication::translate("MainWindow", "B", nullptr));
+        zhuang_one->setText(QString());
+        zhuang_two->setText(QString());
+        zhuang_three->setText(QString());
+        zhuang_four->setText(QString());
+        zhuang_five->setText(QString());
+        zhuang_six->setText(QString());
+        zhuang_seven->setText(QString());
+        zhuang_eight->setText(QString());
+        zhuang_nine->setText(QString());
+        zhuang_ten->setText(QString());
+        zhuang_ele->setText(QString());
+        zhuang_twe->setText(QString());
+        zhuang_thr->setText(QString());
+        zhuang_fourteen->setText(QString());
+        zhuang_fif->setText(QString());
+        zhuang_sixteen->setText(QString());
+        zhuang_seventeen->setText(QString());
+        zhuang_eighteen->setText(QString());
+        zhuang_ninteen->setText(QString());
+        zhuang_twt->setText(QString());
+        label_18->setText(QCoreApplication::translate("MainWindow", "3", nullptr));
+        three_one->setText(QString());
+        three_two->setText(QString());
+        three_three->setText(QString());
+        three_four->setText(QString());
+        three_five->setText(QString());
+        three_six->setText(QString());
+        three_seven->setText(QString());
+        three_eight->setText(QString());
+        three_nine->setText(QString());
+        three_ten->setText(QString());
+        three_ele->setText(QString());
+        three_twe->setText(QString());
+        three_thr->setText(QString());
+        three_fourteen->setText(QString());
+        three_fif->setText(QString());
+        three_sixteen->setText(QString());
+        three_seventeen->setText(QString());
+        three_eighteen->setText(QString());
+        three_ninteen->setText(QString());
+        three_twt->setText(QString());
+        label_21->setText(QCoreApplication::translate("MainWindow", "5", nullptr));
+        one_one_3->setText(QString());
+        one_two_3->setText(QString());
+        one_three_3->setText(QString());
+        one_four_3->setText(QString());
+        one_five_3->setText(QString());
+        one_six_3->setText(QString());
+        one_seven_3->setText(QString());
+        one_eight_3->setText(QString());
+        one_nine_3->setText(QString());
+        one_ten_3->setText(QString());
+        one_ele_3->setText(QString());
+        one_twe_3->setText(QString());
+        one_thr_3->setText(QString());
+        one_fourteen_3->setText(QString());
+        one_fif_3->setText(QString());
+        one_sixteen_3->setText(QString());
+        one_seventeen_3->setText(QString());
+        one_eighteen_3->setText(QString());
+        one_ninteen_3->setText(QString());
+        one_twt_3->setText(QString());
+        label_17->setText(QCoreApplication::translate("MainWindow", "2", nullptr));
+        two_one->setText(QString());
+        two_two->setText(QString());
+        two_three->setText(QString());
+        two_four->setText(QString());
+        two_five->setText(QString());
+        two_six->setText(QString());
+        two_seven->setText(QString());
+        two_eight->setText(QString());
+        two_nine->setText(QString());
+        two_ten->setText(QString());
+        two_ele->setText(QString());
+        two_twe->setText(QString());
+        two_thr->setText(QString());
+        two_fourteen->setText(QString());
+        two_fif->setText(QString());
+        two_sixteen->setText(QString());
+        two_seventeen->setText(QString());
+        two_eighteen->setText(QString());
+        two_ninteen->setText(QString());
+        two_twt->setText(QString());
         label_date_2->setText(QCoreApplication::translate("MainWindow", "\345\271\263\345\200\215\351\231\220\347\272\242\357\274\232", nullptr));
         label_limit->setText(QString());
         label_date_4->setText(QCoreApplication::translate("MainWindow", "\347\277\273\345\200\215\351\231\220\347\272\242\357\274\232", nullptr));
@@ -3569,7 +3554,10 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "\345\256\232\344\275\215", nullptr));
         lineEdit_2->setText(QString());
         button_locate->setText(QCoreApplication::translate("MainWindow", "\345\256\232\344\275\215\357\274\210*\357\274\211", nullptr));
-        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        button_locate->setShortcut(QCoreApplication::translate("MainWindow", "*", nullptr));
+#endif // QT_CONFIG(shortcut)
+        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
         button_summit->setText(QCoreApplication::translate("MainWindow", "\346\217\220\344\272\244", nullptr));
         who_win->setText(QString());
     } // retranslateUi

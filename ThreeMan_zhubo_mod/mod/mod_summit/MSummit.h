@@ -11,7 +11,7 @@ typedef struct{
     QLabel *pave;
 
     MNetManager *manager;
-    QString interface;
+    QString inter;
     int status;
 }MSummitArg;
 

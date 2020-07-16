@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>973</width>
-    <height>60</height>
+    <height>29</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>973</width>
-    <height>60</height>
+    <height>0</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -26,22 +26,25 @@
    <string>Form</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="spacing">
+    <number>0</number>
+   </property>
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
+   <property name="bottomMargin">
+    <number>0</number>
+   </property>
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
       <widget class="QPushButton" name="pushButton">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>40</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>40</height>
-        </size>
-       </property>
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -58,12 +61,6 @@
      </item>
      <item>
       <widget class="QLabel" name="label">
-       <property name="maximumSize">
-        <size>
-         <width>16777215</width>
-         <height>40</height>
-        </size>
-       </property>
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>

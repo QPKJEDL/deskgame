@@ -168,7 +168,7 @@ void MRoomCard::while_timeout()
     }
     graphiceffect->setOpacity(opacity);
     link->data[NUM.num].label->setGraphicsEffect(graphiceffect);
-
+    graphiceffect_name = new QGraphicsOpacityEffect();
     graphiceffect_name->setOpacity(opacity);
     label_name->setGraphicsEffect(graphiceffect_name);
 }

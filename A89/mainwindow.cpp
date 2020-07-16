@@ -76,7 +76,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     manager = new MNetManager;
     manager->setHeader("application/x-www-form-urlencoded");
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
     //闲家一
@@ -663,7 +663,7 @@ void MainWindow::phase_zero()
 void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     unsigned int time = end - start;
-    count_down = 30 - time;
+    count_down = count_down_num - time;
     timer_Countdown->start(1000);
 }
 
@@ -860,7 +860,7 @@ void MainWindow::apply_record(QJsonArray array)
 void MainWindow::request_login()
 {
     QByteArray postData;
-    QString str = "desk=A8&password=f1289f70767841ae";
+    QString str = "desk=A8&password=123456";
     postData.append(str);
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
@@ -1019,8 +1019,9 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
+        ui->label_locate->setText("");
 
-        count_down = 30;
+        count_down = count_down_num;
         timer_Countdown->start(1000);
     }
     else{
@@ -1042,6 +1043,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int boot_num = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
+        count_down_num = data.at(0)["CountDown"].toInt();
 
         ui->xue_times->setText(QString::number(boot_num));
         ui->pu_times->setText(QString::number(PaveNum));

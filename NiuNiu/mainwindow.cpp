@@ -22,8 +22,8 @@ enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT};
 
 //typedef void (MainWindow::*exe)(QNetworkReply *reply);
 
-static QString URL = "101.32.22.231:8210";
-//static QString URL = "129.211.114.135:8210";
+//static QString URL = "101.32.22.231:8210";
+static QString URL = "129.211.114.135:8210";
 MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -80,7 +80,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(INIT,&MainWindow::responsed_init);
 
    manager = new MNetManager;
-   manager->setIp("101.32.22.231:8210");
+   manager->setIp("129.211.114.135:8210");
    manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
    connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -1112,6 +1112,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
         location = 0;
+        ui->label_locate->setText("");
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
         count_down = count_down_num;

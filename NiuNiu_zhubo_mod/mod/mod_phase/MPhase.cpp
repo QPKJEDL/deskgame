@@ -114,6 +114,7 @@ void MPhase::on_finished()
 
 void MPhase::on_start()
 {
+    arg->location->setText("");
     to_phase(1,0,0,count_down);
 }
 

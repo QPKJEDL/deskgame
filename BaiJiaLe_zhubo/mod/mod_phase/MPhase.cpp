@@ -42,14 +42,17 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
-    ui->label->setText(QString::number(times));
-    if(--times < 0){
+    if(--times < 1){
         timer->stop();
         this->hide();
 
         emit timeout();
 
         enabled({arg->enter,arg->cancel,arg->leave,arg->banker,arg->bankerPair,arg->player,arg->playerPair,arg->bankerPair,arg->tie,arg->useless});
+    }
+    else{
+        ui->label->setText(QString::number(times));
+        this->show();
     }
 }
 
@@ -63,10 +66,9 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
     }
     case 1:{
         unsigned int time = end - start;
-        times = count_down - time;
+        times = count_down - time + 1;
         timer->start(1000);
         this->setWindowFlags(Qt::FramelessWindowHint);
-        this->show();
         break;
     }
     case 2:{

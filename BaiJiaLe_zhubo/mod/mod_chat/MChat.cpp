@@ -20,6 +20,9 @@ MChat::MChat(MChatArg *arg) :
     this->arg->interface = arg->interface;
     this->arg->tcpSocket = arg->tcpSocket;
 
+    this->arg->grid->setDirection(QBoxLayout::BottomToTop);
+    this->arg->grid->setSpacing(0);
+
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
     connect(arg->tcpSocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
@@ -75,7 +78,6 @@ void MChat::responsed_ban(QNetworkReply *reply)
     else{
         label->setText("禁言失败");
     }
-    arg->grid->addWidget(label);
 }
 
 void cmd_equal_twenty(QDataStream *in,int length);

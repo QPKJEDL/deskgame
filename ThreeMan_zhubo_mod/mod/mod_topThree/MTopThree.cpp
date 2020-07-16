@@ -14,7 +14,7 @@ MTopThree::MTopThree(MTopThreeArg *arg) :
     this->arg = new MTopThreeArg();
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->times_xue = arg->times_xue;
     this->arg->times_pu = arg->times_pu;
 
@@ -39,7 +39,7 @@ void MTopThree::on_responsed(QNetworkReply *reply, int status)
 
 void MTopThree::request_top_three()
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->setStatus(arg->status);
     QByteArray postData;
     qDebug() << arg->times_xue->text();

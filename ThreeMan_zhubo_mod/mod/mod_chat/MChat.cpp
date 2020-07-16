@@ -17,8 +17,9 @@ MChat::MChat(MChatArg *arg) :
     this->arg->grid = arg->grid;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->tcpSocket = arg->tcpSocket;
+    this->arg->grid->setDirection(QBoxLayout::BottomToTop);
 
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
@@ -32,7 +33,7 @@ MChat::~MChat()
 
 void MChat::request_ban(QString uid)
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append("talkid=" + uid);
     arg->manager->setStatus(arg->status);
@@ -133,7 +134,7 @@ void MChat::cmd_equal_twenty(QDataStream *in,int length){
         new_ui->update_name(nickname);
         new_ui->talkid = uid;
         new_ui->update_input(msg);
-        arg->grid->addWidget(new_ui);
+        //arg->grid->addWidget(new_ui);
         connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(pu_name(QString)));
     }
 }
@@ -147,7 +148,6 @@ void MChat::cmd_equal_four(QDataStream *in,int length){
     *in >> receiveid;
     *in >> timestamp;
     *in >> msgid;
-
 
     int strsize = length - sizeof(qint64) * 3;
     char* p = new char[strsize];

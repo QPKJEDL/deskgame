@@ -12,7 +12,7 @@ MMoney::MMoney(MMoneyArg *arg):
     ui->setupUi(this);
 
     this->arg = new MMoneyArg();
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->status = arg->status;
     this->arg->widget = arg->widget;
     this->arg->manager = arg->manager;
@@ -87,7 +87,7 @@ void MMoney::update_panel(QJsonArray data)
 void MMoney::request_money()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append("lastid=" + QString::number(lastid));
     postData.append("&type=" + QString::number(type));

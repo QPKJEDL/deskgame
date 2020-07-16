@@ -26,7 +26,7 @@ MainWindow::MainWindow(QMainWindow *parent)
 
     login_window = new Login();
     manager = new MNetManager;
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     // 倒计时初始化
@@ -1120,7 +1120,7 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=CS2&password=43164b56500def9a");
+    postData.append("desk=a1&password=123456");
     manager->postData(postData);
 }
 

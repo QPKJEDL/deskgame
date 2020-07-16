@@ -13,7 +13,9 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->init = arg->init;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
+
+    widget = parent;
 
     _map.insert(arg->status,&MInit::responsed_init);
     connect(arg->init,SIGNAL(clicked()),this,SLOT(pu_init()));
@@ -22,7 +24,7 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
 
 void MInit::pu_init()
 {
-    MDialog *dlg = new MDialog();
+    MDialog *dlg = new MDialog(widget);
     dlg->setWindowFlag(Qt::FramelessWindowHint);
     dlg->set_message("是否初始化?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
@@ -45,7 +47,7 @@ void MInit::on_responsed(QNetworkReply *reply, int status)
 void MInit::request_init()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->postData(QByteArray());
 }
 

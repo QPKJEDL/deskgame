@@ -11,7 +11,7 @@ class MChat;
 
 class MNetManager;
 typedef struct{
-    QGridLayout *grid;
+    QVBoxLayout *grid;
     QTcpSocket *tcpSocket;
     MNetManager *manager;
     QString interface;

@@ -50,12 +50,15 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
-    ui->label->setText(QString::number(times));
     if(--times < 0){
         timer->stop();
         this->hide();
+        times = 30;
         emit timeout();
         enabled({arg->leave,arg->useless,arg->locate});
+    }
+    else{
+        ui->label->setText(QString::number(times));
     }
 }
 
@@ -113,6 +116,7 @@ void MPhase::on_finished()
 
 void MPhase::on_start()
 {
+    arg->location->setText("");
     to_phase(1,0,0,count_down);
 }
 

@@ -184,6 +184,7 @@ void MRoomCard::focus_lineedit()
 void MRoomCard::while_timeout()
 {
     qreal opacity = graphiceffect->opacity();
+    qreal opacity_name = graphiceffect_name->opacity();
     if(NUM.num == 5){
         graphiceffect->setOpacity(1);
         link->data[4].label->setGraphicsEffect(graphiceffect);
@@ -206,6 +207,7 @@ void MRoomCard::while_timeout()
     graphiceffect->setOpacity(opacity);
     link->data[NUM.num].label->setGraphicsEffect(graphiceffect);
 
+    graphiceffect_name = new QGraphicsOpacityEffect();
     graphiceffect_name->setOpacity(opacity);
     label_name->setGraphicsEffect(graphiceffect_name);
 }

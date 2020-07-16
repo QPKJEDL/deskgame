@@ -12,7 +12,6 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     ui->setupUi(this);
 
     this->arg = new MPhaseArg();
-    this->arg->init = arg->init;
     this->arg->leave = arg->leave;
     this->arg->start = arg->start;
     this->arg->useless = arg->useless;
@@ -50,12 +49,16 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
-    ui->label->setText(QString::number(times));
-    if(--times < 0){
+    if(times < 0){
         timer->stop();
         this->hide();
         emit timeout();
         enabled({arg->leave,arg->useless,arg->locate});
+    }
+    else{
+        this->show();
+        ui->label->setText(QString::number(times));
+        times--;
     }
 }
 
@@ -83,7 +86,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
     count_down = countDown;
     switch (phase) {
     case 0:{
-        enabled({arg->start,arg->leave,arg->init});
+        enabled({arg->start,arg->leave});
         break;
     }
     case 1:{
@@ -91,16 +94,16 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         times = count_down - time;
         timer->start(1000);
         this->setWindowFlags(Qt::FramelessWindowHint);
-        this->show();
+        //this->show();
         break;
     }
     case 2:{
-        enabled({arg->leave,arg->locate});
+        enabled({arg->leave});
         emit phase_kaipai();
         break;
     }
     case 3:{
-        enabled({arg->start,arg->leave,arg->init});
+        enabled({arg->start,arg->leave});
         break;
     }
     }
@@ -109,6 +112,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
 void MPhase::on_finished()
 {
     enabled({arg->start});
+    arg->start->setFocus();
     disabled({arg->locate});
 }
 

@@ -53,7 +53,7 @@ public:
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_10;
-    QGridLayout *ChatPanel;
+    QVBoxLayout *verticalLayout_6;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout;
@@ -349,10 +349,10 @@ public:
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1385, 708));
         verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        ChatPanel = new QGridLayout();
-        ChatPanel->setObjectName(QString::fromUtf8("ChatPanel"));
+        verticalLayout_6 = new QVBoxLayout();
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
 
-        verticalLayout_10->addLayout(ChatPanel);
+        verticalLayout_10->addLayout(verticalLayout_6);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 

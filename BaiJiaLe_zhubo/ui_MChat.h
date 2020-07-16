@@ -34,17 +34,17 @@ public:
     {
         if (MChat->objectName().isEmpty())
             MChat->setObjectName(QString::fromUtf8("MChat"));
-        MChat->resize(1450, 60);
-        MChat->setMinimumSize(QSize(1450, 60));
-        MChat->setMaximumSize(QSize(1450, 60));
+        MChat->resize(973, 29);
+        MChat->setMinimumSize(QSize(973, 0));
+        MChat->setMaximumSize(QSize(973, 60));
         verticalLayout = new QVBoxLayout(MChat);
+        verticalLayout->setSpacing(0);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         pushButton = new QPushButton(MChat);
         pushButton->setObjectName(QString::fromUtf8("pushButton"));
-        pushButton->setMinimumSize(QSize(0, 40));
-        pushButton->setMaximumSize(QSize(16777215, 40));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font.setPointSize(15);
@@ -55,7 +55,6 @@ public:
 
         label = new QLabel(MChat);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setMaximumSize(QSize(16777215, 40));
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);border:1px solid ; border-radius: 8px;\n"
 "background-color: rgb(170, 170, 127);"));

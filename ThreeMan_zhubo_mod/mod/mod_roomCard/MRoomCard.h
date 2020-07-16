@@ -60,6 +60,7 @@ private:
 signals:
     int get_location(int);
     int finished();
+    void clear_finished();
     int locate_zero();
 
 private:

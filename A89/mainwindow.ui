@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1902</width>
-    <height>1077</height>
+    <width>1732</width>
+    <height>1119</height>
    </rect>
   </property>
   <property name="font">
@@ -27,7 +27,7 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>1321</width>
+      <width>1711</width>
       <height>81</height>
      </rect>
     </property>
@@ -153,6 +153,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           <property name="text">
            <string>开局（6）</string>
           </property>
+          <property name="shortcut">
+           <string>6</string>
+          </property>
           <property name="checkable">
            <bool>true</bool>
           </property>
@@ -198,6 +201,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           </property>
           <property name="text">
            <string>退出（.）</string>
+          </property>
+          <property name="shortcut">
+           <string>.</string>
           </property>
          </widget>
         </item>
@@ -1295,8 +1301,8 @@ background-color: rgb(0,32, 57);
      <rect>
       <x>20</x>
       <y>140</y>
-      <width>1321</width>
-      <height>301</height>
+      <width>1711</width>
+      <height>321</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -3910,8 +3916,8 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>440</y>
-      <width>1321</width>
+      <y>470</y>
+      <width>1711</width>
       <height>51</height>
      </rect>
     </property>
@@ -5791,16 +5797,35 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>490</y>
-      <width>1321</width>
-      <height>381</height>
+      <y>530</y>
+      <width>1711</width>
+      <height>521</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_19">
      <item>
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="maximumSize">
+        <size>
+         <width>0</width>
+         <height>0</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>BlankCursor</cursorShape>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QGroupBox" name="groupBox_4">
        <property name="enabled">
         <bool>true</bool>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>1340</width>
+         <height>511</height>
+        </size>
        </property>
        <property name="maximumSize">
         <size>
@@ -5822,7 +5847,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="xian3_result">
         <property name="geometry">
          <rect>
-          <x>160</x>
+          <x>310</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -5859,7 +5884,7 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QLabel" name="xian2_result">
         <property name="geometry">
          <rect>
-          <x>520</x>
+          <x>700</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -5884,7 +5909,7 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>480</x>
+          <x>660</x>
           <y>60</y>
           <width>171</width>
           <height>121</height>
@@ -5930,7 +5955,7 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="xian1_result">
         <property name="geometry">
          <rect>
-          <x>920</x>
+          <x>1100</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -5955,7 +5980,7 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>870</x>
+          <x>1050</x>
           <y>60</y>
           <width>181</width>
           <height>121</height>
@@ -6001,7 +6026,7 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian3">
         <property name="geometry">
          <rect>
-          <x>180</x>
+          <x>330</x>
           <y>200</y>
           <width>61</width>
           <height>31</height>
@@ -6024,7 +6049,7 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian2">
         <property name="geometry">
          <rect>
-          <x>550</x>
+          <x>730</x>
           <y>200</y>
           <width>61</width>
           <height>31</height>
@@ -6047,7 +6072,7 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian1">
         <property name="geometry">
          <rect>
-          <x>950</x>
+          <x>1130</x>
           <y>200</y>
           <width>61</width>
           <height>31</height>
@@ -6070,8 +6095,8 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>300</x>
-          <y>240</y>
+          <x>440</x>
+          <y>270</y>
           <width>521</width>
           <height>121</height>
          </rect>
@@ -6167,7 +6192,7 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>110</x>
+          <x>260</x>
           <y>60</y>
           <width>191</width>
           <height>121</height>
@@ -6213,20 +6238,13 @@ background-color: rgb(0, 32, 57);</string>
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="maximumSize">
+      <widget class="QGroupBox" name="groupBox_5">
+       <property name="minimumSize">
         <size>
-         <width>0</width>
-         <height>0</height>
+         <width>180</width>
+         <height>511</height>
         </size>
        </property>
-       <property name="cursor">
-        <cursorShape>BlankCursor</cursorShape>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QGroupBox" name="groupBox_5">
        <property name="maximumSize">
         <size>
          <width>220</width>
@@ -6362,6 +6380,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           <property name="text">
            <string>定位（*）</string>
           </property>
+          <property name="shortcut">
+           <string>*</string>
+          </property>
          </widget>
         </item>
         <item>
@@ -6397,7 +6418,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
           </property>
           <property name="text">
-           <string>作废（0）</string>
+           <string>作废</string>
           </property>
          </widget>
         </item>
@@ -6471,8 +6492,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1902</width>
-     <height>23</height>
+     <width>1732</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

@@ -162,6 +162,7 @@ public:
     QLabel *three_win_times;
     QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_19;
+    QLineEdit *lineEdit;
     QGroupBox *groupBox_4;
     QLabel *xian3_result;
     QLabel *xian2_result;
@@ -187,7 +188,6 @@ public:
     QHBoxLayout *horizontalLayout_6;
     QLabel *three_two_pic;
     QLabel *three_one_pic;
-    QLineEdit *lineEdit;
     QGroupBox *groupBox_5;
     QVBoxLayout *verticalLayout_4;
     QLabel *label_locate;
@@ -204,7 +204,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1902, 1077);
+        MainWindow->resize(1732, 1119);
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         MainWindow->setFont(font);
@@ -213,7 +213,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         layoutWidget = new QWidget(centralwidget);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(20, 10, 1321, 81));
+        layoutWidget->setGeometry(QRect(20, 10, 1711, 81));
         gridLayout = new QGridLayout(layoutWidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
@@ -563,7 +563,7 @@ public:
         label_date->setFont(font8);
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(20, 140, 1321, 301));
+        groupBox_3->setGeometry(QRect(20, 140, 1711, 321));
         groupBox_3->setStyleSheet(QString::fromUtf8("background-color: rgb(227, 227, 227);"));
         gridLayout_4 = new QGridLayout(groupBox_3);
         gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
@@ -1516,7 +1516,7 @@ public:
 
         layoutWidget1 = new QWidget(centralwidget);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(20, 440, 1321, 51));
+        layoutWidget1->setGeometry(QRect(20, 470, 1711, 51));
         horizontalLayout_17 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_17->setSpacing(60);
         horizontalLayout_17->setObjectName(QString::fromUtf8("horizontalLayout_17"));
@@ -1885,13 +1885,21 @@ public:
 
         layoutWidget2 = new QWidget(centralwidget);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(20, 490, 1321, 381));
+        layoutWidget2->setGeometry(QRect(20, 530, 1711, 521));
         horizontalLayout_19 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_19->setObjectName(QString::fromUtf8("horizontalLayout_19"));
         horizontalLayout_19->setContentsMargins(0, 0, 0, 0);
+        lineEdit = new QLineEdit(layoutWidget2);
+        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit->setMaximumSize(QSize(0, 0));
+        lineEdit->setCursor(QCursor(Qt::BlankCursor));
+
+        horizontalLayout_19->addWidget(lineEdit);
+
         groupBox_4 = new QGroupBox(layoutWidget2);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
         groupBox_4->setEnabled(true);
+        groupBox_4->setMinimumSize(QSize(1340, 511));
         groupBox_4->setMaximumSize(QSize(1481, 511));
         QFont font13;
         font13.setPointSize(22);
@@ -1899,7 +1907,7 @@ public:
         groupBox_4->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 48, 90);"));
         xian3_result = new QLabel(groupBox_4);
         xian3_result->setObjectName(QString::fromUtf8("xian3_result"));
-        xian3_result->setGeometry(QRect(160, 10, 90, 41));
+        xian3_result->setGeometry(QRect(310, 10, 90, 41));
         xian3_result->setMinimumSize(QSize(81, 41));
         xian3_result->setMaximumSize(QSize(120, 60));
         xian3_result->setFont(font13);
@@ -1908,14 +1916,14 @@ public:
         xian3_result->setAlignment(Qt::AlignCenter);
         xian2_result = new QLabel(groupBox_4);
         xian2_result->setObjectName(QString::fromUtf8("xian2_result"));
-        xian2_result->setGeometry(QRect(520, 10, 90, 41));
+        xian2_result->setGeometry(QRect(700, 10, 90, 41));
         xian2_result->setFont(font13);
         xian2_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         xian2_result->setAlignment(Qt::AlignCenter);
         layoutWidget_2 = new QWidget(groupBox_4);
         layoutWidget_2->setObjectName(QString::fromUtf8("layoutWidget_2"));
-        layoutWidget_2->setGeometry(QRect(480, 60, 171, 121));
+        layoutWidget_2->setGeometry(QRect(660, 60, 171, 121));
         horizontalLayout_8 = new QHBoxLayout(layoutWidget_2);
         horizontalLayout_8->setObjectName(QString::fromUtf8("horizontalLayout_8"));
         horizontalLayout_8->setContentsMargins(0, 0, 0, 0);
@@ -1937,14 +1945,14 @@ public:
 
         xian1_result = new QLabel(groupBox_4);
         xian1_result->setObjectName(QString::fromUtf8("xian1_result"));
-        xian1_result->setGeometry(QRect(920, 10, 90, 41));
+        xian1_result->setGeometry(QRect(1100, 10, 90, 41));
         xian1_result->setFont(font13);
         xian1_result->setStyleSheet(QString::fromUtf8("border-radius:5px;\n"
 "background-color: rgb(200, 140, 0);"));
         xian1_result->setAlignment(Qt::AlignCenter);
         layoutWidget_4 = new QWidget(groupBox_4);
         layoutWidget_4->setObjectName(QString::fromUtf8("layoutWidget_4"));
-        layoutWidget_4->setGeometry(QRect(870, 60, 181, 121));
+        layoutWidget_4->setGeometry(QRect(1050, 60, 181, 121));
         horizontalLayout_11 = new QHBoxLayout(layoutWidget_4);
         horizontalLayout_11->setObjectName(QString::fromUtf8("horizontalLayout_11"));
         horizontalLayout_11->setContentsMargins(0, 0, 0, 0);
@@ -1966,22 +1974,22 @@ public:
 
         label_xian3 = new QLabel(groupBox_4);
         label_xian3->setObjectName(QString::fromUtf8("label_xian3"));
-        label_xian3->setGeometry(QRect(180, 200, 61, 31));
+        label_xian3->setGeometry(QRect(330, 200, 61, 31));
         label_xian3->setFont(font7);
         label_xian3->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_xian2 = new QLabel(groupBox_4);
         label_xian2->setObjectName(QString::fromUtf8("label_xian2"));
-        label_xian2->setGeometry(QRect(550, 200, 61, 31));
+        label_xian2->setGeometry(QRect(730, 200, 61, 31));
         label_xian2->setFont(font7);
         label_xian2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_xian1 = new QLabel(groupBox_4);
         label_xian1->setObjectName(QString::fromUtf8("label_xian1"));
-        label_xian1->setGeometry(QRect(950, 200, 61, 31));
+        label_xian1->setGeometry(QRect(1130, 200, 61, 31));
         label_xian1->setFont(font7);
         label_xian1->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         layoutWidget3 = new QWidget(groupBox_4);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(300, 240, 521, 121));
+        layoutWidget3->setGeometry(QRect(440, 270, 521, 121));
         horizontalLayout_18 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_18->setSpacing(60);
         horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
@@ -2022,7 +2030,7 @@ public:
 
         layoutWidget4 = new QWidget(groupBox_4);
         layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(110, 60, 191, 121));
+        layoutWidget4->setGeometry(QRect(260, 60, 191, 121));
         horizontalLayout_6 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
@@ -2045,15 +2053,9 @@ public:
 
         horizontalLayout_19->addWidget(groupBox_4);
 
-        lineEdit = new QLineEdit(layoutWidget2);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setMaximumSize(QSize(0, 0));
-        lineEdit->setCursor(QCursor(Qt::BlankCursor));
-
-        horizontalLayout_19->addWidget(lineEdit);
-
         groupBox_5 = new QGroupBox(layoutWidget2);
         groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        groupBox_5->setMinimumSize(QSize(180, 511));
         groupBox_5->setMaximumSize(QSize(220, 511));
         groupBox_5->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 32, 57);"));
         verticalLayout_4 = new QVBoxLayout(groupBox_5);
@@ -2151,7 +2153,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1902, 23));
+        menubar->setGeometry(QRect(0, 0, 1732, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -2171,7 +2173,13 @@ public:
         pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         xue_change->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
         groupBox->setTitle(QString());
         desk_num->setText(QString());
@@ -2300,7 +2308,10 @@ public:
         label->setText(QCoreApplication::translate("MainWindow", "\345\256\232\344\275\215", nullptr));
         lineEdit_2->setText(QString());
         button_locate->setText(QCoreApplication::translate("MainWindow", "\345\256\232\344\275\215\357\274\210*\357\274\211", nullptr));
-        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
+#if QT_CONFIG(shortcut)
+        button_locate->setShortcut(QCoreApplication::translate("MainWindow", "*", nullptr));
+#endif // QT_CONFIG(shortcut)
+        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
         button_summit->setText(QCoreApplication::translate("MainWindow", "\346\217\220\344\272\244", nullptr));
         who_win->setText(QString());
     } // retranslateUi

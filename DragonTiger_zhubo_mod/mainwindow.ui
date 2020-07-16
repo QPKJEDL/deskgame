@@ -671,7 +671,7 @@ color: rgb(255, 255, 255);</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_10">
           <item>
-           <layout class="QGridLayout" name="ChatPanel"/>
+           <layout class="QVBoxLayout" name="verticalLayout_6"/>
           </item>
          </layout>
         </widget>

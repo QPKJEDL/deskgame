@@ -147,7 +147,7 @@ public:
     void retranslateUi(QWidget *Login)
     {
         Login->setWindowTitle(QCoreApplication::translate("Login", "Form", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("Login", "\351\276\231\350\231\216_CS2", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("Login", "\351\276\231\350\231\216_A1", nullptr));
 
         pu_enter->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
 #if QT_CONFIG(shortcut)

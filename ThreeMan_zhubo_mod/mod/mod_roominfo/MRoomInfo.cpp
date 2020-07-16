@@ -10,7 +10,7 @@ MRoomInfo::MRoomInfo(MRoomInfoArg *arg, QObject *parent) : QObject(parent)
     this->arg->deskId = arg->deskId;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->timesBoot = arg->timesBoot;
     this->arg->timesPave = arg->timesPave;
 
@@ -21,7 +21,7 @@ MRoomInfo::MRoomInfo(MRoomInfoArg *arg, QObject *parent) : QObject(parent)
 void MRoomInfo::request_room_info()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->postData(QByteArray());
 }
 

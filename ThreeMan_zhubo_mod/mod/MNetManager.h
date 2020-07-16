@@ -15,7 +15,7 @@ public:
     void setRawHeader(QByteArray name, QByteArray rawHeader);
     void setIp(QString ip);
     void setStatus(int status);
-    void setInterface(QString interface);
+    void setInterface(QString inter);
     void postData(QByteArray data);
 private:
     QNetworkRequest *_request;

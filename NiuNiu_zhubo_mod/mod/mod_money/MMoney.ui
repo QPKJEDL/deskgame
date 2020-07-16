@@ -340,7 +340,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="1" column="4">
-      <widget class="QLabel" name="label_14">
+      <widget class="QLabel" name="label_type_one">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -399,7 +399,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QLabel" name="label_26">
+      <widget class="QLabel" name="label_name_three">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -419,7 +419,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="6" column="2">
-      <widget class="QLabel" name="label_25">
+      <widget class="QLabel" name="label_name_five">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -459,7 +459,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="5" column="4">
-      <widget class="QLabel" name="label_30">
+      <widget class="QLabel" name="label_type_four">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -519,7 +519,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="4" column="4">
-      <widget class="QLabel" name="label_29">
+      <widget class="QLabel" name="label_type_three">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -579,7 +579,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="8" column="2">
-      <widget class="QLabel" name="label_34">
+      <widget class="QLabel" name="label_name_seven">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -618,7 +618,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QLabel" name="label_33">
+      <widget class="QLabel" name="label_name_six">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -658,7 +658,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="2" column="4">
-      <widget class="QLabel" name="label_18">
+      <widget class="QLabel" name="label_type_two">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -718,7 +718,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLabel" name="label_12">
+      <widget class="QLabel" name="label_name_one">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -738,7 +738,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QLabel" name="label_21">
+      <widget class="QLabel" name="label_name_four">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -838,7 +838,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLabel" name="label_16">
+      <widget class="QLabel" name="label_name_two">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -898,7 +898,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="7" column="4">
-      <widget class="QLabel" name="label_37">
+      <widget class="QLabel" name="label_type_six">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -958,7 +958,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="6" column="4">
-      <widget class="QLabel" name="label_31">
+      <widget class="QLabel" name="label_type_five">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -1038,7 +1038,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="8" column="4">
-      <widget class="QLabel" name="label_38">
+      <widget class="QLabel" name="label_type_seven">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>

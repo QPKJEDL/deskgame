@@ -11,10 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QDialog>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -22,24 +20,21 @@ QT_BEGIN_NAMESPACE
 class Ui_MDialog
 {
 public:
-    QVBoxLayout *verticalLayout;
     QWidget *widget;
     QLabel *label;
     QPushButton *pu_yes;
     QPushButton *pu_no;
 
-    void setupUi(QDialog *MDialog)
+    void setupUi(QWidget *MDialog)
     {
         if (MDialog->objectName().isEmpty())
             MDialog->setObjectName(QString::fromUtf8("MDialog"));
         MDialog->resize(400, 300);
-        MDialog->setStyleSheet(QString::fromUtf8("background-color: rgb(85, 85, 127);"));
-        verticalLayout = new QVBoxLayout(MDialog);
-        verticalLayout->setSpacing(0);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        MDialog->setStyleSheet(QString::fromUtf8("background-color: transparent; border-radius: 30px;\n"
+""));
         widget = new QWidget(MDialog);
         widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(0, 0, 400, 300));
         widget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 250, 250);border:1px solid grey; border-radius: 25px;"));
         label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
@@ -65,17 +60,14 @@ public:
 "background-color: rgb(148, 148, 148);}\n"
 ""));
 
-        verticalLayout->addWidget(widget);
-
-
         retranslateUi(MDialog);
 
         QMetaObject::connectSlotsByName(MDialog);
     } // setupUi
 
-    void retranslateUi(QDialog *MDialog)
+    void retranslateUi(QWidget *MDialog)
     {
-        MDialog->setWindowTitle(QCoreApplication::translate("MDialog", "Dialog", nullptr));
+        MDialog->setWindowTitle(QCoreApplication::translate("MDialog", "Form", nullptr));
         label->setText(QString());
         pu_yes->setText(QCoreApplication::translate("MDialog", "\347\241\256\345\256\232", nullptr));
         pu_no->setText(QCoreApplication::translate("MDialog", "\345\217\226\346\266\210", nullptr));
