@@ -23,6 +23,7 @@ class MInit : public QWidget
     Q_OBJECT
 public:
     explicit MInit(MInitArg *arg,QWidget *parent = nullptr);
+    ~MInit();
 
 private:
     MInitArg *arg;

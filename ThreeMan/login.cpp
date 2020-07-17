@@ -29,11 +29,7 @@ Login::Login(QWidget *parent) : QWidget(parent) ,ui(new Ui::Login)
 void Login::on_login()
 {
     QByteArray postData;
-<<<<<<< HEAD
     QString str = "desk=SVIP8&password=123456";
-=======
-    QString str = "desk=svip8&password=123456";
->>>>>>> parent of 7a39d67... 0714
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }

@@ -842,6 +842,11 @@ color: rgb(223, 238, 118);</string>
                 <height>40</height>
                </size>
               </property>
+              <property name="font">
+               <font>
+                <pointsize>15</pointsize>
+               </font>
+              </property>
               <property name="styleSheet">
                <string notr="true">background-color: rgb(74, 15, 12);
 color: rgb(255, 255, 255);</string>

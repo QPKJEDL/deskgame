@@ -7,9 +7,6 @@
 #include <QJsonArray>
 #include <QHostAddress>
 
-//QString URL = "192.168.0.104:8210";
-//QString URL = "129.211.114.135:8210";101.32.22.231:8210
-
 enum {ROOMINFO,RECORD,GAMEOVER,INIT,START,CHNAGEBOOT,USELESS,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,BAN};
 
 MainWindow::MainWindow(QWidget *parent)
@@ -19,20 +16,20 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("101.32.22.231:8210");
+    second_manager->setIp("129.211.114.135:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
 
     // 模块
     MLoginArg loginArg;
-    loginArg.userid = "VIP2";
-    loginArg.passwd = "e5134a96afacbcb0";
-    loginArg.IP = "101.32.22.231";
+    loginArg.userid = "A5";
+    loginArg.passwd = "123456";
+    loginArg.IP = "129.211.114.135";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;

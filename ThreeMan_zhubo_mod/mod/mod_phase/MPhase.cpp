@@ -35,6 +35,14 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     connect(arg->locate,SIGNAL(clicked()),this,SLOT(pu_locate()));
 }
 
+MPhase::~MPhase()
+{
+    if(ui)
+        delete ui;
+    if(arg)
+        delete arg;
+}
+
 void disabled(std::initializer_list<QPushButton*> list){
     for(auto button : list){
         button->setEnabled(false);

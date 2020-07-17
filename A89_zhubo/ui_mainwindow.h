@@ -576,7 +576,7 @@ public:
 #if QT_CONFIG(shortcut)
         button_locate->setShortcut(QCoreApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_CONFIG(shortcut)
-        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
+        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
 #if QT_CONFIG(shortcut)
         button_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
 #endif // QT_CONFIG(shortcut)

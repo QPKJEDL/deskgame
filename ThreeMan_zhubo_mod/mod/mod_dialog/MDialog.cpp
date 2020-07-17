@@ -12,7 +12,8 @@ MDialog::MDialog(QWidget *parent) :
 
 MDialog::~MDialog()
 {
-    delete ui;
+    if(ui)
+        delete ui;
 }
 
 void MDialog::set_message(QString msg)

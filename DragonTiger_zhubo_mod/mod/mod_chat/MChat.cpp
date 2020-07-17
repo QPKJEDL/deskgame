@@ -55,7 +55,7 @@ void MChat::pu_name(QString uid)
 {
     MDialog *dlg = new MDialog();
     dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否提交?");
+    dlg->set_message("是否禁言?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg->exec();
     if(ret == QDialog::Accepted){

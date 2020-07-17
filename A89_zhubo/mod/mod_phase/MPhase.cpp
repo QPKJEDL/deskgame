@@ -50,7 +50,7 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
-    if(--times < 0){
+    if(times < 0){
         timer->stop();
         this->hide();
         times = 30;
@@ -58,7 +58,9 @@ void MPhase::on_timeout()
         enabled({arg->leave,arg->useless,arg->locate});
     }
     else{
+        this->show();
         ui->label->setText(QString::number(times));
+        times--;
     }
 }
 
@@ -94,7 +96,6 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         times = count_down - time;
         timer->start(1000);
         this->setWindowFlags(Qt::FramelessWindowHint);
-        this->show();
         break;
     }
     case 2:{
@@ -112,6 +113,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
 void MPhase::on_finished()
 {
     enabled({arg->start,arg->init});
+    arg->start->setFocus();
 }
 
 void MPhase::on_start()
@@ -161,6 +163,7 @@ void MPhase::responsed_locate(QNetworkReply *reply)
     if(status == 1){
         arg->location->setText(QString::number(location));
         arg->input->setVisible(false);
+        arg->input->setText("");
         emit located(location);
     }
     else{

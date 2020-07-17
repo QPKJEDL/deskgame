@@ -21,6 +21,12 @@ MRoomInfo::MRoomInfo(MRoomInfoArg *arg, QObject *parent) : QObject(parent)
     connect(this->arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
+MRoomInfo::~MRoomInfo()
+{
+    if(arg)
+        delete arg;
+}
+
 void MRoomInfo::request_room_info()
 {
     arg->manager->setStatus(arg->status);

@@ -24,7 +24,10 @@ MTopThree::MTopThree(MTopThreeArg *arg) :
 
 MTopThree::~MTopThree()
 {
-    delete ui;
+    if(ui)
+        delete ui;
+    if(arg)
+        delete arg;
 }
 
 void MTopThree::on_responsed(QNetworkReply *reply, int status)

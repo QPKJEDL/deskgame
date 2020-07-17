@@ -14,7 +14,9 @@ MReword::MReword(QWidget *parent) :
 
 MReword::~MReword()
 {
-    delete ui;
+    if(ui)
+        delete ui;
+
 }
 
 void MReword::show_reword(QString user, int money)

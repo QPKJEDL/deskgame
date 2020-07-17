@@ -38,7 +38,12 @@ MMoney::MMoney(MMoneyArg *arg):
 
 MMoney::~MMoney()
 {
-    delete ui;
+    if(ui)
+        delete ui;
+    if(arg)
+        delete arg;
+    if(button_money)
+        delete button_money;
 }
 
 void MMoney::update_panel(QJsonArray data)

@@ -432,6 +432,9 @@ public:
         label_result = new QLabel(widget);
         label_result->setObjectName(QString::fromUtf8("label_result"));
         label_result->setMaximumSize(QSize(16777215, 40));
+        QFont font3;
+        font3.setPointSize(15);
+        label_result->setFont(font3);
         label_result->setStyleSheet(QString::fromUtf8("background-color: rgb(74, 15, 12);\n"
 "color: rgb(255, 255, 255);"));
 

@@ -22,13 +22,19 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
+MUseless::~MUseless()
+{
+    if(arg)
+        delete arg;
+}
+
 void MUseless::pu_useless()
 {
-    MDialog *dlg = new MDialog(m_widget);
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否作废?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
+    MDialog dlg(m_widget);
+    dlg.setWindowFlag(Qt::FramelessWindowHint);
+    dlg.set_message("是否作废?");
+    dlg.setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg.exec();
     if(ret == QDialog::Accepted){
         request_useless();
     }

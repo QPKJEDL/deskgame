@@ -1075,7 +1075,7 @@ void MainWindow::phase_zero()
 void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     unsigned int time = end - start;
-    count_down = 30 - time;
+    count_down = count_down_num - time;
     timer_Countdown->start(1000);
 }
 
@@ -1112,15 +1112,13 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         unsigned int pave_num = data.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-<<<<<<< HEAD
+
         location = 0;
         ui->label_locate->setText("");
-=======
 
->>>>>>> parent of 7a39d67... 0714
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
-        count_down = 30;
+        count_down = count_down_num;
         timer_Countdown->start(1000);
     }
     else{
@@ -1143,6 +1141,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
+        count_down_num = data.at(0)["CountDown"].toInt();
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);

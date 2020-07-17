@@ -22,13 +22,19 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
+MInit::~MInit()
+{
+    if(arg)
+        delete arg;
+}
+
 void MInit::pu_init()
 {
-    MDialog *dlg = new MDialog(widget);
-    dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否初始化?");
-    dlg->setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg->exec();
+    MDialog dlg(widget);
+    dlg.setWindowFlag(Qt::FramelessWindowHint);
+    dlg.set_message("是否初始化?");
+    dlg.setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg.exec();
     if(ret == QDialog::Accepted){
         request_init();
     }

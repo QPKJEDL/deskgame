@@ -13,6 +13,7 @@ typedef struct{
     MNetManager *manager;
     int status;
     QString inter;
+
 }MChangeBootArg;
 
 class MChangeBoot;
@@ -23,6 +24,8 @@ class MChangeBoot : public QWidget
     Q_OBJECT
 public:
     explicit MChangeBoot(MChangeBootArg *arg,QWidget *parent = nullptr);
+    ~MChangeBoot();
+
 private:
     MChangeBootArg *arg;
     QMap<int,exe_changeBoot> _map;

@@ -1132,7 +1132,6 @@ void MainWindow::request_room_info()
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1140,7 +1139,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     // 倒计时中
     unsigned int time = end - start;
-    count_down = 30 - time;
+    count_down = count_down_num - time;
     timer_Countdown->start(1000);
 }
 
@@ -1155,7 +1154,6 @@ void MainWindow::phase_finish()
     // 结算完成
     // 启用该启用的按钮
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1174,7 +1172,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->label_locate->setText("");
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
-        count_down = 30;
+        count_down = count_down_num;
         timer_Countdown->start(1000);
     }
     else{
@@ -1197,6 +1195,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
+        count_down_num = data.at(0)["CountDown"].toInt();
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);

@@ -25,6 +25,7 @@ class MRoomInfo : public QObject
     Q_OBJECT
 public:
     explicit MRoomInfo(MRoomInfoArg *arg,QObject *parent = nullptr);
+    ~MRoomInfo();
 
 private:
     MRoomInfoArg *arg;

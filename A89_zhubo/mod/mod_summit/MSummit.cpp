@@ -23,9 +23,6 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
     connect(arg->button,SIGNAL(clicked()),this,SLOT(pu_summit()));
     _map.insert(arg->status,&MSummit::responsed_summit);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
-
-    connect(ui->yes,SIGNAL(clicked()),this,SLOT(pu_yes()));
-    connect(ui->no,SIGNAL(clicked()),this,SLOT(pu_no()));
 }
 
 MSummit::~MSummit()
