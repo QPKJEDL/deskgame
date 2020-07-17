@@ -18,18 +18,12 @@ MChangeBoot::MChangeBoot(MChangeBootArg *arg,QWidget *parent) : QWidget(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
-MChangeBoot::~MChangeBoot()
-{
-    if(arg)
-        delete arg;
-}
-
 void MChangeBoot::pu_changeBoot(){
-    MDialog dlg;
-    dlg.setWindowFlag(Qt::FramelessWindowHint);
-    dlg.set_message("是否换靴?");
-    dlg.setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg.exec();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否换靴?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
     if(ret == QDialog::Accepted){
         request_changeBoot();
     }

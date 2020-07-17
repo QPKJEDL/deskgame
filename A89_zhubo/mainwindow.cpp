@@ -29,11 +29,11 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
@@ -41,9 +41,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->lineEdit_2->setVisible(false);
     /////////////////////////////////////////////////////////////////////////////
     MLoginArg loginArg;
-    loginArg.userid = "A8";
-    loginArg.passwd = "123456";
-    loginArg.IP = "129.211.114.135";
+    loginArg.userid = "VIP5";
+    loginArg.passwd = "9fae1f45c7ddeb94";
+    loginArg.IP = "101.32.22.231";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;

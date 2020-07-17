@@ -34,7 +34,6 @@ private:
     Ui::MSummit *ui;
     MSummitArg *arg;
     QMap<int,exe_summit> _map;
-    QWidget *parent;
 
 private:
     void request_summit();

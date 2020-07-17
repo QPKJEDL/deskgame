@@ -25,7 +25,6 @@ class MUseless : public QWidget
     Q_OBJECT
 public:
     explicit MUseless(MUselessArg *arg,QWidget *parent = nullptr);
-    ~MUseless();
 
 private:
     MUselessArg *arg;

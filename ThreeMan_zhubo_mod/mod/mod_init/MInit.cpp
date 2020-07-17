@@ -20,14 +20,9 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
-MInit::~MInit()
-{
-    if(arg)
-        delete arg;
-}
-
 void MInit::pu_init()
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     MDialog dlg(widget);
     dlg.setWindowFlag(Qt::FramelessWindowHint);
@@ -36,11 +31,17 @@ void MInit::pu_init()
     int ret = dlg.exec();
 =======
     MDialog *dlg = new MDialog();
+=======
+    MDialog *dlg = new MDialog(widget);
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     dlg->setWindowFlag(Qt::FramelessWindowHint);
     dlg->set_message("是否初始化?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg->exec();
+<<<<<<< HEAD
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     if(ret == QDialog::Accepted){
         request_init();
     }

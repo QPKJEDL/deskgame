@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     // 网络初始化
     manager = new MNetManager;
-    manager->setIp("101.32.22.231:8210");
+    manager->setIp("129.211.114.135:8210");
     manager->setHeader("application/x-www-form-urlencoded");
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -640,7 +640,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     // 倒计时中
     unsigned int time = end - start;
-    times = count_down_num - time;
+    times = 30 - time;
     m_timer_count_down->start(1000);
 }
 
@@ -1090,7 +1090,15 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
+<<<<<<< HEAD
     postData.append("desk=CS1&password=b86170ccbe836000");
+=======
+<<<<<<< HEAD
+    postData.append("desk=A5&password=123456");
+=======
+    postData.append("desk=a5&password=123456");
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     manager->postData(postData);
 }
 
@@ -1226,7 +1234,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
-        count_down_num = data.at(0)["CountDown"].toInt();
+
         ui->label_times_xue->setText(QString::number(BootNum));
         ui->label_times_pu->setText(QString::number(PaveNum));
         ui->label_desk_id->setText(DeskName);
@@ -1302,7 +1310,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
 
         ui->label_times_xue->setText(QString::number(boot_num));
         ui->label_times_pu->setText(QString::number(pave_num));
-        times = count_down_num;
+
         ui->pu_changeXue->setEnabled(false);
         on_start();
     }
@@ -1340,14 +1348,6 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
             node = node->next;
         }
         m_link_reslut = m_link_reslut_head;
-
-        ui->label_zwl_one->setStyleSheet("background-color: rgb(255, 255, 255);");
-        ui->label_zwl_two->setStyleSheet("background-color: rgb(255, 255, 255);");
-        ui->label_zwl_three->setStyleSheet("background-color: rgb(255, 255, 255);");
-
-        ui->label_xwl_one->setStyleSheet("background-color: rgb(255, 255, 255);");
-        ui->label_xwl_two->setStyleSheet("background-color: rgb(255, 255, 255);");
-        ui->label_xwl_three->setStyleSheet("background-color: rgb(255, 255, 255);");
 
         way_big->init();
         way_big_eye->init();

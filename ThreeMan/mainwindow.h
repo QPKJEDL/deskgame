@@ -129,7 +129,6 @@ private:
     NUMBER number;
     int location;
     int count_down;
-    int count_down_num;
 
     MNetManager *manager;
     QMap<int,exe> _map;

@@ -37,7 +37,6 @@ class MPhase : public QWidget
     Q_OBJECT
 public:
     explicit MPhase(MPhaseArg *arg,QWidget *parent = nullptr);
-    ~MPhase();
 
 private:
     Ui::MPhase *ui;

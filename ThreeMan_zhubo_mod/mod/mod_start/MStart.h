@@ -24,7 +24,6 @@ class MStart : public QObject
 
 public:
     MStart(MStartArg *arg,QObject *parent = nullptr);
-    ~MStart();
 
 private:
     MStartArg *arg;

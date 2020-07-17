@@ -36,7 +36,6 @@ MainWindow::MainWindow(QMainWindow *parent)
     m_link_reslut = new Link();
     Link* node = new Link();
     m_link_reslut = node;
-    m_link_reslut_head = node;
     // 先动态生成QGridLayout 中的 120 个 QLabel
     for(int i = 0;i < 20;i++){
         for(int j = 0;j < 6;j++){
@@ -46,13 +45,8 @@ MainWindow::MainWindow(QMainWindow *parent)
 
             // 生成结果链表
             node->data = label;
-            if(i == 19 && j == 5){
-                node->next = nullptr;
-            }
-            else{
-                node->next = new Link;
-                node = node->next;
-            }
+            node->next = new Link;
+            node = node->next;
         }
     }
 
@@ -553,7 +547,6 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
         count_down_num = data.at(0)["CountDown"].toInt();
-
         ui->label_xues->setText(QString::number(boot_num));
         ui->label_pus->setText(QString::number(PaveNum));
         ui->label_VIP_level->setText(DeskName);
@@ -624,7 +617,6 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->label_pus->setText(QString::number(pave_num));
         ui->pu_changeXue->setEnabled(false);
 
-        times = count_down_num;
         apply_start();
     }
     else{
@@ -651,18 +643,9 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
         Link* node = m_link_reslut_head;
         while(node->next != nullptr){
             node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
-            node->data->setText("");
             node = node->next;
         }
         m_link_reslut = m_link_reslut_head;
-
-        ui->label_lwl_one->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
-        ui->label_lwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
-        ui->label_lwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
-
-        ui->label_hwl_one->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
-        ui->label_hwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
-        ui->label_hwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
 
         way_big->init();
         way_big_eye->init();
@@ -749,7 +732,6 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
         ongl_enter(path_gl);
 
         ui->pu_start->setEnabled(true);
-        ui->pu_changeXue->setEnabled(true);
         ui->pu_long->setEnabled(false);
         ui->pu_tiger->setEnabled(false);
         ui->pu_same->setEnabled(false);
@@ -788,7 +770,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     // 倒计时中
     unsigned int time = end - start;
-    times = count_down_num - time;
+    times = 30 - time;
     m_timer_count_down->start(1000);
 }
 

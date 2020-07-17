@@ -14,10 +14,13 @@ typedef struct{
     int status;
 <<<<<<< HEAD
     QString inter;
+<<<<<<< HEAD
 
 =======
     QString interface;
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 }MChangeBootArg;
 
 class MChangeBoot;
@@ -28,8 +31,6 @@ class MChangeBoot : public QWidget
     Q_OBJECT
 public:
     explicit MChangeBoot(MChangeBootArg *arg,QWidget *parent = nullptr);
-    ~MChangeBoot();
-
 private:
     MChangeBootArg *arg;
     QMap<int,exe_changeBoot> _map;

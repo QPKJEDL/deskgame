@@ -27,10 +27,7 @@ MChat::MChat(MChatArg *arg) :
 
 MChat::~MChat()
 {
-    if(ui)
-        delete ui;
-    if(arg)
-        delete arg;
+    delete ui;
 }
 
 void MChat::request_ban(QString uid)

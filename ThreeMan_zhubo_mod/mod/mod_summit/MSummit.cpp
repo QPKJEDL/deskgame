@@ -11,7 +11,6 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
     ui(new Ui::MSummit)
 {
     ui->setupUi(this);
-    this->parent = parent;
 
     this->arg = new MSummitArg;
     this->arg->button = arg->button;
@@ -28,10 +27,7 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
 
 MSummit::~MSummit()
 {
-    if(ui)
-        delete ui;
-    if(arg)
-        delete arg;
+    delete ui;
 }
 
 void MSummit::request_summit()
@@ -74,11 +70,11 @@ void MSummit::on_responsed(QNetworkReply *reply, int status)
 void MSummit::pu_summit()
 {
     arg->button->setEnabled(false);
-    MDialog dlg(parent);
-    dlg.setWindowFlag(Qt::FramelessWindowHint);
-    dlg.set_message("是否提交?");
-    dlg.setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg.exec();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
     if(ret == QDialog::Accepted){
         request_summit();
     }

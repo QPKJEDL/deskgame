@@ -2,17 +2,12 @@
 #include <QDialog>
 #include <mod/mod_dialog/MDialog.h>
 
-MLeave::MLeave(QPushButton *button, QWidget *parent) : QObject(parent)
+MLeave::MLeave(QPushButton *button, QWidget *widget, QObject *parent) : QObject(parent)
 {
     this->button = button;
-    this->widget = parent;
+    this->widget = widget;
 
     connect(this->button,SIGNAL(clicked()),this,SLOT(pu_button()));
-}
-
-MLeave::~MLeave()
-{
-
 }
 
 void MLeave::pu_button()

@@ -29,7 +29,15 @@ Login::Login(QWidget *parent) : QWidget(parent) ,ui(new Ui::Login)
 void Login::on_login()
 {
     QByteArray postData;
+<<<<<<< HEAD
     QString str = "desk=SVIP8&password=7f2d0517446b496e";
+=======
+<<<<<<< HEAD
+    QString str = "desk=SVIP8&password=123456";
+=======
+    QString str = "desk=svip8&password=123456";
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }

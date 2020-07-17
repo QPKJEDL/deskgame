@@ -239,8 +239,17 @@ void MRoomCard::while_timeout()
     }
     graphiceffect->setOpacity(opacity);
     link->data[NUM.num].label->setGraphicsEffect(graphiceffect);
+<<<<<<< HEAD
 
+=======
+<<<<<<< HEAD
+    graphiceffect_name = new QGraphicsOpacityEffect();
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     graphiceffect_name->setOpacity(opacity);
+=======
+
+    graphiceffect_name->setOpacity(0.5);
+>>>>>>> parent of 7a39d67... 0714
     label_name->setGraphicsEffect(graphiceffect_name);
 }
 
@@ -484,11 +493,14 @@ MRoomCard::~MRoomCard()
 <<<<<<< HEAD
     if(ui)
         delete ui;
+<<<<<<< HEAD
     if(arg)
         delete arg;
 =======
     delete ui;
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 }
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -1231,7 +1231,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
            </property>
            <property name="text">
-            <string>作废</string>
+            <string>作废（0）</string>
            </property>
            <property name="shortcut">
             <string>0</string>

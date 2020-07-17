@@ -20,14 +20,9 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
-MUseless::~MUseless()
-{
-    if(arg)
-        delete arg;
-}
-
 void MUseless::pu_useless()
 {
+<<<<<<< HEAD
 <<<<<<< HEAD
     MDialog dlg(m_widget);
     dlg.setWindowFlag(Qt::FramelessWindowHint);
@@ -36,11 +31,17 @@ void MUseless::pu_useless()
     int ret = dlg.exec();
 =======
     MDialog *dlg = new MDialog();
+=======
+    MDialog *dlg = new MDialog(m_widget);
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     dlg->setWindowFlag(Qt::FramelessWindowHint);
     dlg->set_message("是否作废?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg->exec();
+<<<<<<< HEAD
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     if(ret == QDialog::Accepted){
         request_useless();
     }

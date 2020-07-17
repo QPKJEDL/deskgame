@@ -19,12 +19,6 @@ MStart::MStart(MStartArg *arg,QObject *parent) : QObject(parent)
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
-MStart::~MStart()
-{
-    if(arg)
-        delete arg;
-}
-
 void MStart::request_start()
 {
     arg->manager->setStatus(arg->status);

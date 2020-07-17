@@ -8,12 +8,21 @@
 <<<<<<< HEAD
 //static QString URL = "101.32.22.231:8210";
 static QString URL = "129.211.114.135:8210";
+//
+=======
+static QString URL = "101.32.22.231:8210";
 
+<<<<<<< HEAD
 =======
 static QString URL = "101.32.22.231:8210";
 //static QString URL = "129.211.114.135:8210";
 //
 >>>>>>> parent of 345f219... 0716
+=======
+//static QString URL = "129.211.114.135:8210";
+
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
 {
     ui->setupUi(this);
@@ -35,12 +44,19 @@ void Login::on_login()
 {
     QByteArray postData;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     QString str = "desk=a2&password=123456";
 
 =======
     QString str = "desk=CS3&password=454766a03187d8b1";
 >>>>>>> parent of 345f219... 0716
+=======
+    QString str = "desk=a2&password=123456";
+=======
+    QString str = "desk=CS3&password=258357";
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }

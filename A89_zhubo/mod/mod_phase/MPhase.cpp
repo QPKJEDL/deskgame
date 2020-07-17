@@ -51,11 +51,15 @@ void enabled(std::initializer_list<QPushButton*> list){
 void MPhase::on_timeout()
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(times < 0){
 =======
     ui->label->setText(QString::number(times));
     if(--times < 0){
 >>>>>>> parent of 345f219... 0716
+=======
+    if(--times < 0){
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
         timer->stop();
         this->hide();
         emit timeout();
@@ -63,9 +67,7 @@ void MPhase::on_timeout()
     }
 <<<<<<< HEAD
     else{
-        this->show();
         ui->label->setText(QString::number(times));
-        times--;
     }
 =======
 >>>>>>> parent of 345f219... 0716
@@ -103,6 +105,7 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         times = count_down - time;
         timer->start(1000);
         this->setWindowFlags(Qt::FramelessWindowHint);
+        this->show();
         break;
     }
     case 2:{
@@ -120,7 +123,6 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
 void MPhase::on_finished()
 {
     enabled({arg->start,arg->init});
-    arg->start->setFocus();
 }
 
 void MPhase::on_start()
@@ -169,7 +171,6 @@ void MPhase::responsed_locate(QNetworkReply *reply)
     if(status == 1){
         arg->location->setText(QString::number(location));
         arg->input->setVisible(false);
-        arg->input->setText("");
         emit located(location);
     }
     else{
