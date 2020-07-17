@@ -208,7 +208,6 @@ compiler_rcc_clean:
 debug/qrc_image.cpp: image.qrc \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/rcc.exe \
 		useless.png \
-		qml/Chat.qml \
 		image/bet/playerpair.png \
 		image/bet/banker.png \
 		image/bet/tie.png \
@@ -484,7 +483,7 @@ debug/moc_mainwindow.cpp: mainwindow.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mainwindow.h -o debug\moc_mainwindow.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mainwindow.h -o debug\moc_mainwindow.cpp
 
 debug/moc_MNetManager.cpp: mod/MNetManager.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork/QNetworkRequest \
@@ -667,7 +666,7 @@ debug/moc_MNetManager.cpp: mod/MNetManager.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\MNetManager.h -o debug\moc_MNetManager.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\MNetManager.h -o debug\moc_MNetManager.cpp
 
 debug/moc_MChangeBoot.cpp: mod/mod_changeBoot/MChangeBoot.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -850,7 +849,7 @@ debug/moc_MChangeBoot.cpp: mod/mod_changeBoot/MChangeBoot.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_changeBoot\MChangeBoot.h -o debug\moc_MChangeBoot.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_changeBoot\MChangeBoot.h -o debug\moc_MChangeBoot.cpp
 
 debug/moc_MChat.cpp: mod/mod_chat/MChat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -1033,7 +1032,7 @@ debug/moc_MChat.cpp: mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_chat\MChat.h -o debug\moc_MChat.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_chat\MChat.h -o debug\moc_MChat.cpp
 
 debug/moc_MDialog.cpp: mod/mod_dialog/MDialog.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog \
@@ -1143,7 +1142,7 @@ debug/moc_MDialog.cpp: mod/mod_dialog/MDialog.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_dialog\MDialog.h -o debug\moc_MDialog.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_dialog\MDialog.h -o debug\moc_MDialog.cpp
 
 debug/moc_MInit.cpp: mod/mod_init/MInit.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -1326,7 +1325,7 @@ debug/moc_MInit.cpp: mod/mod_init/MInit.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_init\MInit.h -o debug\moc_MInit.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_init\MInit.h -o debug\moc_MInit.cpp
 
 debug/moc_MLeave.cpp: mod/mod_leave/MLeave.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -1439,7 +1438,7 @@ debug/moc_MLeave.cpp: mod/mod_leave/MLeave.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_leave\MLeave.h -o debug\moc_MLeave.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_leave\MLeave.h -o debug\moc_MLeave.cpp
 
 debug/moc_MLogin.cpp: mod/mod_login/MLogin.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -1622,7 +1621,7 @@ debug/moc_MLogin.cpp: mod/mod_login/MLogin.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_login\MLogin.h -o debug\moc_MLogin.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_login\MLogin.h -o debug\moc_MLogin.cpp
 
 debug/moc_MMoney.cpp: mod/mod_money/MMoney.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -1805,7 +1804,7 @@ debug/moc_MMoney.cpp: mod/mod_money/MMoney.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_money\MMoney.h -o debug\moc_MMoney.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_money\MMoney.h -o debug\moc_MMoney.cpp
 
 debug/moc_MPhase.cpp: mod/mod_phase/MPhase.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -1988,7 +1987,7 @@ debug/moc_MPhase.cpp: mod/mod_phase/MPhase.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_phase\MPhase.h -o debug\moc_MPhase.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_phase\MPhase.h -o debug\moc_MPhase.cpp
 
 debug/moc_MReword.cpp: mod/mod_reward/MReword.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -2100,7 +2099,7 @@ debug/moc_MReword.cpp: mod/mod_reward/MReword.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qbasictimer.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_reward\MReword.h -o debug\moc_MReword.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_reward\MReword.h -o debug\moc_MReword.cpp
 
 debug/moc_MRoomCard.cpp: mod/mod_roomCard/MRoomCard.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -2283,7 +2282,7 @@ debug/moc_MRoomCard.cpp: mod/mod_roomCard/MRoomCard.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_roomCard\MRoomCard.h -o debug\moc_MRoomCard.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_roomCard\MRoomCard.h -o debug\moc_MRoomCard.cpp
 
 debug/moc_MRoomInfo.cpp: mod/mod_roominfo/MRoomInfo.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -2466,7 +2465,7 @@ debug/moc_MRoomInfo.cpp: mod/mod_roominfo/MRoomInfo.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_roominfo\MRoomInfo.h -o debug\moc_MRoomInfo.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_roominfo\MRoomInfo.h -o debug\moc_MRoomInfo.cpp
 
 debug/moc_MStart.cpp: mod/mod_start/MStart.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -2649,7 +2648,7 @@ debug/moc_MStart.cpp: mod/mod_start/MStart.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_start\MStart.h -o debug\moc_MStart.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_start\MStart.h -o debug\moc_MStart.cpp
 
 debug/moc_MSummit.cpp: mod/mod_summit/MSummit.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -2832,7 +2831,7 @@ debug/moc_MSummit.cpp: mod/mod_summit/MSummit.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_summit\MSummit.h -o debug\moc_MSummit.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_summit\MSummit.h -o debug\moc_MSummit.cpp
 
 debug/moc_MTopThree.cpp: mod/mod_topThree/MTopThree.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -3015,7 +3014,7 @@ debug/moc_MTopThree.cpp: mod/mod_topThree/MTopThree.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_topThree\MTopThree.h -o debug\moc_MTopThree.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_topThree\MTopThree.h -o debug\moc_MTopThree.cpp
 
 debug/moc_MUseless.cpp: mod/mod_useless/MUseless.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QObject \
@@ -3198,7 +3197,7 @@ debug/moc_MUseless.cpp: mod/mod_useless/MUseless.h \
 		mod/mod_reward/MReword.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include mod\mod_useless\MUseless.h -o debug\moc_MUseless.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include mod\mod_useless\MUseless.h -o debug\moc_MUseless.cpp
 
 debug/moc_qqchat.cpp: qqchat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
@@ -3307,7 +3306,7 @@ debug/moc_qqchat.cpp: qqchat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		debug/moc_predefs.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/bin/moc.exe
-	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/i686-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_32/lib/gcc/i686-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_32/i686-w64-mingw32/include qqchat.h -o debug\moc_qqchat.cpp
+	D:\Qt\Qt5.14.2\5.14.2\mingw73_32\bin\moc.exe $(DEFINES) --include "D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod/debug/moc_predefs.h" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/mkspecs/win32-g++ -I"D:/MengKE's WOrkSpace/deskgame/ThreeMan_zhubo_mod" -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtANGLE -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtNetwork -ID:/Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++ -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/x86_64-w64-mingw32 -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/c++/backward -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include -ID:/Qt/Qt5.14.2/Tools/mingw730_64/lib/gcc/x86_64-w64-mingw32/7.3.0/include-fixed -ID:/Qt/Qt5.14.2/Tools/mingw730_64/x86_64-w64-mingw32/include qqchat.h -o debug\moc_qqchat.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -3740,24 +3739,6 @@ debug/mainwindow.o: mainwindow.cpp mainwindow.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_mainwindow.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QGroupBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgroupbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMenuBar \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmenubar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmenu.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qaction.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qactiongroup.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QStatusBar \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstatusbar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/QKeyEvent \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDebug \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDateTime \
@@ -4332,16 +4313,6 @@ debug/MChat.o: mod/mod_chat/MChat.cpp mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		qqchat.h \
 		ui_MChat.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
@@ -4349,9 +4320,7 @@ debug/MChat.o: mod/mod_chat/MChat.cpp mod/mod_chat/MChat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonobject.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
-		mod/mod_dialog/MDialog.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDialog
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\MChat.o mod\mod_chat\MChat.cpp
 
 debug/MDialog.o: mod/mod_dialog/MDialog.cpp mod/mod_dialog/MDialog.h \
@@ -4460,23 +4429,7 @@ debug/MDialog.o: mod/mod_dialog/MDialog.cpp mod/mod_dialog/MDialog.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qfiledevice.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvector2d.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
-		ui_MDialog.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget
+		ui_MDialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\MDialog.o mod\mod_dialog\MDialog.cpp
 
 debug/MInit.o: mod/mod_init/MInit.cpp mod/mod_init/MInit.h \
@@ -4964,29 +4917,6 @@ debug/MLogin.o: mod/mod_login/MLogin.cpp mod/mod_login/MLogin.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MLogin.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QComboBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qcombobox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractitemdelegate.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyleoption.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractslider.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qstyle.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qtabbar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qrubberband.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qabstractitemmodel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
@@ -5180,23 +5110,6 @@ debug/MMoney.o: mod/mod_money/MMoney.cpp mod/mod_money/MMoney.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MMoney.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QDate \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QDateTimeEdit \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdatetimeedit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcalendar.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractspinbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qvalidator.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qregularexpression.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonArray \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonarray.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
@@ -5388,16 +5301,6 @@ debug/MPhase.o: mod/mod_phase/MPhase.cpp mod/mod_phase/MPhase.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MPhase.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
@@ -5518,23 +5421,7 @@ debug/MReword.o: mod/mod_reward/MReword.cpp mod/mod_reward/MReword.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QTimer \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qtimer.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qbasictimer.h \
-		ui_MReword.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h
+		ui_MReword.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\MReword.o mod\mod_reward\MReword.cpp
 
 debug/MRoomCard.o: mod/mod_roomCard/MRoomCard.cpp mod/mod_roomCard/MRoomCard.h \
@@ -5716,16 +5603,6 @@ debug/MRoomCard.o: mod/mod_roomCard/MRoomCard.cpp mod/mod_roomCard/MRoomCard.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MRoomCard.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
@@ -6297,13 +6174,6 @@ debug/MSummit.o: mod/mod_summit/MSummit.cpp mod/mod_summit/MSummit.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MSummit.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QMessageBox \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qmessagebox.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdialog.h \
@@ -6497,16 +6367,6 @@ debug/MTopThree.o: mod/mod_topThree/MTopThree.cpp mod/mod_topThree/MTopThree.h \
 		mod/mod_chat/MChat.h \
 		mod/mod_reward/MReword.h \
 		ui_MTopThree.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QGroupBox \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgroupbox.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QJsonDocument \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsondocument.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qjsonvalue.h \
@@ -6819,29 +6679,7 @@ debug/qqchat.o: qqchat.cpp ../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidg
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qtouchdevice.h \
 		qqchat.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QWidget \
-		ui_qqchat.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/QVariant \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QApplication \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qcoreapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtCore/qeventloop.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qdesktopwidget.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qguiapplication.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qinputmethod.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QHBoxLayout \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qboxlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlayoutitem.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qgridlayout.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QLabel \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qlabel.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qframe.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QPushButton \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qpushbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/qabstractbutton.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtGui/qicon.h \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QSpacerItem \
-		../../../Qt/Qt5.14.2/5.14.2/mingw73_32/include/QtWidgets/QVBoxLayout
+		ui_qqchat.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\qqchat.o qqchat.cpp
 
 debug/qrc_image.o: debug/qrc_image.cpp 

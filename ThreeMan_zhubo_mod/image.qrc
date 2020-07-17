@@ -74,7 +74,6 @@
         <file>image/pukepai/412.png</file>
         <file>image/pukepai/413.png</file>
         <file>useless.png</file>
-        <file>qml/Chat.qml</file>
     </qresource>
     <qresource prefix="/bet">
         <file>image/bet/banker.png</file>

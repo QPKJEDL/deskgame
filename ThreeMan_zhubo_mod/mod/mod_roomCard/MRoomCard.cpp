@@ -221,8 +221,6 @@ void MRoomCard::while_timeout()
     if(NUM.num == 3){
         graphiceffect->setOpacity(1);
         link->data[2].label->setGraphicsEffect(graphiceffect);
-        graphiceffect_name->setOpacity(1);
-        label_name->setGraphicsEffect(graphiceffect_name);
         timer_opacity->stop();
         return;
     }
@@ -241,7 +239,7 @@ void MRoomCard::while_timeout()
     }
     graphiceffect->setOpacity(opacity);
     link->data[NUM.num].label->setGraphicsEffect(graphiceffect);
-    graphiceffect_name = new QGraphicsOpacityEffect();
+
     graphiceffect_name->setOpacity(opacity);
     label_name->setGraphicsEffect(graphiceffect_name);
 }
@@ -434,13 +432,12 @@ void MRoomCard::clear()
     ui->xian1_result->setText(QString(""));
     ui->xian2_result->setText(QString(""));
     ui->xian3_result->setText(QString(""));
-    ui->xian1_result_2->setText(QString(""));
-    ui->xian1_result_3->setText(QString(""));
-    ui->xian1_result_4->setText(QString(""));
+    ui->label_xian1_2->setText(QString(""));
+    ui->label_xian1_3->setText(QString(""));
+    ui->label_xian1_4->setText(QString(""));
     ui->zhuang_result->setText(QString(""));
 
     init_link();
-    emit clear_finished();
 }
 
 MRoomCard::MRoomCard(MRoomCardArg *arg, QWidget *parent) :
@@ -484,10 +481,14 @@ MRoomCard::MRoomCard(MRoomCardArg *arg, QWidget *parent) :
 
 MRoomCard::~MRoomCard()
 {
+<<<<<<< HEAD
     if(ui)
         delete ui;
     if(arg)
         delete arg;
+=======
+    delete ui;
+>>>>>>> parent of 345f219... 0716
 }
 
 ///////////////////////////////////////////////////////////////////////////////

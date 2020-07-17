@@ -12,7 +12,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString inter;
+    QString interface;
 }MInitArg;
 
 class MInit;
@@ -28,7 +28,6 @@ public:
 private:
     MInitArg *arg;
     QMap<int,exe_init> _map;
-    QWidget *widget;
 
 signals:
     void inited();

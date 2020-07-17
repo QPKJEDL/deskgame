@@ -11,6 +11,7 @@
 class MNetManager;
 class MPhase;
 typedef struct{
+    QPushButton *init;
     QPushButton *start;
     QPushButton *leave;
     QPushButton *useless;
@@ -46,7 +47,6 @@ private:
 
     int times;
     QTimer *timer;
-    QWidget *widget;
 
     int count_down;
 private slots:

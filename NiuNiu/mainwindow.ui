@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1732</width>
-    <height>1119</height>
+    <width>1409</width>
+    <height>900</height>
    </rect>
   </property>
   <property name="font">
@@ -27,8 +27,8 @@
      <rect>
       <x>20</x>
       <y>10</y>
-      <width>1711</width>
-      <height>81</height>
+      <width>1371</width>
+      <height>80</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -1152,21 +1152,21 @@ background-color: rgb(0,32, 57);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>100</y>
-      <width>1711</width>
-      <height>31</height>
+      <y>90</y>
+      <width>1371</width>
+      <height>25</height>
      </rect>
     </property>
     <property name="minimumSize">
      <size>
       <width>1271</width>
-      <height>31</height>
+      <height>25</height>
      </size>
     </property>
     <property name="maximumSize">
      <size>
       <width>16777215</width>
-      <height>48</height>
+      <height>36</height>
      </size>
     </property>
     <property name="palette">
@@ -1290,7 +1290,7 @@ background-color: rgb(0,32, 57);
     <property name="font">
      <font>
       <family>黑体</family>
-      <pointsize>20</pointsize>
+      <pointsize>16</pointsize>
       <weight>75</weight>
       <bold>true</bold>
      </font>
@@ -1303,9 +1303,9 @@ background-color: rgb(0,32, 57);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>140</y>
-      <width>1711</width>
-      <height>321</height>
+      <y>120</y>
+      <width>1371</width>
+      <height>241</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -3919,9 +3919,9 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>470</y>
-      <width>1711</width>
-      <height>51</height>
+      <y>370</y>
+      <width>1371</width>
+      <height>41</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_17">
@@ -5800,9 +5800,9 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>530</y>
-      <width>1711</width>
-      <height>521</height>
+      <y>410</y>
+      <width>1371</width>
+      <height>452</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_19">
@@ -5827,13 +5827,13 @@ color: rgb(255, 255, 255);</string>
        <property name="minimumSize">
         <size>
          <width>1340</width>
-         <height>511</height>
+         <height>435</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>1481</width>
-         <height>511</height>
+         <width>1400</width>
+         <height>435</height>
         </size>
        </property>
        <property name="font">
@@ -5850,7 +5850,7 @@ color: rgb(255, 255, 255);</string>
        <widget class="QLabel" name="xian3_result">
         <property name="geometry">
          <rect>
-          <x>310</x>
+          <x>140</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -5887,7 +5887,7 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QLabel" name="xian2_result">
         <property name="geometry">
          <rect>
-          <x>700</x>
+          <x>540</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -5912,10 +5912,10 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget_2">
         <property name="geometry">
          <rect>
-          <x>630</x>
+          <x>470</x>
           <y>60</y>
-          <width>251</width>
-          <height>121</height>
+          <width>221</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_8">
@@ -5975,7 +5975,7 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="xian1_result">
         <property name="geometry">
          <rect>
-          <x>1100</x>
+          <x>940</x>
           <y>10</y>
           <width>90</width>
           <height>41</height>
@@ -6000,10 +6000,10 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget_3">
         <property name="geometry">
          <rect>
-          <x>1060</x>
-          <y>190</y>
-          <width>162</width>
-          <height>121</height>
+          <x>910</x>
+          <y>170</y>
+          <width>142</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -6011,8 +6011,8 @@ background-color: rgb(200, 140, 0);</string>
           <widget class="QLabel" name="one_five_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6028,8 +6028,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="one_four_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6046,10 +6046,10 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QWidget" name="layoutWidget_4">
         <property name="geometry">
          <rect>
-          <x>1030</x>
+          <x>880</x>
           <y>60</y>
-          <width>251</width>
-          <height>121</height>
+          <width>221</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -6109,10 +6109,10 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>670</x>
-          <y>190</y>
-          <width>161</width>
-          <height>121</height>
+          <x>510</x>
+          <y>170</y>
+          <width>142</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_9">
@@ -6137,8 +6137,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="two_four_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6155,8 +6155,8 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian3">
         <property name="geometry">
          <rect>
-          <x>330</x>
-          <y>320</y>
+          <x>160</x>
+          <y>280</y>
           <width>41</width>
           <height>31</height>
          </rect>
@@ -6178,8 +6178,8 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian2">
         <property name="geometry">
          <rect>
-          <x>720</x>
-          <y>320</y>
+          <x>560</x>
+          <y>280</y>
           <width>41</width>
           <height>31</height>
          </rect>
@@ -6201,8 +6201,8 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QLabel" name="label_xian1">
         <property name="geometry">
          <rect>
-          <x>1110</x>
-          <y>320</y>
+          <x>960</x>
+          <y>280</y>
           <width>41</width>
           <height>31</height>
          </rect>
@@ -6224,10 +6224,10 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>440</x>
-          <y>360</y>
-          <width>884</width>
-          <height>121</height>
+          <x>140</x>
+          <y>320</y>
+          <width>881</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_18">
@@ -6255,8 +6255,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="zhuang_five_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6272,8 +6272,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="zhuang_four_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6289,8 +6289,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="zhuang_three_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6306,8 +6306,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="zhuang_two_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6323,8 +6323,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="zhuang_one_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6372,10 +6372,10 @@ background-color: rgb(200, 140, 0);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>241</x>
+          <x>71</x>
           <y>60</y>
-          <width>251</width>
-          <height>121</height>
+          <width>221</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -6435,15 +6435,21 @@ background-color: rgb(0, 32, 57);</string>
        <widget class="QWidget" name="layoutWidget">
         <property name="geometry">
          <rect>
-          <x>280</x>
-          <y>190</y>
-          <width>161</width>
-          <height>121</height>
+          <x>110</x>
+          <y>170</y>
+          <width>142</width>
+          <height>101</height>
          </rect>
         </property>
         <layout class="QHBoxLayout" name="horizontalLayout_7">
          <item>
           <widget class="QLabel" name="three_five_pic">
+           <property name="minimumSize">
+            <size>
+             <width>67</width>
+             <height>99</height>
+            </size>
+           </property>
            <property name="styleSheet">
             <string notr="true">border-radius:5px;
 background-color: rgb(0, 32, 57);</string>
@@ -6457,8 +6463,8 @@ background-color: rgb(0, 32, 57);</string>
           <widget class="QLabel" name="three_four_pic">
            <property name="minimumSize">
             <size>
-             <width>77</width>
-             <height>119</height>
+             <width>67</width>
+             <height>99</height>
             </size>
            </property>
            <property name="styleSheet">
@@ -6478,14 +6484,14 @@ background-color: rgb(0, 32, 57);</string>
       <widget class="QGroupBox" name="groupBox_5">
        <property name="minimumSize">
         <size>
-         <width>180</width>
-         <height>511</height>
+         <width>160</width>
+         <height>300</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
          <width>220</width>
-         <height>511</height>
+         <height>435</height>
         </size>
        </property>
        <property name="styleSheet">
@@ -6708,10 +6714,10 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
    <widget class="QLabel" name="who_win">
     <property name="geometry">
      <rect>
-      <x>230</x>
+      <x>70</x>
       <y>180</y>
-      <width>1291</width>
-      <height>241</height>
+      <width>931</width>
+      <height>141</height>
      </rect>
     </property>
     <property name="font">
@@ -6729,16 +6735,6 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1732</width>
-     <height>23</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>

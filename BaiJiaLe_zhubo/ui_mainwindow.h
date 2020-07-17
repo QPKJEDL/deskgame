@@ -56,8 +56,8 @@ public:
     QLabel *label_tieMinLimit;
     QScrollArea *scrollArea;
     QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_7;
     QVBoxLayout *verticalLayout_4;
+    QGridLayout *gridLayout_3;
     QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout;
@@ -389,12 +389,12 @@ public:
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
         scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1161, 571));
-        verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
 
-        verticalLayout_7->addLayout(verticalLayout_4);
+        verticalLayout_4->addLayout(gridLayout_3);
 
         scrollArea->setWidget(scrollAreaWidgetContents);
 

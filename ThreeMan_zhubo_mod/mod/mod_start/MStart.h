@@ -11,7 +11,7 @@ typedef struct{
     QLabel *pave;
 
     MNetManager *manager;
-    QString inter;
+    QString interface;
     int status;
 }MStartArg;
 

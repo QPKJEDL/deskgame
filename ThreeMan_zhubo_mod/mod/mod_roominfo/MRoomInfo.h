@@ -7,7 +7,7 @@
 class MNetManager;
 typedef struct{
     int status;
-    QString inter;
+    QString interface;
     MNetManager *manager;
 
     QLabel *timesBoot;

@@ -50,18 +50,25 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
+<<<<<<< HEAD
     if(times < 0){
+=======
+    ui->label->setText(QString::number(times));
+    if(--times < 0){
+>>>>>>> parent of 345f219... 0716
         timer->stop();
         this->hide();
-        times = 30;
         emit timeout();
         enabled({arg->leave,arg->useless,arg->locate});
     }
+<<<<<<< HEAD
     else{
         this->show();
         ui->label->setText(QString::number(times));
         times--;
     }
+=======
+>>>>>>> parent of 345f219... 0716
 }
 
 void MPhase::on_responsed(QNetworkReply *reply, int status)
@@ -118,7 +125,6 @@ void MPhase::on_finished()
 
 void MPhase::on_start()
 {
-    arg->location->setText("");
     to_phase(1,0,0,count_down);
 }
 

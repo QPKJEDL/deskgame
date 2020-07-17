@@ -5,9 +5,15 @@
 #include <QJsonDocument>
 #include "ui_login.h"
 
+<<<<<<< HEAD
 //static QString URL = "101.32.22.231:8210";
 static QString URL = "129.211.114.135:8210";
 
+=======
+static QString URL = "101.32.22.231:8210";
+//static QString URL = "129.211.114.135:8210";
+//
+>>>>>>> parent of 345f219... 0716
 Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
 {
     ui->setupUi(this);
@@ -28,9 +34,13 @@ Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
 void Login::on_login()
 {
     QByteArray postData;
+<<<<<<< HEAD
 
     QString str = "desk=a2&password=123456";
 
+=======
+    QString str = "desk=CS3&password=454766a03187d8b1";
+>>>>>>> parent of 345f219... 0716
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }

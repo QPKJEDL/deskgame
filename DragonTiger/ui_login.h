@@ -77,7 +77,11 @@ public:
     {
         Login->setWindowTitle(QCoreApplication::translate("Login", "Form", nullptr));
 <<<<<<< HEAD
+<<<<<<< HEAD
         comboBox->setItemText(0, QCoreApplication::translate("Login", "\351\276\231\350\231\216_A1", nullptr));
+=======
+        comboBox->setItemText(0, QCoreApplication::translate("Login", "\351\276\231\350\231\216_CS2", nullptr));
+>>>>>>> parent of 345f219... 0716
 
         pu_enter->setText(QCoreApplication::translate("Login", "\347\231\273\345\275\225", nullptr));
 #if QT_CONFIG(shortcut)

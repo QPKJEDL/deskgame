@@ -4,7 +4,6 @@
 #include <QWidget>
 #include <QGridLayout>
 #include <mod/MNetManager.h>
-#include <QListView>
 
 namespace Ui {
 class MChat;
@@ -12,7 +11,7 @@ class MChat;
 
 class MNetManager;
 typedef struct{
-    QVBoxLayout *grid;
+    QGridLayout *grid;
     QTcpSocket *tcpSocket;
     MNetManager *manager;
     QString interface;

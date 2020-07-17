@@ -85,7 +85,6 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         verticalLayout_7 = new QVBoxLayout(centralwidget);
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalLayout_7->setContentsMargins(-1, -1, -1, 9);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setSizeConstraint(QLayout::SetMinAndMaxSize);
@@ -448,7 +447,7 @@ public:
         button_locate = new QPushButton(groupBox_5);
         button_locate->setObjectName(QString::fromUtf8("button_locate"));
         button_locate->setEnabled(false);
-        button_locate->setMinimumSize(QSize(0, 50));
+        button_locate->setMinimumSize(QSize(0, 40));
         button_locate->setFont(font3);
         button_locate->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -461,7 +460,7 @@ public:
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
         button_useless->setEnabled(true);
-        button_useless->setMinimumSize(QSize(0, 50));
+        button_useless->setMinimumSize(QSize(0, 40));
         button_useless->setFont(font2);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -474,7 +473,7 @@ public:
         button_summit = new QPushButton(groupBox_5);
         button_summit->setObjectName(QString::fromUtf8("button_summit"));
         button_summit->setEnabled(false);
-        button_summit->setMinimumSize(QSize(0, 50));
+        button_summit->setMinimumSize(QSize(0, 40));
         button_summit->setFont(font3);
         button_summit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -503,7 +502,7 @@ public:
         scrollArea->setWidgetResizable(true);
         scrollAreaWidgetContents = new QWidget();
         scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1479, 477));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1479, 502));
         verticalLayout_6 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
         gridLayout_4 = new QGridLayout();

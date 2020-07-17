@@ -19,6 +19,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -63,7 +64,10 @@ public:
     QPushButton *button_useless;
     QPushButton *button_summit;
     QHBoxLayout *horizontalLayout_9;
+    QScrollArea *scrollArea;
+    QWidget *scrollAreaWidgetContents;
     QVBoxLayout *verticalLayout_5;
+    QGridLayout *gridLayout_5;
     QGroupBox *groupBox_6;
     QVBoxLayout *verticalLayout_9;
     QLabel *label_134;
@@ -128,7 +132,7 @@ public:
 
         pu_exit = new QPushButton(groupBox_2);
         pu_exit->setObjectName(QString::fromUtf8("pu_exit"));
-        pu_exit->setEnabled(true);
+        pu_exit->setEnabled(false);
         pu_exit->setMinimumSize(QSize(120, 51));
         pu_exit->setMaximumSize(QSize(140, 60));
         QFont font2;
@@ -147,7 +151,7 @@ public:
 
         pu_init = new QPushButton(groupBox_2);
         pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(true);
+        pu_init->setEnabled(false);
         pu_init->setMinimumSize(QSize(120, 51));
         pu_init->setMaximumSize(QSize(140, 60));
         pu_init->setFont(font2);
@@ -414,7 +418,6 @@ public:
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setMaximumSize(QSize(0, 0));
         lineEdit->setCursor(QCursor(Qt::BlankCursor));
-        lineEdit->setFocusPolicy(Qt::NoFocus);
 
         horizontalLayout_19->addWidget(lineEdit);
 
@@ -509,17 +512,28 @@ public:
 
         horizontalLayout_19->addWidget(groupBox_5);
 
-        horizontalLayout_19->setStretch(0, 2);
         horizontalLayout_19->setStretch(1, 4);
 
         verticalLayout_6->addLayout(horizontalLayout_19);
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        verticalLayout_5 = new QVBoxLayout();
+        scrollArea = new QScrollArea(centralwidget);
+        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
+        scrollArea->setWidgetResizable(true);
+        scrollAreaWidgetContents = new QWidget();
+        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
+        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1363, 536));
+        verticalLayout_5 = new QVBoxLayout(scrollAreaWidgetContents);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        gridLayout_5 = new QGridLayout();
+        gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
 
-        horizontalLayout_9->addLayout(verticalLayout_5);
+        verticalLayout_5->addLayout(gridLayout_5);
+
+        scrollArea->setWidget(scrollAreaWidgetContents);
+
+        horizontalLayout_9->addWidget(scrollArea);
 
         groupBox_6 = new QGroupBox(centralwidget);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
@@ -731,7 +745,7 @@ public:
 #if QT_CONFIG(shortcut)
         button_locate->setShortcut(QCoreApplication::translate("MainWindow", "*", nullptr));
 #endif // QT_CONFIG(shortcut)
-        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237", nullptr));
+        button_useless->setText(QCoreApplication::translate("MainWindow", "\344\275\234\345\272\237\357\274\2100\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         button_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
 #endif // QT_CONFIG(shortcut)

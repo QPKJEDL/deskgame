@@ -59,7 +59,7 @@ MainWindow::MainWindow(QWidget *parent)
     roomInfoArg.deskId = ui->desk_num;
     roomInfoArg.status = ROOMINFO;
     roomInfoArg.manager = manager;
-    roomInfoArg.inter = "HeGuanRoominfo";
+    roomInfoArg.interface = "HeGuanRoominfo";
     roomInfoArg.timesBoot = ui->xue_times;
     roomInfoArg.timesPave = ui->pu_times;
     module_roomInfo = new MRoomInfo(&roomInfoArg);
@@ -68,6 +68,7 @@ MainWindow::MainWindow(QWidget *parent)
     phaseArg.status_locate = LOCATE;
     phaseArg.manager = manager;
     phaseArg.interface_locate = "SgOrientation";
+    phaseArg.init = ui->pu_init;
     phaseArg.leave = ui->pu_exit;
     phaseArg.start = ui->pu_start;
     phaseArg.useless = ui->button_useless;
@@ -91,7 +92,7 @@ MainWindow::MainWindow(QWidget *parent)
     QVBoxLayout *vbox_five = new QVBoxLayout(ui->groupBox_4);
     vbox_five->addWidget(module_roomCard);
     vbox_five->setMargin(0);
-    //ui->groupBox_4->setLayout(vbox_five);
+    ui->groupBox_4->setLayout(vbox_five);
 
     MUselessArg uselessArg;
     uselessArg.useless = ui->button_useless;
@@ -99,14 +100,14 @@ MainWindow::MainWindow(QWidget *parent)
     uselessArg.pave = ui->pu_times;
     uselessArg.status = USELESS;
     uselessArg.manager = manager;
-    uselessArg.inter = "SgAbolish";
-    module_useless = new MUseless(&uselessArg,this);
+    uselessArg.interface = "SgAbolish";
+    module_useless = new MUseless(&uselessArg);
 
     MStartArg startArg;
     startArg.button = ui->pu_start;
     startArg.status = START;
     startArg.manager = manager;
-    startArg.inter = "SgRoomProcess";
+    startArg.interface = "SgRoomProcess";
     startArg.boot = ui->xue_times;
     startArg.pave = ui->pu_times;
     module_start = new MStart(&startArg);
@@ -115,7 +116,7 @@ MainWindow::MainWindow(QWidget *parent)
     summitArg.button = ui->button_summit;
     summitArg.status = SUMMIT;
     summitArg.manager = manager;
-    summitArg.inter = "SgGetGameOver";
+    summitArg.interface = "SgGetGameOver";
     summitArg.boot = ui->xue_times;
     summitArg.pave = ui->pu_times;
     module_summit = new MSummit(&summitArg);
@@ -126,7 +127,7 @@ MainWindow::MainWindow(QWidget *parent)
     initArg.status = INIT;
     initArg.manager = manager;
     initArg.init = ui->pu_init;
-    initArg.inter = "SgRonmInitialize";
+    initArg.interface = "SgRonmInitialize";
     module_init = new MInit(&initArg);
 
     MTopThreeArg threeArg;
@@ -134,7 +135,7 @@ MainWindow::MainWindow(QWidget *parent)
     threeArg.manager = manager;
     threeArg.times_pu = ui->pu_times;
     threeArg.times_xue = ui->xue_times;
-    threeArg.inter = "SgBetTop3";
+    threeArg.interface = "SgBetTop3";
     module_topThree = new MTopThree(&threeArg);
     QVBoxLayout *vbox = new QVBoxLayout(ui->groupBox_6);
     vbox->addWidget(module_topThree);
@@ -146,21 +147,21 @@ MainWindow::MainWindow(QWidget *parent)
     changBootArg.pave = ui->pu_times;
     changBootArg.status = CHNAGEBOOT;
     changBootArg.manager = manager;
-    changBootArg.inter = "";
+    changBootArg.interface = "";
     module_changeBoot = new MChangeBoot(&changBootArg);
 
     MMoneyArg moneyArg;
-    moneyArg.inter = "live_reward_list";
+    moneyArg.interface = "live_reward_list";
     moneyArg.status = MONEY;
     moneyArg.widget = this;
     moneyArg.manager = second_manager;
     module_money = new MMoney(&moneyArg);
 
     MChatArg chatArg;
-    chatArg.grid = ui->verticalLayout_5;
+    chatArg.grid = ui->gridLayout_5;
     chatArg.status = CHAT;
     chatArg.manager = second_manager;
-    chatArg.inter = "live_ban_user";
+    chatArg.interface = "live_ban_user";
     chatArg.tcpSocket = m_tcpsocket;
     module_chat = new MChat(&chatArg);
 
@@ -173,8 +174,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
     connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
     connect(module_phase,SIGNAL(located(int)),module_roomCard,SLOT(locate(int)));
+    connect(module_useless,SIGNAL(uselessed()),module_phase,SLOT(on_finished()));
     connect(module_useless,SIGNAL(uselessed()),module_roomCard,SLOT(clear()));
-    connect(module_roomCard,SIGNAL(clear_finished()),module_phase,SLOT(on_finished()));
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_start()));
     connect(module_summit,SIGNAL(summited()),module_roomCard,SLOT(clear()));
     connect(module_summit,SIGNAL(summited()),module_phase,SLOT(on_finished()));

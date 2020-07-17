@@ -28,8 +28,8 @@ void MNetManager::setStatus(int status)
     _status = status;
 }
 
-void MNetManager::setInterface(QString inter){
-    _request->setUrl(QUrl("http://" + _ip + "/" + inter));
+void MNetManager::setInterface(QString interface){
+    _request->setUrl(QUrl("http://" + _ip + "/" + interface));
 }
 
 void MNetManager::postData(QByteArray data){

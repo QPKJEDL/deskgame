@@ -20,8 +20,6 @@ MChat::MChat(MChatArg *arg) :
     this->arg->interface = arg->interface;
     this->arg->tcpSocket = arg->tcpSocket;
 
-    this->arg->grid->setDirection(QBoxLayout::BottomToTop);
-
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
     connect(arg->tcpSocket,SIGNAL(readyRead()),this,SLOT(readMessage()));

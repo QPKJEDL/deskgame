@@ -16,7 +16,7 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
     this->arg = new MSummitArg;
     this->arg->button = arg->button;
     this->arg->manager = arg->manager;
-    this->arg->inter = arg->inter;
+    this->arg->interface = arg->interface;
     this->arg->status = arg->status;
     this->arg->boot = arg->boot;
     this->arg->pave = arg->pave;
@@ -37,7 +37,7 @@ MSummit::~MSummit()
 void MSummit::request_summit()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->inter);
+    arg->manager->setInterface(arg->interface);
     QByteArray postData;
     postData.append("bootNum=");postData.append(arg->boot->text());
     postData.append("&paveNum=");postData.append(arg->pave->text());

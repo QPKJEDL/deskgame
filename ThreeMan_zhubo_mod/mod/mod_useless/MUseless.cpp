@@ -13,9 +13,7 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->useless = arg->useless;
-    this->arg->inter = arg->inter;
-
-    m_widget = parent;
+    this->arg->interface = arg->interface;
 
     _map.insert(arg->status,&MUseless::responsed_useless);
     connect(arg->useless,SIGNAL(clicked()),this,SLOT(pu_useless()));
@@ -30,11 +28,19 @@ MUseless::~MUseless()
 
 void MUseless::pu_useless()
 {
+<<<<<<< HEAD
     MDialog dlg(m_widget);
     dlg.setWindowFlag(Qt::FramelessWindowHint);
     dlg.set_message("是否作废?");
     dlg.setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg.exec();
+=======
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+>>>>>>> parent of 345f219... 0716
     if(ret == QDialog::Accepted){
         request_useless();
     }
@@ -53,7 +59,7 @@ void MUseless::on_responsed(QNetworkReply *reply, int status)
 void MUseless::request_useless()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->inter);
+    arg->manager->setInterface(arg->interface);
     QByteArray postData;
     postData.append(QString("boot_num=") + arg->boot->text());
     postData.append((QString("&pave_num=")) + arg->pave->text());

@@ -77,7 +77,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(INIT,&MainWindow::responsed_init);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -506,7 +506,6 @@ void MainWindow::wait(CARD card){
 
         // 不再焦点到扫码机
         timer_focus->stop();
-        ui->pu_start->setFocus();
         n_graphiceffect->setOpacity(1);
         label_name->setGraphicsEffect(n_graphiceffect);
 
@@ -1169,7 +1168,7 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         unsigned int pave_num = data.value("pave_num").toInt();
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
-        ui->label_locate->setText("");
+
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
         count_down = count_down_num;
@@ -1249,9 +1248,9 @@ void MainWindow::responsed_record(QNetworkReply *reply)
         ui->one_win_times->setText(QString::number(one));
         ui->two_win_times->setText(QString::number(two));
         ui->three_win_times->setText(QString::number(three));
-        ui->four_win_times->setText(QString::number(four));
-        ui->five_win_times->setText(QString::number(five));
-        ui->six_win_times->setText(QString::number(six));
+        ui->one_win_times->setText(QString::number(four));
+        ui->two_win_times->setText(QString::number(five));
+        ui->three_win_times->setText(QString::number(six));
 
         QJsonArray list = data.at(0)["list"].toArray();
         apply_game_record(list);
@@ -1803,7 +1802,7 @@ void MainWindow::apply_useless(){
     // 开始进行作废
     // 焦点到定位
     timer_focus->stop();
-    this->setFocus();
+    ui->button_locate->setFocus();
     // 启用定位，禁用提交
     ui->button_summit->setEnabled(false);
 

@@ -433,20 +433,15 @@ public:
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
         label_locate = new QLabel(groupBox_5);
         label_locate->setObjectName(QString::fromUtf8("label_locate"));
-        QFont font9;
-        font9.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font9.setPointSize(120);
-        label_locate->setFont(font9);
-        label_locate->setAlignment(Qt::AlignCenter);
 
         verticalLayout_4->addWidget(label_locate);
 
         label = new QLabel(groupBox_5);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(16777215, 50));
-        QFont font10;
-        font10.setPointSize(20);
-        label->setFont(font10);
+        QFont font9;
+        font9.setPointSize(20);
+        label->setFont(font9);
         label->setLayoutDirection(Qt::LeftToRight);
         label->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label->setAlignment(Qt::AlignHCenter|Qt::AlignTop);
@@ -457,7 +452,7 @@ public:
         lineEdit_2 = new QLineEdit(groupBox_5);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setEnabled(true);
-        lineEdit_2->setFont(font10);
+        lineEdit_2->setFont(font9);
         lineEdit_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         lineEdit_2->setAlignment(Qt::AlignCenter);
 
@@ -466,7 +461,6 @@ public:
         button_locate = new QPushButton(groupBox_5);
         button_locate->setObjectName(QString::fromUtf8("button_locate"));
         button_locate->setEnabled(false);
-        button_locate->setMinimumSize(QSize(0, 60));
         button_locate->setFont(font2);
         button_locate->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -479,7 +473,6 @@ public:
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
         button_useless->setEnabled(true);
-        button_useless->setMinimumSize(QSize(0, 60));
         button_useless->setFont(font1);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
@@ -492,7 +485,6 @@ public:
         button_summit = new QPushButton(groupBox_5);
         button_summit->setObjectName(QString::fromUtf8("button_summit"));
         button_summit->setEnabled(false);
-        button_summit->setMinimumSize(QSize(0, 60));
         button_summit->setFont(font2);
         button_summit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"

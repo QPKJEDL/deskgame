@@ -71,7 +71,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          <item row="0" column="3">
           <widget class="QPushButton" name="pu_exit">
            <property name="enabled">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="minimumSize">
             <size>
@@ -111,7 +111,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          <item row="0" column="1">
           <widget class="QPushButton" name="pu_init">
            <property name="enabled">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="minimumSize">
             <size>
@@ -1102,7 +1102,7 @@ background-color: rgb(0,32, 57);
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="2,4,0">
+     <layout class="QHBoxLayout" name="horizontalLayout_19" stretch="0,4,0">
       <item>
        <widget class="QLineEdit" name="lineEdit">
         <property name="maximumSize">
@@ -1113,9 +1113,6 @@ background-color: rgb(0,32, 57);
         </property>
         <property name="cursor">
          <cursorShape>BlankCursor</cursorShape>
-        </property>
-        <property name="focusPolicy">
-         <enum>Qt::NoFocus</enum>
         </property>
        </widget>
       </item>
@@ -1276,7 +1273,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
            </property>
            <property name="text">
-            <string>作废</string>
+            <string>作废（0）</string>
            </property>
            <property name="shortcut">
             <string>0</string>
@@ -1320,7 +1317,26 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_9" stretch="4,1">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout_5"/>
+       <widget class="QScrollArea" name="scrollArea">
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetContents">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>1363</width>
+           <height>536</height>
+          </rect>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <item>
+           <layout class="QGridLayout" name="gridLayout_5"/>
+          </item>
+         </layout>
+        </widget>
+       </widget>
       </item>
       <item>
        <widget class="QGroupBox" name="groupBox_6">

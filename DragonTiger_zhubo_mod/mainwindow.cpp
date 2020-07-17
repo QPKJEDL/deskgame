@@ -158,7 +158,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     module_init = new MInit(&initArg);
 
     MChatArg chatArg;
-    chatArg.grid = ui->verticalLayout_6;
+    chatArg.grid = ui->ChatPanel;
     chatArg.status = CHAT;
     chatArg.manager = second_manager;
     chatArg.interface = "live_ban_user";

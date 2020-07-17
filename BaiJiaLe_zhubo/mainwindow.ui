@@ -771,9 +771,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
            <height>571</height>
           </rect>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_7">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <item>
-           <layout class="QVBoxLayout" name="verticalLayout_4"/>
+           <layout class="QGridLayout" name="gridLayout_3"/>
           </item>
          </layout>
         </widget>

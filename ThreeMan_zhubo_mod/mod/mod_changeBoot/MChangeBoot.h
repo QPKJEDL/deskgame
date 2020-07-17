@@ -12,8 +12,12 @@ typedef struct{
 
     MNetManager *manager;
     int status;
+<<<<<<< HEAD
     QString inter;
 
+=======
+    QString interface;
+>>>>>>> parent of 345f219... 0716
 }MChangeBootArg;
 
 class MChangeBoot;

@@ -13,7 +13,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString inter;
+    QString interface;
 }MUselessArg;
 
 class MUseless;
@@ -30,7 +30,6 @@ public:
 private:
     MUselessArg *arg;
     QMap<int,exe_useless> _map;
-    QWidget *m_widget;
 
 signals:
     void uselessed();
