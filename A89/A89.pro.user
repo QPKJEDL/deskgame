@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<!-- Written by QtCreator 4.11.1, 2020-07-17T20:08:49. -->
-<qtcreator/>
-=======
-=======
->>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
-<!-- Written by QtCreator 4.11.1, 2020-07-16T17:09:10. -->
+<!-- Written by QtCreator 4.11.1, 2020-07-17T20:29:24. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -234,4 +227,3 @@
   <value type="int">22</value>
  </data>
 </qtcreator>
->>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
