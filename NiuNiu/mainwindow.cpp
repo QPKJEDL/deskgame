@@ -1119,8 +1119,12 @@ void MainWindow::responsed_start(QNetworkReply *reply)
 =======
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of 7a39d67... 0714
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码

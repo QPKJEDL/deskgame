@@ -15,10 +15,13 @@ typedef struct{
 <<<<<<< HEAD
     QString inter;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
     QString interface;
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 }MChangeBootArg;

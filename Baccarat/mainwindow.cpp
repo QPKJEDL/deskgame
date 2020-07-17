@@ -1091,13 +1091,19 @@ void MainWindow::request_login()
     manager->setInterface("dutch_login");
     QByteArray postData;
 <<<<<<< HEAD
+<<<<<<< HEAD
     postData.append("desk=CS1&password=b86170ccbe836000");
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     postData.append("desk=A5&password=123456");
 =======
     postData.append("desk=a5&password=123456");
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     manager->postData(postData);
 }

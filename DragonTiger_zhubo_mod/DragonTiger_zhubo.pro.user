@@ -2,15 +2,21 @@
 <!DOCTYPE QtCreatorProject>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.11.1, 2020-07-17T15:45:07. -->
 =======
 <!-- Written by QtCreator 4.11.1, 2020-07-14T21:03:50. -->
 >>>>>>> parent of 345f219... 0716
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 <!-- Written by QtCreator 4.11.1, 2020-07-15T19:35:24. -->
 =======
 <!-- Written by QtCreator 4.11.1, 2020-07-13T20:37:15. -->
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 <qtcreator>
  <data>
@@ -136,8 +142,11 @@
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">2</value>
    </valuemap>
 <<<<<<< HEAD
+<<<<<<< HEAD
    <value type="int" key="ProjectExplorer.Target.BuildConfigurationCount">1</value>
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.1">
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:/MengKE's WOrkSpace/deskgame/DragonTiger_zhubo_mod</value>
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
@@ -187,7 +196,11 @@
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">0</value>
    </valuemap>
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.BuildConfiguration.2">
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:/MengJinHao/build-longhu-Desktop_Qt_5_14_2_MinGW_32_bit-Profile</value>
+=======
+    <value type="QString" key="ProjectExplorer.BuildConfiguration.BuildDirectory">D:/MengJinHao/build-longhu-Desktop_Qt_5_14_2_MinGW_64_bit-Profile</value>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <valuemap type="QVariantMap" key="ProjectExplorer.BuildStepList.Step.0">
       <value type="bool" key="ProjectExplorer.BuildStep.Enabled">true</value>
@@ -235,7 +248,10 @@
     <value type="int" key="Qt4ProjectManager.Qt4BuildConfiguration.BuildConfiguration">0</value>
    </valuemap>
    <value type="int" key="ProjectExplorer.Target.BuildConfigurationCount">3</value>
+<<<<<<< HEAD
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
    <valuemap type="QVariantMap" key="ProjectExplorer.Target.DeployConfiguration.0">
     <valuemap type="QVariantMap" key="ProjectExplorer.BuildConfiguration.BuildStepList.0">
      <value type="int" key="ProjectExplorer.BuildStepList.StepsCount">0</value>
@@ -308,6 +324,7 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">DragonTiger_zhubo2</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:D:/MengKE's WOrkSpace/deskgame/DragonTiger_zhubo_mod/DragonTiger_zhubo.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">D:/MengKE's WOrkSpace/deskgame/DragonTiger_zhubo_mod/DragonTiger_zhubo.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
@@ -326,6 +343,7 @@
   </valuemap>
  </data>
  <data>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
   <variable>ProjectExplorer.Project.Target.1</variable>
@@ -575,6 +593,8 @@
 <<<<<<< HEAD
 >>>>>>> parent of 345f219... 0716
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
   <variable>ProjectExplorer.Project.Target.1</variable>
   <valuemap type="QVariantMap">
    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DefaultDisplayName">Desktop Qt 5.14.2 MinGW 32-bit</value>
@@ -819,6 +839,9 @@
   </valuemap>
  </data>
  <data>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
   <variable>ProjectExplorer.Project.TargetCount</variable>
   <value type="int">2</value>

@@ -832,8 +832,13 @@ release/login.o: login.cpp login.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/QJsonDocument \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qjsondocument.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+		ui_login.h
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 		ui_login.h
 =======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -858,6 +863,7 @@ release/login.o: login.cpp login.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qtabbar.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qrubberband.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QHBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qboxlayout.h \
@@ -866,6 +872,10 @@ release/login.o: login.cpp login.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qgridlayout.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QSpacerItem \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout
+=======
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtCore/qabstractitemmodel.h
 >>>>>>> parent of 7a39d67... 0714
@@ -1173,6 +1183,12 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		ui_mainwindow.h \
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		mod/mod_dialog/MDialog.h \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QDialog \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 		mod/mod_dialog/MDialog.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QDialog \
@@ -1201,11 +1217,14 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qpen.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtGui/qtextoption.h \
 <<<<<<< HEAD
+<<<<<<< HEAD
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QMenuBar \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qmenubar.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qmenu.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qaction.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qactiongroup.h \
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QPushButton \
@@ -1216,10 +1235,14 @@ release/mainwindow.o: mainwindow.cpp mainwindow.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QVBoxLayout \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QWidget \
 <<<<<<< HEAD
+<<<<<<< HEAD
 		mod/mod_dialog/MDialog.h \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/QDialog \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/include/QtWidgets/qdialog.h \
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of 7a39d67... 0714
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码

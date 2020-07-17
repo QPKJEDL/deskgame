@@ -7,16 +7,22 @@
     <x>0</x>
     <y>0</y>
 <<<<<<< HEAD
+<<<<<<< HEAD
     <width>1373</width>
     <height>892</height>
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     <width>1917</width>
     <height>1047</height>
 =======
     <width>1313</width>
     <height>762</height>
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
    </rect>
   </property>
@@ -31,11 +37,14 @@
     <string notr="true">background-color: rgb(30, 40, 50);</string>
    </property>
 <<<<<<< HEAD
+<<<<<<< HEAD
    <layout class="QVBoxLayout" name="verticalLayout_3" stretch="1,1,1">
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="3,2">
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
@@ -999,11 +1008,15 @@ background-color: rgb(255, 255, 255);</string>
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1029,6 +1042,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>初始化</string>
@@ -1087,11 +1102,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1117,6 +1136,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>开局（6）</string>
@@ -1175,11 +1196,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1205,6 +1230,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>换靴（+）</string>
@@ -1263,11 +1290,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1293,6 +1324,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>停止（/）</string>
@@ -1351,11 +1384,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1381,6 +1418,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>离开（.）</string>
@@ -1439,11 +1478,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/button/images/button/pu_yellow.png);}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:pressed{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }
 QPushButton:disabled{border-color:gray;background-image: url(:/button/images/button/pu_yellow_an.png);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1469,6 +1512,8 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>作废（0）</string>
@@ -1527,11 +1572,15 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:hover{border-color:rgb(139,170,105)}
 QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}
 QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -1756,6 +1805,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>庄（7）</string>
@@ -2212,11 +2263,15 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:hover{border-color:rgb(139,170,105)}
 QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}
 QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -2242,6 +2297,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(60, 160, 74);border:1px solid grey; border-radius: 8px;}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>闲（4）</string>
@@ -2300,11 +2357,15 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(60, 160, 74);border:1px solid grey; border-radius: 8px;}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:hover{border-color:rgb(139,170,105)}
 QPushButton:pressed{border-color:gray;background-color: rgb(39, 78, 55);}
 QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -2330,6 +2391,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>和（1）</string>
@@ -2388,11 +2451,15 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:hover{border-color:rgb(139,170,105)}
 QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}
 QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -2418,6 +2485,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
            <property name="text">
             <string>庄对（2）</string>
@@ -2476,11 +2545,15 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
                <property name="styleSheet">
                 <string notr="true">QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}
 >>>>>>> parent of 7a39d67... 0714
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 QPushButton:hover{border-color:rgb(139,170,105)}
 QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}
 QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
+<<<<<<< HEAD
 <<<<<<< HEAD
              </property>
              <property name="text">
@@ -2502,6 +2575,16 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
            </property>
           </layout>
+=======
+           </property>
+           <property name="text">
+            <string>闲对（5）</string>
+           </property>
+           <property name="shortcut">
+            <string>5</string>
+           </property>
+          </widget>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
          </item>
         </layout>
        </widget>
@@ -2593,6 +2676,9 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
           <height>319</height>
          </size>
         </property>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
         <property name="styleSheet">
          <string notr="true">background-color: rgb(0, 52, 91);</string>
@@ -2601,7 +2687,11 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          <string/>
         </property>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="1,3,2,1">
+=======
+        <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,6,4,1">
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
         <layout class="QVBoxLayout" name="verticalLayout_2" stretch="2,6,4,1">
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2613,7 +2703,11 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>11</pointsize>
+=======
+               <pointsize>25</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>25</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2636,7 +2730,11 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>20</pointsize>
+=======
+               <pointsize>25</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>25</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2663,7 +2761,11 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>11</pointsize>
+=======
+               <pointsize>30</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>30</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2683,7 +2785,11 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>9</pointsize>
+=======
+               <pointsize>30</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>30</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2706,7 +2812,11 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>20</pointsize>
+=======
+               <pointsize>25</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>25</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2733,7 +2843,11 @@ QPushButton:disabled{border-color:gray;background-image: url(:/button/images/but
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>9</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2777,7 +2891,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2857,7 +2975,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2880,7 +3002,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2922,7 +3048,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2964,7 +3094,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -2991,7 +3125,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3033,7 +3171,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3113,7 +3255,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3136,7 +3282,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3197,7 +3347,11 @@ background-color: rgb(0, 41, 80);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3221,7 +3375,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3263,7 +3421,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>15</pointsize>
+=======
+               <pointsize>20</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>20</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3284,7 +3446,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
          </item>
          <item>
 <<<<<<< HEAD
+<<<<<<< HEAD
           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1,1,1,1,1,1,3">
+=======
+          <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1,1,1,1,1,1,4">
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
           <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="1,1,1,1,1,1,1,1,4">
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3303,7 +3469,11 @@ background-color: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 rgb
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>9</pointsize>
+=======
+               <pointsize>18</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>18</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3382,7 +3552,11 @@ background-color: rgb(255, 255, 255);</string>
               <font>
                <family>方正粗黑宋简体</family>
 <<<<<<< HEAD
+<<<<<<< HEAD
                <pointsize>9</pointsize>
+=======
+               <pointsize>18</pointsize>
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
                <pointsize>18</pointsize>
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
@@ -3477,13 +3651,19 @@ border-radius: 8px;</string>
     <item>
      <widget class="QGroupBox" name="groupBox_3">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
       <property name="maximumSize">
        <size>
         <width>1440</width>
         <height>221</height>
        </size>
       </property>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0, 52, 91);
@@ -3494,7 +3674,10 @@ border-radius: 8px;</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_4">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
        <property name="spacing">
         <number>2</number>
        </property>
@@ -3510,6 +3693,9 @@ border-radius: 8px;</string>
        <property name="bottomMargin">
         <number>9</number>
        </property>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
        <item>
         <layout class="QGridLayout" name="gridLayout_4">
@@ -3524,13 +3710,19 @@ border-radius: 8px;</string>
     <item>
      <widget class="QGroupBox" name="groupBox_4">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
       <property name="maximumSize">
        <size>
         <width>1440</width>
         <height>220</height>
        </size>
       </property>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
       <property name="styleSheet">
        <string notr="true">background-color: rgb(0, 52, 91);
@@ -3541,9 +3733,12 @@ border-radius: 8px;</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_5">
 <<<<<<< HEAD
+<<<<<<< HEAD
        <item>
         <layout class="QGridLayout" name="gridLayout_5">
 =======
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
        <property name="spacing">
         <number>2</number>
        </property>
@@ -3573,6 +3768,9 @@ border-radius: 8px;</string>
          <property name="bottomMargin">
           <number>9</number>
          </property>
+<<<<<<< HEAD
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
          <property name="spacing">
           <number>1</number>
@@ -3584,6 +3782,10 @@ border-radius: 8px;</string>
     </item>
    </layout>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 7a39d67... 0714
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of 7a39d67... 0714
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码

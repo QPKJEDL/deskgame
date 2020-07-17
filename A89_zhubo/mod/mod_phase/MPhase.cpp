@@ -52,11 +52,15 @@ void MPhase::on_timeout()
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     if(times < 0){
 =======
     ui->label->setText(QString::number(times));
     if(--times < 0){
 >>>>>>> parent of 345f219... 0716
+=======
+    if(--times < 0){
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
     if(--times < 0){
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码

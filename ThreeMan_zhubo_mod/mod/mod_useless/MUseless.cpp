@@ -24,6 +24,7 @@ void MUseless::pu_useless()
 {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     MDialog dlg(m_widget);
     dlg.setWindowFlag(Qt::FramelessWindowHint);
     dlg.set_message("是否作废?");
@@ -34,12 +35,18 @@ void MUseless::pu_useless()
 =======
     MDialog *dlg = new MDialog(m_widget);
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
+=======
+    MDialog *dlg = new MDialog(m_widget);
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     dlg->setWindowFlag(Qt::FramelessWindowHint);
     dlg->set_message("是否作废?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg->exec();
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> parent of 345f219... 0716
+=======
+>>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
 =======
 >>>>>>> parent of f632436... 这次提交是为了回滚到前0716版本的代码
     if(ret == QDialog::Accepted){
