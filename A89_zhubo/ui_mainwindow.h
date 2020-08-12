@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -18,7 +19,6 @@
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -63,12 +63,7 @@ public:
     QPushButton *button_useless;
     QPushButton *button_summit;
     QHBoxLayout *horizontalLayout_2;
-    QGroupBox *groupBox_3;
-    QHBoxLayout *horizontalLayout_3;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_6;
-    QGridLayout *gridLayout_4;
+    QQuickWidget *quickWidget;
     QGroupBox *groupBox_6;
     QStatusBar *statusbar;
 
@@ -460,7 +455,7 @@ public:
 
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
-        button_useless->setEnabled(true);
+        button_useless->setEnabled(false);
         button_useless->setMinimumSize(QSize(0, 50));
         button_useless->setFont(font2);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
@@ -494,29 +489,16 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        groupBox_3 = new QGroupBox(centralwidget);
-        groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        horizontalLayout_3 = new QHBoxLayout(groupBox_3);
-        horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        scrollArea = new QScrollArea(groupBox_3);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1479, 477));
-        verticalLayout_6 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
+        quickWidget = new QQuickWidget(centralwidget);
+        quickWidget->setObjectName(QString::fromUtf8("quickWidget"));
+        quickWidget->setMinimumSize(QSize(0, 0));
+        quickWidget->setSizeIncrement(QSize(10, 0));
+        quickWidget->setBaseSize(QSize(100, 0));
+        quickWidget->setStyleSheet(QString::fromUtf8("background-color: rgb(255, 170, 255);"));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
+        quickWidget->setSource(QUrl(QString::fromUtf8("")));
 
-        verticalLayout_6->addLayout(gridLayout_4);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        horizontalLayout_3->addWidget(scrollArea);
-
-
-        horizontalLayout_2->addWidget(groupBox_3);
+        horizontalLayout_2->addWidget(quickWidget);
 
         groupBox_6 = new QGroupBox(centralwidget);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
@@ -548,7 +530,10 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
+        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242(/)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_end->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
@@ -557,7 +542,7 @@ public:
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
 #endif // QT_CONFIG(shortcut)
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
         groupBox->setTitle(QString());
         desk_num->setText(QString());
         label_11->setText(QCoreApplication::translate("MainWindow", "\347\273\223\346\236\234", nullptr));
@@ -581,7 +566,6 @@ public:
         button_useless->setShortcut(QCoreApplication::translate("MainWindow", "0", nullptr));
 #endif // QT_CONFIG(shortcut)
         button_summit->setText(QCoreApplication::translate("MainWindow", "\346\217\220\344\272\244", nullptr));
-        groupBox_3->setTitle(QString());
         groupBox_6->setTitle(QString());
     } // retranslateUi
 

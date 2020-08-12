@@ -81,7 +81,8 @@ public:
         font.setPointSize(40);
         comboBox->setFont(font);
         comboBox->setStyleSheet(QString::fromUtf8("background:rgba(39,39,57,1);\n"
-"border-radius:5px;"));
+"border-radius:5px;\n"
+"color: rgb(255, 255, 255);"));
 
         horizontalLayout_6->addWidget(comboBox);
 

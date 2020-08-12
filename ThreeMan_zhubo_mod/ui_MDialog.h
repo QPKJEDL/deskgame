@@ -48,6 +48,7 @@ public:
         pu_yes = new QPushButton(widget);
         pu_yes->setObjectName(QString::fromUtf8("pu_yes"));
         pu_yes->setGeometry(QRect(50, 210, 101, 51));
+        pu_yes->setFocusPolicy(Qt::NoFocus);
         pu_yes->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(153, 118, 97, 255), stop:1 rgba(252, 238, 205, 255));border:1px solid grey; border-radius: 25px;}\n"
 "QPushButton:pressed{border:1px solid grey; border-radius: 25px;\n"
 "background-color: rgb(148, 148, 148);}\n"
@@ -55,6 +56,7 @@ public:
         pu_no = new QPushButton(widget);
         pu_no->setObjectName(QString::fromUtf8("pu_no"));
         pu_no->setGeometry(QRect(250, 210, 101, 51));
+        pu_no->setFocusPolicy(Qt::NoFocus);
         pu_no->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background-color: qlineargradient(spread:reflect, x1:1, y1:1, x2:1, y2:0, stop:0 rgba(153, 118, 97, 255), stop:1 rgba(252, 238, 205, 255));border:1px solid grey; border-radius: 25px;}\n"
 "QPushButton:pressed{border:1px solid grey; border-radius: 25px;\n"
 "background-color: rgb(148, 148, 148);}\n"

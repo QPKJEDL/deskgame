@@ -13,7 +13,7 @@ MChangeBoot::MChangeBoot(MChangeBootArg *arg,QWidget *parent) : QWidget(parent)
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->changeBoot = arg->changeBoot;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     _map.insert(arg->status,&MChangeBoot::responsed_changeBoot);
     connect(arg->changeBoot,SIGNAL(clicked()),this,SLOT(pu_changeBoot()));
@@ -34,7 +34,7 @@ void MChangeBoot::pu_changeBoot(){
 void MChangeBoot::request_changeBoot()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->postData(QByteArray());
 }
 

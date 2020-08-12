@@ -94,7 +94,7 @@ public:
     {
         if (MMoney->objectName().isEmpty())
             MMoney->setObjectName(QString::fromUtf8("MMoney"));
-        MMoney->resize(870, 575);
+        MMoney->resize(874, 576);
         MMoney->setStyleSheet(QString::fromUtf8("background-color: rgb(69, 67, 98);"));
         verticalLayout = new QVBoxLayout(MMoney);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -191,7 +191,7 @@ public:
 "border-radius: 5px;\n"
 "border: 3px;\n"
 "color: rgb(255, 255, 255);"));
-        dateTimeEdit_begin->setDate(QDate(2000, 1, 1));
+        dateTimeEdit_begin->setDate(QDate(2020, 1, 1));
         dateTimeEdit_begin->setCurrentSection(QDateTimeEdit::YearSection);
 
         horizontalLayout_2->addWidget(dateTimeEdit_begin);
@@ -213,6 +213,7 @@ public:
 "border-radius: 5px;\n"
 "border: 3px;\n"
 "color: rgb(255, 255, 255);"));
+        dateTimeEdit_end->setDate(QDate(2020, 1, 1));
 
         horizontalLayout_2->addWidget(dateTimeEdit_end);
 
@@ -633,11 +634,17 @@ public:
 
         pu_front_page = new QPushButton(MMoney);
         pu_front_page->setObjectName(QString::fromUtf8("pu_front_page"));
+        pu_front_page->setEnabled(false);
         pu_front_page->setMinimumSize(QSize(0, 40));
         pu_front_page->setFont(font1);
-        pu_front_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
+        pu_front_page->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
 "border-radius: 8px;\n"
-"color: rgb(121, 61, 3);"));
+"color: rgb(121, 61, 3);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}\n"
+""));
 
         horizontalLayout_3->addWidget(pu_front_page);
 
@@ -645,9 +652,14 @@ public:
         pu_next_page->setObjectName(QString::fromUtf8("pu_next_page"));
         pu_next_page->setMinimumSize(QSize(0, 40));
         pu_next_page->setFont(font1);
-        pu_next_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(35, 34, 51, 255), stop:0.4375 rgba(92, 107, 148, 255), stop:0.568182 rgba(92, 107, 148, 255), stop:0.971591 rgba(35, 34, 51, 255), stop:1 rgba(35, 34, 51, 255));\n"
+        pu_next_page->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
 "border-radius: 8px;\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(121, 61, 3);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}\n"
+""));
 
         horizontalLayout_3->addWidget(pu_next_page);
 
@@ -723,7 +735,7 @@ public:
         label_43->setText(QCoreApplication::translate("MMoney", "\347\261\273\345\236\213", nullptr));
         label_40->setText(QCoreApplication::translate("MMoney", "\345\217\260\346\241\214", nullptr));
         label_44->setText(QCoreApplication::translate("MMoney", "\346\211\223\350\265\217\346\200\273\351\207\221\351\242\235\357\274\232", nullptr));
-        label_45->setText(QCoreApplication::translate("MMoney", "00", nullptr));
+        label_45->setText(QString());
         pu_front_page->setText(QCoreApplication::translate("MMoney", "\344\270\212\344\270\200\351\241\265", nullptr));
         pu_next_page->setText(QCoreApplication::translate("MMoney", "\344\270\213\344\270\200\351\241\265", nullptr));
     } // retranslateUi

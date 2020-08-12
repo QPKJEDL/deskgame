@@ -9,7 +9,7 @@ MStart::MStart(MStartArg *arg,QObject *parent) : QObject(parent)
     this->arg = new MStartArg;
     this->arg->button = arg->button;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->status = arg->status;
     this->arg->boot = arg->boot;
     this->arg->pave = arg->pave;
@@ -22,7 +22,7 @@ MStart::MStart(MStartArg *arg,QObject *parent) : QObject(parent)
 void MStart::request_start()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->postData(QByteArray());
 }
 
@@ -30,6 +30,8 @@ void MStart::responsed_start(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    QString info = json.value("info").toString();
+    qDebug() << info;
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonObject data = json.value("data").toObject();

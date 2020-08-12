@@ -25,7 +25,7 @@ MGameOver::MGameOver(MGameOverArg *arg, QWidget *parent)
     this->arg->status = arg->status;
     this->arg->desk_id = arg->desk_id;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     _map.insert(this->arg->status,&MGameOver::responsed_gameover);
     connect(this->arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
@@ -106,6 +106,7 @@ void MGameOver::on_responsed(QNetworkReply *reply, int status)
 
 void MGameOver::pu_yes()
 {
+    this->hide();
     request_gameover();
 }
 
@@ -124,7 +125,7 @@ void MGameOver::request_gameover()
     }
     else{
         arg->manager->setStatus(arg->status);
-        arg->manager->setInterface(arg->interface);
+        arg->manager->setInterface(arg->inter);
         QByteArray postData;
         postData.append("boot_num=" + arg->boot->text());
         postData.append("&pave_num=" + arg->pave->text());

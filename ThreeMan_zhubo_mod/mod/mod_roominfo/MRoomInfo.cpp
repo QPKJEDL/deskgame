@@ -51,7 +51,8 @@ void MRoomInfo::responsed_room_info(QNetworkReply *reply)
         unsigned int starTime = data.at(0)["GameStarTime"].toInt();
         unsigned int sysTime = data.at(0)["Systime"].toInt();
         unsigned int countDown = data.at(0)["CountDown"].toInt();
-        emit send_phase(phase,starTime,sysTime,countDown);
+        unsigned int WaitDown = data.at(0)["WaitDown"].toInt();
+        emit send_phase(phase,starTime,sysTime,countDown,WaitDown);
     }
     else{
         QMessageBox box;

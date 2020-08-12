@@ -20,9 +20,9 @@
    <property name="styleSheet">
     <string notr="true">background-color: rgb(30, 40, 50);</string>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="5,1">
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,1">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_9" stretch="2,5">
+     <layout class="QVBoxLayout" name="verticalLayout_9" stretch="2,4">
       <item>
        <widget class="QGroupBox" name="groupBox">
         <property name="styleSheet">
@@ -41,35 +41,6 @@
          </item>
          <item>
           <layout class="QVBoxLayout" name="verticalLayout_2">
-           <item>
-            <widget class="QPushButton" name="pu_init">
-             <property name="enabled">
-              <bool>false</bool>
-             </property>
-             <property name="minimumSize">
-              <size>
-               <width>80</width>
-               <height>50</height>
-              </size>
-             </property>
-             <property name="font">
-              <font>
-               <family>方正粗黑宋简体</family>
-               <pointsize>15</pointsize>
-              </font>
-             </property>
-             <property name="styleSheet">
-              <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}
-QPushButton:pressed{border-color:gray;background-image: url(:/result/pu_yellow_an.png);
-}
-QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_an.png);
-}</string>
-             </property>
-             <property name="text">
-              <string>初始化</string>
-             </property>
-            </widget>
-           </item>
            <item>
             <widget class="QPushButton" name="pu_start">
              <property name="enabled">
@@ -172,7 +143,7 @@ QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_
            <item>
             <widget class="QPushButton" name="pu_leave">
              <property name="enabled">
-              <bool>false</bool>
+              <bool>true</bool>
              </property>
              <property name="minimumSize">
               <size>
@@ -204,7 +175,7 @@ QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_
            <item>
             <widget class="QPushButton" name="pu_useless">
              <property name="enabled">
-              <bool>true</bool>
+              <bool>false</bool>
              </property>
              <property name="minimumSize">
               <size>
@@ -656,25 +627,10 @@ color: rgb(255, 255, 255);</string>
        </widget>
       </item>
       <item>
-       <widget class="QScrollArea" name="scrollArea">
-        <property name="widgetResizable">
-         <bool>true</bool>
+       <widget class="QQuickWidget" name="quickWidget">
+        <property name="resizeMode">
+         <enum>QQuickWidget::SizeRootObjectToView</enum>
         </property>
-        <widget class="QWidget" name="scrollAreaWidgetContents">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>0</y>
-           <width>1385</width>
-           <height>708</height>
-          </rect>
-         </property>
-         <layout class="QVBoxLayout" name="verticalLayout_10">
-          <item>
-           <layout class="QVBoxLayout" name="verticalLayout_6"/>
-          </item>
-         </layout>
-        </widget>
        </widget>
       </item>
      </layout>
@@ -974,6 +930,13 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

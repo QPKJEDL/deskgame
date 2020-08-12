@@ -14,6 +14,7 @@ debug/MRecord.o
 debug/MReword.o
 debug/MRoomInfo.o
 debug/MStart.o
+debug/MStop.o
 debug/MTopFive.o
 debug/MTopThree.o
 debug/MUseless.o
@@ -34,6 +35,7 @@ debug/moc_MRecord.o
 debug/moc_MReword.o
 debug/moc_MRoomInfo.o
 debug/moc_MStart.o
+debug/moc_MStop.o
 debug/moc_MTopFive.o
 debug/moc_MTopThree.o
 debug/moc_MUseless.o

@@ -14,7 +14,7 @@ MTopThree::MTopThree(MTopThreeArg *arg) :
     this->arg = new MTopThreeArg();
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->times_xue = arg->times_xue;
     this->arg->times_pu = arg->times_pu;
 
@@ -39,7 +39,7 @@ void MTopThree::on_responsed(QNetworkReply *reply, int status)
 
 void MTopThree::request_top_three()
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->setStatus(arg->status);
     QByteArray postData;
     qDebug() << arg->times_xue->text();
@@ -86,14 +86,14 @@ void MTopThree::update_panel(QJsonObject data)
     int h = 0;
     auto f = [](QString bet,QLabel *label){
         QString path = ":/result/image/result/";
-        if(bet == "player"){
-            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/player.png\"/></p></body></html>");
+        if(bet == "ShunMen"){
+            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/ShunMen.png\"/></p></body></html>");
         }
-        else if(bet == "banker"){
-            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/banker.png\"/></p></body></html>");
+        else if(bet == "TianMen"){
+            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/TianMen.png\"/></p></body></html>");
         }
-        else if(bet == "tie"){
-            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/tie.png\"/></p></body></html>");
+        else if(bet == "FanMen"){
+            label->setText("<html><head/><body><p><img src=\":/bet/image/bet/FanMen.png\"/></p></body></html>");
         }
         else if(bet == "playerPair"){
             label->setText("<html><head/><body><p><img src=\":/bet/image/bet/playerpair.png\"/></p></body></html>");
@@ -106,9 +106,9 @@ void MTopThree::update_panel(QJsonObject data)
         QJsonObject ob = topThree.at(h).toObject();
         int money = ob.value("Money").toInt();
         QString bet = ob.value("Bet").toString();
-        QString NickName = ob.value("NickName").toString();
-
-        n->setText(NickName);
+        QString Account = ob.value("Account").toString();
+        Account = Account.left(3) + "***" + Account.right(3);
+        n->setText(Account);
         m->setText(QString::number(money) + "元");
         f(bet,b);
     };

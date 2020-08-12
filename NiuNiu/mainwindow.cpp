@@ -15,15 +15,16 @@
 #include <QJsonArray>
 #include <vector>
 #include <QMessageBox>
+#include "mod/mod_dialog/MDialog.h"
 using namespace std;
 
-enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT};
+enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,STOP};
 
 //typedef void (MainWindow::*exe)(QNetworkReply *reply);
 
 //static QString URL = "101.32.22.231:8210";
-static QString URL = "129.211.114.135:8210";
-MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWidget *parent)
+//static QString URL = "129.211.114.135:8210";
+MainWindow::MainWindow(int id, QString token, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_edit_last("")
@@ -38,9 +39,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(timer_focus, SIGNAL(timeout()), this, SLOT(update()));
     // 设置焦点到 定位按钮
     ui->button_locate->setFocus();
-    // 初始化限红
-    ui->label_limit->setText(limit);
-    ui->label_tieLimit->setText(tieLimit);
+
 
     // 初始化透明度相关
     timer_opacity = new QTimer(this);
@@ -51,13 +50,14 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(timer_date,SIGNAL(timeout()),this,SLOT(update_date()));
     timer_date->start(200);
 
-
+    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
     connect(timer_opacity, SIGNAL(timeout()), this, SLOT(on_timeout()));
     connect(ui->button_locate,SIGNAL(clicked()),this,SLOT(pu_locate()));
     connect(ui->lineEdit_2,SIGNAL(returnPressed()),this,SLOT(line_finish()));
     connect(ui->button_summit,SIGNAL(clicked()),this,SLOT(Request_summit()));
     connect(ui->pu_exit,SIGNAL(clicked()),this,SLOT(on_exit()));
     connect(ui->button_useless,SIGNAL(clicked()),this,SLOT(Request_useless()));
+    connect(ui->pu_end,SIGNAL(clicked()),this,SLOT(pu_stop()));
 
     // 开始按钮
     connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(Request_start()));
@@ -66,7 +66,6 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(timer_Countdown,SIGNAL(timeout()),this,SLOT(on_count_down()));
 
     // 初始化按钮
-    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(Request_initialize()));
 
     _map.insert(START,&MainWindow::responsed_start);
     _map.insert(ROOMINFO,&MainWindow::responsed_roominfo);
@@ -77,9 +76,10 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(SUMMIT,&MainWindow::responsed_summit);
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
+    _map.insert(STOP,&MainWindow::responsed_stop);
 
    manager = new MNetManager;
-   manager->setIp("129.211.114.135:8210");
+   manager->setIp("101.32.22.231:8210");
    manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
    connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -789,7 +789,14 @@ void MainWindow::on_timeout()
 
 void MainWindow::pu_stop()
 {
-
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否停止?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_stop();
+    }
 }
 
 void MainWindow::pu_locate()
@@ -800,6 +807,18 @@ void MainWindow::pu_locate()
     ui->button_locate->setEnabled(false);
     ui->lineEdit_2->setFocus();
     manager->setStatus(LOCATE);
+}
+
+void MainWindow::pu_init()
+{
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否初始化?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_init();
+    }
 }
 
 void MainWindow::LabelPaixu(players *head){
@@ -841,7 +860,7 @@ void MainWindow::apply_locate(){
     // 更新定位显示
     QString str = ui->lineEdit_2->text();
     ui->label_locate->setText(str);
-    ui->lineEdit_2->setVisible(false);
+
 
     // 定位到定位到的玩家
     for(int j = 2;j <= location;j++){
@@ -876,7 +895,7 @@ void MainWindow::apply_locate(){
     }
 
     //显示停止下注
-    ui->opration_show->setText("停止下注");
+    ui->opration_show->setText("发牌中");
 }
 
 void MainWindow::request_game_record()
@@ -933,6 +952,20 @@ void MainWindow::request_room_card()
     Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
     manager->postData(Data);
+}
+
+void MainWindow::request_stop()
+{
+    manager->setStatus(STOP);
+    manager->setInterface("NnAwaitCard");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::request_init()
+{
+    manager->setStatus(INIT);
+    manager->setInterface("NnRonmInitialize");
+    manager->postData(QByteArray());
 }
 
 void MainWindow::apply_game_record(QJsonArray array)
@@ -1068,7 +1101,6 @@ void MainWindow::request_room_info()
 void MainWindow::phase_zero()
 {
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1076,6 +1108,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
 {
     unsigned int time = end - start;
     count_down = count_down_num - time;
+    ui->pu_end->setEnabled(true);
     timer_Countdown->start(1000);
 }
 
@@ -1096,7 +1129,6 @@ void MainWindow::phase_finish()
     // 结算完成
     // 启用该启用的按钮
     ui->pu_start->setEnabled(true);
-    ui->xue_change->setEnabled(true);
     ui->pu_init->setEnabled(true);
 }
 
@@ -1119,13 +1151,19 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
         count_down = count_down_num;
+        ui->pu_end->setEnabled(true);
+        ui->pu_end->setFocus();
+        ui->pu_init->setEnabled(false);
         timer_Countdown->start(1000);
+
+        ui->opration_show->setText(QString("倒计时中"));
     }
     else{
         ui->pu_start->setEnabled(true);
 
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛请求开局失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1138,24 +1176,39 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonArray data = json.value("data").toArray();
+        qDebug() << data;
         unsigned int BootNum = data.at(0)["BootNum"].toInt();
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
         count_down_num = data.at(0)["CountDown"].toInt();
+        WaitDown = data.at(0)["WaitDown"].toInt();
+
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);
 
+        // 刷新限红
+        unsigned int maxLimit = data.at(0)["MaxLimit"].toInt();
+        unsigned int minLimit = data.at(0)["MinLimit"].toInt();
+        unsigned int tieMaxLimit = data.at(0)["TieMaxLimit"].toInt();
+        unsigned int tieMinLimit = data.at(0)["TieMinLimit"].toInt();
+        QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
+        QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
+        // 初始化限红
+        ui->label_limit->setText(limit);
+        ui->label_tieLimit->setText(tieLimit);
+
         unsigned int phase = data.at(0)["Phase"].toInt();
         switch (phase) {
         case 0:{
+            ui->opration_show->setText(QString("已完结"));
             phase_zero();
             break;
         }
         case 1:{
             unsigned int startTime = data.at(0)["GameStarTime"].toInt();
             unsigned int sysTime = data.at(0)["Systime"].toInt();
-
+            ui->opration_show->setText(QString("倒计时中"));
             phase_countDown(startTime,sysTime);
             break;
         }
@@ -1164,14 +1217,16 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
             break;
         }
         case 3:{
+            ui->opration_show->setText(QString("已完结"));
             phase_finish();
             break;
         }
         }
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛获取房间信息失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1180,7 +1235,8 @@ void MainWindow::responsed_record(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
-
+    QString info = json.value("info").toString();
+    qDebug() << info;
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonArray data = json.value("data").toArray();
@@ -1197,8 +1253,9 @@ void MainWindow::responsed_record(QNetworkReply *reply)
         request_room_info();
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛游戏记录请求失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1214,6 +1271,7 @@ void MainWindow::responsed_roomcard(QNetworkReply *reply)
         location = data.value("LocationNum").toString().toInt();
         ui->label_locate->setText(QString::number(location));
         if(location == 0){
+            ui->opration_show->setText(QString("定位中"));
             ui->button_locate->setEnabled(true);
         }
         else{
@@ -1222,12 +1280,14 @@ void MainWindow::responsed_roomcard(QNetworkReply *reply)
             QJsonArray two = data.value("IdleTwoCard").toArray();
             QJsonArray three = data.value("IdleThreeCard").toArray();
             apply_room_card(zhuang,one,two,three);
+            ui->opration_show->setText(QString("发牌中"));
             ui->button_useless->setEnabled(true);
         }
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛本局游戏信息请求失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1244,8 +1304,9 @@ void MainWindow::responsed_locate(QNetworkReply *reply)
     }
     else{
         ui->button_locate->setEnabled(true);
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛定位请求失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1262,8 +1323,9 @@ void MainWindow::responsed_fapai(QNetworkReply *reply)
     }
     else{
         m_edit_last = "";
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛刷牌失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1279,8 +1341,9 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
     }
     else{
         ui->button_summit->setEnabled(true);
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛提交请求失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1297,8 +1360,9 @@ void MainWindow::responsed_useless(QNetworkReply *reply)
     else{
         ui->button_useless->setEnabled(true);
 
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛作废失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1316,7 +1380,7 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         ui->pu_times->setText(QString::fromStdString(to_string(pave_num)));
         ui->xue_times->setText(QString::fromStdString(to_string(boot_num)));
         for(int i = 0;i < 20;i++){
-            result_list[i]->zhuang->setStyleSheet("image: url(:/image/blue.png)");
+            result_list[i]->zhuang->setStyleSheet("image: url(:/image/red.png)");
             result_list[i]->one->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->two->setStyleSheet("image: url(:/image/blue.png)");
             result_list[i]->three->setStyleSheet("image: url(:/image/blue.png)");
@@ -1327,8 +1391,27 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         quarter = 0;
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("牛牛初始化失败");
+        box.setText("error: " + info);
+        box.exec();
+    }
+}
+
+void MainWindow::responsed_stop(QNetworkReply *reply)
+{
+    ui->pu_end->setEnabled(false);
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        count_down = 0;
+        ui->pu_end->setEnabled(false);
+    }
+    else{
+        QString info = json.value("info").toString();
+        QMessageBox box;
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -1345,6 +1428,7 @@ void MainWindow::line_finish()
         box.exec();
         return;
     }
+    ui->lineEdit_2->setVisible(false);
 
     manager->setInterface("Orientation");
 
@@ -1357,15 +1441,22 @@ void MainWindow::line_finish()
 
 void MainWindow::Request_summit(){
     //发送提交请求
-    ui->button_summit->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_summit->setEnabled(false);
 
-    manager->setStatus(SUMMIT);
-    manager->setInterface("GetGameOver");
+        manager->setStatus(SUMMIT);
+        manager->setInterface("GetGameOver");
 
-    QByteArray Data;
-    Data.append("bootNum=");Data.append(ui->xue_times->text());
-    Data.append("&paveNum=");Data.append(ui->pu_times->text());
-    manager->postData(Data);
+        QByteArray Data;
+        Data.append("bootNum=");Data.append(ui->xue_times->text());
+        Data.append("&paveNum=");Data.append(ui->pu_times->text());
+        manager->postData(Data);
+    }
 }
 
 void MainWindow::apply_summit()
@@ -1412,6 +1503,7 @@ void MainWindow::apply_summit()
     ui->label_locate->setText(QString(""));
     ui->pu_start->setEnabled(true);
     ui->button_useless->setEnabled(false);
+    ui->pu_init->setEnabled(true);
 }
 
 //void MainWindow::finishedSlot(QNetworkReply* reply)
@@ -1669,29 +1761,43 @@ void MainWindow::apply_summit()
 //}
 
 void MainWindow::on_exit(){
-    this->close();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否退出?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        this->close();
+    }
 }
 
 void MainWindow::Request_useless(){
     // 请求作废
     // 禁用作废按钮
-    ui->button_useless->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_useless->setEnabled(false);
 
-    manager->setStatus(USELESS);
-    manager->setInterface("NnAbolish");
+        manager->setStatus(USELESS);
+        manager->setInterface("NnAbolish");
 
-    QByteArray Data;
-    Data.append("boot_num=");Data.append(ui->xue_times->text());
-    Data.append("&pave_num=");Data.append(ui->pu_times->text());
+        QByteArray Data;
+        Data.append("boot_num=");Data.append(ui->xue_times->text());
+        Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
-    manager->postData(Data);
+        manager->postData(Data);
+    }
 }
 
 void MainWindow::apply_useless(){
     // 开始进行作废
     // 焦点到定位
     timer_focus->stop();
-    ui->button_locate->setFocus();
+
     // 禁用提交
     ui->button_summit->setEnabled(false);
 
@@ -1750,6 +1856,8 @@ void MainWindow::apply_useless(){
     ui->button_useless->setEnabled(false);
     // 启用开始按钮
     ui->pu_start->setEnabled(true);
+    ui->pu_start->setFocus();
+    ui->pu_init->setEnabled(true);
 }
 
 void MainWindow::Request_start(){
@@ -1815,17 +1923,26 @@ void MainWindow::quarter_increase()
 
 void MainWindow::on_count_down()
 {
-    // 刷新倒计时
-    ui->who_win->setText(QString::number(count_down));
-    count_down--;
-
     // 如果倒计时为 -1
-    if(count_down == -1){
+    if(count_down == 0){
+        if(first){
+            first = false;
+            count_down = WaitDown;
+            ui->pu_end->setEnabled(false);
+            ui->opration_show->setText(QString("准备开牌"));
+            return;
+        }
         // 停止倒计时
         timer_Countdown->stop();
         ui->who_win->setText(QString(""));
         // 启用定位
         ui->button_locate->setEnabled(true);
+        ui->button_locate->setFocus();
+        ui->opration_show->setText(QString("定位中"));
+    }
+    else{
+        ui->who_win->setText(QString::number(count_down--));
+        ui->who_win->setVisible(true);
     }
 }
 

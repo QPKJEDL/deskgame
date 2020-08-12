@@ -73,21 +73,21 @@ static const uint qt_meta_data_MRoomCard[] = {
 
  // signals: name, argc, parameters, tag, flags
        1,    1,   64,    2, 0x06 /* Public */,
-       3,    0,   67,    2, 0x06 /* Public */,
-       4,    0,   68,    2, 0x06 /* Public */,
+       3,    1,   67,    2, 0x06 /* Public */,
+       4,    0,   70,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   69,    2, 0x0a /* Public */,
-       6,    1,   70,    2, 0x0a /* Public */,
-       8,    0,   73,    2, 0x0a /* Public */,
-       9,    0,   74,    2, 0x08 /* Private */,
-      10,    0,   75,    2, 0x08 /* Private */,
-      11,    0,   76,    2, 0x08 /* Private */,
-      12,    2,   77,    2, 0x08 /* Private */,
+       5,    0,   71,    2, 0x0a /* Public */,
+       6,    1,   72,    2, 0x0a /* Public */,
+       8,    0,   75,    2, 0x0a /* Public */,
+       9,    0,   76,    2, 0x08 /* Private */,
+      10,    0,   77,    2, 0x08 /* Private */,
+      11,    0,   78,    2, 0x08 /* Private */,
+      12,    2,   79,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Int, QMetaType::Int,    2,
-    QMetaType::Int,
+    QMetaType::Int, QMetaType::QString,    2,
     QMetaType::Int,
 
  // slots: parameters
@@ -110,7 +110,7 @@ void MRoomCard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         switch (_id) {
         case 0: { int _r = _t->get_location((*reinterpret_cast< int(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
-        case 1: { int _r = _t->finished();
+        case 1: { int _r = _t->finished((*reinterpret_cast< QString(*)>(_a[1])));
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
         case 2: { int _r = _t->locate_zero();
             if (_a[0]) *reinterpret_cast< int*>(_a[0]) = std::move(_r); }  break;
@@ -144,7 +144,7 @@ void MRoomCard::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
             }
         }
         {
-            using _t = int (MRoomCard::*)();
+            using _t = int (MRoomCard::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MRoomCard::finished)) {
                 *result = 1;
                 return;
@@ -210,10 +210,10 @@ int MRoomCard::get_location(int _t1)
 }
 
 // SIGNAL 1
-int MRoomCard::finished()
+int MRoomCard::finished(QString _t1)
 {
     int _t0{};
-    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t0))) };
+    void *_a[] = { const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t0))), const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
     return _t0;
 }

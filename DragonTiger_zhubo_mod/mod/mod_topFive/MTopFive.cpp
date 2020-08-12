@@ -14,7 +14,7 @@ MTopFive::MTopFive(MTopFiveArg *arg) :
     this->arg = new MTopFiveArg();
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->times_xue = arg->times_xue;
     this->arg->times_pu = arg->times_pu;
 
@@ -29,7 +29,7 @@ MTopFive::~MTopFive()
 
 void MTopFive::request_top_five()
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->setStatus(arg->status);
     QByteArray postData;
     qDebug() << arg->times_xue->text();
@@ -75,11 +75,12 @@ void MTopFive::update_panel(QJsonObject data)
     int h = 0;
     auto f = [&](QLabel *n,QLabel *a){
         QJsonObject ob = topFive.at(h).toObject();
-        QString NickName = ob.value("NickName").toString();
+        QString Account = ob.value("Account").toString();
+        Account = Account.left(3) + "***" + Account.right(3);
         double num = ob.value("Num").toInt();
         if(num != 0){
             n->setText(QString::number(num));
-            a->setText(NickName);
+            a->setText(Account);
         }
     };
 

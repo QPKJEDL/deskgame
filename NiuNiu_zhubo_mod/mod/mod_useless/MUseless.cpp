@@ -10,10 +10,11 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
     this->arg = new MUselessArg();
     this->arg->boot = arg->boot;
     this->arg->pave = arg->pave;
+    this->arg->result = arg->result;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->useless = arg->useless;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     _map.insert(arg->status,&MUseless::responsed_useless);
     connect(arg->useless,SIGNAL(clicked()),this,SLOT(pu_useless()));
@@ -45,7 +46,7 @@ void MUseless::on_responsed(QNetworkReply *reply, int status)
 void MUseless::request_useless()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append(QString("boot_num=") + arg->boot->text());
     postData.append((QString("&pave_num=")) + arg->pave->text());
@@ -57,9 +58,12 @@ void MUseless::responsed_useless(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    QString info = json.value("info").toString();
+    qDebug() << info;
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        emit uselessed();
+        emit uselessed("作废");
+        this->arg->result->setText("作废");
     }
     else{
         arg->useless->setEnabled(true);

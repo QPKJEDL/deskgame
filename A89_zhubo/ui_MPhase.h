@@ -29,9 +29,7 @@ public:
     {
         if (MPhase->objectName().isEmpty())
             MPhase->setObjectName(QString::fromUtf8("MPhase"));
-        MPhase->resize(427, 291);
-        MPhase->setMinimumSize(QSize(427, 291));
-        MPhase->setMaximumSize(QSize(427, 291));
+        MPhase->resize(1415, 327);
         MPhase->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         verticalLayout = new QVBoxLayout(MPhase);
         verticalLayout->setSpacing(0);
@@ -41,11 +39,9 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label = new QLabel(MPhase);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setMinimumSize(QSize(200, 200));
-        label->setMaximumSize(QSize(438, 287));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font.setPointSize(200);
+        font.setPointSize(150);
         label->setFont(font);
         label->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         label->setAlignment(Qt::AlignCenter);

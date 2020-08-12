@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1463</width>
-    <height>893</height>
+    <width>1920</width>
+    <height>1080</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -24,9 +24,9 @@
     <property name="geometry">
      <rect>
       <x>8</x>
-      <y>370</y>
-      <width>1431</width>
-      <height>231</height>
+      <y>440</y>
+      <width>1911</width>
+      <height>271</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -50,9 +50,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>600</y>
-      <width>1431</width>
-      <height>251</height>
+      <y>710</y>
+      <width>1901</width>
+      <height>301</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -62,12 +62,161 @@
     <property name="title">
      <string/>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_5">
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>3</number>
+     </property>
+     <property name="topMargin">
+      <number>9</number>
+     </property>
+     <property name="rightMargin">
+      <number>3</number>
+     </property>
+     <property name="bottomMargin">
+      <number>9</number>
+     </property>
      <item>
-      <layout class="QGridLayout" name="gridLayout_5">
-       <property name="spacing">
-        <number>1</number>
-       </property>
+      <layout class="QHBoxLayout" name="horizontalLayout_4">
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_2">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <property name="leftMargin">
+             <number>1</number>
+            </property>
+            <property name="topMargin">
+             <number>1</number>
+            </property>
+            <property name="rightMargin">
+             <number>1</number>
+            </property>
+            <property name="bottomMargin">
+             <number>1</number>
+            </property>
+            <property name="spacing">
+             <number>1</number>
+            </property>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_5">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <item>
+        <widget class="QGroupBox" name="groupBox_7">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_6">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_6">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_8">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QVBoxLayout" name="verticalLayout_7">
+          <property name="spacing">
+           <number>0</number>
+          </property>
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <layout class="QGridLayout" name="gridLayout_7">
+            <property name="spacing">
+             <number>1</number>
+            </property>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
       </layout>
      </item>
     </layout>
@@ -75,10 +224,10 @@
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>950</x>
+      <x>1280</x>
       <y>0</y>
-      <width>491</width>
-      <height>371</height>
+      <width>641</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -760,7 +909,7 @@ background-color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>263</x>
-      <y>449</y>
+      <y>430</y>
       <width>1521</width>
       <height>251</height>
      </rect>
@@ -786,8 +935,8 @@ background-color: rgb(255, 255, 255);</string>
      <rect>
       <x>11</x>
       <y>1</y>
-      <width>941</width>
-      <height>371</height>
+      <width>1271</width>
+      <height>441</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -801,7 +950,7 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>10</x>
        <y>80</y>
-       <width>921</width>
+       <width>1251</width>
        <height>351</height>
       </rect>
      </property>
@@ -816,7 +965,7 @@ background-color: rgb(255, 255, 255);</string>
       <rect>
        <x>10</x>
        <y>10</y>
-       <width>921</width>
+       <width>1251</width>
        <height>64</height>
       </rect>
      </property>
@@ -827,35 +976,6 @@ background-color: rgb(255, 255, 255);</string>
       <property name="topMargin">
        <number>0</number>
       </property>
-      <item>
-       <widget class="QPushButton" name="pu_init">
-        <property name="enabled">
-         <bool>false</bool>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>80</width>
-          <height>50</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <family>方正粗黑宋简体</family>
-          <pointsize>15</pointsize>
-         </font>
-        </property>
-        <property name="styleSheet">
-         <string notr="true">QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}
-QPushButton:pressed{border-color:gray;background-image: url(:/result/pu_yellow_an.png);
-}
-QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_an.png);
-}</string>
-        </property>
-        <property name="text">
-         <string>初始化</string>
-        </property>
-       </widget>
-      </item>
       <item>
        <widget class="QPushButton" name="pu_start">
         <property name="enabled">
@@ -1323,8 +1443,8 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1463</width>
-     <height>23</height>
+     <width>1920</width>
+     <height>25</height>
     </rect>
    </property>
   </widget>

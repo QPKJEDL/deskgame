@@ -20,6 +20,9 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
     this->arg->status = arg->status;
     this->arg->boot = arg->boot;
     this->arg->pave = arg->pave;
+    this->arg->locate = arg->locate;
+    this->arg->opration_show = arg->opration_show;
+    this->arg->result = arg->result;
 
     connect(arg->button,SIGNAL(clicked()),this,SLOT(pu_summit()));
     _map.insert(arg->status,&MSummit::responsed_summit);
@@ -51,7 +54,10 @@ void MSummit::responsed_summit(QNetworkReply *reply)
 
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        emit summited();
+        emit summited(result);
+        arg->locate->setText("");
+        arg->result->setText(result);
+        arg->opration_show->setText("已完结");
     }
     else{
         arg->button->setEnabled(true);
@@ -74,18 +80,20 @@ void MSummit::on_responsed(QNetworkReply *reply, int status)
 void MSummit::pu_summit()
 {
     arg->button->setEnabled(false);
-    MDialog dlg(parent);
-    dlg.setWindowFlag(Qt::FramelessWindowHint);
-    dlg.set_message("是否提交?");
-    dlg.setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg.exec();
+    MDialog* dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
     if(ret == QDialog::Accepted){
         request_summit();
     }
 }
 
-void MSummit::cardFinished()
+void MSummit::cardFinished(QString re)
 {
     arg->button->setEnabled(true);
+    arg->opration_show->setText("准备提交");
+    this->result = re;
 }
 

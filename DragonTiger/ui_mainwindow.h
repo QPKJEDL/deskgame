@@ -32,8 +32,21 @@ public:
     QVBoxLayout *verticalLayout_4;
     QGridLayout *gridLayout_4;
     QGroupBox *groupBox_4;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout_4;
+    QGroupBox *groupBox_5;
+    QVBoxLayout *verticalLayout_2;
+    QGridLayout *gridLayout_3;
+    QGroupBox *groupBox_6;
     QVBoxLayout *verticalLayout_5;
     QGridLayout *gridLayout_5;
+    QHBoxLayout *horizontalLayout_5;
+    QGroupBox *groupBox_7;
+    QVBoxLayout *verticalLayout_6;
+    QGridLayout *gridLayout_6;
+    QGroupBox *groupBox_8;
+    QVBoxLayout *verticalLayout_7;
+    QGridLayout *gridLayout_7;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout_3;
     QGridLayout *gridLayout;
@@ -82,7 +95,6 @@ public:
     QGridLayout *gridLayout_2;
     QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout;
-    QPushButton *pu_init;
     QPushButton *pu_start;
     QPushButton *pu_changeXue;
     QPushButton *pu_stop;
@@ -98,14 +110,14 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(1463, 893);
+        MainWindow->resize(1920, 1080);
         MainWindow->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setStyleSheet(QString::fromUtf8("background-color: rgb(30, 40, 50);"));
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(8, 370, 1431, 231));
+        groupBox_3->setGeometry(QRect(8, 440, 1911, 271));
         groupBox_3->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);\n"
 ""));
         verticalLayout_4 = new QVBoxLayout(groupBox_3);
@@ -118,20 +130,86 @@ public:
 
         groupBox_4 = new QGroupBox(centralwidget);
         groupBox_4->setObjectName(QString::fromUtf8("groupBox_4"));
-        groupBox_4->setGeometry(QRect(10, 600, 1431, 251));
+        groupBox_4->setGeometry(QRect(10, 710, 1901, 301));
         groupBox_4->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);\n"
 ""));
-        verticalLayout_5 = new QVBoxLayout(groupBox_4);
+        verticalLayout = new QVBoxLayout(groupBox_4);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(3, 9, 3, 9);
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
+        groupBox_5 = new QGroupBox(groupBox_4);
+        groupBox_5->setObjectName(QString::fromUtf8("groupBox_5"));
+        verticalLayout_2 = new QVBoxLayout(groupBox_5);
+        verticalLayout_2->setSpacing(0);
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        gridLayout_3 = new QGridLayout();
+        gridLayout_3->setSpacing(1);
+        gridLayout_3->setObjectName(QString::fromUtf8("gridLayout_3"));
+        gridLayout_3->setContentsMargins(1, 1, 1, 1);
+
+        verticalLayout_2->addLayout(gridLayout_3);
+
+
+        horizontalLayout_4->addWidget(groupBox_5);
+
+        groupBox_6 = new QGroupBox(groupBox_4);
+        groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
+        verticalLayout_5 = new QVBoxLayout(groupBox_6);
+        verticalLayout_5->setSpacing(0);
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        verticalLayout_5->setContentsMargins(0, 0, 0, 0);
         gridLayout_5 = new QGridLayout();
         gridLayout_5->setSpacing(1);
         gridLayout_5->setObjectName(QString::fromUtf8("gridLayout_5"));
 
         verticalLayout_5->addLayout(gridLayout_5);
 
+
+        horizontalLayout_4->addWidget(groupBox_6);
+
+
+        verticalLayout->addLayout(horizontalLayout_4);
+
+        horizontalLayout_5 = new QHBoxLayout();
+        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
+        groupBox_7 = new QGroupBox(groupBox_4);
+        groupBox_7->setObjectName(QString::fromUtf8("groupBox_7"));
+        verticalLayout_6 = new QVBoxLayout(groupBox_7);
+        verticalLayout_6->setSpacing(0);
+        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        verticalLayout_6->setContentsMargins(0, 0, 0, 0);
+        gridLayout_6 = new QGridLayout();
+        gridLayout_6->setSpacing(1);
+        gridLayout_6->setObjectName(QString::fromUtf8("gridLayout_6"));
+
+        verticalLayout_6->addLayout(gridLayout_6);
+
+
+        horizontalLayout_5->addWidget(groupBox_7);
+
+        groupBox_8 = new QGroupBox(groupBox_4);
+        groupBox_8->setObjectName(QString::fromUtf8("groupBox_8"));
+        verticalLayout_7 = new QVBoxLayout(groupBox_8);
+        verticalLayout_7->setSpacing(0);
+        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
+        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
+        gridLayout_7 = new QGridLayout();
+        gridLayout_7->setSpacing(1);
+        gridLayout_7->setObjectName(QString::fromUtf8("gridLayout_7"));
+
+        verticalLayout_7->addLayout(gridLayout_7);
+
+
+        horizontalLayout_5->addWidget(groupBox_8);
+
+
+        verticalLayout->addLayout(horizontalLayout_5);
+
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(950, 0, 491, 371));
+        groupBox_2->setGeometry(QRect(1280, 0, 641, 441));
         groupBox_2->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         verticalLayout_3 = new QVBoxLayout(groupBox_2);
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
@@ -479,7 +557,7 @@ public:
 
         label_count_down = new QLabel(centralwidget);
         label_count_down->setObjectName(QString::fromUtf8("label_count_down"));
-        label_count_down->setGeometry(QRect(263, 449, 1521, 251));
+        label_count_down->setGeometry(QRect(263, 430, 1521, 251));
         QFont font5;
         font5.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
         font5.setPointSize(200);
@@ -488,35 +566,22 @@ public:
         label_count_down->setAlignment(Qt::AlignCenter);
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(11, 1, 941, 371));
+        groupBox->setGeometry(QRect(11, 1, 1271, 441));
         groupBox->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 52, 91);"));
         layoutWidget = new QWidget(groupBox);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(10, 80, 921, 351));
+        layoutWidget->setGeometry(QRect(10, 80, 1251, 351));
         gridLayout_2 = new QGridLayout(layoutWidget);
         gridLayout_2->setSpacing(1);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
         gridLayout_2->setContentsMargins(0, 0, 0, 0);
         layoutWidget1 = new QWidget(groupBox);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(10, 10, 921, 64));
+        layoutWidget1->setGeometry(QRect(10, 10, 1251, 64));
         horizontalLayout = new QHBoxLayout(layoutWidget1);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setSizeConstraint(QLayout::SetMinimumSize);
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        pu_init = new QPushButton(layoutWidget1);
-        pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(false);
-        pu_init->setMinimumSize(QSize(80, 50));
-        pu_init->setFont(font4);
-        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}\n"
-"QPushButton:pressed{border-color:gray;background-image: url(:/result/pu_yellow_an.png);\n"
-"}\n"
-"QPushButton:disabled{border-color:gray;background-image: url(:/result/pu_yellow_an.png);\n"
-"}"));
-
-        horizontalLayout->addWidget(pu_init);
-
         pu_start = new QPushButton(layoutWidget1);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
@@ -666,7 +731,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 1463, 23));
+        menubar->setGeometry(QRect(0, 0, 1920, 25));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
@@ -682,6 +747,10 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_3->setTitle(QString());
         groupBox_4->setTitle(QString());
+        groupBox_5->setTitle(QString());
+        groupBox_6->setTitle(QString());
+        groupBox_7->setTitle(QString());
+        groupBox_8->setTitle(QString());
         groupBox_2->setTitle(QString());
         label_tieMaxLimit->setText(QString());
         label_score_tiger->setText(QString());
@@ -726,7 +795,6 @@ public:
         label_lwl_three->setText(QString());
         label_count_down->setText(QString());
         groupBox->setTitle(QString());
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));

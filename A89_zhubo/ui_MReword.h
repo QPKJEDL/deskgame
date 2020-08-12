@@ -72,7 +72,7 @@ public:
         horizontalLayout->setStretch(1, 1);
         layoutWidget1 = new QWidget(MReword);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(280, 140, 131, 104));
+        layoutWidget1->setGeometry(QRect(240, 140, 171, 104));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
@@ -94,6 +94,8 @@ public:
 
         horizontalLayout_2->addWidget(label_2);
 
+        horizontalLayout_2->setStretch(0, 2);
+        horizontalLayout_2->setStretch(1, 1);
 
         retranslateUi(MReword);
 

@@ -3329,7 +3329,10 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
+        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242(/)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_end->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)

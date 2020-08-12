@@ -19,7 +19,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString interface;
+    QString inter;
 }MRecordArg;
 
 class MRecord;
@@ -51,6 +51,9 @@ private:
     void update_panel(QJsonArray array);
     void increase();
     void append(QString game);
+
+signals:
+    void finished();
 };
 
 #endif // MRECORD_H

@@ -273,8 +273,12 @@ Makefile: NiuNiu_zhubo_mod.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/wi
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/yacc.prf \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/lex.prf \
 		NiuNiu_zhubo_mod.pro \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5QuickWidgets.prl \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Quick.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Widgets.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5QmlModels.prl \
+		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl \
 		../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl \
@@ -484,8 +488,12 @@ Makefile: NiuNiu_zhubo_mod.pro ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/wi
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/yacc.prf:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/mkspecs/features/lex.prf:
 NiuNiu_zhubo_mod.pro:
+../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5QuickWidgets.prl:
+../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Quick.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Widgets.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Gui.prl:
+../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5QmlModels.prl:
+../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Qml.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Network.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/Qt5Core.prl:
 ../../../Qt/Qt5.14.2/5.14.2/mingw73_64/lib/qtmain.prl:

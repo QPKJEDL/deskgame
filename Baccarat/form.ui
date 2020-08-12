@@ -36,7 +36,7 @@
 color: rgb(170, 0, 0);</string>
    </property>
    <property name="text">
-    <string>庄赢</string>
+    <string/>
    </property>
    <property name="alignment">
     <set>Qt::AlignCenter</set>
@@ -50,6 +50,9 @@ color: rgb(170, 0, 0);</string>
      <width>75</width>
      <height>31</height>
     </rect>
+   </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 197, 132);</string>
@@ -67,11 +70,17 @@ color: rgb(170, 0, 0);</string>
      <height>31</height>
     </rect>
    </property>
+   <property name="focusPolicy">
+    <enum>Qt::NoFocus</enum>
+   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(40, 197, 132);</string>
    </property>
    <property name="text">
     <string>取消</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">

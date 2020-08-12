@@ -215,7 +215,7 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="date">
         <date>
-         <year>2000</year>
+         <year>2020</year>
          <month>1</month>
          <day>1</day>
         </date>
@@ -262,6 +262,13 @@ color: rgb(251, 244, 207);
 border-radius: 5px;
 border: 3px;
 color: rgb(255, 255, 255);</string>
+       </property>
+       <property name="date">
+        <date>
+         <year>2020</year>
+         <month>1</month>
+         <day>1</day>
+        </date>
        </property>
        <property name="displayFormat">
         <string>yyyy-MM-dd</string>
@@ -399,7 +406,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QLabel" name="label_three_name">
+      <widget class="QLabel" name="label_name_three">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -419,7 +426,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="6" column="2">
-      <widget class="QLabel" name="label_five_name">
+      <widget class="QLabel" name="label_name_five">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -579,7 +586,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="8" column="2">
-      <widget class="QLabel" name="label_seven_name">
+      <widget class="QLabel" name="label_name_seven">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -607,7 +614,7 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">color: rgb(255, 255, 255);background-color: rgb(72, 71, 86);</string>
+        <string notr="true">background-color: rgb(72, 71, 86);color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string/>
@@ -618,7 +625,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="7" column="2">
-      <widget class="QLabel" name="label_six_name">
+      <widget class="QLabel" name="label_name_six">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -718,7 +725,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="1" column="2">
-      <widget class="QLabel" name="label_one_name">
+      <widget class="QLabel" name="label_name_one">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -738,7 +745,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QLabel" name="label_four_name">
+      <widget class="QLabel" name="label_name_four">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -838,7 +845,7 @@ color: rgb(255, 255, 255);</string>
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QLabel" name="label_two_name">
+      <widget class="QLabel" name="label_name_two">
        <property name="font">
         <font>
          <family>方正粗黑宋简体</family>
@@ -1134,7 +1141,7 @@ color: rgb(255, 255, 255);</string>
 color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
-        <string>00</string>
+        <string/>
        </property>
        <property name="alignment">
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
@@ -1156,6 +1163,9 @@ color: rgb(255, 255, 255);</string>
      </item>
      <item>
       <widget class="QPushButton" name="pu_front_page">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -1169,9 +1179,14 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));
 border-radius: 8px;
-color: rgb(121, 61, 3);</string>
+color: rgb(121, 61, 3);
+}
+QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
+}
+</string>
        </property>
        <property name="text">
         <string>上一页</string>
@@ -1193,9 +1208,14 @@ color: rgb(121, 61, 3);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(35, 34, 51, 255), stop:0.4375 rgba(92, 107, 148, 255), stop:0.568182 rgba(92, 107, 148, 255), stop:0.971591 rgba(35, 34, 51, 255), stop:1 rgba(35, 34, 51, 255));
+        <string notr="true">QPushButton{
+background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));
 border-radius: 8px;
-color: rgb(255, 255, 255);</string>
+color: rgb(121, 61, 3);
+}
+QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
+}
+</string>
        </property>
        <property name="text">
         <string>下一页</string>

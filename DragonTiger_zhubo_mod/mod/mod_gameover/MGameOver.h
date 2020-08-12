@@ -19,7 +19,7 @@ typedef struct{
     QLabel *desk_id;
     QLabel *result;
     int status;
-    QString interface;
+    QString inter;
     MNetManager *manager;
 }MGameOverArg;
 

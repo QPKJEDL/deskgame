@@ -22,18 +22,21 @@ SOURCES += \
     login.cpp \
     main.cpp \
     mainwindow.cpp \
-    mod/MNetManager.cpp
+    mod/MNetManager.cpp \
+    mod/mod_dialog/MDialog.cpp
 
 HEADERS += \
     form.h \
     login.h \
     mainwindow.h \
-    mod/MNetManager.h
+    mod/MNetManager.h \
+    mod/mod_dialog/MDialog.h
 
 FORMS += \
     form.ui \
     login.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    mod/mod_dialog/MDialog.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

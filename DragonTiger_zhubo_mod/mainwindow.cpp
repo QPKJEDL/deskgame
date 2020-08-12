@@ -5,11 +5,13 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QHostAddress>
-QString URL = "101.32.22.231:8210";
+#include <QQmlContext>
+QString URL = "101.32.22.231:8210";//129.211.114.135:8210
+
 
 // lh a1 // bjl a5 // nn a2
 
-enum {CHAT,LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY,BAN};
+enum {CHAT,LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,SECONDLOGIN,TOPTHREE,TOPTHREETWO,TOPFIVE,MONEY,BAN,STOP};
 
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
@@ -18,20 +20,20 @@ MainWindow::MainWindow(QMainWindow *parent)
     ui->setupUi(this);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     second_manager = new MNetManager;
-    second_manager->setIp("129.211.114.135:8210");
+    second_manager->setIp("101.32.22.231:8210");
     second_manager->setHeader("application/x-www-form-urlencoded");
 
     m_tcpsocket = new QTcpSocket(this);
 
     // 模块
     MLoginArg loginArg;
-    loginArg.userid = "a1";
-    loginArg.passwd = "123456";
-    loginArg.IP = "129.211.114.135";
+    loginArg.userid = "VIP11";
+    loginArg.passwd = "7c6f50493eed622b";
+    loginArg.IP = "101.32.22.231";
     loginArg.widget = this;
     loginArg.tcpsocket = m_tcpsocket;
     loginArg.status_first = LOGIN;
@@ -44,7 +46,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     module_login->showFullScreen();
 
     MMoneyArg moneyArg;
-    moneyArg.interface = "live_reward_list";
+    moneyArg.inter = "live_reward_list";
     moneyArg.status = MONEY;
     moneyArg.widget = this;
     moneyArg.manager = second_manager;
@@ -55,7 +57,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     threeArg.manager = manager;
     threeArg.times_pu = ui->label_pus;
     threeArg.times_xue = ui->label_xues;
-    threeArg.interface = "lh_bet_top_three";
+    threeArg.inter = "lh_bet_top_three";
     module_topThree = new MTopThree(&threeArg);
     QVBoxLayout *vbox = new QVBoxLayout(ui->groupBox_4);
     vbox->addWidget(module_topThree);
@@ -67,7 +69,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     fiveArg.manager = manager;
     fiveArg.times_pu = ui->label_pus;
     fiveArg.times_xue = ui->label_xues;
-    fiveArg.interface = "lh_bingo_top_five";
+    fiveArg.inter = "lh_bingo_top_five";
     module_topFive = new MTopFive(&fiveArg);
     QVBoxLayout *vbox_five = new QVBoxLayout(ui->groupBox_5);
     vbox_five->addWidget(module_topFive);
@@ -86,14 +88,14 @@ MainWindow::MainWindow(QMainWindow *parent)
     gameOverArg.status = SUMMIT;
     gameOverArg.desk_id = ui->label_2;
     gameOverArg.manager = manager;
-    gameOverArg.interface = "lh_game_over";
+    gameOverArg.inter = "lh_game_over";
     module_gameOver = new MGameOver(&gameOverArg);
 
     MRoomInfoArg roomInfoArg;
     roomInfoArg.deskId = ui->label_2;
     roomInfoArg.status = ROOMINFO;
     roomInfoArg.manager = manager;
-    roomInfoArg.interface = "HeGuanRoominfo";
+    roomInfoArg.inter = "HeGuanRoominfo";
     roomInfoArg.timesBoot = ui->label_xues;
     roomInfoArg.timesPave = ui->label_pus;
     roomInfoArg.limit = ui->label_minLimit;
@@ -111,13 +113,18 @@ MainWindow::MainWindow(QMainWindow *parent)
     phaseArg.player = ui->pu_tiger;
     phaseArg.useless = ui->pu_useless;
     phaseArg.changeBoot = ui->pu_changeXue;
+
+    phaseArg.stop = ui->pu_stop;
+    phaseArg.manager = manager;
+    phaseArg.status_stop = STOP;
+    phaseArg.interface_stop = "lh_early_stop";
     module_phase = new MPhase(&phaseArg,this);
 
     MRecordArg recordArg;
     recordArg.boot = ui->label_xues;
     recordArg.grid = ui->gridLayout_2;
     recordArg.status = RECORD;
-    recordArg.interface = "lh_dutch_game_list";
+    recordArg.inter = "lh_dutch_game_list";
     recordArg.manager = manager;
     module_record = new MRecord(&recordArg);
 
@@ -125,7 +132,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     startArg.button = ui->pu_start;
     startArg.status = START;
     startArg.manager = manager;
-    startArg.interface = "lh_count_down";
+    startArg.inter = "lh_count_down";
     startArg.boot = ui->label_xues;
     startArg.pave = ui->label_pus;
     module_start = new MStart(&startArg);
@@ -136,7 +143,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     uselessArg.pave = ui->label_pus;
     uselessArg.status = USELESS;
     uselessArg.manager = manager;
-    uselessArg.interface = "lh_game_burn";
+    uselessArg.inter = "lh_game_burn";
     module_useless = new MUseless(&uselessArg);
 
     MChangeBootArg changBootArg;
@@ -145,7 +152,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     changBootArg.status = CHANGEBOOT;
     changBootArg.manager = manager;
     changBootArg.changeBoot = ui->pu_changeXue;
-    changBootArg.interface = "lh_change_boot";
+    changBootArg.inter = "lh_change_boot";
     module_changeBoot = new MChangeBoot(&changBootArg);
 
     MInitArg initArg;
@@ -154,18 +161,26 @@ MainWindow::MainWindow(QMainWindow *parent)
     initArg.status = INIT;
     initArg.manager = manager;
     initArg.init = ui->pu_init;
-    initArg.interface = "lh_desk_ini";
+    initArg.inter = "lh_desk_ini";
     module_init = new MInit(&initArg);
 
     MChatArg chatArg;
-    chatArg.grid = ui->verticalLayout_6;
     chatArg.status = CHAT;
     chatArg.manager = second_manager;
-    chatArg.interface = "live_ban_user";
+    chatArg.inter = "live_ban_user";
     chatArg.tcpSocket = m_tcpsocket;
+
+    chatArg.manager_clear = second_manager;
+    chatArg.desk_id = &(module_login->desk_id);
+
     module_chat = new MChat(&chatArg);
+    QQmlContext *context = ui->quickWidget->rootContext();
+    context->setContextProperty("module_chat",module_chat);
+    ui->quickWidget->setSource(QUrl("qrc:/qml/MChat.qml"));
 
     module_leave = new MLeave(ui->pu_leave,this);
+
+    module_reword = new MReword(this);
 
     connect(module_init,SIGNAL(inited()),module_record,SLOT(request_record()));
     connect(module_changeBoot,SIGNAL(changed()),module_phase,SLOT(on_finished()));
@@ -173,14 +188,18 @@ MainWindow::MainWindow(QMainWindow *parent)
     connect(module_useless,SIGNAL(uselessed()),module_record,SLOT(on_useless()));
     connect(module_useless,SIGNAL(uselessed()),module_phase,SLOT(on_useless()));
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_started()));
+    connect(module_start,SIGNAL(successed()),module_topThree,SLOT(clear()));
+    connect(module_chat,SIGNAL(show_top_three(QJsonObject)),module_topThree,SLOT(update_panel(QJsonObject)));
     connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
-    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
-    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_record,SLOT(request_record()));
+    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int,int)));
+    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int,int)),module_record,SLOT(request_record()));
     connect(module_gameOver,SIGNAL(gameOver(QString)),module_record,SLOT(apply_record(QString)));
-    connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
-    connect(module_phase,SIGNAL(timeout()),module_topFive,SLOT(request_top_five()));
+    connect(module_record,SIGNAL(finished()),module_topThree,SLOT(request_top_three()));
+    connect(module_start,SIGNAL(successed()),module_topFive,SLOT(request_top_five()));
     connect(module_phase,SIGNAL(timeout()),module_gameOver,SLOT(clear()));
     connect(module_gameOver,SIGNAL(gameOver(QString)),module_phase,SLOT(on_finished()));
+
+    connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
 }
 
 MainWindow::~MainWindow()

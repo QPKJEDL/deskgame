@@ -23,9 +23,9 @@ using namespace std;
 #include "mod/mod_init/MInit.h"
 #include "mod/mod_leave/MLeave.h"
 #include "mod/mod_topThree/MTopThree.h"
-#include "mod/mod_changeBoot/MChangeBoot.h"
 #include "mod/mod_chat/MChat.h"
 #include "mod/mod_money/MMoney.h"
+#include "mod/mod_reward/MReword.h"
 
 class MLogin;
 class MRoomInfo;
@@ -37,7 +37,6 @@ class MSummit;
 class MInit;
 class MLeave;
 class MTopThree;
-class MChangeBoot;
 class MChat;
 class MMoney;
 
@@ -84,8 +83,8 @@ private:
     MInit *module_init;
     MLeave *module_leave;
     MTopThree *module_topThree;
-    MChangeBoot *module_changeBoot;
     MChat *module_chat;
     MMoney *module_money;
+    MReword *module_reword;
 };
 #endif // MAINWINDOW_H

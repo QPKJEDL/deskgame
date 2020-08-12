@@ -76,7 +76,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(int id, QString token, QString limit, QString tieLimit, QWidget *parent = nullptr);
+    MainWindow(int id, QString token, QWidget *parent = nullptr);
     ~MainWindow();
 
     QString m_str;
@@ -130,6 +130,8 @@ private:
     int location;
     int count_down;
     int count_down_num;
+    bool first = true;
+    int WaitDown;
 
     MNetManager *manager;
     QMap<int,exe> _map;
@@ -143,6 +145,7 @@ private:
     void request_game_record();
     void request_room_info();
     void request_room_card();
+    void request_stop();
 
     void apply_summit();
     void apply_useless();
@@ -156,6 +159,7 @@ private:
     void phase_finish();
 
 public:
+    void responsed_stop(QNetworkReply *reply);
     void responsed_start(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);
     void responsed_record(QNetworkReply *reply);

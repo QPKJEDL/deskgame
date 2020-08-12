@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -63,27 +64,8 @@ public:
     QPushButton *button_useless;
     QPushButton *button_summit;
     QHBoxLayout *horizontalLayout_9;
-    QVBoxLayout *verticalLayout_5;
+    QQuickWidget *quickWidget;
     QGroupBox *groupBox_6;
-    QVBoxLayout *verticalLayout_9;
-    QLabel *label_134;
-    QWidget *widget_3;
-    QGridLayout *gridLayout_4;
-    QLabel *label_7;
-    QLabel *label_first_bet;
-    QLabel *label_12;
-    QLabel *label_first_name;
-    QLabel *label_second_name;
-    QLabel *label_first_money;
-    QLabel *label_second_bet;
-    QLabel *label_13;
-    QLabel *label_second_money;
-    QLabel *label_8;
-    QLabel *label_16;
-    QLabel *label_third_name;
-    QLabel *label_18;
-    QLabel *label_third_bet;
-    QLabel *label_third_money;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -147,7 +129,7 @@ public:
 
         pu_init = new QPushButton(groupBox_2);
         pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(true);
+        pu_init->setEnabled(false);
         pu_init->setMinimumSize(QSize(120, 51));
         pu_init->setMaximumSize(QSize(140, 60));
         pu_init->setFont(font2);
@@ -482,7 +464,7 @@ public:
 
         button_useless = new QPushButton(groupBox_5);
         button_useless->setObjectName(QString::fromUtf8("button_useless"));
-        button_useless->setEnabled(true);
+        button_useless->setEnabled(false);
         button_useless->setMinimumSize(QSize(0, 50));
         button_useless->setFont(font2);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
@@ -516,165 +498,15 @@ public:
 
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
-        verticalLayout_5 = new QVBoxLayout();
-        verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
+        quickWidget = new QQuickWidget(centralwidget);
+        quickWidget->setObjectName(QString::fromUtf8("quickWidget"));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-        horizontalLayout_9->addLayout(verticalLayout_5);
+        horizontalLayout_9->addWidget(quickWidget);
 
         groupBox_6 = new QGroupBox(centralwidget);
         groupBox_6->setObjectName(QString::fromUtf8("groupBox_6"));
         groupBox_6->setStyleSheet(QString::fromUtf8("background-color: rgb(252, 238, 205);"));
-        verticalLayout_9 = new QVBoxLayout(groupBox_6);
-        verticalLayout_9->setSpacing(0);
-        verticalLayout_9->setObjectName(QString::fromUtf8("verticalLayout_9"));
-        verticalLayout_9->setContentsMargins(2, 2, 2, 2);
-        label_134 = new QLabel(groupBox_6);
-        label_134->setObjectName(QString::fromUtf8("label_134"));
-        label_134->setFont(font1);
-        label_134->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);\n"
-"background-color: rgb(0, 101, 255);"));
-        label_134->setAlignment(Qt::AlignCenter);
-
-        verticalLayout_9->addWidget(label_134);
-
-        widget_3 = new QWidget(groupBox_6);
-        widget_3->setObjectName(QString::fromUtf8("widget_3"));
-        widget_3->setStyleSheet(QString::fromUtf8("background-color: rgb(39, 39, 57);"));
-        gridLayout_4 = new QGridLayout(widget_3);
-        gridLayout_4->setObjectName(QString::fromUtf8("gridLayout_4"));
-        gridLayout_4->setHorizontalSpacing(0);
-        gridLayout_4->setVerticalSpacing(1);
-        gridLayout_4->setContentsMargins(-1, 1, -1, 1);
-        label_7 = new QLabel(widget_3);
-        label_7->setObjectName(QString::fromUtf8("label_7"));
-        label_7->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_7, 0, 0, 1, 1);
-
-        label_first_bet = new QLabel(widget_3);
-        label_first_bet->setObjectName(QString::fromUtf8("label_first_bet"));
-        label_first_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_first_bet, 0, 3, 1, 1);
-
-        label_12 = new QLabel(widget_3);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
-        label_12->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_12, 1, 0, 1, 1);
-
-        label_first_name = new QLabel(widget_3);
-        label_first_name->setObjectName(QString::fromUtf8("label_first_name"));
-        label_first_name->setFont(font1);
-        label_first_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_first_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_first_name, 0, 1, 1, 1);
-
-        label_second_name = new QLabel(widget_3);
-        label_second_name->setObjectName(QString::fromUtf8("label_second_name"));
-        label_second_name->setFont(font1);
-        label_second_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_second_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_second_name, 1, 1, 1, 1);
-
-        label_first_money = new QLabel(widget_3);
-        label_first_money->setObjectName(QString::fromUtf8("label_first_money"));
-        QFont font11;
-        font11.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font11.setPointSize(20);
-        label_first_money->setFont(font11);
-        label_first_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_first_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_first_money, 0, 4, 1, 1);
-
-        label_second_bet = new QLabel(widget_3);
-        label_second_bet->setObjectName(QString::fromUtf8("label_second_bet"));
-        label_second_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_second_bet, 1, 3, 1, 1);
-
-        label_13 = new QLabel(widget_3);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
-        QFont font12;
-        font12.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font12.setPointSize(14);
-        font12.setBold(true);
-        font12.setWeight(75);
-        label_13->setFont(font12);
-        label_13->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_4->addWidget(label_13, 1, 2, 1, 1);
-
-        label_second_money = new QLabel(widget_3);
-        label_second_money->setObjectName(QString::fromUtf8("label_second_money"));
-        label_second_money->setFont(font11);
-        label_second_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_second_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_second_money, 1, 4, 1, 1);
-
-        label_8 = new QLabel(widget_3);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        QFont font13;
-        font13.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
-        font13.setPointSize(14);
-        font13.setBold(true);
-        font13.setItalic(false);
-        font13.setWeight(75);
-        label_8->setFont(font13);
-        label_8->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_8->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_8, 0, 2, 1, 1);
-
-        label_16 = new QLabel(widget_3);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
-        label_16->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_16, 2, 0, 1, 1);
-
-        label_third_name = new QLabel(widget_3);
-        label_third_name->setObjectName(QString::fromUtf8("label_third_name"));
-        label_third_name->setFont(font1);
-        label_third_name->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_third_name->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_third_name, 2, 1, 1, 1);
-
-        label_18 = new QLabel(widget_3);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
-        label_18->setFont(font12);
-        label_18->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-
-        gridLayout_4->addWidget(label_18, 2, 2, 1, 1);
-
-        label_third_bet = new QLabel(widget_3);
-        label_third_bet->setObjectName(QString::fromUtf8("label_third_bet"));
-        label_third_bet->setStyleSheet(QString::fromUtf8(""));
-
-        gridLayout_4->addWidget(label_third_bet, 2, 3, 1, 1);
-
-        label_third_money = new QLabel(widget_3);
-        label_third_money->setObjectName(QString::fromUtf8("label_third_money"));
-        label_third_money->setFont(font11);
-        label_third_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
-        label_third_money->setAlignment(Qt::AlignCenter);
-
-        gridLayout_4->addWidget(label_third_money, 2, 4, 1, 1);
-
-        gridLayout_4->setColumnStretch(0, 1);
-        gridLayout_4->setColumnStretch(1, 2);
-        gridLayout_4->setColumnStretch(2, 1);
-        gridLayout_4->setColumnStretch(3, 1);
-        gridLayout_4->setColumnStretch(4, 2);
-
-        verticalLayout_9->addWidget(widget_3);
-
-        verticalLayout_9->setStretch(0, 1);
-        verticalLayout_9->setStretch(1, 3);
 
         horizontalLayout_9->addWidget(groupBox_6);
 
@@ -703,12 +535,15 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
+        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242(/)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_end->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
+#endif // QT_CONFIG(shortcut)
         pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
 #endif // QT_CONFIG(shortcut)
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
@@ -737,22 +572,6 @@ public:
 #endif // QT_CONFIG(shortcut)
         button_summit->setText(QCoreApplication::translate("MainWindow", "\346\217\220\344\272\244", nullptr));
         groupBox_6->setTitle(QString());
-        label_134->setText(QCoreApplication::translate("MainWindow", "\346\234\254\345\261\200\346\212\225\346\263\250\346\234\200\345\244\247\345\211\215\344\270\211", nullptr));
-        label_7->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/1.png\"/></p></body></html>", nullptr));
-        label_first_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_12->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/2.png\"/></p></body></html>", nullptr));
-        label_first_name->setText(QString());
-        label_second_name->setText(QString());
-        label_first_money->setText(QString());
-        label_second_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_13->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_second_money->setText(QString());
-        label_8->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_16->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><img src=\":/icon/image/icon/3.png\"/></p></body></html>", nullptr));
-        label_third_name->setText(QString());
-        label_18->setText(QCoreApplication::translate("MainWindow", "\346\212\225\346\263\250", nullptr));
-        label_third_bet->setText(QCoreApplication::translate("MainWindow", "<html><head/><body><p><br/></p></body></html>", nullptr));
-        label_third_money->setText(QString());
     } // retranslateUi
 
 };

@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MPhase_t {
-    QByteArrayData data[20];
-    char stringdata0[184];
+    QByteArrayData data[23];
+    char stringdata0[206];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -43,22 +43,26 @@ QT_MOC_LITERAL(7, 61, 14), // "QNetworkReply*"
 QT_MOC_LITERAL(8, 76, 5), // "reply"
 QT_MOC_LITERAL(9, 82, 6), // "status"
 QT_MOC_LITERAL(10, 89, 9), // "pu_locate"
-QT_MOC_LITERAL(11, 99, 17), // "while_line_finish"
-QT_MOC_LITERAL(12, 117, 8), // "to_phase"
-QT_MOC_LITERAL(13, 126, 5), // "phase"
-QT_MOC_LITERAL(14, 132, 5), // "start"
-QT_MOC_LITERAL(15, 138, 3), // "end"
-QT_MOC_LITERAL(16, 142, 9), // "countDown"
-QT_MOC_LITERAL(17, 152, 11), // "on_finished"
-QT_MOC_LITERAL(18, 164, 8), // "on_start"
-QT_MOC_LITERAL(19, 173, 10) // "on_located"
+QT_MOC_LITERAL(11, 99, 7), // "pu_stop"
+QT_MOC_LITERAL(12, 107, 17), // "while_line_finish"
+QT_MOC_LITERAL(13, 125, 8), // "to_phase"
+QT_MOC_LITERAL(14, 134, 5), // "phase"
+QT_MOC_LITERAL(15, 140, 5), // "start"
+QT_MOC_LITERAL(16, 146, 3), // "end"
+QT_MOC_LITERAL(17, 150, 9), // "countDown"
+QT_MOC_LITERAL(18, 160, 9), // "wait_down"
+QT_MOC_LITERAL(19, 170, 11), // "on_finished"
+QT_MOC_LITERAL(20, 182, 3), // "str"
+QT_MOC_LITERAL(21, 186, 8), // "on_start"
+QT_MOC_LITERAL(22, 195, 10) // "on_located"
 
     },
     "MPhase\0located\0\0timeout\0phase_kaipai\0"
     "on_timeout\0on_responsed\0QNetworkReply*\0"
-    "reply\0status\0pu_locate\0while_line_finish\0"
-    "to_phase\0phase\0start\0end\0countDown\0"
-    "on_finished\0on_start\0on_located"
+    "reply\0status\0pu_locate\0pu_stop\0"
+    "while_line_finish\0to_phase\0phase\0start\0"
+    "end\0countDown\0wait_down\0on_finished\0"
+    "str\0on_start\0on_located"
 };
 #undef QT_MOC_LITERAL
 
@@ -68,7 +72,7 @@ static const uint qt_meta_data_MPhase[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   14, // methods
+      12,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,19 +80,20 @@ static const uint qt_meta_data_MPhase[] = {
        3,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   69,    2, 0x06 /* Public */,
-       3,    0,   72,    2, 0x06 /* Public */,
-       4,    0,   73,    2, 0x06 /* Public */,
+       1,    1,   74,    2, 0x06 /* Public */,
+       3,    0,   77,    2, 0x06 /* Public */,
+       4,    0,   78,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       5,    0,   74,    2, 0x08 /* Private */,
-       6,    2,   75,    2, 0x08 /* Private */,
-      10,    0,   80,    2, 0x08 /* Private */,
-      11,    0,   81,    2, 0x08 /* Private */,
-      12,    4,   82,    2, 0x0a /* Public */,
-      17,    0,   91,    2, 0x0a /* Public */,
-      18,    0,   92,    2, 0x0a /* Public */,
-      19,    0,   93,    2, 0x0a /* Public */,
+       5,    0,   79,    2, 0x08 /* Private */,
+       6,    2,   80,    2, 0x08 /* Private */,
+      10,    0,   85,    2, 0x08 /* Private */,
+      11,    0,   86,    2, 0x08 /* Private */,
+      12,    0,   87,    2, 0x08 /* Private */,
+      13,    5,   88,    2, 0x0a /* Public */,
+      19,    1,   99,    2, 0x0a /* Public */,
+      21,    0,  102,    2, 0x0a /* Public */,
+      22,    0,  103,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::Int,    2,
@@ -100,8 +105,9 @@ static const uint qt_meta_data_MPhase[] = {
     QMetaType::Void, 0x80000000 | 7, QMetaType::Int,    8,    9,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   13,   14,   15,   16,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int, QMetaType::Int,   14,   15,   16,   17,   18,
+    QMetaType::Void, QMetaType::QString,   20,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -120,11 +126,12 @@ void MPhase::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->on_timeout(); break;
         case 4: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 5: _t->pu_locate(); break;
-        case 6: _t->while_line_finish(); break;
-        case 7: _t->to_phase((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4]))); break;
-        case 8: _t->on_finished(); break;
-        case 9: _t->on_start(); break;
-        case 10: _t->on_located(); break;
+        case 6: _t->pu_stop(); break;
+        case 7: _t->while_line_finish(); break;
+        case 8: _t->to_phase((*reinterpret_cast< int(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2])),(*reinterpret_cast< int(*)>(_a[3])),(*reinterpret_cast< int(*)>(_a[4])),(*reinterpret_cast< int(*)>(_a[5]))); break;
+        case 9: _t->on_finished((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->on_start(); break;
+        case 11: _t->on_located(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -193,13 +200,13 @@ int MPhase::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 11)
+        if (_id < 12)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 11;
+        _id -= 12;
     }
     return _id;
 }

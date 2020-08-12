@@ -14,6 +14,7 @@ release/MRecord.o
 release/MReword.o
 release/MRoomInfo.o
 release/MStart.o
+release/MStop.o
 release/MTopFive.o
 release/MTopThree.o
 release/MUseless.o
@@ -34,6 +35,7 @@ release/moc_MRecord.o
 release/moc_MReword.o
 release/moc_MRoomInfo.o
 release/moc_MStart.o
+release/moc_MStop.o
 release/moc_MTopFive.o
 release/moc_MTopThree.o
 release/moc_MUseless.o

@@ -69,7 +69,8 @@ background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:0, y2:1, stop:0 rgb
        </property>
        <property name="styleSheet">
         <string notr="true">background:rgba(39,39,57,1);
-border-radius:5px;</string>
+border-radius:5px;
+color: rgb(255, 255, 255);</string>
        </property>
        <item>
         <property name="text">

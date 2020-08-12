@@ -11,7 +11,7 @@ MLeave::MLeave(QPushButton *button, QWidget *widget, QObject *parent) : QObject(
 
 void MLeave::pu_button()
 {
-    MDialog *dlg = new MDialog();
+    MDialog *dlg = new MDialog(widget);
     dlg->setWindowFlag(Qt::FramelessWindowHint);
     dlg->set_message("是否离开?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);

@@ -67,7 +67,10 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
            </property>
            <property name="text">
-            <string>终止</string>
+            <string>终止(/)</string>
+           </property>
+           <property name="shortcut">
+            <string>/</string>
            </property>
           </widget>
          </item>
@@ -173,7 +176,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
            </property>
            <property name="text">
-            <string>初始化</string>
+            <string>换靴</string>
            </property>
           </widget>
          </item>
@@ -1210,7 +1213,7 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
          <item>
           <widget class="QPushButton" name="button_useless">
            <property name="enabled">
-            <bool>true</bool>
+            <bool>false</bool>
            </property>
            <property name="minimumSize">
             <size>
@@ -1278,34 +1281,36 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="4,1">
       <item>
-       <widget class="QGroupBox" name="groupBox_3">
-        <property name="title">
-         <string/>
+       <widget class="QQuickWidget" name="quickWidget">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
         </property>
-        <layout class="QHBoxLayout" name="horizontalLayout_3">
-         <item>
-          <widget class="QScrollArea" name="scrollArea">
-           <property name="widgetResizable">
-            <bool>true</bool>
-           </property>
-           <widget class="QWidget" name="scrollAreaWidgetContents">
-            <property name="geometry">
-             <rect>
-              <x>0</x>
-              <y>0</y>
-              <width>1479</width>
-              <height>477</height>
-             </rect>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout_6">
-             <item>
-              <layout class="QGridLayout" name="gridLayout_4"/>
-             </item>
-            </layout>
-           </widget>
-          </widget>
-         </item>
-        </layout>
+        <property name="sizeIncrement">
+         <size>
+          <width>10</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="baseSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 170, 255);</string>
+        </property>
+        <property name="resizeMode">
+         <enum>QQuickWidget::SizeRootObjectToView</enum>
+        </property>
+        <property name="source">
+         <url>
+          <string/>
+         </url>
+        </property>
        </widget>
       </item>
       <item>
@@ -1324,6 +1329,13 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QQuickWidget</class>
+   <extends>QWidget</extends>
+   <header location="global">QtQuickWidgets/QQuickWidget</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

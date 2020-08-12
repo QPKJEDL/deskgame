@@ -48,6 +48,7 @@ public:
     {
         if (MTopThree->objectName().isEmpty())
             MTopThree->setObjectName(QString::fromUtf8("MTopThree"));
+        MTopThree->setEnabled(true);
         MTopThree->resize(400, 300);
         MTopThree->setStyleSheet(QString::fromUtf8("background-color: rgb(252, 238, 205);"));
         verticalLayout = new QVBoxLayout(MTopThree);
@@ -200,6 +201,7 @@ public:
         label_third_money->setFont(font1);
         label_third_money->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);"));
         label_third_money->setAlignment(Qt::AlignCenter);
+        label_third_money->setWordWrap(false);
 
         gridLayout_3->addWidget(label_third_money, 2, 4, 1, 1);
 

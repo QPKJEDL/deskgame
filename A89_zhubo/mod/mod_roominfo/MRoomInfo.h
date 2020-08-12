@@ -7,7 +7,7 @@
 class MNetManager;
 typedef struct{
     int status;
-    QString interface;
+    QString inter;
     MNetManager *manager;
 
     QLabel *timesBoot;
@@ -39,7 +39,7 @@ public slots:
     void on_responsed(QNetworkReply* reply,int status);
 
 signals:
-    void send_phase(int,int,int,int);
+    void send_phase(int,int,int,int,int);
 };
 
 #endif // MROOMINFO_H

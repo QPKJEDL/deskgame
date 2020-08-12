@@ -81,7 +81,7 @@ typedef struct{
 }LABEL;
 
 typedef struct{
-    LABEL  labels[45][6];
+    LABEL  labels[46][6];
     NUMBER now; // 指向哪个 label 了；
     NUMBER front; // 前一个赢得 label 是哪个
     NUMBER dragon; // 成龙之后的第一个 label 的位置
@@ -89,7 +89,7 @@ typedef struct{
     NUMBER equa; // 和的位置
     int times = 0; // 连赢的次数
     void init(){
-        for(int row = 0;row < 45;row++){
+        for(int row = 0;row < 46;row++){
             for(int line = 0;line < 6;line++){
                 labels[row][line].label->setText("");
                 labels[row][line].label->setStyleSheet("background-color: rgb(255, 255, 255);");
@@ -134,6 +134,8 @@ private:
     int times;
     QLabel *label_count_down;
     int count_down_num;
+    int wait_down;
+    bool first;
 
     // 结果
     int m_game;
@@ -153,6 +155,12 @@ private:
     WAY* way_little;
     // 凹凸路
     WAY* way_aotu;
+    // 小小路链表
+    QList<QList<QLabel*>> little_little_way;
+    int index_x = -1;
+    int index_y = -1;
+    int tie_num = 0;
+    void little_little_append(int result);
     // 判断是否齐整的函数
     bool if_order(NUMBER now, int first, int offset);
     int how_many(int row);
@@ -216,6 +224,7 @@ private:
 
     void next_result();
 
+    void request_stop();
     void request_login();
     void request_init();
     void request_roominfo();
@@ -233,5 +242,6 @@ public:
     void responsed_change_boot(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
     void responsed_summit(QNetworkReply *reply);
+    void responsed_stop(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

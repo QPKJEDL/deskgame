@@ -30,11 +30,11 @@ MInit::~MInit()
 
 void MInit::pu_init()
 {
-    MDialog dlg(widget);
-    dlg.setWindowFlag(Qt::FramelessWindowHint);
-    dlg.set_message("是否初始化?");
-    dlg.setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg.exec();
+    MDialog* dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否初始化?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
     if(ret == QDialog::Accepted){
         request_init();
     }

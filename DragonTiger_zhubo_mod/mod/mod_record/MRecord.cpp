@@ -11,7 +11,7 @@ MRecord::MRecord(MRecordArg *arg, QObject *parent) : QObject(parent)
     this->arg->grid = arg->grid;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     link = new Record_link();
     Record_link *node = new Record_link();
@@ -43,7 +43,7 @@ MRecord::MRecord(MRecordArg *arg, QObject *parent) : QObject(parent)
 void MRecord::request_record()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append("boot_num=" + arg->boot->text());
     arg->manager->postData(postData);
@@ -76,8 +76,10 @@ void MRecord::append(QString game)
     else if(game == ""){
         path.append("useless");
     }
-
     path.append(".png");
+    if(path == ":/result/useless.png"){
+        return;
+    }
     QString style = "border-image: url(" + path + ");";
     link->data->setStyleSheet(link->data->styleSheet().append(style));
     increase();
@@ -102,6 +104,7 @@ void MRecord::responsed_record(QNetworkReply *reply)
         QJsonArray data = json.value("data").toArray();
         QJsonArray array = data.at(0)["list"].toArray();
         update_panel(array);
+        emit finished();
     }
     else{
         QMessageBox box;

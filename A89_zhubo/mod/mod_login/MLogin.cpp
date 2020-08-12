@@ -37,6 +37,12 @@ MLogin::MLogin(MLoginArg *arg) :
 
     connect(arg->tcpsocket,SIGNAL(connected()),this,SLOT(connectedServer()));
     connect(arg->tcpsocket,SIGNAL(readyRead()),this,SLOT(readMessage()));
+
+    connect(arg->tcpsocket,SIGNAL(disconnected()),this,SLOT(disconnectServer()));
+    timer_ping = new QTimer();
+    timer_reconnect = new QTimer();
+    connect(timer_ping,SIGNAL(timeout()),this,SLOT(sendPingMsg()));
+    connect(timer_reconnect,SIGNAL(timeout()),this,SLOT(reconnect()));
 }
 
 MLogin::~MLogin()
@@ -79,6 +85,8 @@ void MLogin::connectedServer()
     printToSend(out,_long_id,_long_token);
 
     arg->tcpsocket->write(block);
+
+    timer_reconnect->stop();
 }
 
 void sendLoginMsg(QDataStream &stream,QString id);
@@ -118,12 +126,60 @@ void MLogin::readMessage()
         this->close();
         arg->widget->showFullScreen();
         emit successed();
+
+        timer_ping->start(30000);
     }
     else{
         QMessageBox box;
         box.setText("长连接登录失败");
         box.exec();
     }
+}
+
+void MLogin::disconnectServer()
+{
+    // 连接已经断开了
+    qDebug() << "连接已经断开了";
+    timer_ping->stop();
+    timer_reconnect->start(1000);
+}
+
+void MLogin::sendPingMsg()
+{
+    QByteArray block;
+    QDataStream out(&block,QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_5_14);
+
+    int length        = 0;
+
+
+    int seq          = 2;
+    qint8 cmd        = 13;
+    qint8 vervion    = 1;
+    qint8 flag       = 0;
+    qint8 kong       = 0;
+
+    // temp7 = id.toLong();
+
+    out << length;
+    out << seq;
+    out << cmd;
+
+    out << vervion;
+    out << flag;
+    out << kong;
+
+    //stream << temp7;
+
+    arg->tcpsocket->write(block);
+    qDebug() << "ping";
+}
+
+void MLogin::reconnect()
+{
+    qDebug() << "reconnect";
+    arg->tcpsocket->abort();
+    arg->tcpsocket->connectToHost(QHostAddress(QString(arg->IP)),23001);
 }
 
 void MLogin::responsed_first_login(QNetworkReply *reply)

@@ -48,8 +48,8 @@ public:
     QLabel *label_type_one;
     QLabel *label_three_creatime;
     QLabel *label_seven_deskNum;
-    QLabel *label_three_name;
-    QLabel *label_five_name;
+    QLabel *label_name_three;
+    QLabel *label_name_five;
     QLabel *label_one_deskNum;
     QLabel *label_type_four;
     QLabel *label_41;
@@ -57,20 +57,20 @@ public:
     QLabel *label_type_three;
     QLabel *label_one_money;
     QLabel *label_six_money;
-    QLabel *label_seven_name;
+    QLabel *label_name_seven;
     QLabel *label_five_creatime;
-    QLabel *label_six_name;
+    QLabel *label_name_six;
     QLabel *label_seven_money;
     QLabel *label_type_two;
     QLabel *label_three_money;
     QLabel *label_six_creatime;
-    QLabel *label_one_name;
-    QLabel *label_four_name;
+    QLabel *label_name_one;
+    QLabel *label_name_four;
     QLabel *label_six_deskNum;
     QLabel *label_42;
     QLabel *label_39;
     QLabel *label_four_creatime;
-    QLabel *label_two_name;
+    QLabel *label_name_two;
     QLabel *label_two_deskNum;
     QLabel *label_five_deskNum;
     QLabel *label_type_six;
@@ -191,7 +191,7 @@ public:
 "border-radius: 5px;\n"
 "border: 3px;\n"
 "color: rgb(255, 255, 255);"));
-        dateTimeEdit_begin->setDate(QDate(2000, 1, 1));
+        dateTimeEdit_begin->setDate(QDate(2020, 1, 1));
         dateTimeEdit_begin->setCurrentSection(QDateTimeEdit::YearSection);
 
         horizontalLayout_2->addWidget(dateTimeEdit_begin);
@@ -213,6 +213,7 @@ public:
 "border-radius: 5px;\n"
 "border: 3px;\n"
 "color: rgb(255, 255, 255);"));
+        dateTimeEdit_end->setDate(QDate(2020, 1, 1));
 
         horizontalLayout_2->addWidget(dateTimeEdit_end);
 
@@ -287,23 +288,23 @@ public:
 
         gridLayout->addWidget(label_seven_deskNum, 8, 1, 1, 1);
 
-        label_three_name = new QLabel(MMoney);
-        label_three_name->setObjectName(QString::fromUtf8("label_three_name"));
-        label_three_name->setFont(font2);
-        label_three_name->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+        label_name_three = new QLabel(MMoney);
+        label_name_three->setObjectName(QString::fromUtf8("label_name_three"));
+        label_name_three->setFont(font2);
+        label_name_three->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
 "color: rgb(255, 255, 255);"));
-        label_three_name->setAlignment(Qt::AlignCenter);
+        label_name_three->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_three_name, 4, 2, 1, 1);
+        gridLayout->addWidget(label_name_three, 4, 2, 1, 1);
 
-        label_five_name = new QLabel(MMoney);
-        label_five_name->setObjectName(QString::fromUtf8("label_five_name"));
-        label_five_name->setFont(font2);
-        label_five_name->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+        label_name_five = new QLabel(MMoney);
+        label_name_five->setObjectName(QString::fromUtf8("label_name_five"));
+        label_name_five->setFont(font2);
+        label_name_five->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
 "color: rgb(255, 255, 255);"));
-        label_five_name->setAlignment(Qt::AlignCenter);
+        label_name_five->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_five_name, 6, 2, 1, 1);
+        gridLayout->addWidget(label_name_five, 6, 2, 1, 1);
 
         label_one_deskNum = new QLabel(MMoney);
         label_one_deskNum->setObjectName(QString::fromUtf8("label_one_deskNum"));
@@ -371,31 +372,31 @@ public:
 
         gridLayout->addWidget(label_six_money, 7, 3, 1, 1);
 
-        label_seven_name = new QLabel(MMoney);
-        label_seven_name->setObjectName(QString::fromUtf8("label_seven_name"));
-        label_seven_name->setFont(font2);
-        label_seven_name->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+        label_name_seven = new QLabel(MMoney);
+        label_name_seven->setObjectName(QString::fromUtf8("label_name_seven"));
+        label_name_seven->setFont(font2);
+        label_name_seven->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
 "color: rgb(255, 255, 255);"));
-        label_seven_name->setAlignment(Qt::AlignCenter);
+        label_name_seven->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_seven_name, 8, 2, 1, 1);
+        gridLayout->addWidget(label_name_seven, 8, 2, 1, 1);
 
         label_five_creatime = new QLabel(MMoney);
         label_five_creatime->setObjectName(QString::fromUtf8("label_five_creatime"));
         label_five_creatime->setFont(font2);
-        label_five_creatime->setStyleSheet(QString::fromUtf8("color: rgb(255, 255, 255);background-color: rgb(72, 71, 86);"));
+        label_five_creatime->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);color: rgb(255, 255, 255);"));
         label_five_creatime->setAlignment(Qt::AlignCenter);
 
         gridLayout->addWidget(label_five_creatime, 6, 0, 1, 1);
 
-        label_six_name = new QLabel(MMoney);
-        label_six_name->setObjectName(QString::fromUtf8("label_six_name"));
-        label_six_name->setFont(font2);
-        label_six_name->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
+        label_name_six = new QLabel(MMoney);
+        label_name_six->setObjectName(QString::fromUtf8("label_name_six"));
+        label_name_six->setFont(font2);
+        label_name_six->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "color: rgb(255, 255, 255);"));
-        label_six_name->setAlignment(Qt::AlignCenter);
+        label_name_six->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_six_name, 7, 2, 1, 1);
+        gridLayout->addWidget(label_name_six, 7, 2, 1, 1);
 
         label_seven_money = new QLabel(MMoney);
         label_seven_money->setObjectName(QString::fromUtf8("label_seven_money"));
@@ -433,23 +434,23 @@ public:
 
         gridLayout->addWidget(label_six_creatime, 7, 0, 1, 1);
 
-        label_one_name = new QLabel(MMoney);
-        label_one_name->setObjectName(QString::fromUtf8("label_one_name"));
-        label_one_name->setFont(font2);
-        label_one_name->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
+        label_name_one = new QLabel(MMoney);
+        label_name_one->setObjectName(QString::fromUtf8("label_name_one"));
+        label_name_one->setFont(font2);
+        label_name_one->setStyleSheet(QString::fromUtf8("background-color: rgb(72, 71, 86);\n"
 "color: rgb(255, 255, 255);"));
-        label_one_name->setAlignment(Qt::AlignCenter);
+        label_name_one->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_one_name, 1, 2, 1, 1);
+        gridLayout->addWidget(label_name_one, 1, 2, 1, 1);
 
-        label_four_name = new QLabel(MMoney);
-        label_four_name->setObjectName(QString::fromUtf8("label_four_name"));
-        label_four_name->setFont(font2);
-        label_four_name->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
+        label_name_four = new QLabel(MMoney);
+        label_name_four->setObjectName(QString::fromUtf8("label_name_four"));
+        label_name_four->setFont(font2);
+        label_name_four->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "color: rgb(255, 255, 255);"));
-        label_four_name->setAlignment(Qt::AlignCenter);
+        label_name_four->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_four_name, 5, 2, 1, 1);
+        gridLayout->addWidget(label_name_four, 5, 2, 1, 1);
 
         label_six_deskNum = new QLabel(MMoney);
         label_six_deskNum->setObjectName(QString::fromUtf8("label_six_deskNum"));
@@ -487,14 +488,14 @@ public:
 
         gridLayout->addWidget(label_four_creatime, 5, 0, 1, 1);
 
-        label_two_name = new QLabel(MMoney);
-        label_two_name->setObjectName(QString::fromUtf8("label_two_name"));
-        label_two_name->setFont(font2);
-        label_two_name->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
+        label_name_two = new QLabel(MMoney);
+        label_name_two->setObjectName(QString::fromUtf8("label_name_two"));
+        label_name_two->setFont(font2);
+        label_name_two->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
 "color: rgb(255, 255, 255);"));
-        label_two_name->setAlignment(Qt::AlignCenter);
+        label_name_two->setAlignment(Qt::AlignCenter);
 
-        gridLayout->addWidget(label_two_name, 2, 2, 1, 1);
+        gridLayout->addWidget(label_name_two, 2, 2, 1, 1);
 
         label_two_deskNum = new QLabel(MMoney);
         label_two_deskNum->setObjectName(QString::fromUtf8("label_two_deskNum"));
@@ -633,11 +634,17 @@ public:
 
         pu_front_page = new QPushButton(MMoney);
         pu_front_page->setObjectName(QString::fromUtf8("pu_front_page"));
+        pu_front_page->setEnabled(false);
         pu_front_page->setMinimumSize(QSize(0, 40));
         pu_front_page->setFont(font1);
-        pu_front_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
+        pu_front_page->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
 "border-radius: 8px;\n"
-"color: rgb(121, 61, 3);"));
+"color: rgb(121, 61, 3);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}\n"
+""));
 
         horizontalLayout_3->addWidget(pu_front_page);
 
@@ -645,9 +652,14 @@ public:
         pu_next_page->setObjectName(QString::fromUtf8("pu_next_page"));
         pu_next_page->setMinimumSize(QSize(0, 40));
         pu_next_page->setFont(font1);
-        pu_next_page->setStyleSheet(QString::fromUtf8("background-color: qlineargradient(spread:reflect, x1:0, y1:1, x2:1, y2:0, stop:0 rgba(35, 34, 51, 255), stop:0.4375 rgba(92, 107, 148, 255), stop:0.568182 rgba(92, 107, 148, 255), stop:0.971591 rgba(35, 34, 51, 255), stop:1 rgba(35, 34, 51, 255));\n"
+        pu_next_page->setStyleSheet(QString::fromUtf8("QPushButton{\n"
+"background-color: qlineargradient(spread:pad, x1:1, y1:0, x2:0, y2:1, stop:0 rgba(163, 129, 98, 255), stop:0.431818 rgba(252, 237, 203, 255), stop:0.590909 rgba(252, 237, 203, 255), stop:1 rgba(163, 129, 98, 255));\n"
 "border-radius: 8px;\n"
-"color: rgb(255, 255, 255);"));
+"color: rgb(121, 61, 3);\n"
+"}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}\n"
+""));
 
         horizontalLayout_3->addWidget(pu_next_page);
 
@@ -687,8 +699,8 @@ public:
         label_type_one->setText(QString());
         label_three_creatime->setText(QString());
         label_seven_deskNum->setText(QString());
-        label_three_name->setText(QString());
-        label_five_name->setText(QString());
+        label_name_three->setText(QString());
+        label_name_five->setText(QString());
         label_one_deskNum->setText(QString());
         label_type_four->setText(QString());
         label_41->setText(QCoreApplication::translate("MMoney", "\344\274\232\345\221\230", nullptr));
@@ -696,20 +708,20 @@ public:
         label_type_three->setText(QString());
         label_one_money->setText(QString());
         label_six_money->setText(QString());
-        label_seven_name->setText(QString());
+        label_name_seven->setText(QString());
         label_five_creatime->setText(QString());
-        label_six_name->setText(QString());
+        label_name_six->setText(QString());
         label_seven_money->setText(QString());
         label_type_two->setText(QString());
         label_three_money->setText(QString());
         label_six_creatime->setText(QString());
-        label_one_name->setText(QString());
-        label_four_name->setText(QString());
+        label_name_one->setText(QString());
+        label_name_four->setText(QString());
         label_six_deskNum->setText(QString());
         label_42->setText(QCoreApplication::translate("MMoney", "\346\211\223\350\265\217\351\207\221\351\242\235", nullptr));
         label_39->setText(QCoreApplication::translate("MMoney", "\346\227\266\351\227\264\346\227\245\346\234\237", nullptr));
         label_four_creatime->setText(QString());
-        label_two_name->setText(QString());
+        label_name_two->setText(QString());
         label_two_deskNum->setText(QString());
         label_five_deskNum->setText(QString());
         label_type_six->setText(QString());
@@ -723,7 +735,7 @@ public:
         label_43->setText(QCoreApplication::translate("MMoney", "\347\261\273\345\236\213", nullptr));
         label_40->setText(QCoreApplication::translate("MMoney", "\345\217\260\346\241\214", nullptr));
         label_44->setText(QCoreApplication::translate("MMoney", "\346\211\223\350\265\217\346\200\273\351\207\221\351\242\235\357\274\232", nullptr));
-        label_45->setText(QCoreApplication::translate("MMoney", "00", nullptr));
+        label_45->setText(QString());
         pu_front_page->setText(QCoreApplication::translate("MMoney", "\344\270\212\344\270\200\351\241\265", nullptr));
         pu_next_page->setText(QCoreApplication::translate("MMoney", "\344\270\213\344\270\200\351\241\265", nullptr));
     } // retranslateUi

@@ -4,8 +4,9 @@
 #include <QObject>
 #include <QPushButton>
 #include <QTimer>
+#include <mod/MNetManager.h>
 
-class MPhase;
+class MNetManager;
 typedef struct{
     QPushButton *init;
     QPushButton *start;
@@ -17,11 +18,19 @@ typedef struct{
     QPushButton *enter;
     QPushButton *cancel;
     QPushButton *useless;
+
+    QPushButton *stop;
+    MNetManager *manager;
+    int status_stop;
+    QString interface_stop;
 }MPhaseArg;
 
 namespace Ui {
 class MPhase;
 }
+
+class MPhase;
+typedef void (MPhase::*exe_phase)(QNetworkReply *);
 
 class MPhase : public QWidget
 {
@@ -33,20 +42,31 @@ private:
     Ui::MPhase *ui;
     MPhaseArg *arg;
 
+    QMap<int,exe_phase> _map;
+
     int times;
     QTimer *timer;
 
     int count_down;
+    int WaitDown;
+    bool first;
 private slots:
     void on_timeout();
+    void pu_stop();
+    void on_responsed(QNetworkReply *reply, int status);
 
 public slots:
-    void to_phase(int phase,int start,int end,int countDown);
+    void to_phase(int phase,int start,int end,int countDown,int wait_down);
     void on_started();
     void on_finished();
     void on_useless();
 signals:
     void timeout();
+    void kaipaizhong();
+
+private:
+    void request_stop();
+    void responsed_stop(QNetworkReply *reply);
 };
 
 #endif // MPHASE_H

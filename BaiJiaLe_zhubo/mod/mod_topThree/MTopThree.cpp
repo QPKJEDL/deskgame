@@ -14,7 +14,7 @@ MTopThree::MTopThree(MTopThreeArg *arg) :
     this->arg = new MTopThreeArg();
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->times_xue = arg->times_xue;
     this->arg->times_pu = arg->times_pu;
 
@@ -39,7 +39,7 @@ void MTopThree::on_responsed(QNetworkReply *reply, int status)
 
 void MTopThree::request_top_three()
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->setStatus(arg->status);
     QByteArray postData;
     qDebug() << arg->times_xue->text();
@@ -81,6 +81,7 @@ void MTopThree::responsed_top_three(QNetworkReply *reply)
 
 void MTopThree::update_panel(QJsonObject data)
 {
+    clear();
     QJsonArray topThree = data.value("top3").toArray();
     int i = topThree.count();
     int h = 0;
@@ -106,9 +107,9 @@ void MTopThree::update_panel(QJsonObject data)
         QJsonObject ob = topThree.at(h).toObject();
         int money = ob.value("Money").toInt();
         QString bet = ob.value("Bet").toString();
-        QString NickName = ob.value("NickName").toString();
-
-        n->setText(NickName);
+        QString Account = ob.value("Account").toString();
+        Account = Account.left(3) + "***" + Account.right(3);
+        n->setText(Account);
         m->setText(QString::number(money) + "元");
         f(bet,b);
     };

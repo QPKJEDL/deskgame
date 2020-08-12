@@ -113,6 +113,8 @@ private:
     int count_down;//倒计时计时器函数执行几回
     QTimer* timer_Countdown; // 间隔1秒的倒计时更新计时器
     int count_down_num;
+    int WaitDown;
+    bool first = true;
 
     // 用于断线重连
     QString ShunMen;

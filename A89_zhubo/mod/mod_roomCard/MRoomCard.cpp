@@ -83,6 +83,18 @@ void MRoomCard::request_roomCard()
 
 PAIRESULT fun_paiXing(CARD player[]);
 
+int PaiXingToInt(QString str){
+    vector<QString> vec = {"0点","1点","2点","3点","4点","5点","6点","7点","8点","9点","对2","对3","对4","对5","对6","对7","对8","对9","对10","对J","对Q","对K","对A"};
+    int i = 0;
+    for(auto begin = vec.begin();begin != vec.end();begin++){
+        if(*begin == str){
+            return i;
+        }
+        i++;
+    }
+    return -1;
+}
+
 void MRoomCard::append(string c, QString paixing)
 {
     auto toCard = [](string str)->CARD{
@@ -107,15 +119,19 @@ void MRoomCard::append(string c, QString paixing)
     if(paixing != ""){
         if(link->player == "ShunMen"){
             ui->xian1_result->setText(paixing);
+            one_paixing = PaiXingToInt(paixing);
         }
         else if(link->player == "TianMen"){
             ui->xian2_result->setText(paixing);
+            two_paixing = PaiXingToInt(paixing);
         }
         else if(link->player == "FanMen"){
             ui->xian3_result->setText(paixing);
+            three_paixing = PaiXingToInt(paixing);
         }
         else if(link->player == "Banker"){
             ui->zhuang_result->setText(paixing);
+            zhuang_paixing = PaiXingToInt(paixing);
         }
     }
 
@@ -123,7 +139,7 @@ void MRoomCard::append(string c, QString paixing)
     NUM.increase();
 
     if(NUM.num == 2){
-        emit finished();//-> 提交
+        emit finished(BiJiaoPaiXing());//-> 提交
 
         timer_focus->stop();
         graphiceffect->setOpacity(1);
@@ -137,6 +153,26 @@ void MRoomCard::append(string c, QString paixing)
     }
 
     arg->lineEdit->setText(QString(""));
+}
+
+QString MRoomCard::BiJiaoPaiXing()
+{
+    QString r = "";
+    if(zhuang_paixing < one_paixing){
+        r.append("顺门");
+    }
+    if(zhuang_paixing < two_paixing){
+        r.append("天门");
+    }
+    if(zhuang_paixing < three_paixing){
+        r.append("反门");
+    }
+    if(r == ""){
+        return "庄赢";
+    }
+    else{
+        return r;
+    }
 }
 
 void MRoomCard::focus_lineedit()
@@ -237,7 +273,7 @@ void MRoomCard::responsed_roomcard(QNetworkReply *reply)
         else{
             emit locate_zero();
         }
-        //emit get_location(location);
+        emit get_location(location);
     }
     else{
         QMessageBox box;

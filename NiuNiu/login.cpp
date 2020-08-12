@@ -5,8 +5,8 @@
 #include <QJsonDocument>
 #include "ui_login.h"
 
-//static QString URL = "101.32.22.231:8210";
-static QString URL = "129.211.114.135:8210";
+static QString URL = "101.32.22.231:8210";
+//static QString URL = "129.211.114.135:8210";
 
 Login::Login(QWidget *parent) : QWidget(parent) , ui(new Ui::Login)
 {
@@ -29,7 +29,7 @@ void Login::on_login()
 {
     QByteArray postData;
 
-    QString str = "desk=a2&password=123456";
+    QString str = "desk=CS3&password=454766a03187d8b1";
 
     postData.append(str);
     m_accessManager->post(*m_request, postData);
@@ -58,16 +58,16 @@ void Login::finishedSlot(QNetworkReply* reply)
             m_request->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
             m_request->setRawHeader("desk_token",desk_token.toUtf8());
             qDebug() << "desk_id : " << QString::number(desk_id).toUtf8() << "--" << "desk_token" << desk_token;
-            // 刷新限红
-            unsigned int maxLimit = json_object2.value("maxLimit").toInt();
-            unsigned int minLimit = json_object2.value("minLimit").toInt();
-            unsigned int tieMaxLimit = json_object2.value("tieMaxLimit").toInt();
-            unsigned int tieMinLimit = json_object2.value("tieMinLimit").toInt();
-            QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
-            QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
+//            // 刷新限红
+//            unsigned int maxLimit = json_object2.value("maxLimit").toInt();
+//            unsigned int minLimit = json_object2.value("minLimit").toInt();
+//            unsigned int tieMaxLimit = json_object2.value("tieMaxLimit").toInt();
+//            unsigned int tieMinLimit = json_object2.value("tieMinLimit").toInt();
+//            QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
+//            QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
 
 
-            window = new MainWindow(desk_id,desk_token,limit,tieLimit);
+            window = new MainWindow(desk_id,desk_token);
             window->show();
             this->close();
         }

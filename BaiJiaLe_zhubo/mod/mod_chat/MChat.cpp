@@ -14,14 +14,12 @@ MChat::MChat(MChatArg *arg) :
     ui->label_id->setVisible(false);
 
     this->arg = new MChatArg();
-    this->arg->grid = arg->grid;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->tcpSocket = arg->tcpSocket;
-
-    this->arg->grid->setDirection(QBoxLayout::BottomToTop);
-    this->arg->grid->setSpacing(0);
+    this->arg->desk_id = arg->desk_id;
+    this->arg->manager_clear = arg->manager_clear;
 
     _map.insert(arg->status,&MChat::responsed_ban);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
@@ -35,7 +33,7 @@ MChat::~MChat()
 
 void MChat::request_ban(QString uid)
 {
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append("talkid=" + uid);
     arg->manager->setStatus(arg->status);
@@ -52,15 +50,32 @@ void MChat::on_responsed(QNetworkReply *reply, int status)
     }
 }
 
-void MChat::pu_name(QString uid)
+void MChat::clear()
 {
     MDialog *dlg = new MDialog();
     dlg->setWindowFlag(Qt::FramelessWindowHint);
-    dlg->set_message("是否提交?");
+    dlg->set_message("是否清屏?");
     dlg->setAttribute(Qt::WA_DeleteOnClose);
     int ret = dlg->exec();
     if(ret == QDialog::Accepted){
-        request_ban(uid);
+        arg->manager_clear->setInterface("clear_room_talk");
+        arg->manager_clear->setStatus(999);
+        QByteArray postData;
+        postData.append("desk_id=" + QString::number(*(arg->desk_id)));
+        arg->manager->postData(postData);
+        emit showText("清屏成功","","");
+    }
+}
+
+void MChat::pu_name(QString userid, QString name)
+{
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否禁言:\n" + name + "?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_ban(userid);
     }
 }
 
@@ -68,15 +83,14 @@ void MChat::responsed_ban(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    QString info = json.value("info").toString();
+    qDebug() << info;
     unsigned int status = json.value("status").toInt();
-    QLabel *label = new QLabel();
-    label->setStyleSheet("color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;");
-    label->setMaximumSize(100,50);
     if(status == 1){
-        label->setText("禁言成功");
+        emit showText("禁言成功","","");
     }
     else{
-        label->setText("禁言失败");
+        emit showText("禁言失败","","");
     }
 }
 
@@ -127,16 +141,20 @@ void MChat::cmd_equal_twenty(QDataStream *in,int length){
     qDebug() << json;
     unsigned int Cmd = json.value("Cmd").toInt();
     if(Cmd == 66){
-        QString nickname = json.value("nickname").toString();
+        qDebug() << json;
+        QString account = json.value("account").toString();
         QString uid = json.value("uid").toString();
         QString msg = json.value("msg").toString();
         qDebug() << msg;
-        QQChat *new_ui = new QQChat();
-        new_ui->update_name(nickname);
-        new_ui->talkid = uid;
-        new_ui->update_input(msg);
-        arg->grid->addWidget(new_ui);
-        connect(new_ui,SIGNAL(banUser(QString)),this,SLOT(pu_name(QString)));
+        if(msg.left(6) == "emoji_"){
+            msg = "<img src = " + msg + ".png>";
+        }
+        qDebug() << msg.left(6);
+        emit showText(msg,account,uid);
+    }
+    else if(Cmd == 16){
+        QJsonObject data = json.value("Top3").toObject();
+        emit show_top_three(data);
     }
 }
 

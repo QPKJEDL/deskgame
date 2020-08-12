@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1113</width>
-    <height>551</height>
+    <height>371</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,7 +16,7 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(0, 48, 90);</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1">
+  <layout class="QVBoxLayout" name="verticalLayout" stretch="2,1">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_22">
      <item>
@@ -33,20 +33,7 @@
       </spacer>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,1,2,2,2">
-       <item>
-        <spacer name="verticalSpacer">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
+      <layout class="QVBoxLayout" name="verticalLayout_5" stretch="1,3,3,1">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="2,3,2">
          <item>
@@ -227,20 +214,7 @@ background-color: rgb(0, 32, 57);</string>
       </spacer>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,1,2,2,2">
-       <item>
-        <spacer name="verticalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
+      <layout class="QVBoxLayout" name="verticalLayout_6" stretch="1,3,3,1">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="2,3,2">
          <item>
@@ -415,20 +389,7 @@ background-color: rgb(0, 32, 57);</string>
       </spacer>
      </item>
      <item>
-      <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1,1,2,2,2">
-       <item>
-        <spacer name="verticalSpacer_3">
-         <property name="orientation">
-          <enum>Qt::Vertical</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>0</width>
-           <height>0</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
+      <layout class="QVBoxLayout" name="verticalLayout_7" stretch="1,3,3,1">
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_18" stretch="2,3,2">
          <item>

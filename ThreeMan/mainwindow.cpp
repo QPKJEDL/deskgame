@@ -15,13 +15,14 @@
 #include <QJsonArray>
 #include <vector>
 #include <QMessageBox>
+#include "mod/mod_dialog/MDialog.h"
 // 账号 a19
 using namespace std;
 //QString URL = "129.211.114.135:8210";
 
-enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT};
+enum {START,ROOMINFO,RECORD,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,STOP};
 
-MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWidget *parent)
+MainWindow::MainWindow(int id, QString token, QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , m_edit_last("")
@@ -36,9 +37,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(timer_focus, SIGNAL(timeout()), this, SLOT(update()));
     // 设置焦点到 定位按钮
     ui->button_locate->setFocus();
-    // 初始化限红
-    ui->label_limit->setText(limit);
-    ui->label_tieLimit->setText(tieLimit);
+
 
     // 初始化透明度相关
     timer_opacity = new QTimer(this);
@@ -55,7 +54,7 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     connect(ui->button_summit,SIGNAL(clicked()),this,SLOT(Request_summit()));
     connect(ui->pu_exit,SIGNAL(clicked()),this,SLOT(on_exit()));
     connect(ui->button_useless,SIGNAL(clicked()),this,SLOT(Request_useless()));
-    //connect(ui->pu_end,SIGNAL(clicked()),this,SLOT(pu_end()));
+    connect(ui->pu_end,SIGNAL(clicked()),this,SLOT(pu_stop()));
 
     // 开始按钮
     connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(Request_start()));
@@ -75,9 +74,10 @@ MainWindow::MainWindow(int id, QString token, QString limit,QString tieLimit,QWi
     _map.insert(SUMMIT,&MainWindow::responsed_summit);
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
+    _map.insert(STOP,&MainWindow::responsed_stop);
 
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->InitRequest("application/x-www-form-urlencoded",QString::number(id),token);
     connect(manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 
@@ -501,6 +501,7 @@ void MainWindow::wait(CARD card){
     // 如果所有牌都发完了
     if(number.num == 3){
         // 启用提交按钮
+        ui->opration_show->setText("准备提交");
         ui->button_summit->setEnabled(true);
         ui->button_summit->setFocus();
 
@@ -786,7 +787,14 @@ void MainWindow::on_timeout()
 
 void MainWindow::pu_stop()
 {
-
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否停止?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_stop();
+    }
 }
 
 void MainWindow::pu_locate()
@@ -855,6 +863,13 @@ void MainWindow::request_room_card()
     manager->postData(postData);
 }
 
+void MainWindow::request_stop()
+{
+    manager->setStatus(STOP);
+    manager->setInterface("SgAwaitCard");
+    manager->postData(QByteArray());
+}
+
 void MainWindow::apply_locate()
 {
     // 刷新焦点
@@ -864,7 +879,7 @@ void MainWindow::apply_locate()
     // 更新定位显示
     QString str = ui->lineEdit_2->text();
     ui->label_locate->setText(str);
-    ui->lineEdit_2->setVisible(false);
+
 
     // 定位到定位到的玩家
     for(int j = 2;j <= location;j++){
@@ -911,7 +926,7 @@ void MainWindow::apply_locate()
     }
 
     //显示停止下注
-    ui->opration_show->setText("停止下注");
+    ui->opration_show->setText("开牌中");
 }
 
 void MainWindow::apply_game_record(QJsonArray array)
@@ -1140,6 +1155,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
     // 倒计时中
     unsigned int time = end - start;
     count_down = count_down_num - time;
+    ui->pu_end->setEnabled(true);
     timer_Countdown->start(1000);
 }
 
@@ -1157,6 +1173,23 @@ void MainWindow::phase_finish()
     ui->pu_init->setEnabled(true);
 }
 
+void MainWindow::responsed_stop(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        first = false;
+        count_down = WaitDown;
+        ui->pu_end->setEnabled(false);
+    }
+    else{
+        QMessageBox box;
+        box.setText("停止失败");
+        box.exec();
+    }
+}
+
 void MainWindow::responsed_start(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
@@ -1172,8 +1205,10 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->label_locate->setText("");
         ui->pu_start->setEnabled(false);
         ui->who_win->setText(QString(""));
+        ui->pu_end->setEnabled(true);
         count_down = count_down_num;
         timer_Countdown->start(1000);
+        ui->opration_show->setText("倒计时中");
     }
     else{
         ui->pu_start->setEnabled(true);
@@ -1196,6 +1231,20 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
         count_down_num = data.at(0)["CountDown"].toInt();
+        WaitDown = data.at(0)["WaitDown"].toInt();
+
+        // 刷新限红
+        unsigned int maxLimit = data.at(0)["MaxLimit"].toInt();
+        unsigned int minLimit = data.at(0)["MinLimit"].toInt();
+        unsigned int tieMaxLimit = data.at(0)["TieMaxLimit"].toInt();
+        unsigned int tieMinLimit = data.at(0)["TieMinLimit"].toInt();
+        QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
+        QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
+
+        // 初始化限红
+        ui->label_limit->setText(limit);
+        ui->label_tieLimit->setText(tieLimit);
+
         ui->xue_times->setText(QString::number(BootNum));
         ui->pu_times->setText(QString::number(PaveNum));
         ui->desk_num->setText(DeskName);
@@ -1203,13 +1252,14 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int phase = data.at(0)["Phase"].toInt();
         switch (phase) {
         case 0:{
+            ui->opration_show->setText("已完结");
             phase_zero();
             break;
         }
         case 1:{
             unsigned int startTime = data.at(0)["GameStarTime"].toInt();
             unsigned int sysTime = data.at(0)["Systime"].toInt();
-
+            ui->opration_show->setText("倒计时中");
             phase_countDown(startTime,sysTime);
             break;
         }
@@ -1218,6 +1268,7 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
             break;
         }
         case 3:{
+            ui->opration_show->setText("已完结");
             phase_finish();
             break;
         }
@@ -1277,9 +1328,11 @@ void MainWindow::responsed_roomcard(QNetworkReply *reply)
         location = l.toInt();
         ui->label_locate->setText(l);
         if(location == 0){
+            ui->opration_show->setText("定位中");
             ui->button_locate->setEnabled(true);
         }
         else{
+            ui->opration_show->setText("开牌中");
             QJsonArray zhuang = data.value("BankerCard").toArray();
             QJsonArray one = data.value("IdleOneCard").toArray();
             QJsonArray two = data.value("IdleTwoCard").toArray();
@@ -1326,13 +1379,14 @@ void MainWindow::responsed_fapai(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
-
+    QString info = json.value("info").toString();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         m_fapai = true;
         wait(strToCard(m_edit_last.toStdString()));
     }
     else{
+        qDebug() << info;
         m_edit_last = "";
         QMessageBox box;
         box.setText("三公刷牌失败");
@@ -1431,22 +1485,29 @@ void MainWindow::line_finish()
     QByteArray Data;
     Data.append("location_num=");
     Data.append(QString::number(location));
-
+    ui->lineEdit_2->setVisible(false);
     manager->postData(Data);
 }
 
 void MainWindow::Request_summit(){
     //发送提交请求
     //提交按钮作废
-    ui->button_summit->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否提交?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_summit->setEnabled(false);
 
-    manager->setStatus(SUMMIT);
-    manager->setInterface("SgGetGameOver");
+        manager->setStatus(SUMMIT);
+        manager->setInterface("SgGetGameOver");
 
-    QByteArray Data;
-    Data.append("bootNum=");Data.append(ui->xue_times->text());
-    Data.append("&paveNum=");Data.append(ui->pu_times->text());
-    manager->postData(Data);
+        QByteArray Data;
+        Data.append("bootNum=");Data.append(ui->xue_times->text());
+        Data.append("&paveNum=");Data.append(ui->pu_times->text());
+        manager->postData(Data);
+    }
 }
 
 
@@ -1499,6 +1560,7 @@ void MainWindow::apply_summit()
     ui->label_locate->setText(QString(""));
     ui->pu_start->setEnabled(true);
     ui->button_useless->setEnabled(false);
+    ui->pu_init->setEnabled(true);
 }
 
 //void MainWindow::finishedSlot(QNetworkReply* reply)
@@ -1770,8 +1832,14 @@ void MainWindow::apply_summit()
 //}
 
 void MainWindow::on_exit(){
-    ui->pu_start->setDown(true);
-    this->close();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否关闭?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        this->close();
+    }
 }
 
 void MainWindow::on_responsed(QNetworkReply *reply, int status)
@@ -1787,16 +1855,23 @@ void MainWindow::on_responsed(QNetworkReply *reply, int status)
 void MainWindow::Request_useless(){
     // 请求作废
     // 禁用作废按钮
-    ui->button_useless->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        ui->button_useless->setEnabled(false);
 
-    manager->setStatus(USELESS);
-    manager->setInterface("SgAbolish");
+        manager->setStatus(USELESS);
+        manager->setInterface("SgAbolish");
 
-    QByteArray Data;
-    Data.append("boot_num=");Data.append(ui->xue_times->text());
-    Data.append("&pave_num=");Data.append(ui->pu_times->text());
+        QByteArray Data;
+        Data.append("boot_num=");Data.append(ui->xue_times->text());
+        Data.append("&pave_num=");Data.append(ui->pu_times->text());
 
-    manager->postData(Data);
+        manager->postData(Data);
+    }
 }
 
 void MainWindow::apply_useless(){
@@ -1948,16 +2023,24 @@ void MainWindow::quarter_increase()
 void MainWindow::on_count_down()
 {
     // 刷新倒计时
-    ui->who_win->setText(QString::number(count_down));
-    count_down--;
-
     // 如果倒计时为 -1
-    if(count_down == -1){
+    if(count_down <= 0){
+        if(first){
+            first = false;
+            count_down = WaitDown;
+            ui->pu_end->setEnabled(false);
+            ui->opration_show->setText("准备开牌");
+            return;
+        }
         // 停止倒计时
         timer_Countdown->stop();
         ui->who_win->setText(QString(""));
         // 启用定位
         ui->button_locate->setEnabled(true);
+        ui->opration_show->setText("定位中");
+    }
+    else{
+        ui->who_win->setText(QString::number(count_down--));
     }
 }
 

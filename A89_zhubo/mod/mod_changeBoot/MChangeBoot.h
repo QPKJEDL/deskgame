@@ -13,7 +13,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString interface;
+    QString inter;
 }MChangeBootArg;
 
 class MChangeBoot;

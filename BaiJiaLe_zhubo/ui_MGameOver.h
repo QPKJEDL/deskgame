@@ -160,6 +160,7 @@ public:
 
         pu_yes = new QPushButton(MGameOver);
         pu_yes->setObjectName(QString::fromUtf8("pu_yes"));
+        pu_yes->setFocusPolicy(Qt::NoFocus);
         pu_yes->setStyleSheet(QString::fromUtf8("background-color: rgb(40, 197, 132);"));
 
         horizontalLayout_4->addWidget(pu_yes);
@@ -170,6 +171,7 @@ public:
 
         pu_no = new QPushButton(MGameOver);
         pu_no->setObjectName(QString::fromUtf8("pu_no"));
+        pu_no->setFocusPolicy(Qt::NoFocus);
         pu_no->setStyleSheet(QString::fromUtf8("background-color: rgb(40, 197, 132);"));
 
         horizontalLayout_4->addWidget(pu_no);
@@ -202,9 +204,6 @@ public:
         label_pave->setText(QString());
         label_result->setText(QCoreApplication::translate("MGameOver", "\345\272\204\350\265\242", nullptr));
         pu_yes->setText(QCoreApplication::translate("MGameOver", "\347\241\256\345\256\232", nullptr));
-#if QT_CONFIG(shortcut)
-        pu_yes->setShortcut(QCoreApplication::translate("MGameOver", "Enter", nullptr));
-#endif // QT_CONFIG(shortcut)
         pu_no->setText(QCoreApplication::translate("MGameOver", "\345\217\226\346\266\210", nullptr));
 #if QT_CONFIG(shortcut)
         pu_no->setShortcut(QCoreApplication::translate("MGameOver", "Esc", nullptr));

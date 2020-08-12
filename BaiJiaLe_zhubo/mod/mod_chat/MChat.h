@@ -5,6 +5,7 @@
 #include <QGridLayout>
 #include <mod/MNetManager.h>
 #include <QListView>
+#include <QJsonObject>
 
 namespace Ui {
 class MChat;
@@ -12,11 +13,13 @@ class MChat;
 
 class MNetManager;
 typedef struct{
-    QVBoxLayout *grid;
     QTcpSocket *tcpSocket;
     MNetManager *manager;
-    QString interface;
+    QString inter;
     int status;
+
+    unsigned int *desk_id;
+    MNetManager *manager_clear;
 }MChatArg;
 
 class MChat;
@@ -45,13 +48,21 @@ private slots:
     void readMessage();
     void request_ban(QString uid);
     void on_responsed(QNetworkReply *reply, int status);
-    void pu_name(QString uid);
+
+public slots:
+    void clear();
 
 public:
     int talkid;
 
+public:
+    Q_INVOKABLE void pu_name(QString userid,QString name);
+
 signals:
     void show_reword(QString user,int money);
+    void showText(QString txt,QString name,QString id);
+    void ban_finish(QString txt);
+    void show_top_three(QJsonObject);
 };
 
 #endif // MCHAT_H

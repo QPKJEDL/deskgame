@@ -12,14 +12,14 @@ MMoney::MMoney(MMoneyArg *arg):
     ui->setupUi(this);
 
     this->arg = new MMoneyArg();
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->status = arg->status;
     this->arg->widget = arg->widget;
     this->arg->manager = arg->manager;
 
     button_money = new QPushButton(arg->widget);
     button_money->setMinimumSize(150,150);
-    button_money->move(1400,400);
+    button_money->move(1300,400);
     button_money->setStyleSheet("background-color: transparent;border-image: url(:/icon/image/icon/money.png);");
     button_money->show();
 
@@ -44,15 +44,24 @@ MMoney::~MMoney()
 void MMoney::update_panel(QJsonArray data)
 {
     QJsonArray list = data.at(0)["list"].toArray();
+    if(list.size() == 0){
+        if(page != 1){
+            if(--page == 1){
+                ui->pu_front_page->setEnabled(false);
+            }
+        }
+
+        return;
+    }
+
 
     bool stop = false;
     auto fun = [list,&stop](int num,QLabel *creatime,QLabel *deskName,QLabel *money,QLabel *name,QLabel *type){
         QString num_creatime = list.at(num)["creatime"].toString();
         QString num_deskName = list.at(num)["deskName"].toString();
-        double num_money = list.at(num)["money"].toDouble();
         double account = list.at(num)["account"].toDouble();
-
-        num_money = num_money / 100.0;
+        double num_money = list.at(num)["money"].toDouble();
+        num_money /= 100.0;
         if(num_money == 0){
             stop = true;
         }
@@ -70,8 +79,6 @@ void MMoney::update_panel(QJsonArray data)
         name->setText(QString::number(account,'.',0));
         type->setText("用户打赏");
     };
-    first_id = list.at(6)["id"].toInt();
-    second_id = list.at(0)["id"].toInt();
     fun(0,ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money,ui->label_name_one,ui->label_type_one);
     fun(1,ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money,ui->label_name_two,ui->label_type_two);
     fun(2,ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money,ui->label_name_three,ui->label_type_three);
@@ -81,12 +88,30 @@ void MMoney::update_panel(QJsonArray data)
     fun(6,ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money,ui->label_name_seven,ui->label_type_seven);
 }
 
+void MMoney::clear()
+{
+    auto fun = [](QLabel *creatime,QLabel *deskName,QLabel *money,QLabel *name,QLabel*type){
+        creatime->setText("");
+        deskName->setText("");
+        money->setText("");
+        name->setText("");
+        type->setText("");
+    };
+    fun(ui->label_one_creatime,ui->label_one_deskNum,ui->label_one_money,ui->label_name_one,ui->label_type_one);
+    fun(ui->label_two_creatime,ui->label_two_deskNum,ui->label_two_money,ui->label_name_two,ui->label_type_two);
+    fun(ui->label_three_creatime,ui->label_three_deskNum,ui->label_three_money,ui->label_name_three,ui->label_type_three);
+    fun(ui->label_four_creatime,ui->label_four_deskNum,ui->label_four_money,ui->label_name_four,ui->label_type_four);
+    fun(ui->label_five_creatime,ui->label_five_deskNum,ui->label_five_money,ui->label_name_five,ui->label_type_five);
+    fun(ui->label_six_creatime,ui->label_six_deskNum,ui->label_six_money,ui->label_name_six,ui->label_type_six);
+    fun(ui->label_seven_creatime,ui->label_seven_deskNum,ui->label_seven_money,ui->label_name_seven,ui->label_type_seven);
+}
+
 void MMoney::request_money()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
-    postData.append("lastid=" + QString::number(lastid));
+    postData.append("page=" + QString::number(page));
     postData.append("&type=" + QString::number(type));
     postData.append("&begin=" + ui->dateTimeEdit_begin->text());
     postData.append("&end=" + ui->dateTimeEdit_end->text());
@@ -100,6 +125,13 @@ void MMoney::responsed_money(QNetworkReply *reply)
     unsigned int status = json.value("status").toInt();
     if(status == 1){
         QJsonArray data = json.value("data").toArray();
+        if(page == 1){
+            ui->pu_front_page->setEnabled(false);
+        }
+        else{
+            ui->pu_front_page->setEnabled(true);
+        }
+        ui->label_45->setText(QString::number(data.at(0)["sum"].toInt() / 100));
         update_panel(data);
     }
     else{
@@ -124,7 +156,8 @@ void change_type(QPushButton* now,QPushButton *one,QPushButton *two,QPushButton 
 
 void MMoney::pu_today()
 {
-    lastid = 0;
+    clear();
+    page = 1;
     type = 1;
     change_type(ui->pu_today,ui->pu_yesterday,ui->pu_now_month,ui->pu_front_month);
     request_money();
@@ -132,7 +165,8 @@ void MMoney::pu_today()
 
 void MMoney::pu_yesterday()
 {
-    lastid = 0;
+    clear();
+    page = 1;
     type = 2;
     change_type(ui->pu_yesterday,ui->pu_now_month,ui->pu_front_month,ui->pu_today);
     request_money();
@@ -140,7 +174,8 @@ void MMoney::pu_yesterday()
 
 void MMoney::pu_now_month()
 {
-    lastid = 0;
+    clear();
+    page = 1;
     type = 3;
     change_type(ui->pu_now_month,ui->pu_front_month,ui->pu_today,ui->pu_yesterday);
     request_money();
@@ -148,7 +183,8 @@ void MMoney::pu_now_month()
 
 void MMoney::pu_front_month()
 {
-    lastid = 0;
+    clear();
+    page = 1;
     type = 4;
     change_type(ui->pu_front_month,ui->pu_today,ui->pu_yesterday,ui->pu_now_month);
     request_money();
@@ -156,19 +192,19 @@ void MMoney::pu_front_month()
 
 void MMoney::pu_next_page()
 {
-    lastid = second_id;
+    page++;
     request_money();
 }
 
 void MMoney::pu_front_page()
 {
-    lastid = first_id + 8;
+    page--;
     request_money();
 }
 
 void MMoney::pu_search()
 {
-    lastid = 0;
+    page = 1;
     type = 5;
     request_money();
 }

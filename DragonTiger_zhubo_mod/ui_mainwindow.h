@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -17,7 +18,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -50,10 +50,7 @@ public:
     QLabel *label_same;
     QLabel *label_minLimit;
     QLabel *label_tieMinLimit;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_10;
-    QVBoxLayout *verticalLayout_6;
+    QQuickWidget *quickWidget;
     QVBoxLayout *verticalLayout_3;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout;
@@ -158,7 +155,7 @@ public:
 
         pu_leave = new QPushButton(groupBox);
         pu_leave->setObjectName(QString::fromUtf8("pu_leave"));
-        pu_leave->setEnabled(false);
+        pu_leave->setEnabled(true);
         pu_leave->setMinimumSize(QSize(80, 50));
         pu_leave->setFont(font);
         pu_leave->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}\n"
@@ -171,7 +168,7 @@ public:
 
         pu_useless = new QPushButton(groupBox);
         pu_useless->setObjectName(QString::fromUtf8("pu_useless"));
-        pu_useless->setEnabled(true);
+        pu_useless->setEnabled(false);
         pu_useless->setMinimumSize(QSize(80, 50));
         pu_useless->setFont(font);
         pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(0, 0, 0);background-image: url(:/result/pu_yellow.png);}\n"
@@ -341,25 +338,14 @@ public:
 
         verticalLayout_9->addWidget(groupBox);
 
-        scrollArea = new QScrollArea(centralwidget);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1385, 708));
-        verticalLayout_10 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_10->setObjectName(QString::fromUtf8("verticalLayout_10"));
-        verticalLayout_6 = new QVBoxLayout();
-        verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
+        quickWidget = new QQuickWidget(centralwidget);
+        quickWidget->setObjectName(QString::fromUtf8("quickWidget"));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-        verticalLayout_10->addLayout(verticalLayout_6);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        verticalLayout_9->addWidget(scrollArea);
+        verticalLayout_9->addWidget(quickWidget);
 
         verticalLayout_9->setStretch(0, 2);
-        verticalLayout_9->setStretch(1, 5);
+        verticalLayout_9->setStretch(1, 4);
 
         horizontalLayout_2->addLayout(verticalLayout_9);
 
@@ -518,7 +504,7 @@ public:
 
         horizontalLayout_2->addLayout(verticalLayout_3);
 
-        horizontalLayout_2->setStretch(0, 5);
+        horizontalLayout_2->setStretch(0, 4);
         horizontalLayout_2->setStretch(1, 1);
         MainWindow->setCentralWidget(centralwidget);
 

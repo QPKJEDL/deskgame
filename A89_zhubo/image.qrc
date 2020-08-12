@@ -76,11 +76,9 @@
         <file>image/useless.png</file>
     </qresource>
     <qresource prefix="/bet">
-        <file>image/bet/banker.png</file>
-        <file>image/bet/bankerpair.png</file>
-        <file>image/bet/player.png</file>
-        <file>image/bet/playerpair.png</file>
-        <file>image/bet/tie.png</file>
+        <file>image/bet/FanMen.png</file>
+        <file>image/bet/ShunMen.png</file>
+        <file>image/bet/TianMen.png</file>
     </qresource>
     <qresource prefix="/icon">
         <file>image/icon/1.png</file>
@@ -88,5 +86,101 @@
         <file>image/icon/3.png</file>
         <file>image/icon/money.png</file>
         <file>image/icon/4.png</file>
+        <file>image/icon/reword.png</file>
     </qresource>
+    <qresource prefix="/qml">
+        <file>qml/MText.qml</file>
+        <file>qml/MChat.qml</file>
+        <file>qml/MDataBank.qml</file>
+        <file>qml/emoji_78.png</file>
+        <file>qml/emoji_77.png</file>
+        <file>qml/emoji_76.png</file>
+        <file>qml/emoji_75.png</file>
+        <file>qml/emoji_74.png</file>
+        <file>qml/emoji_73.png</file>
+        <file>qml/emoji_72.png</file>
+        <file>qml/emoji_71.png</file>
+        <file>qml/emoji_70.png</file>
+        <file>qml/emoji_69.png</file>
+        <file>qml/emoji_68.png</file>
+        <file>qml/emoji_67.png</file>
+        <file>qml/emoji_66.png</file>
+        <file>qml/emoji_65.png</file>
+        <file>qml/emoji_64.png</file>
+        <file>qml/emoji_63.png</file>
+        <file>qml/emoji_62.png</file>
+        <file>qml/emoji_61.png</file>
+        <file>qml/emoji_60.png</file>
+        <file>qml/emoji_59.png</file>
+        <file>qml/emoji_58.png</file>
+        <file>qml/emoji_57.png</file>
+        <file>qml/emoji_56.png</file>
+        <file>qml/emoji_55.png</file>
+        <file>qml/emoji_54.png</file>
+        <file>qml/emoji_53.png</file>
+        <file>qml/emoji_52.png</file>
+        <file>qml/emoji_51.png</file>
+        <file>qml/emoji_50.png</file>
+        <file>qml/emoji_49.png</file>
+        <file>qml/emoji_48.png</file>
+        <file>qml/emoji_47.png</file>
+        <file>qml/emoji_46.png</file>
+        <file>qml/emoji_45.png</file>
+        <file>qml/emoji_44.png</file>
+        <file>qml/emoji_43.png</file>
+        <file>qml/emoji_42.png</file>
+        <file>qml/emoji_41.png</file>
+        <file>qml/emoji_40.png</file>
+        <file>qml/emoji_39.png</file>
+        <file>qml/emoji_38.png</file>
+        <file>qml/emoji_37.png</file>
+        <file>qml/emoji_36.png</file>
+        <file>qml/emoji_35.png</file>
+        <file>qml/emoji_34.png</file>
+        <file>qml/emoji_33.png</file>
+        <file>qml/emoji_32.png</file>
+        <file>qml/emoji_31.png</file>
+        <file>qml/emoji_30.png</file>
+        <file>qml/emoji_29.png</file>
+        <file>qml/emoji_28.png</file>
+        <file>qml/emoji_27.png</file>
+        <file>qml/emoji_26.png</file>
+        <file>qml/emoji_25.png</file>
+        <file>qml/emoji_24.png</file>
+        <file>qml/emoji_23.png</file>
+        <file>qml/emoji_22.png</file>
+        <file>qml/emoji_21.png</file>
+        <file>qml/emoji_20.png</file>
+        <file>qml/emoji_19.png</file>
+        <file>qml/emoji_18.png</file>
+        <file>qml/emoji_17.png</file>
+        <file>qml/emoji_16.png</file>
+        <file>qml/emoji_15.png</file>
+        <file>qml/emoji_14.png</file>
+        <file>qml/emoji_13.png</file>
+        <file>qml/emoji_12.png</file>
+        <file>qml/emoji_11.png</file>
+        <file>qml/emoji_10.png</file>
+        <file>qml/emoji_9.png</file>
+        <file>qml/emoji_8.png</file>
+        <file>qml/emoji_7.png</file>
+        <file>qml/emoji_6.png</file>
+        <file>qml/emoji_5.png</file>
+        <file>qml/emoji_4.png</file>
+        <file>qml/emoji_3.png</file>
+        <file>qml/emoji_2.png</file>
+        <file>qml/emoji_1.png</file>
+        <file>qml/clear.png</file>
+        <file>qml/emoji_88.png</file>
+        <file>qml/emoji_87.png</file>
+        <file>qml/emoji_86.png</file>
+        <file>qml/emoji_85.png</file>
+        <file>qml/emoji_84.png</file>
+        <file>qml/emoji_83.png</file>
+        <file>qml/emoji_82.png</file>
+        <file>qml/emoji_81.png</file>
+        <file>qml/emoji_80.png</file>
+        <file>qml/emoji_79.png</file>
+    </qresource>
+    <qresource prefix="/face"/>
 </RCC>

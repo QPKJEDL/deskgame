@@ -70,7 +70,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    MainWindow(int id, QString token, QString limit, QString tieLimit, QWidget *parent = nullptr);
+    MainWindow(int id, QString token, QWidget *parent = nullptr);
     ~MainWindow();
 
     QString m_str;
@@ -85,6 +85,7 @@ private slots:
 
     void pu_stop();
     void pu_locate();
+    void pu_init();
 
     void on_timeout();
     void on_exit();
@@ -103,7 +104,9 @@ private:
     QTimer* timer_focus;
     QTimer* timer_opacity;
     QTimer* timer_date;
-    QTimer* timer_Countdown;
+    QTimer* timre_Countdown;
+    bool first = true;
+    int WaitDown;
     QGraphicsOpacityEffect* m_graphiceffect;
     QGraphicsOpacityEffect* n_graphiceffect;
 
@@ -133,6 +136,8 @@ private:
     void request_game_record();
     void request_room_info();
     void request_room_card();
+    void request_stop();
+    void request_init();
 
     void apply_summit();
     void apply_useless();
@@ -154,5 +159,6 @@ private:
     void responsed_summit(QNetworkReply *reply);
     void responsed_useless(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
+    void responsed_stop(QNetworkReply *reply);
 };
 #endif // MAINWINDOW_H

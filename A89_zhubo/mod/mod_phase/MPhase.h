@@ -16,6 +16,8 @@ typedef struct{
     QPushButton *leave;
     QPushButton *useless;
 
+    QPushButton *changeboot;
+
     // 定位
     QPushButton *locate;
     QLineEdit *input;
@@ -24,6 +26,12 @@ typedef struct{
     MNetManager *manager;
     int status_locate;
     QString interface_locate;
+
+    QPushButton *stop;
+    int status_stop;
+    QString interface_stop;
+
+    QLabel *opration_show;
 }MPhaseArg;
 
 namespace Ui {
@@ -37,6 +45,7 @@ class MPhase : public QWidget
     Q_OBJECT
 public:
     explicit MPhase(MPhaseArg *arg,QWidget *parent = nullptr);
+    ~MPhase();
 
 private:
     Ui::MPhase *ui;
@@ -46,17 +55,20 @@ private:
 
     int times;
     QTimer *timer;
-
+    QWidget *widget;
+    bool first;
+    int WaitDown;
     int count_down;
 private slots:
     void on_timeout();
     void on_responsed(QNetworkReply *reply, int status);
     void pu_locate();
+    void pu_stop();
     void while_line_finish();
 
 public slots:
-    void to_phase(int phase,int start,int end,int countDown);
-    void on_finished();
+    void to_phase(int phase, int start, int end, int countDown, int wait_down);
+    void on_finished(QString str);
     void on_start();
     void on_located();
 
@@ -67,6 +79,8 @@ signals:
 private:
     void request_locate(int location);
     void responsed_locate(QNetworkReply *reply);
+    void request_stop();
+    void responsed_stop(QNetworkReply *reply);
 
 };
 

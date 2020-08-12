@@ -9,9 +9,12 @@ typedef struct{
     QPushButton *button;
     QLabel *boot;
     QLabel *pave;
+    QLabel *opration_show;
+    QLabel *result;
+    QLabel *locate;
 
     MNetManager *manager;
-    QString interface;
+    QString inter;
     int status;
 }MSummitArg;
 
@@ -34,20 +37,21 @@ private:
     Ui::MSummit *ui;
     MSummitArg *arg;
     QMap<int,exe_summit> _map;
+    QString result;
 
 private:
     void request_summit();
     void responsed_summit(QNetworkReply *reply);
 
 signals:
-    void summited();
+    void summited(QString);
 
 private slots:
     void on_responsed(QNetworkReply*,int);
     void pu_summit();
 
 public slots:
-    void cardFinished();
+    void cardFinished(QString result);
 
 };
 

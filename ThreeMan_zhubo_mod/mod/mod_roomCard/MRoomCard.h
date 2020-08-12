@@ -59,8 +59,8 @@ private:
     SEVENMAN *link;
 signals:
     int get_location(int);
-    int finished();
-    void clear_finished();
+    int finished(QString);
+    void clear_finished(QString str);
     int locate_zero();
 
 private:
@@ -71,6 +71,15 @@ private:
     void responsed_fapai(QNetworkReply *reply);
     void focus_lineedit();
     void append(string card);
+    QString BiJiaoPaiXing();
+
+    int zhuang_paixing;
+    int one_paixing;
+    int two_paixing;
+    int three_paixing;
+    int four_paixing;
+    int five_paixing;
+    int six_paixing;
 
 public slots:
     void request_roomCard();

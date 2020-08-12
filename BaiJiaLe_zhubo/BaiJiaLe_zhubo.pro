@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -34,6 +34,7 @@ SOURCES += \
     mod/mod_reward/MReword.cpp \
     mod/mod_roominfo/MRoomInfo.cpp \
     mod/mod_start/MStart.cpp \
+    mod/mod_stop/MStop.cpp \
     mod/mod_topFive/MTopFive.cpp \
     mod/mod_topThree/MTopThree.cpp \
     mod/mod_useless/MUseless.cpp \
@@ -55,6 +56,7 @@ HEADERS += \
     mod/mod_reward/MReword.h \
     mod/mod_roominfo/MRoomInfo.h \
     mod/mod_start/MStart.h \
+    mod/mod_stop/MStop.h \
     mod/mod_topFive/MTopFive.h \
     mod/mod_topThree/MTopThree.h \
     mod/mod_useless/MUseless.h \

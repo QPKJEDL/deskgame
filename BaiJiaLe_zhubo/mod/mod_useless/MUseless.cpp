@@ -13,7 +13,7 @@ MUseless::MUseless(MUselessArg *arg, QWidget *parent) : QWidget(parent)
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->useless = arg->useless;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     _map.insert(arg->status,&MUseless::responsed_useless);
     connect(arg->useless,SIGNAL(clicked()),this,SLOT(pu_useless()));
@@ -45,7 +45,7 @@ void MUseless::on_responsed(QNetworkReply *reply, int status)
 void MUseless::request_useless()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append(QString("boot_num=") + arg->boot->text());
     postData.append((QString("&pave_num=")) + arg->pave->text());

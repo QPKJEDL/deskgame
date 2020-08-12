@@ -1,19 +1,19 @@
 #ifndef FORM_H
 #define FORM_H
 
-#include <QWidget>
+#include <QDialog>
 #include <QPushButton>
 
 namespace Ui {
 class Form;
 }
 
-class Form : public QWidget
+class Form : public QDialog
 {
     Q_OBJECT
 
 public:
-    Form(QWidget *parent = nullptr);
+    Form(QDialog *parent = nullptr);
     void init(QString desk_id, QString boot, QString pave, QString result);
     ~Form();
 

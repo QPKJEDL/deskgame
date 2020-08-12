@@ -16,11 +16,12 @@
 #include <vector>
 #include <QMessageBox>
 #include <QHostAddress>
+#include <QQmlContext>
 using namespace std;
 
-enum {START,ROOMINFO,RECORD,CHNAGEBOOT,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,CHAT};
+enum {START,ROOMINFO,RECORD,CHNAGEBOOT,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,CHAT,STOP};
 
-static QString URL = "101.32.22.231:8210";
+//static QString URL = "101.32.22.231:8210";
 //static QString URL = "129.211.114.135:8210";
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -74,6 +75,13 @@ MainWindow::MainWindow(QWidget *parent)
     phaseArg.locate = ui->button_locate;
     phaseArg.input = ui->lineEdit_2;
     phaseArg.location = ui->label_locate;
+    phaseArg.opration_show = ui->opration_show;
+
+    phaseArg.changeboot = ui->pu_init;
+
+    phaseArg.stop = ui->pu_end;
+    phaseArg.status_stop = STOP;
+    phaseArg.interface_stop = "SgAwaitCard";
     module_phase = new MPhase(&phaseArg,this);
 
     MRoomCardArg roomCardArg;
@@ -118,6 +126,9 @@ MainWindow::MainWindow(QWidget *parent)
     summitArg.inter = "SgGetGameOver";
     summitArg.boot = ui->xue_times;
     summitArg.pave = ui->pu_times;
+    summitArg.locate = ui->label_locate;
+    summitArg.opration_show = ui->opration_show;
+    summitArg.result = ui->pu_result;
     module_summit = new MSummit(&summitArg);
 
     MInitArg initArg;
@@ -157,12 +168,19 @@ MainWindow::MainWindow(QWidget *parent)
     module_money = new MMoney(&moneyArg);
 
     MChatArg chatArg;
-    chatArg.grid = ui->verticalLayout_5;
     chatArg.status = CHAT;
     chatArg.manager = second_manager;
     chatArg.inter = "live_ban_user";
     chatArg.tcpSocket = m_tcpsocket;
+
+    chatArg.desk_id = &(module_login->desk_id);
+    chatArg.manager_clear = second_manager;
+
     module_chat = new MChat(&chatArg);
+    QQmlContext *context = ui->quickWidget->rootContext();
+    context->setContextProperty("module_chat",module_chat);
+    ui->quickWidget->setSource(QUrl("qrc:/qml/MChat.qml"));
+
 
     module_reword = new MReword(this);
     connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
@@ -171,19 +189,25 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
     connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
-    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
+    connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int ,int)),module_phase,SLOT(to_phase(int,int,int,int,int)));
     connect(module_phase,SIGNAL(located(int)),module_roomCard,SLOT(locate(int)));
     connect(module_useless,SIGNAL(uselessed()),module_roomCard,SLOT(clear()));
-    connect(module_roomCard,SIGNAL(clear_finished()),module_phase,SLOT(on_finished()));
+    connect(module_roomCard,SIGNAL(clear_finished(QString)),module_phase,SLOT(on_finished(QString)));
     connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_start()));
-    connect(module_summit,SIGNAL(summited()),module_roomCard,SLOT(clear()));
-    connect(module_summit,SIGNAL(summited()),module_phase,SLOT(on_finished()));
+    connect(module_summit,SIGNAL(summited(QString)),module_roomCard,SLOT(clear()));
+    connect(module_summit,SIGNAL(summited(QString)),module_phase,SLOT(on_finished(QString)));
     connect(module_init,SIGNAL(inited()),module_phase,SLOT(on_start()));
     connect(module_init,SIGNAL(inited()),module_roomCard,SLOT(clear()));
-    connect(module_roomCard,SIGNAL(finished()),module_summit,SLOT(cardFinished()));
-    connect(module_phase,SIGNAL(phase_kaipai()),module_roomCard,SLOT(request_roomCard()));
+    connect(module_roomCard,SIGNAL(finished(QString)),module_summit,SLOT(cardFinished(QString)));
+    //connect(module_phase,SIGNAL(phase_kaipai()),module_roomCard,SLOT(request_roomCard()));
     connect(module_roomCard,SIGNAL(locate_zero()),module_phase,SLOT(on_located()));
-    connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
+
+    connect(module_chat,SIGNAL(show_top_three(QJsonObject)),module_topThree,SLOT(update_panel(QJsonObject)));
+    connect(module_summit,SIGNAL(summited(QString)),module_topThree,SLOT(clear()));
+    connect(module_start,SIGNAL(successed()),module_topThree,SLOT(clear()));
+
+    connect(module_phase,SIGNAL(phase_kaipai()),module_topThree,SLOT(request_top_three()));
+    connect(module_topThree,SIGNAL(finished()),module_roomCard,SLOT(request_roomCard()));
 }
 
 MainWindow::~MainWindow()

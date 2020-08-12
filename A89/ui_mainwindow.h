@@ -33,11 +33,10 @@ public:
     QGridLayout *gridLayout;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
-    QPushButton *pu_init;
-    QPushButton *xue_change;
     QPushButton *pu_start;
-    QPushButton *pu_exit;
+    QPushButton *pu_init;
     QPushButton *pu_end;
+    QPushButton *pu_exit;
     QGroupBox *groupBox;
     QGridLayout *gridLayout_3;
     QLabel *desk_num;
@@ -225,48 +224,15 @@ public:
 ""));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName(QString::fromUtf8("gridLayout_2"));
-        pu_init = new QPushButton(groupBox_2);
-        pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(false);
-        pu_init->setMinimumSize(QSize(120, 51));
-        pu_init->setMaximumSize(QSize(140, 60));
-        QFont font1;
-        font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font1.setPointSize(18);
-        font1.setBold(false);
-        font1.setWeight(50);
-        pu_init->setFont(font1);
-        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        gridLayout_2->addWidget(pu_init, 0, 2, 1, 1);
-
-        xue_change = new QPushButton(groupBox_2);
-        xue_change->setObjectName(QString::fromUtf8("xue_change"));
-        xue_change->setEnabled(false);
-        xue_change->setMinimumSize(QSize(120, 51));
-        xue_change->setMaximumSize(QSize(140, 60));
-        xue_change->setFont(font1);
-        xue_change->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        gridLayout_2->addWidget(xue_change, 0, 1, 1, 1);
-
         pu_start = new QPushButton(groupBox_2);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
         pu_start->setMinimumSize(QSize(120, 51));
         pu_start->setMaximumSize(QSize(140, 60));
-        QFont font2;
-        font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font2.setPointSize(18);
-        pu_start->setFont(font2);
+        QFont font1;
+        font1.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font1.setPointSize(18);
+        pu_start->setFont(font1);
         pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
@@ -278,19 +244,24 @@ public:
 
         gridLayout_2->addWidget(pu_start, 0, 0, 1, 1);
 
-        pu_exit = new QPushButton(groupBox_2);
-        pu_exit->setObjectName(QString::fromUtf8("pu_exit"));
-        pu_exit->setEnabled(true);
-        pu_exit->setMinimumSize(QSize(120, 51));
-        pu_exit->setMaximumSize(QSize(140, 60));
-        pu_exit->setFont(font1);
-        pu_exit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+        pu_init = new QPushButton(groupBox_2);
+        pu_init->setObjectName(QString::fromUtf8("pu_init"));
+        pu_init->setEnabled(false);
+        pu_init->setMinimumSize(QSize(120, 51));
+        pu_init->setMaximumSize(QSize(140, 60));
+        QFont font2;
+        font2.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font2.setPointSize(18);
+        font2.setBold(false);
+        font2.setWeight(50);
+        pu_init->setFont(font2);
+        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_exit, 0, 4, 1, 1);
+        gridLayout_2->addWidget(pu_init, 0, 1, 1, 1);
 
         pu_end = new QPushButton(groupBox_2);
         pu_end->setObjectName(QString::fromUtf8("pu_end"));
@@ -306,7 +277,21 @@ public:
 "QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
 "}"));
 
-        gridLayout_2->addWidget(pu_end, 0, 3, 1, 1);
+        gridLayout_2->addWidget(pu_end, 0, 2, 1, 1);
+
+        pu_exit = new QPushButton(groupBox_2);
+        pu_exit->setObjectName(QString::fromUtf8("pu_exit"));
+        pu_exit->setEnabled(true);
+        pu_exit->setMinimumSize(QSize(120, 51));
+        pu_exit->setMaximumSize(QSize(140, 60));
+        pu_exit->setFont(font2);
+        pu_exit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
+"QPushButton:hover{border-color:rgb(139,170,105)}\n"
+"QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
+"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
+"}"));
+
+        gridLayout_2->addWidget(pu_exit, 0, 3, 1, 1);
 
 
         gridLayout->addWidget(groupBox_2, 0, 1, 1, 1);
@@ -2102,7 +2087,7 @@ public:
         button_locate->setEnabled(false);
         button_locate->setMinimumSize(QSize(120, 50));
         button_locate->setMaximumSize(QSize(200, 70));
-        button_locate->setFont(font2);
+        button_locate->setFont(font1);
         button_locate->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
@@ -2116,7 +2101,7 @@ public:
         button_useless->setEnabled(false);
         button_useless->setMinimumSize(QSize(120, 50));
         button_useless->setMaximumSize(QSize(200, 70));
-        button_useless->setFont(font1);
+        button_useless->setFont(font2);
         button_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
@@ -2130,7 +2115,7 @@ public:
         button_summit->setEnabled(false);
         button_summit->setMinimumSize(QSize(120, 40));
         button_summit->setMaximumSize(QSize(200, 70));
-        button_summit->setFont(font2);
+        button_summit->setFont(font1);
         button_summit->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(50, 73, 138);border:1px solid grey; border-radius: 8px;}\n"
 "QPushButton:hover{border-color:rgb(139,170,105)}\n"
 "QPushButton:pressed{border-color:gray;background-color:rgb(54, 65, 97);}\n"
@@ -2148,7 +2133,8 @@ public:
         QFont font16;
         font16.setPointSize(160);
         who_win->setFont(font16);
-        who_win->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
+        who_win->setStyleSheet(QString::fromUtf8("background-color: transparent;\n"
+"color: rgb(200, 140, 0);"));
         who_win->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -2170,17 +2156,19 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox_2->setTitle(QString());
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
-        xue_change->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));
+#endif // QT_CONFIG(shortcut)
+        pu_init->setText(QCoreApplication::translate("MainWindow", "\346\215\242\351\235\264", nullptr));
+        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242(/)", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_end->setShortcut(QCoreApplication::translate("MainWindow", "/", nullptr));
 #endif // QT_CONFIG(shortcut)
         pu_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\357\274\210.\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_exit->setShortcut(QCoreApplication::translate("MainWindow", ".", nullptr));
 #endif // QT_CONFIG(shortcut)
-        pu_end->setText(QCoreApplication::translate("MainWindow", "\347\273\210\346\255\242", nullptr));
         groupBox->setTitle(QString());
         desk_num->setText(QString());
         label_11->setText(QCoreApplication::translate("MainWindow", "\347\273\223\346\236\234", nullptr));

@@ -39,11 +39,15 @@ public:
     int limit_player;
     int limit_tie;
     int limit_pair;
+    unsigned int desk_id;
 
 private:
     Ui::MLogin *ui;
     MLoginArg *arg;
-    unsigned int desk_id;
+
+    QTimer *timer_ping;
+    QTimer *timer_reconnect;
+
     QString _long_id;
     QString _long_token;
     QMap<int,exe_login> _map;
@@ -54,6 +58,10 @@ private slots:
     void on_responsed(QNetworkReply* reply,int status);
     void connectedServer();
     void readMessage();
+
+    void disconnectServer();
+    void sendPingMsg();
+    void reconnect();
 
 private:
     void request_first_login();

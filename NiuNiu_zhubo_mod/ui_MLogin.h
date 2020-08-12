@@ -81,7 +81,8 @@ public:
         font.setPointSize(40);
         comboBox->setFont(font);
         comboBox->setStyleSheet(QString::fromUtf8("background:rgba(39,39,57,1);\n"
-"border-radius:5px;"));
+"border-radius:5px;\n"
+"color: rgb(255, 255, 255);"));
 
         horizontalLayout_6->addWidget(comboBox);
 
@@ -243,7 +244,7 @@ public:
     void retranslateUi(QWidget *MLogin)
     {
         MLogin->setWindowTitle(QCoreApplication::translate("MLogin", "Form", nullptr));
-        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "\347\211\233\347\211\233VIP1", nullptr));
+        comboBox->setItemText(0, QCoreApplication::translate("MLogin", "\347\211\233\347\211\233_VIP1", nullptr));
 
         label_2->setText(QCoreApplication::translate("MLogin", "\344\270\273\346\222\255\350\215\267\345\256\230\350\264\246\345\217\267  ", nullptr));
         userid->setText(QString());

@@ -10,7 +10,7 @@ typedef struct{
     QWidget *widget;
     MNetManager *manager;
     int status;
-    QString interface;
+    QString inter;
 }MMoneyArg;
 
 class MMoney;
@@ -35,9 +35,7 @@ private:
     MMoneyArg *arg;
     QMap<int,exe_money> _map;
 
-    int first_id;
-    int second_id;
-    int lastid;
+    int page;
     int type = 1;
 
 private slots:
@@ -55,6 +53,7 @@ private:
     void request_money();
     void responsed_money(QNetworkReply *reply);
     void update_panel(QJsonArray data);
+    void clear();
 };
 
 #endif // MMONEY_H

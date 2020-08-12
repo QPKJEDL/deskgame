@@ -168,24 +168,31 @@ void MRoomCard::append(string c)
         switch (link->num) {
         case(0):
             ui->xian1_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            one_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(1):
             ui->xian2_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            two_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(2):
             ui->xian3_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            three_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(3):
             ui->xian1_result_2->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            four_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(4):
             ui->xian1_result_3->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            five_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(5):
             ui->xian1_result_4->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            six_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(6):
             ui->zhuang_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            zhuang_paixing = fun_paiXing(link->data).paiXing;
             break;
         }
     }
@@ -194,7 +201,7 @@ void MRoomCard::append(string c)
     NUM.increase();
 
     if(NUM.num == 3){
-        emit finished();//-> 提交
+        emit finished(BiJiaoPaiXing());//-> 提交
 
         timer_focus->stop();
         graphiceffect->setOpacity(1);
@@ -210,6 +217,35 @@ void MRoomCard::append(string c)
     arg->lineEdit->setText(QString(""));
 }
 
+QString MRoomCard::BiJiaoPaiXing()
+{
+    QString re = "";
+    if(zhuang_paixing < one_paixing){
+        re.append("闲1");
+    }
+    if(zhuang_paixing < two_paixing){
+        re.append("闲2");
+    }
+    if(zhuang_paixing < three_paixing){
+        re.append("闲3");
+    }
+    if(zhuang_paixing < four_paixing){
+        re.append("闲4");
+    }
+    if(zhuang_paixing < five_paixing){
+        re.append("闲5");
+    }
+    if(zhuang_paixing < six_paixing){
+        re.append("闲6");
+    }
+    if(re == ""){
+        return "庄赢";
+    }
+    else{
+        return re;
+    }
+}
+
 void MRoomCard::focus_lineedit()
 {
     timer_focus->start(200);
@@ -221,6 +257,7 @@ void MRoomCard::while_timeout()
     if(NUM.num == 3){
         graphiceffect->setOpacity(1);
         link->data[2].label->setGraphicsEffect(graphiceffect);
+        graphiceffect_name = new QGraphicsOpacityEffect();
         graphiceffect_name->setOpacity(1);
         label_name->setGraphicsEffect(graphiceffect_name);
         timer_opacity->stop();
@@ -440,7 +477,7 @@ void MRoomCard::clear()
     ui->zhuang_result->setText(QString(""));
 
     init_link();
-    emit clear_finished();
+    emit clear_finished("");
 }
 
 MRoomCard::MRoomCard(MRoomCardArg *arg, QWidget *parent) :

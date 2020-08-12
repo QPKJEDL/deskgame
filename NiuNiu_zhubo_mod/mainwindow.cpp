@@ -16,9 +16,10 @@
 #include <vector>
 #include <QMessageBox>
 #include <QHostAddress>
+#include <QQmlContext>
 using namespace std;
 
-enum {START,ROOMINFO,RECORD,CHNAGEBOOT,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,CHAT};
+enum {START,ROOMINFO,RECORD,CHNAGEBOOT,ROOMCARD,LOCATE,FAPAI,SUMMIT,USELESS,INIT,LOGIN,SECONDLOGIN,TOPTHREE,TOPFIVE,MONEY,CHAT,STOP};
 
 //static QString URL = "101.32.22.231:8210";
 //static QString URL = "129.211.114.135:8210";
@@ -59,7 +60,7 @@ MainWindow::MainWindow(QWidget *parent)
   roomInfoArg.deskId = ui->desk_num;
   roomInfoArg.status = ROOMINFO;
   roomInfoArg.manager = manager;
-  roomInfoArg.interface = "HeGuanRoominfo";
+  roomInfoArg.inter = "HeGuanRoominfo";
   roomInfoArg.timesBoot = ui->xue_times;
   roomInfoArg.timesPave = ui->pu_times;
   module_roomInfo = new MRoomInfo(&roomInfoArg);
@@ -72,10 +73,17 @@ MainWindow::MainWindow(QWidget *parent)
   phaseArg.leave = ui->pu_exit;
   phaseArg.start = ui->pu_start;
   phaseArg.useless = ui->button_useless;
-  phaseArg.changeBoot = ui->xue_change;
   phaseArg.locate = ui->button_locate;
   phaseArg.input = ui->lineEdit_2;
   phaseArg.location = ui->label_locate;
+
+  phaseArg.changeboot = ui->pu_init;
+
+  phaseArg.opration_show = ui->opration_show;
+
+  phaseArg.stop = ui->pu_end;
+  phaseArg.status_stop = STOP;
+  phaseArg.interface_stop = "NnAwaitCard";
   module_phase = new MPhase(&phaseArg,this);
 
   MRoomCardArg roomCardArg;
@@ -89,6 +97,7 @@ MainWindow::MainWindow(QWidget *parent)
   roomCardArg.interface_roomcard = "HeGuanRoomCard";
   roomCardArg.status_fapai = FAPAI;
   roomCardArg.interface_fapai = "GameCard";
+
   module_roomCard = new MRoomCard(&roomCardArg);
   QVBoxLayout *vbox_five = new QVBoxLayout(ui->groupBox_4);
   vbox_five->addWidget(module_roomCard);
@@ -101,14 +110,15 @@ MainWindow::MainWindow(QWidget *parent)
   uselessArg.pave = ui->pu_times;
   uselessArg.status = USELESS;
   uselessArg.manager = manager;
-  uselessArg.interface = "NnAbolish";
+  uselessArg.result = ui->pu_result;
+  uselessArg.inter = "NnAbolish";
   module_useless = new MUseless(&uselessArg);
 
   MStartArg startArg;
   startArg.button = ui->pu_start;
   startArg.status = START;
   startArg.manager = manager;
-  startArg.interface = "RoomProcess";
+  startArg.inter = "RoomProcess";
   startArg.boot = ui->xue_times;
   startArg.pave = ui->pu_times;
   module_start = new MStart(&startArg);
@@ -117,9 +127,12 @@ MainWindow::MainWindow(QWidget *parent)
   summitArg.button = ui->button_summit;
   summitArg.status = SUMMIT;
   summitArg.manager = manager;
-  summitArg.interface = "GetGameOver";
+  summitArg.inter = "GetGameOver";
   summitArg.boot = ui->xue_times;
   summitArg.pave = ui->pu_times;
+  summitArg.opration_show = ui->opration_show;
+  summitArg.result = ui->pu_result;
+  summitArg.locate = ui->label_locate;
   module_summit = new MSummit(&summitArg);
 
   MInitArg initArg;
@@ -128,7 +141,7 @@ MainWindow::MainWindow(QWidget *parent)
   initArg.status = INIT;
   initArg.manager = manager;
   initArg.init = ui->pu_init;
-  initArg.interface = "NnRonmInitialize";
+  initArg.inter = "NnRonmInitialize";
   module_init = new MInit(&initArg);
 
   MTopThreeArg threeArg;
@@ -136,54 +149,59 @@ MainWindow::MainWindow(QWidget *parent)
   threeArg.manager = manager;
   threeArg.times_pu = ui->pu_times;
   threeArg.times_xue = ui->xue_times;
-  threeArg.interface = "NnBetTop3";
+  threeArg.inter = "NnBetTop3";
   module_topThree = new MTopThree(&threeArg);
   QVBoxLayout *vbox = new QVBoxLayout(ui->groupBox_6);
   vbox->addWidget(module_topThree);
   vbox->setMargin(0);
   ui->groupBox_5->setLayout(vbox);
 
-  MChangeBootArg changBootArg;
-  changBootArg.boot = ui->xue_times;
-  changBootArg.pave = ui->pu_times;
-  changBootArg.status = CHNAGEBOOT;
-  changBootArg.manager = manager;
-  changBootArg.changeBoot = ui->xue_change;
-  changBootArg.interface = "";
-  module_changeBoot = new MChangeBoot(&changBootArg);
-
   MChatArg chatArg;
-  chatArg.grid = ui->gridLayout_4;
   chatArg.status = CHAT;
   chatArg.manager = second_manager;
-  chatArg.interface = "live_ban_user";
+  chatArg.inter = "live_ban_user";
   chatArg.tcpSocket = m_tcpsocket;
+
+  chatArg.desk_id = &(module_login->desk_id);
+  chatArg.manager_clear = second_manager;
+
   module_chat = new MChat(&chatArg);
+  QQmlContext *context = ui->quickWidget->rootContext();
+  context->setContextProperty("module_chat",module_chat);
+  ui->quickWidget->setSource(QUrl("qrc:/qml/qml/MChat.qml"));
+
 
   MMoneyArg moneyArg;
-  moneyArg.interface = "live_reward_list";
+  moneyArg.inter = "live_reward_list";
   moneyArg.status = MONEY;
   moneyArg.widget = this;
   moneyArg.manager = second_manager;
   module_money = new MMoney(&moneyArg);
 
+  module_reword = new MReword(this);
+  connect(module_chat,SIGNAL(show_reword(QString,int)),module_reword,SLOT(show_reword(QString,int)));
+
   module_leave = new MLeave(ui->pu_exit,this);
 
   connect(module_login,SIGNAL(successed()),module_roomInfo,SLOT(request_room_info()));
-  connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int)));
+  connect(module_roomInfo,SIGNAL(send_phase(int,int,int,int,int)),module_phase,SLOT(to_phase(int,int,int,int,int)));
   connect(module_phase,SIGNAL(located(int)),module_roomCard,SLOT(locate(int)));
-  connect(module_useless,SIGNAL(uselessed()),module_phase,SLOT(on_finished()));
-  connect(module_useless,SIGNAL(uselessed()),module_roomCard,SLOT(clear()));
+  connect(module_phase,SIGNAL(phase_kaipai()),module_topThree,SLOT(request_top_three()));
+  connect(module_useless,SIGNAL(uselessed(QString)),module_phase,SLOT(on_finished(QString)));
+  connect(module_useless,SIGNAL(uselessed(QString)),module_roomCard,SLOT(clear()));
   connect(module_start,SIGNAL(successed()),module_phase,SLOT(on_start()));
-  connect(module_summit,SIGNAL(summited()),module_roomCard,SLOT(clear()));
-  connect(module_summit,SIGNAL(summited()),module_phase,SLOT(on_finished()));
-  connect(module_init,SIGNAL(inited()),module_phase,SLOT(on_start()));
+  connect(module_summit,SIGNAL(summited(QString)),module_roomCard,SLOT(clear()));
+  connect(module_summit,SIGNAL(summited(QString)),module_phase,SLOT(on_finished(QString)));
+  //connect(module_init,SIGNAL(inited()),module_phase,SLOT(on_start()));
   connect(module_init,SIGNAL(inited()),module_roomCard,SLOT(clear()));
-  connect(module_roomCard,SIGNAL(finished()),module_summit,SLOT(cardFinished()));
-  connect(module_phase,SIGNAL(phase_kaipai()),module_roomCard,SLOT(request_roomCard()));
+  connect(module_roomCard,SIGNAL(finished(QString)),module_summit,SLOT(cardFinished(QString)));
+  connect(module_topThree,SIGNAL(finished()),module_roomCard,SLOT(request_roomCard()));
   connect(module_roomCard,SIGNAL(locate_zero()),module_phase,SLOT(on_located()));
-  connect(module_roomCard,SIGNAL(locate_zero()),module_topThree,SLOT(request_top_three()));
-  connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
+  //connect(module_phase,SIGNAL(timeout()),module_topThree,SLOT(request_top_three()));
+  //connect(module_roomCard,SIGNAL(finished()),module_topThree,SLOT(request_top_three()));
+  connect(module_chat,SIGNAL(show_top_three(QJsonObject)),module_topThree,SLOT(update_panel(QJsonObject)));
+  connect(module_summit,SIGNAL(summited(QString)),module_topThree,SLOT(clear()));
+  connect(module_start,SIGNAL(successed()),module_topThree,SLOT(clear()));
 }
 
 MainWindow::~MainWindow()

@@ -100,13 +100,13 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>280</x>
+     <x>220</x>
      <y>140</y>
-     <width>131</width>
+     <width>191</width>
      <height>104</height>
     </rect>
    </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_2">
+   <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="2,1">
     <item>
      <widget class="QLabel" name="money">
       <property name="font">

@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MTopThree</class>
  <widget class="QWidget" name="MTopThree">
+  <property name="enabled">
+   <bool>true</bool>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -329,6 +332,9 @@ background-color: rgb(0, 101, 255);</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignCenter</set>
+           </property>
+           <property name="wordWrap">
+            <bool>false</bool>
            </property>
           </widget>
          </item>

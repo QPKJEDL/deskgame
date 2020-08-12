@@ -13,7 +13,7 @@ MInit::MInit(MInitArg *arg, QWidget *parent) : QWidget(parent)
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
     this->arg->init = arg->init;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
 
     _map.insert(arg->status,&MInit::responsed_init);
     connect(arg->init,SIGNAL(clicked()),this,SLOT(pu_init()));
@@ -45,7 +45,7 @@ void MInit::on_responsed(QNetworkReply *reply, int status)
 void MInit::request_init()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     arg->manager->postData(QByteArray());
 }
 

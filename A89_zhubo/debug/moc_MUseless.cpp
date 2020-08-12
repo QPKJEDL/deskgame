@@ -62,14 +62,14 @@ static const uint qt_meta_data_MUseless[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x06 /* Public */,
+       1,    1,   29,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   30,    2, 0x08 /* Private */,
-       4,    2,   31,    2, 0x08 /* Private */,
+       3,    0,   32,    2, 0x08 /* Private */,
+       4,    2,   33,    2, 0x08 /* Private */,
 
  // signals: parameters
-    QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
     QMetaType::Void,
@@ -84,7 +84,7 @@ void MUseless::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
         auto *_t = static_cast<MUseless *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
-        case 0: _t->uselessed(); break;
+        case 0: _t->uselessed((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->pu_useless(); break;
         case 2: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         default: ;
@@ -103,7 +103,7 @@ void MUseless::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, vo
     } else if (_c == QMetaObject::IndexOfMethod) {
         int *result = reinterpret_cast<int *>(_a[0]);
         {
-            using _t = void (MUseless::*)();
+            using _t = void (MUseless::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&MUseless::uselessed)) {
                 *result = 0;
                 return;
@@ -153,9 +153,10 @@ int MUseless::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void MUseless::uselessed()
+void MUseless::uselessed(QString _t1)
 {
-    QMetaObject::activate(this, &staticMetaObject, 0, nullptr);
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 0, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

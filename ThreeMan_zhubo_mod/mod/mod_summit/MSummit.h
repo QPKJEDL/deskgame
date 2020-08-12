@@ -9,6 +9,9 @@ typedef struct{
     QPushButton *button;
     QLabel *boot;
     QLabel *pave;
+    QLabel *locate;
+    QLabel *opration_show;
+    QLabel *result;
 
     MNetManager *manager;
     QString inter;
@@ -36,19 +39,21 @@ private:
     QMap<int,exe_summit> _map;
     QWidget *parent;
 
+    QString result;
+
 private:
     void request_summit();
     void responsed_summit(QNetworkReply *reply);
 
 signals:
-    void summited();
+    void summited(QString);
 
 private slots:
     void on_responsed(QNetworkReply*,int);
     void pu_summit();
 
 public slots:
-    void cardFinished();
+    void cardFinished(QString re);
 
 };
 

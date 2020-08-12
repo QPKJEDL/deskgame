@@ -36,4 +36,9 @@
         <file>images/ask_way/redLine.png</file>
         <file>images/ask_way/redPoint.png</file>
     </qresource>
+    <qresource prefix="/">
+        <file>qml/MChat.qml</file>
+        <file>qml/MDataBank.qml</file>
+        <file>qml/MText.qml</file>
+    </qresource>
 </RCC>

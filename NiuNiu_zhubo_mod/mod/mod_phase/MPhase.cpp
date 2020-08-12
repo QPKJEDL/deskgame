@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <mod/mod_dialog/MDialog.h>
 
 MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     : QWidget(parent),
@@ -15,8 +16,10 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->init = arg->init;
     this->arg->leave = arg->leave;
     this->arg->start = arg->start;
+    this->arg->stop = arg->stop;
     this->arg->useless = arg->useless;
-    this->arg->changeBoot = arg->changeBoot;
+
+    this->arg->changeboot = arg->changeboot;
 
     this->arg->locate = arg->locate;
     this->arg->location = arg->location;
@@ -26,15 +29,22 @@ MPhase::MPhase(MPhaseArg *arg, QWidget *parent)
     this->arg->manager = arg->manager;
     this->arg->interface_locate = arg->interface_locate;
 
-    this->move(800,400);
+    this->arg->opration_show = arg->opration_show;
+
+    this->move(100,200);
+
+    this->arg->status_stop = arg->status_stop;
+    this->arg->interface_stop = arg->interface_stop;
 
     this->timer = new QTimer(this);
     connect(timer,SIGNAL(timeout()),this,SLOT(on_timeout()));
 
     _map.insert(arg->status_locate,&MPhase::responsed_locate);
+    _map.insert(arg->status_stop,&MPhase::responsed_stop);
     connect(arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
     connect(arg->input,SIGNAL(returnPressed()),this,SLOT(while_line_finish()));
     connect(arg->locate,SIGNAL(clicked()),this,SLOT(pu_locate()));
+    connect(arg->stop,SIGNAL(clicked()),this,SLOT(pu_stop()));
 }
 
 void disabled(std::initializer_list<QPushButton*> list){
@@ -51,12 +61,24 @@ void enabled(std::initializer_list<QPushButton*> list){
 
 void MPhase::on_timeout()
 {
-    ui->label->setText(QString::number(times));
-    if(--times < 0){
+
+    if(times == 0){
+        if(first){
+            first = false;
+            times = WaitDown;
+            arg->stop->setEnabled(false);
+            arg->opration_show->setText("准备开牌");
+            return;
+        }
         timer->stop();
         this->hide();
         emit timeout();
         enabled({arg->leave,arg->useless,arg->locate});
+        arg->opration_show->setText("发牌中");
+    }
+    else{
+        ui->label->setText(QString::number(times--));
+        this->show();
     }
 }
 
@@ -79,12 +101,25 @@ void MPhase::pu_locate()
     arg->input->setFocus();
 }
 
-void MPhase::to_phase(int phase, int start, int end, int countDown)
+void MPhase::pu_stop()
+{
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否停止?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_stop();
+    }
+}
+
+void MPhase::to_phase(int phase, int start, int end, int countDown,int waitDown)
 {
     count_down = countDown;
+    this->WaitDown = waitDown;
     switch (phase) {
     case 0:{
-        enabled({arg->start,arg->changeBoot,arg->leave,arg->init});
+        enabled({arg->start,arg->leave,arg->init});
         break;
     }
     case 1:{
@@ -92,35 +127,48 @@ void MPhase::to_phase(int phase, int start, int end, int countDown)
         times = count_down - time;
         timer->start(1000);
         this->setWindowFlags(Qt::FramelessWindowHint);
-        this->show();
         break;
     }
     case 2:{
-        enabled({arg->leave,arg->locate});
+        enabled({arg->useless});
         emit phase_kaipai();
         break;
     }
     case 3:{
-        enabled({arg->start,arg->changeBoot,arg->leave,arg->init});
+        enabled({arg->start,arg->leave,arg->init});
         break;
     }
     }
 }
 
-void MPhase::on_finished()
+void MPhase::on_finished(QString str)
 {
     enabled({arg->start});
+    arg->start->setFocus();
+    disabled({arg->locate,arg->useless});
+    arg->input->setText("");
+    arg->input->setVisible(false);
+    enabled({arg->changeboot});
+
+    arg->opration_show->setText("已完结");
+    ui->label->setText(str);
+    this->show();
 }
 
 void MPhase::on_start()
 {
+    first = true;
     arg->location->setText("");
-    to_phase(1,0,0,count_down);
+    arg->stop->setEnabled(true);
+    to_phase(1,0,0,count_down,WaitDown);
+    disabled({arg->changeboot});
+
+    arg->opration_show->setText("倒计时中");
 }
 
 void MPhase::on_located()
 {
-    enabled({arg->locate});
+    enabled({arg->locate,arg->useless});
 }
 
 void MPhase::while_line_finish()
@@ -135,8 +183,15 @@ void MPhase::while_line_finish()
         box.exec();
         return;
     }
-
-    request_locate(location);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否定位到\n" + arg->input->text() + "?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        arg->input->setText("");
+        request_locate(location);
+    }
 }
 
 void MPhase::request_locate(int location)
@@ -162,9 +217,31 @@ void MPhase::responsed_locate(QNetworkReply *reply)
         emit located(location);
     }
     else{
-        arg->locate->setEnabled(true);
+        //arg->locate->setEnabled(true);
         QMessageBox box;
         box.setText("牛牛定位请求失败");
+        box.exec();
+    }
+}
+
+void MPhase::request_stop()
+{
+    arg->manager->setStatus(arg->status_stop);
+    arg->manager->setInterface(arg->interface_stop);
+    arg->manager->postData(QByteArray());
+}
+
+void MPhase::responsed_stop(QNetworkReply *reply)
+{
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        times = 0;
+    }
+    else{
+        QMessageBox box;
+        box.setText("停止失败");
         box.exec();
     }
 }

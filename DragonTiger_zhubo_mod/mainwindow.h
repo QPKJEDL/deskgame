@@ -22,6 +22,7 @@
 #include "mod/mod_init/MInit.h"
 #include "mod/mod_topFive/MTopFive.h"
 #include "mod/mod_chat/MChat.h"
+#include "mod/mod_reward/MReword.h"
 
 class MMoney;
 class MLogin;
@@ -37,6 +38,7 @@ class MChangeBoot;
 class MInit;
 class MTopFive;
 class MChat;
+class MReword;
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -72,5 +74,6 @@ private:
     MInit *module_init;
     MTopFive *module_topFive;
     MChat *module_chat;
+    MReword *module_reword;
 };
 #endif // MAINWINDOW_H

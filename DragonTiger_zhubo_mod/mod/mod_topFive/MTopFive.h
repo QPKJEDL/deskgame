@@ -10,7 +10,7 @@ class MTopFive;
 }
 
 typedef struct{
-    QString interface;
+    QString inter;
     int status;
     MNetManager *manager;
 

@@ -19,7 +19,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString interface;
+    QString inter;
 }MRecordArg;
 
 class MRecord;

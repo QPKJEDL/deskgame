@@ -71,7 +71,10 @@ QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);
 }</string>
           </property>
           <property name="text">
-           <string>终止</string>
+           <string>终止(/)</string>
+          </property>
+          <property name="shortcut">
+           <string>/</string>
           </property>
          </widget>
         </item>

@@ -5,9 +5,9 @@
 #include <QJsonDocument>
 #include "ui_login.h"
 
-//static QString URL = "101.32.22.231:8210";
+static QString URL = "101.32.22.231:8210";
 
-static QString URL = "129.211.114.135:8210";
+//static QString URL = "129.211.114.135:8210";
 
 Login::Login(QWidget *parent) : QWidget(parent) ,ui(new Ui::Login)
 {
@@ -29,7 +29,7 @@ Login::Login(QWidget *parent) : QWidget(parent) ,ui(new Ui::Login)
 void Login::on_login()
 {
     QByteArray postData;
-    QString str = "desk=SVIP8&password=123456";
+    QString str = "desk=SVIP8&password=7f2d0517446b496e";
     postData.append(str);
     m_accessManager->post(*m_request, postData);
 }
@@ -57,17 +57,17 @@ void Login::finishedSlot(QNetworkReply* reply)
             m_request->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
             m_request->setRawHeader("desk_token",desk_token.toUtf8());
             qDebug() << "desk_id : " << QString::number(desk_id).toUtf8() << "--" << "desk_token" << desk_token;
-            // 刷新限红
-            unsigned int maxLimit = json_object2.value("maxLimit").toInt();
-            unsigned int minLimit = json_object2.value("minLimit").toInt();
-            unsigned int tieMaxLimit = json_object2.value("tieMaxLimit").toInt();
-            unsigned int tieMinLimit = json_object2.value("tieMinLimit").toInt();
-            QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
-            QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
+//            // 刷新限红
+//            unsigned int maxLimit = json_object2.value("maxLimit").toInt();
+//            unsigned int minLimit = json_object2.value("minLimit").toInt();
+//            unsigned int tieMaxLimit = json_object2.value("tieMaxLimit").toInt();
+//            unsigned int tieMinLimit = json_object2.value("tieMinLimit").toInt();
+//            QString limit = QString::number(minLimit) + "-" + QString::number(maxLimit);
+//            QString tieLimit = QString::number(tieMinLimit) + "-" + QString::number(tieMaxLimit);
 
 
-            window = new MainWindow(desk_id,desk_token,limit,tieLimit);
-            window->show();
+            window = new MainWindow(desk_id,desk_token);
+            window->showFullScreen();
             this->close();
         }
         else{

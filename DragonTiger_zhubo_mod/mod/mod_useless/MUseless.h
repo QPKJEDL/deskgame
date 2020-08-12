@@ -13,7 +13,7 @@ typedef struct{
 
     MNetManager *manager;
     int status;
-    QString interface;
+    QString inter;
 }MUselessArg;
 
 class MUseless;

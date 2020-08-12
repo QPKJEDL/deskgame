@@ -25,16 +25,14 @@ public:
     QVBoxLayout *verticalLayout;
     QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout;
-    QSpacerItem *horizontalSpacer;
     QLabel *label;
-    QSpacerItem *horizontalSpacer_2;
     QSpacerItem *verticalSpacer_2;
 
     void setupUi(QWidget *MPhase)
     {
         if (MPhase->objectName().isEmpty())
             MPhase->setObjectName(QString::fromUtf8("MPhase"));
-        MPhase->resize(414, 313);
+        MPhase->resize(939, 313);
         MPhase->setStyleSheet(QString::fromUtf8("background-color: transparent;"));
         verticalLayout = new QVBoxLayout(MPhase);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -44,24 +42,16 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer);
-
         label = new QLabel(MPhase);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMinimumSize(QSize(200, 200));
         QFont font;
         font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font.setPointSize(200);
+        font.setPointSize(150);
         label->setFont(font);
         label->setAlignment(Qt::AlignCenter);
 
         horizontalLayout->addWidget(label);
-
-        horizontalSpacer_2 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_2);
 
 
         verticalLayout->addLayout(horizontalLayout);

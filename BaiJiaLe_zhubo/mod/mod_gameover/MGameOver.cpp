@@ -25,7 +25,7 @@ MGameOver::MGameOver(MGameOverArg *arg, QWidget *parent)
     this->arg->status = arg->status;
     this->arg->desk_id = arg->desk_id;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->bankerPair = arg->bankerPair;
     this->arg->playerPair = arg->playerPair;
 
@@ -57,9 +57,13 @@ void enable(std::initializer_list<QPushButton*> list){
 
 void MGameOver::pu_banker()
 {
+    arg->banker->setEnabled(false);
+    arg->player->setEnabled(false);
+    arg->tie->setEnabled(false);
+    //disable({arg->banker,arg->player,arg->tie});
     score_game = 7;
     arg->result->setText(arg->result->text().append("庄赢"));
-    disable({arg->banker,arg->player,arg->tie});
+
     enable({arg->enter,arg->cancel});
 }
 
@@ -72,9 +76,13 @@ void MGameOver::pu_bankerPair()
 
 void MGameOver::pu_player()
 {
+    arg->banker->setEnabled(false);
+    arg->player->setEnabled(false);
+    arg->tie->setEnabled(false);
+    //disable({arg->banker,arg->player,arg->tie});
     score_game = 4;
     arg->result->setText(arg->result->text().append("闲赢"));
-    disable({arg->banker,arg->player,arg->tie});
+
     enable({arg->enter,arg->cancel});
 }
 
@@ -86,9 +94,13 @@ void MGameOver::pu_playerPair()
 }
 
 void MGameOver::pu_tie(){
+    arg->banker->setEnabled(false);
+    arg->player->setEnabled(false);
+    arg->tie->setEnabled(false);
+    //disable({arg->banker,arg->player,arg->tie});
     score_game = 1;
     arg->result->setText(arg->result->text().append("和"));
-    disable({arg->banker,arg->player,arg->tie});
+
     enable({arg->enter,arg->cancel});
 }
 
@@ -126,6 +138,7 @@ void MGameOver::on_responsed(QNetworkReply *reply, int status)
 
 void MGameOver::pu_yes()
 {
+    this->hide();
     request_gameover();
 }
 
@@ -144,7 +157,7 @@ void MGameOver::request_gameover()
     }
     else{
         arg->manager->setStatus(arg->status);
-        arg->manager->setInterface(arg->interface);
+        arg->manager->setInterface(arg->inter);
         QByteArray postData;
         postData.append("boot_num=" + arg->boot->text());
         postData.append("&pave_num=" + arg->pave->text());

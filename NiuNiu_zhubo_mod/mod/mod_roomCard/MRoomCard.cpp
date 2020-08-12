@@ -143,15 +143,19 @@ void MRoomCard::append(string c)
         switch (link->num) {
         case(0):
             ui->xian1_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            one_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(1):
             ui->xian2_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            two_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(2):
             ui->xian3_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            three_paixing = fun_paiXing(link->data).paiXing;
             break;
         case(3):
             ui->zhuang_result->setText(QString::fromStdString(paixingToStr(fun_paiXing(link->data).paiXing)));
+            zhuang_paixing = fun_paiXing(link->data).paiXing;
             break;
         }
     }
@@ -160,7 +164,7 @@ void MRoomCard::append(string c)
     NUM.increase();
 
     if(NUM.num == 5){
-        emit finished();//-> 提交
+        emit finished(BiJiaoPaiXing());//-> 提交
 
         timer_focus->stop();
         graphiceffect->setOpacity(1);
@@ -176,6 +180,26 @@ void MRoomCard::append(string c)
     arg->lineEdit->setText(QString(""));
 }
 
+QString MRoomCard::BiJiaoPaiXing()
+{
+    QString r = "";
+    if(zhuang_paixing < one_paixing){
+        r.append("闲1");
+    }
+    if(zhuang_paixing < two_paixing){
+        r.append("闲2");
+    }
+    if(zhuang_paixing < three_paixing){
+        r.append("闲3");
+    }
+    if(r == ""){
+        return "庄赢";
+    }
+    else{
+        return r;
+    }
+}
+
 void MRoomCard::focus_lineedit()
 {
     timer_focus->start(200);
@@ -184,7 +208,7 @@ void MRoomCard::focus_lineedit()
 void MRoomCard::while_timeout()
 {
     qreal opacity = graphiceffect->opacity();
-    qreal opacity_name = graphiceffect_name->opacity();
+    //qreal opacity_name = graphiceffect->opacity();
     if(NUM.num == 5){
         graphiceffect->setOpacity(1);
         link->data[4].label->setGraphicsEffect(graphiceffect);

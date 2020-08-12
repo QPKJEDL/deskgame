@@ -1,4 +1,4 @@
-QT       += core gui network
+QT       += core gui network quickwidgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -30,6 +30,7 @@ SOURCES += \
     mod/mod_login/MLogin.cpp \
     mod/mod_money/MMoney.cpp \
     mod/mod_phase/MPhase.cpp \
+    mod/mod_reward/MReword.cpp \
     mod/mod_roomCard/MRoomCard.cpp \
     mod/mod_roominfo/MRoomInfo.cpp \
     mod/mod_start/MStart.cpp \
@@ -50,6 +51,7 @@ HEADERS += \
     mod/mod_login/MLogin.h \
     mod/mod_money/MMoney.h \
     mod/mod_phase/MPhase.h \
+    mod/mod_reward/MReword.h \
     mod/mod_roomCard/MRoomCard.h \
     mod/mod_roominfo/MRoomInfo.h \
     mod/mod_start/MStart.h \
@@ -65,6 +67,7 @@ FORMS += \
     mod/mod_login/MLogin.ui \
     mod/mod_money/MMoney.ui \
     mod/mod_phase/MPhase.ui \
+    mod/mod_reward/MReword.ui \
     mod/mod_roomCard/MRoomCard.ui \
     mod/mod_summit/MSummit.ui \
     mod/mod_topThree/MTopThree.ui \
@@ -77,6 +80,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     image.qrc
+
+DISTFILES +=
 
 
 

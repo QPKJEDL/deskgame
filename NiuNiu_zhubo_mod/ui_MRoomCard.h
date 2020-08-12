@@ -26,7 +26,6 @@ public:
     QHBoxLayout *horizontalLayout_22;
     QSpacerItem *horizontalSpacer_13;
     QVBoxLayout *verticalLayout_5;
-    QSpacerItem *verticalSpacer;
     QHBoxLayout *horizontalLayout_3;
     QSpacerItem *horizontalSpacer_3;
     QLabel *xian3_result;
@@ -43,7 +42,6 @@ public:
     QLabel *label_xian3;
     QSpacerItem *horizontalSpacer_14;
     QVBoxLayout *verticalLayout_6;
-    QSpacerItem *verticalSpacer_2;
     QHBoxLayout *horizontalLayout_4;
     QSpacerItem *horizontalSpacer_5;
     QLabel *xian2_result;
@@ -60,7 +58,6 @@ public:
     QLabel *label_xian2;
     QSpacerItem *horizontalSpacer_15;
     QVBoxLayout *verticalLayout_7;
-    QSpacerItem *verticalSpacer_3;
     QHBoxLayout *horizontalLayout_18;
     QSpacerItem *horizontalSpacer_9;
     QLabel *xian1_result;
@@ -91,7 +88,7 @@ public:
     {
         if (MRoomCard->objectName().isEmpty())
             MRoomCard->setObjectName(QString::fromUtf8("MRoomCard"));
-        MRoomCard->resize(1113, 551);
+        MRoomCard->resize(1113, 371);
         MRoomCard->setStyleSheet(QString::fromUtf8("background-color: rgb(0, 48, 90);"));
         verticalLayout = new QVBoxLayout(MRoomCard);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
@@ -103,10 +100,6 @@ public:
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        verticalSpacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_5->addItem(verticalSpacer);
-
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalSpacer_3 = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -205,10 +198,9 @@ public:
         verticalLayout_5->addWidget(label_xian3);
 
         verticalLayout_5->setStretch(0, 1);
-        verticalLayout_5->setStretch(1, 1);
-        verticalLayout_5->setStretch(2, 2);
-        verticalLayout_5->setStretch(3, 2);
-        verticalLayout_5->setStretch(4, 2);
+        verticalLayout_5->setStretch(1, 3);
+        verticalLayout_5->setStretch(2, 3);
+        verticalLayout_5->setStretch(3, 1);
 
         horizontalLayout_22->addLayout(verticalLayout_5);
 
@@ -218,10 +210,6 @@ public:
 
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        verticalSpacer_2 = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_6->addItem(verticalSpacer_2);
-
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalSpacer_5 = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -313,10 +301,9 @@ public:
         verticalLayout_6->addWidget(label_xian2);
 
         verticalLayout_6->setStretch(0, 1);
-        verticalLayout_6->setStretch(1, 1);
-        verticalLayout_6->setStretch(2, 2);
-        verticalLayout_6->setStretch(3, 2);
-        verticalLayout_6->setStretch(4, 2);
+        verticalLayout_6->setStretch(1, 3);
+        verticalLayout_6->setStretch(2, 3);
+        verticalLayout_6->setStretch(3, 1);
 
         horizontalLayout_22->addLayout(verticalLayout_6);
 
@@ -326,10 +313,6 @@ public:
 
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalSpacer_3 = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        verticalLayout_7->addItem(verticalSpacer_3);
-
         horizontalLayout_18 = new QHBoxLayout();
         horizontalLayout_18->setObjectName(QString::fromUtf8("horizontalLayout_18"));
         horizontalSpacer_9 = new QSpacerItem(0, 0, QSizePolicy::Expanding, QSizePolicy::Minimum);
@@ -421,10 +404,9 @@ public:
         verticalLayout_7->addWidget(label_xian1);
 
         verticalLayout_7->setStretch(0, 1);
-        verticalLayout_7->setStretch(1, 1);
-        verticalLayout_7->setStretch(2, 2);
-        verticalLayout_7->setStretch(3, 2);
-        verticalLayout_7->setStretch(4, 2);
+        verticalLayout_7->setStretch(1, 3);
+        verticalLayout_7->setStretch(2, 3);
+        verticalLayout_7->setStretch(3, 1);
 
         horizontalLayout_22->addLayout(verticalLayout_7);
 
@@ -515,6 +497,7 @@ public:
 
         verticalLayout->addLayout(horizontalLayout_23);
 
+        verticalLayout->setStretch(0, 2);
         verticalLayout->setStretch(1, 1);
 
         retranslateUi(MRoomCard);

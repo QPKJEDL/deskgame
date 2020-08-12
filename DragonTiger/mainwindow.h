@@ -47,8 +47,8 @@ typedef struct node_num{
     struct node_num down(){
         struct node_num node_num;
         if(m_now_line == 5){
-            if(m_now_row == 44){
-                node_num.m_now_row = 44;
+            if(m_now_row == 45){
+                node_num.m_now_row = 45;
                 node_num.m_now_line = 5;
                 return node_num;
             }
@@ -78,7 +78,7 @@ typedef struct{
 }LABEL;
 
 typedef struct{
-    LABEL  labels[45][6];
+    LABEL  labels[46][6];
     NUMBER now; // 指向哪个 label 了；
     NUMBER front; // 前一个赢得 label 是哪个
     NUMBER dragon; // 成龙之后的第一个 label 的位置
@@ -86,7 +86,7 @@ typedef struct{
     NUMBER equa; // 和的位置
     int times = 0; // 连赢的次数
     void init(){
-        for(int row = 0;row < 45;row++){
+        for(int row = 0;row < 46;row++){
             for(int line = 0;line < 6;line++){
                 labels[row][line].label->setText("");
                 labels[row][line].label->setStyleSheet("background-color: rgb(255, 255, 255);");
@@ -129,6 +129,8 @@ private:
     QTimer *m_timer_count_down;
     int times;
     int count_down_num;
+    bool first;
+    int WaitDown;
 
     // 结果
     int m_result;
@@ -151,6 +153,13 @@ private:
     WAY* way_little;
     // 凹凸路
     WAY* way_aotu;
+    // 小小路
+    QList<QList<QLabel*>> little_little_way;
+    int index_x = -1;
+    int index_y = -1;
+    int tie_num = 0;
+    void little_little_append(int m_game);
+
     // 判断是否齐整的函数
     bool if_order(NUMBER now, int first, int offset);
     int how_many(int row);
@@ -160,6 +169,7 @@ private:
     void update_ask_way();
     // 下一个问路 label
     void next_ask_way(WAY *way, int game, QString style);
+
 
 
 
@@ -187,7 +197,9 @@ private:
     void request_change_boot();
     void request_useless();
     void request_summit();
+    void request_stop();
 
+    void responsed_stop(QNetworkReply *reply);
     void responsed_init(QNetworkReply *reply);
     void responsed_login(QNetworkReply *reply);
     void responsed_roominfo(QNetworkReply *reply);

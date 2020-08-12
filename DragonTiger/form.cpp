@@ -9,8 +9,8 @@ void Form::init(QString desk_id,QString boot,QString pave,QString result)
     ui->label_result->setText(result);
 }
 
-Form::Form(QWidget *parent) :
-    QWidget(parent),
+Form::Form(QDialog *parent) :
+    QDialog(parent),
     ui(new Ui::Form)
 {
     ui->setupUi(this);

@@ -10,7 +10,7 @@ class MTopThree;
 }
 
 typedef struct{
-    QString interface;
+    QString inter;
     int status;
     MNetManager *manager;
 
@@ -39,11 +39,15 @@ private slots:
 
 public slots:
     void request_top_three();
+    void update_panel(QJsonObject data);
     void clear();
 
 private:
     void responsed_top_three(QNetworkReply *reply);
-    void update_panel(QJsonObject data);
+
+signals:
+    void finished();
+
 };
 
 #endif // MTOPTHREE_H

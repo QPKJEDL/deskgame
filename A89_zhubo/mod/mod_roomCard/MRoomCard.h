@@ -50,14 +50,13 @@ private:
     QGraphicsOpacityEffect *graphiceffect_name;
     bool light = false;
 
-
     MRoomCardArg *arg;
     QMap<int,exe_roomCard> _map;
 
     FOURMAN *link;
 signals:
     int get_location(int);
-    int finished();
+    int finished(QString);
     int locate_zero();
 
 private:
@@ -68,6 +67,12 @@ private:
     void responsed_fapai(QNetworkReply *reply);
     void focus_lineedit();
     void append(string card, QString paixing);
+    QString BiJiaoPaiXing();
+
+    int zhuang_paixing;
+    int one_paixing;
+    int two_paixing;
+    int three_paixing;
 
 public slots:
     void request_roomCard();

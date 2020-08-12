@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MLogin_t {
-    QByteArrayData data[11];
-    char stringdata0[106];
+    QByteArrayData data[14];
+    char stringdata0[145];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -42,12 +42,16 @@ QT_MOC_LITERAL(6, 50, 14), // "QNetworkReply*"
 QT_MOC_LITERAL(7, 65, 5), // "reply"
 QT_MOC_LITERAL(8, 71, 6), // "status"
 QT_MOC_LITERAL(9, 78, 15), // "connectedServer"
-QT_MOC_LITERAL(10, 94, 11) // "readMessage"
+QT_MOC_LITERAL(10, 94, 11), // "readMessage"
+QT_MOC_LITERAL(11, 106, 16), // "disconnectServer"
+QT_MOC_LITERAL(12, 123, 11), // "sendPingMsg"
+QT_MOC_LITERAL(13, 135, 9) // "reconnect"
 
     },
     "MLogin\0successed\0\0pu_login\0pu_cancel\0"
     "on_responsed\0QNetworkReply*\0reply\0"
-    "status\0connectedServer\0readMessage"
+    "status\0connectedServer\0readMessage\0"
+    "disconnectServer\0sendPingMsg\0reconnect"
 };
 #undef QT_MOC_LITERAL
 
@@ -57,7 +61,7 @@ static const uint qt_meta_data_MLogin[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       6,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -65,14 +69,17 @@ static const uint qt_meta_data_MLogin[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    0,   44,    2, 0x06 /* Public */,
+       1,    0,   59,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    0,   45,    2, 0x08 /* Private */,
-       4,    0,   46,    2, 0x08 /* Private */,
-       5,    2,   47,    2, 0x08 /* Private */,
-       9,    0,   52,    2, 0x08 /* Private */,
-      10,    0,   53,    2, 0x08 /* Private */,
+       3,    0,   60,    2, 0x08 /* Private */,
+       4,    0,   61,    2, 0x08 /* Private */,
+       5,    2,   62,    2, 0x08 /* Private */,
+       9,    0,   67,    2, 0x08 /* Private */,
+      10,    0,   68,    2, 0x08 /* Private */,
+      11,    0,   69,    2, 0x08 /* Private */,
+      12,    0,   70,    2, 0x08 /* Private */,
+      13,    0,   71,    2, 0x08 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -81,6 +88,9 @@ static const uint qt_meta_data_MLogin[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void, 0x80000000 | 6, QMetaType::Int,    7,    8,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -99,6 +109,9 @@ void MLogin::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 3: _t->on_responsed((*reinterpret_cast< QNetworkReply*(*)>(_a[1])),(*reinterpret_cast< int(*)>(_a[2]))); break;
         case 4: _t->connectedServer(); break;
         case 5: _t->readMessage(); break;
+        case 6: _t->disconnectServer(); break;
+        case 7: _t->sendPingMsg(); break;
+        case 8: _t->reconnect(); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -153,13 +166,13 @@ int MLogin::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 9;
     }
     return _id;
 }

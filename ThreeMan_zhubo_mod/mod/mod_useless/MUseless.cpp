@@ -30,11 +30,11 @@ MUseless::~MUseless()
 
 void MUseless::pu_useless()
 {
-    MDialog dlg(m_widget);
-    dlg.setWindowFlag(Qt::FramelessWindowHint);
-    dlg.set_message("是否作废?");
-    dlg.setAttribute(Qt::WA_DeleteOnClose);
-    int ret = dlg.exec();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("是否作废?");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
     if(ret == QDialog::Accepted){
         request_useless();
     }

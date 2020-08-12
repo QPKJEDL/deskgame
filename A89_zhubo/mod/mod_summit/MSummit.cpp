@@ -15,10 +15,13 @@ MSummit::MSummit(MSummitArg *arg, QWidget *parent) :
     this->arg = new MSummitArg;
     this->arg->button = arg->button;
     this->arg->manager = arg->manager;
-    this->arg->interface = arg->interface;
+    this->arg->inter = arg->inter;
     this->arg->status = arg->status;
     this->arg->boot = arg->boot;
     this->arg->pave = arg->pave;
+    this->arg->locate = arg->locate;
+    this->arg->opration_show = arg->opration_show;
+    this->arg->result = arg->result;
 
     connect(arg->button,SIGNAL(clicked()),this,SLOT(pu_summit()));
     _map.insert(arg->status,&MSummit::responsed_summit);
@@ -33,7 +36,7 @@ MSummit::~MSummit()
 void MSummit::request_summit()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->interface);
+    arg->manager->setInterface(arg->inter);
     QByteArray postData;
     postData.append("boot_num=");postData.append(arg->boot->text());
     postData.append("&pave_num=");postData.append(arg->pave->text());
@@ -47,7 +50,10 @@ void MSummit::responsed_summit(QNetworkReply *reply)
 
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        emit summited();
+        arg->button->setEnabled(false);
+        emit summited(result);
+        arg->locate->setText("");
+        this->arg->result->setText(result);
     }
     else{
         arg->button->setEnabled(true);
@@ -79,8 +85,10 @@ void MSummit::pu_summit()
     }
 }
 
-void MSummit::cardFinished()
+void MSummit::cardFinished(QString re)
 {
+    this->result = re;
+    arg->opration_show->setText("准备提交");
     arg->button->setEnabled(true);
 }
 

@@ -52,10 +52,12 @@ public:
         pu_enter = new QPushButton(Form);
         pu_enter->setObjectName(QString::fromUtf8("pu_enter"));
         pu_enter->setGeometry(QRect(90, 240, 75, 31));
+        pu_enter->setFocusPolicy(Qt::NoFocus);
         pu_enter->setStyleSheet(QString::fromUtf8("background-color: rgb(40, 197, 132);"));
         pu_cancel = new QPushButton(Form);
         pu_cancel->setObjectName(QString::fromUtf8("pu_cancel"));
         pu_cancel->setGeometry(QRect(300, 240, 75, 31));
+        pu_cancel->setFocusPolicy(Qt::NoFocus);
         pu_cancel->setStyleSheet(QString::fromUtf8("background-color: rgb(40, 197, 132);"));
         layoutWidget = new QWidget(Form);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
@@ -118,9 +120,12 @@ public:
     void retranslateUi(QWidget *Form)
     {
         Form->setWindowTitle(QCoreApplication::translate("Form", "Form", nullptr));
-        label_result->setText(QCoreApplication::translate("Form", "\345\272\204\350\265\242", nullptr));
+        label_result->setText(QString());
         pu_enter->setText(QCoreApplication::translate("Form", "\347\241\256\345\256\232", nullptr));
         pu_cancel->setText(QCoreApplication::translate("Form", "\345\217\226\346\266\210", nullptr));
+#if QT_CONFIG(shortcut)
+        pu_cancel->setShortcut(QCoreApplication::translate("Form", "Esc", nullptr));
+#endif // QT_CONFIG(shortcut)
         label_2->setText(QCoreApplication::translate("Form", "\345\217\260\346\241\214\345\217\267", nullptr));
         label_desk_id->setText(QString());
         label_3->setText(QCoreApplication::translate("Form", "\351\235\264\346\254\241", nullptr));

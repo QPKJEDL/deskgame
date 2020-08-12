@@ -4,12 +4,13 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include "mod/mod_dialog/MDialog.h"
 
-QString URL = "101.32.22.231:8210";
+//QString URL = "101.32.22.231:8210";//129.211.114.135:8210 192.168.0.102:8210
 
 // lh a1 // bjl a5 // nn a2
 
-enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT};
+enum {LOGIN,START,CHANGEBOOT,ROOMINFO,RECORD,SUMMIT,USELESS,INIT,STOP};
 
 MainWindow::MainWindow(QMainWindow *parent)
     : QMainWindow(parent)
@@ -25,7 +26,7 @@ MainWindow::MainWindow(QMainWindow *parent)
 
     login_window = new Login();
     manager = new MNetManager;
-    manager->setIp("129.211.114.135:8210");
+    manager->setIp("101.32.22.231:8210");
     manager->setHeader("application/x-www-form-urlencoded");
 
     // 倒计时初始化
@@ -59,7 +60,7 @@ MainWindow::MainWindow(QMainWindow *parent)
     // 先动态生成 超级无敌牛逼至尊双龙 所用二维数组之 270天星下凡 QLabel
     way_big = new WAY;
     way_big->dragon.m_now_row = -1;
-    for (int i = 0;i < 45;i++) {
+    for (int i = 0;i < 46;i++) {
         for(int j = 0;j < 6;j++){
             QLabel* label = new QLabel();
             label->setStyleSheet("background-color: rgb(255, 255, 255);");
@@ -75,50 +76,170 @@ MainWindow::MainWindow(QMainWindow *parent)
     // 生成大眼仔拥有的 label
     way_big_eye = new WAY;
     way_big_eye->dragon.m_now_row = -1;
-    for(int row = 0;row < 45;row++){
-        for(int line = 0;line < 6;line++){
-            QLabel* label = new QLabel();
-            label->setStyleSheet("background-color: rgb(255, 255, 255);");
-            label->setFont(QFont(QString("方正粗黑宋简体"),25));
-            label->setAlignment(Qt::AlignHCenter);
-            ui->gridLayout_5->addWidget(label,line,row);
+    for(int row = 0;row < 23;row++){
+        for(int line = 0;line < 3;line++){
+            QLabel* label_one = new QLabel();
+            label_one->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_one->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_one->setAlignment(Qt::AlignHCenter);
 
-            // 270 鸡仔仔听令 ~~ 回~~~ 笼~~~
-            way_big_eye->labels[row][line].label = label;
+            QLabel* label_two = new QLabel();
+            label_two->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_two->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_two->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_three = new QLabel();
+            label_three->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_three->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_three->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_four = new QLabel();
+            label_four->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_four->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_four->setAlignment(Qt::AlignHCenter);
+
+            QGridLayout *grid = new QGridLayout();
+            grid->setSpacing(0);
+            grid->addWidget(label_one,0,0);
+            grid->addWidget(label_two,0,1);
+            grid->addWidget(label_three,1,0);
+            grid->addWidget(label_four,1,1);
+
+
+
+            ui->gridLayout_3->addLayout(grid,line,row);
+
+            way_big_eye->labels[row * 2][line * 2].label = label_one;
+            way_big_eye->labels[row * 2 + 1][line * 2].label = label_two;
+            way_big_eye->labels[row * 2][line * 2 + 1].label = label_three;
+            way_big_eye->labels[row * 2 + 1][line * 2 + 1].label = label_four;
         }
     }
 
     // 小路扑通扑通的跳
     way_little = new WAY;
     way_little->dragon.m_now_row = -1;
-    for(int row = 0;row < 45;row++){
-        for(int line = 6;line < 12;line++){
-            QLabel* label = new QLabel();
-            label->setStyleSheet("background-color: rgb(255, 255, 255);");
-            label->setFont(QFont(QString("方正粗黑宋简体"),25));
-            label->setAlignment(Qt::AlignHCenter);
-            ui->gridLayout_5->addWidget(label,line,row);
+    for(int row = 0;row < 23;row++){
+        for(int line = 0;line < 3;line++){
+            QLabel* label_one = new QLabel();
+            label_one->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_one->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_one->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_two = new QLabel();
+            label_two->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_two->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_two->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_three = new QLabel();
+            label_three->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_three->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_three->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_four = new QLabel();
+            label_four->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_four->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_four->setAlignment(Qt::AlignHCenter);
+
+            QGridLayout *grid = new QGridLayout();
+            grid->setSpacing(0);
+            grid->addWidget(label_one,0,0);
+            grid->addWidget(label_two,0,1);
+            grid->addWidget(label_three,1,0);
+            grid->addWidget(label_four,1,1);
+
+            ui->gridLayout_6->addLayout(grid,line,row);
 
             // 270小路回家
-            way_little->labels[row][line - 6].label = label;
+            way_little->labels[row * 2][line * 2].label = label_one;
+            way_little->labels[row * 2 + 1][line * 2].label = label_two;
+            way_little->labels[row * 2][line * 2 + 1].label = label_three;
+            way_little->labels[row * 2 + 1][line * 2 + 1].label = label_four;
         }
     }
 
     // 凹凸路有多凹凸呢？
     way_aotu = new WAY;
     way_aotu->dragon.m_now_row = -1;
-    for(int row = 45;row < 90;row++){
-        for(int line = 0;line < 6;line++){
-            QLabel* label = new QLabel();
-            label->setStyleSheet("background-color: rgb(255, 255, 255);");
-            label->setFont(QFont(QString("方正粗黑宋简体"),25));
-            label->setAlignment(Qt::AlignHCenter);
-            ui->gridLayout_5->addWidget(label,line,row);
+    for(int row = 0;row < 23;row++){
+        for(int line = 0;line < 3;line++){
+            QLabel* label_one = new QLabel();
+            label_one->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_one->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_one->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_two = new QLabel();
+            label_two->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_two->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_two->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_three = new QLabel();
+            label_three->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_three->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_three->setAlignment(Qt::AlignHCenter);
+
+            QLabel* label_four = new QLabel();
+            label_four->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_four->setFont(QFont(QString("方正粗黑宋简体"),25));
+            label_four->setAlignment(Qt::AlignHCenter);
+
+            QGridLayout *grid = new QGridLayout();
+            grid->setSpacing(0);
+            grid->addWidget(label_one,0,0);
+            grid->addWidget(label_two,0,1);
+            grid->addWidget(label_three,1,0);
+            grid->addWidget(label_four,1,1);
+
+            ui->gridLayout_5->addLayout(grid,line,row);
 
             // 270 凹凸
-            way_aotu->labels[row - 45][line].label = label;
+            way_aotu->labels[row * 2][line * 2].label = label_one;
+            way_aotu->labels[row * 2 + 1][line * 2].label = label_two;
+            way_aotu->labels[row * 2][line * 2 + 1].label = label_three;
+            way_aotu->labels[row * 2 + 1][line * 2 + 1].label = label_four;
         }
     }
+
+    for(int row = 0;row < 23;row++){
+        for(int line = 0;line < 3;line++){
+            QList<QLabel*> list;
+            QLabel* label_one = new QLabel();
+            label_one->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_one->setFont(QFont(QString("方正粗黑宋简体"),13));
+            label_one->setAlignment(Qt::AlignHCenter);
+            list.append(label_one);
+
+            QLabel* label_two = new QLabel();
+            label_two->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_two->setFont(QFont(QString("方正粗黑宋简体"),13));
+            label_two->setAlignment(Qt::AlignHCenter);
+            list.append(label_two);
+
+            QLabel* label_three = new QLabel();
+            label_three->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_three->setFont(QFont(QString("方正粗黑宋简体"),13));
+            label_three->setAlignment(Qt::AlignHCenter);
+            list.append(label_three);
+
+            QLabel* label_four = new QLabel();
+            label_four->setStyleSheet("background-color: rgb(255, 255, 255);");
+            label_four->setFont(QFont(QString("方正粗黑宋简体"),13));
+            label_four->setAlignment(Qt::AlignHCenter);
+            list.append(label_four);
+
+            QGridLayout *grid = new QGridLayout();
+            grid->setSpacing(0);
+            grid->addWidget(label_one,0,0);
+            grid->addWidget(label_two,1,0);
+            grid->addWidget(label_three,0,1);
+            grid->addWidget(label_four,1,1);
+
+            ui->gridLayout_7->addLayout(grid,line,row);
+
+            little_little_way.append(list);
+        }
+    }
+
 
     _map.insert(LOGIN,&MainWindow::responsed_login);
     _map.insert(START,&MainWindow::responsed_start);
@@ -128,9 +249,9 @@ MainWindow::MainWindow(QMainWindow *parent)
     _map.insert(USELESS,&MainWindow::responsed_useless);
     _map.insert(INIT,&MainWindow::responsed_init);
     _map.insert(CHANGEBOOT,&MainWindow::responsed_change_boot);
+    _map.insert(STOP,&MainWindow::responsed_stop);
 
     // 链接槽函数
-    connect(ui->pu_init,SIGNAL(clicked()),this,SLOT(pu_init()));
     connect(ui->pu_start,SIGNAL(clicked()),this,SLOT(pu_start()));
     connect(ui->pu_changeXue,SIGNAL(clicked()),this,SLOT(pu_changeXue()));
     connect(ui->pu_stop,SIGNAL(clicked()),this,SLOT(pu_stop()));
@@ -156,11 +277,67 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::little_little_append(int m_game)
+{
+    if(m_game == 1){
+        if(index_x == -1 && index_y == -1){
+            return;
+        }
+        little_little_way.at(index_x).at(index_y)->setText(QString::number(++tie_num));
+    }
+    else{
+        tie_num = 0;
+        // 移动到下一个小小路
+        if(index_x == -1 && index_y == -1){
+            index_x = 0;
+            index_y = 0;
+        }
+        else if(index_y == 0){
+            index_y = 1;
+        }
+        else if(index_y == 1){
+            if((index_x + 1) % 3 == 0){
+                index_x -= 2;
+                index_y = 2;
+            }
+            else{
+                index_x++;
+                index_y = 0;
+            }
+        }
+        else if(index_y == 2){
+            index_y = 3;
+        }
+        else if(index_y == 3){
+            if((index_x + 1) % 3 == 0){
+                index_x++;
+                index_y = 0;
+            }
+            else{
+                index_x++;
+                index_y = 2;
+            }
+        }
+        // 更新问路
+        if(m_game == 7){
+            QLabel *label = little_little_way.at(index_x).at(index_y);
+            label->setStyleSheet(label->styleSheet() + "border-image: url(:/result/red.png);");
+        }
+        else if(m_game == 4){
+            QLabel *label = little_little_way.at(index_x).at(index_y);
+            label->setStyleSheet(label->styleSheet() + "border-image: url(:/result/blue.png);");
+        }
+    }
+}
+
 void MainWindow::pu_init(){
     // 禁用初始化按钮
-    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
-        ui->pu_init->setEnabled(false);
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("确认初始化？");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
 
         // 发送初始化请求
         request_init();
@@ -340,25 +517,33 @@ void MainWindow::next_ask_way(WAY* way,int game,QString style)
 
     // 如果和 now 的 who_win 相等,说明连赢
     if(game == now){
+
         // 还没有成龙
         if(way->dragon.m_now_row == -1){
             // 如果到底了，或者，下行同列有值，则成龙，移动到下列同行
             if(way->now.m_now_line == 5 || way->labels[way->now.m_now_row][way->now.m_now_line + 1].who_win != 0){
                 // 如果已经是最后一列了
-                if(way->now.m_now_row == 44){
-                    for(int row = 0;row < 44;row++){
+                if(way->now.m_now_row == 45){
+                    for(int row = 0;row < 45;row++){
                         for(int line = 0;line < 6;line++){
                             way->labels[row][line].label->setStyleSheet(way->labels[row + 1][line].label->styleSheet());
-                        }
-                        for(int i = 0;i < 6;i++){
-                            way->labels[44][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+
+                            way->labels[row][line].who_win = way->labels[row + 1][line].who_win;
                         }
                     }
+                    for(int i = 0;i < 6;i++){
+                        way->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                        way->labels[45][i].who_win = 0;
+                    }
+                    way->equa.m_now_row--;
+                    way->front.m_now_row--;
+                    way->dragon.m_now_row--;
                 }
                 else{
                     way->now.m_now_row++;
                 }
                 way->dragon = way->now;
+                qDebug() << "way->now;";
             }
             else if(!way->first){
                 way->now = way->now.down();
@@ -366,26 +551,53 @@ void MainWindow::next_ask_way(WAY* way,int game,QString style)
         }
         else{
             // 移动到下列同行，如果已经是最后一行了怎么办？
-            if(way->now.m_now_row == 44){
-                for(int row = 0;row < 44;row++){
+            if(way->now.m_now_row == 45){
+                for(int row = 0;row < 45;row++){
                     for(int line = 0;line < 6;line++){
                         way->labels[row][line].label->setStyleSheet(way->labels[row + 1][line].label->styleSheet());
-                    }
-                    for(int i = 0;i < 6;i++){
-                        way->labels[44][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+
+                        way->labels[row][line].who_win = way->labels[row + 1][line].who_win;
                     }
                 }
+                for(int i = 0;i < 6;i++){
+                    way->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                    way->labels[45][i].who_win = 0;
+                }
+                way->equa.m_now_row--;
+                way->front.m_now_row--;
+                way->dragon.m_now_row--;
             }
-            way->now.m_now_row++;
+            else{
+                way->now.m_now_row++;
+            }
         }
     }
     // 连赢断了
     else{
+        qDebug() << "duan;e";
         // 如果已经成龙，先找到成龙点
         if(way->dragon.m_now_row != -1){
             // 如果是第一行
             if(way->now.m_now_line == 0){
-                way->now.m_now_row++;
+                if(way->now.m_now_row == 45){
+                    for(int row = 0;row < 45;row++){
+                        for(int line = 0;line < 6;line++){
+                            way->labels[row][line].label->setStyleSheet(way->labels[row + 1][line].label->styleSheet());
+
+                            way->labels[row][line].who_win = way->labels[row + 1][line].who_win;
+                        }
+                    }
+                    for(int i = 0;i < 6;i++){
+                        way->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                        way->labels[45][i].who_win = 0;
+                    }
+                    way->equa.m_now_row--;
+                    way->front.m_now_row--;
+                    way->dragon.m_now_row--;
+                }
+                else{
+                    way->now.m_now_row++;
+                }
             }
             else{
                 way->now.m_now_row = way->dragon.m_now_row;
@@ -394,7 +606,25 @@ void MainWindow::next_ask_way(WAY* way,int game,QString style)
         }
         // 如果还没成龙，移动到右一列第一行
         else if(!way->first){
-            way->now.m_now_row++;
+            if(way->now.m_now_row == 45){
+                for(int row = 0;row < 45;row++){
+                    for(int line = 0;line < 6;line++){
+                        way->labels[row][line].label->setStyleSheet(way->labels[row + 1][line].label->styleSheet());
+
+                        way->labels[row][line].who_win = way->labels[row + 1][line].who_win;
+                    }
+                }
+                for(int i = 0;i < 6;i++){
+                    way->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                    way->labels[45][i].who_win = 0;
+                }
+                way->equa.m_now_row--;
+                way->front.m_now_row--;
+                way->dragon.m_now_row--;
+            }
+            else{
+                way->now.m_now_row++;
+            }
             way->now.m_now_line = 0;
         }
         // 没有成龙
@@ -486,6 +716,30 @@ void MainWindow::request_summit()
     manager->postData(postData);
 }
 
+void MainWindow::request_stop()
+{
+    manager->setStatus(STOP);
+    manager->setInterface("lh_early_stop");
+    manager->postData(QByteArray());
+}
+
+void MainWindow::responsed_stop(QNetworkReply *reply)
+{
+    ui->pu_stop->setEnabled(false);
+    QByteArray bytes = reply->readAll();
+    QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    unsigned int status = json.value("status").toInt();
+    if(status == 1){
+        times = 0;
+    }
+    else{
+        QString info = json.value("info").toString();
+        QMessageBox box;
+        box.setText("error: " + info);
+        box.exec();
+    }
+}
+
 void MainWindow::responsed_init(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
@@ -497,16 +751,33 @@ void MainWindow::responsed_init(QNetworkReply *reply)
         unsigned int pave_num = data.value("pave_num").toInt();
         ui->label_xues->setText(QString::number(boot_num));
         ui->label_pus->setText(QString::number(pave_num));
+
+        Link* node = m_link_reslut_head;
+        while(node->next != nullptr){
+            node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+            node->data->setText("");
+            node = node->next;
+        }
+        m_link_reslut = m_link_reslut_head;
+
+        ui->label_lwl_one->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+        ui->label_lwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+        ui->label_lwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+
+        ui->label_hwl_one->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+        ui->label_hwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+        ui->label_hwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
+
         way_big->init();
         way_big_eye->init();
         way_little->init();
         way_aotu->init();
     }
     else{
-        ui->pu_init->setEnabled(true);
 
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("初始化失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -522,22 +793,15 @@ void MainWindow::responsed_login(QNetworkReply *reply)
         QString desk_token = data.value("desk_token").toString();
         manager->setRawHeader("desk_id",QString::number(desk_id).toUtf8());
         manager->setRawHeader("desk_token",desk_token.toUtf8());
-        unsigned int maxLimit = data.value("maxLimit").toInt();
-        unsigned int minLimit = data.value("minLimit").toInt();
-        unsigned int tieMaxLimit = data.value("tieMaxLimit").toInt();
-        unsigned int tieMinLimit = data.value("tieMinLimit").toInt();
-        ui->label_maxLimit->setText(QString::number(maxLimit));
-        ui->label_minLimit->setText(QString::number(minLimit));
-        ui->label_tieMaxLimit->setText(QString::number(tieMaxLimit));
-        ui->label_tieMinLimit->setText(QString::number(tieMinLimit));
+
         login_window->close();
-        this->show();
         this->showFullScreen();
         request_room_info();
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("登录失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -553,6 +817,16 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         unsigned int PaveNum = data.at(0)["PaveNum"].toInt();
         QString DeskName = data.at(0)["DeskName"].toString();
         count_down_num = data.at(0)["CountDown"].toInt();
+        WaitDown = data.at(0)["WaitDown"].toInt();
+
+        unsigned int maxLimit = data.at(0)["MaxLimit"].toInt();
+        unsigned int minLimit = data.at(0)["MinLimit"].toInt();
+        unsigned int tieMaxLimit = data.at(0)["TieMaxLimit"].toInt();
+        unsigned int tieMinLimit = data.at(0)["TieMinLimit"].toInt();
+        ui->label_maxLimit->setText(QString::number(maxLimit));
+        ui->label_minLimit->setText(QString::number(minLimit));
+        ui->label_tieMaxLimit->setText(QString::number(tieMaxLimit));
+        ui->label_tieMinLimit->setText(QString::number(tieMinLimit));
 
         ui->label_xues->setText(QString::number(boot_num));
         ui->label_pus->setText(QString::number(PaveNum));
@@ -580,8 +854,9 @@ void MainWindow::responsed_roominfo(QNetworkReply *reply)
         request_result_list();
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("获取房间信息失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -603,8 +878,9 @@ void MainWindow::responsed_record(QNetworkReply *reply)
         apply_enter(array);
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("获取房间历史记录失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -623,15 +899,17 @@ void MainWindow::responsed_start(QNetworkReply *reply)
         ui->label_xues->setText(QString::number(boot_num));
         ui->label_pus->setText(QString::number(pave_num));
         ui->pu_changeXue->setEnabled(false);
-
+        ui->pu_stop->setEnabled(true);
+        first = true;
         times = count_down_num;
         apply_start();
     }
     else{
         ui->pu_start->setEnabled(true);
 
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("开局失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -645,8 +923,8 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
         QJsonObject data = json.value("data").toObject();
         unsigned int boot_num = data.value("boot_num").toInt();
         unsigned int pave_num = data.value("pave_num").toInt();
-        ui->label_times_xue->setText(QString::number(boot_num));
-        ui->label_times_pu->setText(QString::number(pave_num));
+        ui->label_xues->setText(QString::number(boot_num));
+        ui->label_pus->setText(QString::number(pave_num));
 
         Link* node = m_link_reslut_head;
         while(node->next != nullptr){
@@ -656,6 +934,17 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
         }
         m_link_reslut = m_link_reslut_head;
 
+        for(QList<QLabel*> list : little_little_way){
+            for(QLabel *label : list){
+                label->setText("");
+                label->setStyleSheet("background-color: rgb(255, 255, 255);");
+            }
+        }
+        index_x = -1;
+        index_y = -1;
+        tie_num = 0;
+
+
         ui->label_lwl_one->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
         ui->label_lwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
         ui->label_lwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
@@ -664,14 +953,19 @@ void MainWindow::responsed_change_boot(QNetworkReply *reply)
         ui->label_hwl_two->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
         ui->label_hwl_three->setStyleSheet("border-radius: 8px;background-color: rgb(255, 255, 255);");
 
+        ui->label_score_long->setText("0");
+        ui->label_score_tiger->setText("0");
+        ui->label_score_same->setText("0");
+
         way_big->init();
         way_big_eye->init();
         way_little->init();
         way_aotu->init();
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("换靴失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -680,13 +974,14 @@ void MainWindow::responsed_useless(QNetworkReply *reply)
 {
     QByteArray bytes = reply->readAll();
     QJsonObject json = QJsonDocument::fromJson(bytes).object();
+    QString info = json.value("info").toString();
     unsigned int status = json.value("status").toInt();
     if(status == 1){
-        QString path = QString("border-image: url(:/result/useless.png);");
-        m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(path));
+//        QString path = QString("border-image: url(:/result/useless.png);");
+//        m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(path));
 
-        // 指向下一个结果 label
-        next_result();
+//        // 指向下一个结果 label
+//        next_result();
 
         ui->label_result->setText("结果:");
         ui->pu_enter->setEnabled(false);
@@ -696,13 +991,17 @@ void MainWindow::responsed_useless(QNetworkReply *reply)
         ui->pu_same->setEnabled(false);
         ui->pu_useless->setEnabled(false);
         ui->pu_start->setEnabled(true);
-        this->times = 30;
+        ui->pu_changeXue->setEnabled(true);
+        this->times = WaitDown;
+
+        //request_change_boot();
     }
     else{
         ui->pu_useless->setEnabled(true);
 
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("作废失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -722,19 +1021,34 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
         QString path = ":/result/";
         QString path_gl = ":/result/";
         switch (m_result) {
-        case 7:
+        case 7:{
             path.append("long");
             path_gl.append("red");
             up.append("龙赢");
+
+            int n_zhuang = ui->label_score_long->text().toInt();
+            ui->label_score_long->setText(QString::number(n_zhuang + 1));
+
             break;
-        case 4:
+        }
+        case 4:{
             path.append("tiger");
             path_gl.append("blue");
-            break;
+
             up.append("虎赢");
+
+            int n_zhuang = ui->label_score_tiger->text().toInt();
+            ui->label_score_tiger->setText(QString::number(n_zhuang + 1));
+
+            break;
+        }
         case 1:
             path.append("same");
             up.append("和");
+
+            int n_zhuang = ui->label_score_same->text().toInt();
+            ui->label_score_same->setText(QString::number(n_zhuang + 1));
+
             break;
         }
         path.append(".png");
@@ -748,6 +1062,9 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
         next_result();
         ongl_enter(path_gl);
 
+        // 续添小小路
+        //little_little_append(m_result);
+
         ui->pu_start->setEnabled(true);
         ui->pu_changeXue->setEnabled(true);
         ui->pu_long->setEnabled(false);
@@ -760,8 +1077,9 @@ void MainWindow::responsed_summit(QNetworkReply *reply)
         times = 30;
     }
     else{
+        QString info = json.value("info").toString();
         QMessageBox box;
-        box.setText("结算失败");
+        box.setText("error: " + info);
         box.exec();
     }
 }
@@ -781,7 +1099,6 @@ void MainWindow::phase_zero()
     ui->pu_start->setEnabled(true);
     ui->pu_changeXue->setEnabled(true);
     ui->pu_leave->setEnabled(true);
-    ui->pu_init->setEnabled(true);
 }
 
 void MainWindow::phase_countDown(unsigned int start, unsigned int end)
@@ -789,6 +1106,7 @@ void MainWindow::phase_countDown(unsigned int start, unsigned int end)
     // 倒计时中
     unsigned int time = end - start;
     times = count_down_num - time;
+    ui->pu_stop->setEnabled(true);
     m_timer_count_down->start(1000);
 }
 
@@ -813,7 +1131,6 @@ void MainWindow::phase_finish()
     ui->pu_start->setEnabled(true);
     ui->pu_changeXue->setEnabled(true);
     ui->pu_leave->setEnabled(true);
-    ui->pu_init->setEnabled(true);
 }
 
 NUMBER MainWindow::next_zhuang(int offset)
@@ -892,32 +1209,44 @@ void MainWindow::apply_enter(QJsonArray array)
 
         ui->label_up_pave->setText(up);
         // 更新结果样式表
+
         QString style = "border-image: url(" + path + ");";
-        m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(style));
-        qDebug() << m_link_reslut->data->styleSheet();
-        // 指向下一个结果 label
-        // 如果下一个 结果label 为 nullptr 如何？
-        if(m_link_reslut->next == nullptr){
-            Link* node = m_link_reslut_head;
-            for (int i = 0;node->next != nullptr;i++) {
-                qDebug() << "node -> next : " << i;
-                node->data->setStyleSheet(node->next->data->styleSheet());
-                node->data->setText(node->next->data->text());
-                node = node->next;
+
+        if(path != ":/result/useless.png"){
+            m_link_reslut->data->setStyleSheet(m_link_reslut->data->styleSheet().append(style));
+            qDebug() << m_link_reslut->data->styleSheet();
+            // 指向下一个结果 label
+            // 如果下一个 结果label 为 nullptr 如何？
+            if(m_link_reslut->next == nullptr){
+                Link* node = m_link_reslut_head;
+                for (int i = 0;node->next != nullptr;i++) {
+                    qDebug() << "node -> next : " << i;
+                    node->data->setStyleSheet(node->next->data->styleSheet());
+                    node->data->setText(node->next->data->text());
+                    node = node->next;
+                }
+                node->data->setText("");
+                node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
+                qDebug() << "m_link_reslut->next : nullptr";
             }
-            node->data->setText("");
-            node->data->setStyleSheet("background-color: rgb(255, 255, 255);");
-            qDebug() << "m_link_reslut->next : nullptr";
-        }
-        else{
-            m_link_reslut = m_link_reslut->next;
-            qDebug() << "m_link_reslut->next : not null";
+            else{
+                m_link_reslut = m_link_reslut->next;
+                qDebug() << "m_link_reslut->next : not null";
+            }
+            // 更新规律表
+            if(m_game_str != ""){
+                ongl_enter(path_gl);
+            }
+
+            little_little_append(m_result);
         }
 
-        // 更新规律表
-        if(m_game_str != ""){
-            ongl_enter(path_gl);
-        }
+
+
+
+
+        // 恢复默认结果
+        m_result = -1;
     }
 }
 
@@ -1072,7 +1401,8 @@ void MainWindow::request_login()
     manager->setStatus(LOGIN);
     manager->setInterface("dutch_login");
     QByteArray postData;
-    postData.append("desk=a1&password=123456");
+    //postData.append("desk=VIP2&password=123456");
+    postData.append("desk=CS2&password=43164b56500def9a");
     manager->postData(postData);
 }
 
@@ -1086,23 +1416,45 @@ void MainWindow::pu_start()
 
 void MainWindow::pu_changeXue()
 {
-    int choose = QMessageBox::question(this,QString("换靴"),QString("确认换靴？"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("确认换靴？");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
         request_change_boot();
     }
 }
 
 void MainWindow::pu_stop(){
-
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("确认停止？");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        request_stop();
+    }
 }
 
 void MainWindow::pu_leave(){
-    this->close();
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("确认离开？");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
+        this->close();
+    }
 }
 
 void MainWindow::pu_useless(){
-    int choose = QMessageBox::question(this,QString("初始化"),QString("确认初始化？"),QMessageBox::Yes | QMessageBox::No);
-    if(choose == QMessageBox::Yes){
+    MDialog *dlg = new MDialog();
+    dlg->setWindowFlag(Qt::FramelessWindowHint);
+    dlg->set_message("确认作废？");
+    dlg->setAttribute(Qt::WA_DeleteOnClose);
+    int ret = dlg->exec();
+    if(ret == QDialog::Accepted){
         // 禁用作废按钮
         ui->pu_useless->setEnabled(false);
         request_useless();
@@ -1118,6 +1470,7 @@ void MainWindow::tc_enter(){
     }
     else{
         // 发送请求
+        form->button_enter()->setEnabled(false);
         request_summit();
     }
 }
@@ -1144,7 +1497,8 @@ void MainWindow::pu_enter()
     ui->pu_cancel->setEnabled(false);
 
     form->init(ui->label_VIP_level->text(),ui->label_xues->text(),ui->label_pus->text(),ui->label_result->text());
-    form->show();
+    form->button_enter()->setEnabled(true);
+    form->exec();
     form->move(600,400);
 }
 
@@ -1207,6 +1561,13 @@ void MainWindow::pu_same(){
 void MainWindow::count_down(){
     ui->label_count_down->setText(QString::number(times));
     if(--times < 0){
+        if(first){
+            first = false;
+            times = WaitDown;
+            ui->pu_stop->setEnabled(false);
+            return;
+        }
+
         //倒计时完成
         m_timer_count_down->stop();
         ui->label_count_down->setText(QString(""));
@@ -1227,7 +1588,7 @@ void MainWindow::ongl_enter(QString path_gl){
     if(m_result == 1){
         // 和
         way_big->times++;
-        // 如果 前和星 不是第（0,0）位，将 m_same_times 应用到所在的 Label
+        // 如果 前和 不是第（0,0）位，将 m_same_times 应用到所在的 Label
         if(!way_big->first){
             way_big->labels[way_big->equa.m_now_row][way_big->equa.m_now_line].label->setText(QString::number(way_big->times));
         }
@@ -1241,32 +1602,48 @@ void MainWindow::ongl_enter(QString path_gl){
             // 如果已经是成龙了
             if(way_big->dragon.m_now_row != -1){
                 // 移动到下一列同行，如果已经是最后一列了怎么办？
-                if(way_big->now.m_now_row == 44){
-                    for(int row = 0;row < 43;row++){
+                if(way_big->now.m_now_row == 45){
+                    for(int row = 0;row < 45;row++){
                         for(int line = 0;line < 6;line++){
                             way_big->labels[row][line].label->setStyleSheet(way_big->labels[row + 1][line].label->styleSheet());
+                            way_big->labels[row][line].label->setText(way_big->labels[row + 1][line].label->text());
+                            way_big->labels[row][line].who_win = way_big->labels[row + 1][line].who_win;
                         }
                     }
                     for(int i = 0;i < 6;i++){
-                        way_big->labels[44][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                        way_big->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                        way_big->labels[45][i].label->setText("");
+                        way_big->labels[45][i].who_win = 0;
                     }
+                    way_big->equa.m_now_row--;
+                    way_big->front.m_now_row--;
+                    way_big->dragon.m_now_row--;
                 }
-                way_big->now.m_now_row++;
+                else{
+                    way_big->now.m_now_row++;
+                }
             }
             // 还没成龙
             else{
                 // 如果下一个有值，则成龙,移动到下列同行
                 if(way_big->now.m_now_line == 5 || way_big->labels[way_big->now.m_now_row][way_big->now.m_now_line + 1].who_win != 0){
                     // 移动到下一列同行，如果已经是最后一列了怎么办？
-                    if(way_big->now.m_now_row == 44){
-                        for(int row = 0;row < 43;row++){
+                    if(way_big->now.m_now_row == 45){
+                        for(int row = 0;row < 45;row++){
                             for(int line = 0;line < 6;line++){
                                 way_big->labels[row][line].label->setStyleSheet(way_big->labels[row + 1][line].label->styleSheet());
+                                way_big->labels[row][line].label->setText(way_big->labels[row + 1][line].label->text());
+                                way_big->labels[row][line].who_win = way_big->labels[row + 1][line].who_win;
                             }
                         }
                         for(int i = 0;i < 6;i++){
-                            way_big->labels[44][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                            way_big->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                            way_big->labels[45][i].label->setText("");
+                            way_big->labels[45][i].who_win = 0;
                         }
+                        way_big->equa.m_now_row--;
+                        way_big->front.m_now_row--;
+                        way_big->dragon.m_now_row--;
                     }
                     else{
                         way_big->now.m_now_row++;
@@ -1282,7 +1659,26 @@ void MainWindow::ongl_enter(QString path_gl){
             // 连赢断了， 如果已经成龙，并且不是第一行，xxx，并回到第一行，如果是第一行，向右移动一位
             if(way_big->dragon.m_now_row != -1){
                 if(way_big->dragon.m_now_line == 0){
-                    way_big->now.m_now_row++;
+                    if(way_big->now.m_now_row == 45){
+                        for(int row = 0;row < 45;row++){
+                            for(int line = 0;line < 6;line++){
+                                way_big->labels[row][line].label->setStyleSheet(way_big->labels[row + 1][line].label->styleSheet());
+                                way_big->labels[row][line].label->setText(way_big->labels[row + 1][line].label->text());
+                                way_big->labels[row][line].who_win = way_big->labels[row + 1][line].who_win;
+                            }
+                        }
+                        for(int i = 0;i < 6;i++){
+                            way_big->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                            way_big->labels[45][i].label->setText("");
+                            way_big->labels[45][i].who_win = 0;
+                        }
+                        way_big->equa.m_now_row--;
+                        way_big->front.m_now_row--;
+                        way_big->dragon.m_now_row--;
+                    }
+                    else{
+                        way_big->now.m_now_row++;
+                    }
                 }
                 else{
                     way_big->now.m_now_row = way_big->dragon.m_now_row;
@@ -1290,7 +1686,27 @@ void MainWindow::ongl_enter(QString path_gl){
                 }
             }
             else if(!way_big->first){
-                way_big->now.m_now_row++;
+                // 移动到下一列同行，如果已经是最后一列了怎么办？
+                if(way_big->now.m_now_row == 45){
+                    for(int row = 0;row < 45;row++){
+                        for(int line = 0;line < 6;line++){
+                            way_big->labels[row][line].label->setStyleSheet(way_big->labels[row + 1][line].label->styleSheet());
+                            way_big->labels[row][line].label->setText(way_big->labels[row + 1][line].label->text());
+                            way_big->labels[row][line].who_win = way_big->labels[row + 1][line].who_win;
+                        }
+                    }
+                    for(int i = 0;i < 6;i++){
+                        way_big->labels[45][i].label->setStyleSheet("background-color: rgb(255, 255, 255);");
+                        way_big->labels[45][i].label->setText("");
+                        way_big->labels[45][i].who_win = 0;
+                    }
+                    way_big->equa.m_now_row--;
+                    way_big->front.m_now_row--;
+                    way_big->dragon.m_now_row--;
+                }
+                else{
+                    way_big->now.m_now_row++;
+                }
                 way_big->now.m_now_line = 0;
             }
             // 没有成龙

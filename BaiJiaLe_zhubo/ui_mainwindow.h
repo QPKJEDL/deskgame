@@ -10,6 +10,7 @@
 #define UI_MAINWINDOW_H
 
 #include <QtCore/QVariant>
+#include <QtQuickWidgets/QQuickWidget>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -17,7 +18,6 @@
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QPushButton>
-#include <QtWidgets/QScrollArea>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -33,7 +33,6 @@ public:
     QHBoxLayout *horizontalLayout_2;
     QGridLayout *gridLayout_2;
     QVBoxLayout *verticalLayout_2;
-    QPushButton *pu_init;
     QPushButton *pu_start;
     QPushButton *pu_changeXue;
     QPushButton *pu_stop;
@@ -54,10 +53,7 @@ public:
     QLabel *label_129;
     QLabel *label_128;
     QLabel *label_tieMinLimit;
-    QScrollArea *scrollArea;
-    QWidget *scrollAreaWidgetContents;
-    QVBoxLayout *verticalLayout_7;
-    QVBoxLayout *verticalLayout_4;
+    QQuickWidget *quickWidget;
     QVBoxLayout *verticalLayout_5;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout;
@@ -104,27 +100,13 @@ public:
 
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        pu_init = new QPushButton(groupBox);
-        pu_init->setObjectName(QString::fromUtf8("pu_init"));
-        pu_init->setEnabled(false);
-        pu_init->setMaximumSize(QSize(119, 50));
-        QFont font;
-        font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
-        font.setPointSize(15);
-        pu_init->setFont(font);
-        pu_init->setAcceptDrops(true);
-        pu_init->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
-"QPushButton:hover{border-color:rgb(139,170,105)}\n"
-"QPushButton:pressed{border-color:gray;background-color: rgb(114, 58, 62);}\n"
-"QPushButton:disabled{border-color:gray;background-color: rgb(99, 99, 99);\n"
-"}"));
-
-        verticalLayout_2->addWidget(pu_init);
-
         pu_start = new QPushButton(groupBox);
         pu_start->setObjectName(QString::fromUtf8("pu_start"));
         pu_start->setEnabled(false);
         pu_start->setMaximumSize(QSize(119, 50));
+        QFont font;
+        font.setFamily(QString::fromUtf8("\346\226\271\346\255\243\347\262\227\351\273\221\345\256\213\347\256\200\344\275\223"));
+        font.setPointSize(15);
         pu_start->setFont(font);
         pu_start->setAcceptDrops(true);
         pu_start->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
@@ -163,7 +145,7 @@ public:
 
         pu_leave = new QPushButton(groupBox);
         pu_leave->setObjectName(QString::fromUtf8("pu_leave"));
-        pu_leave->setEnabled(false);
+        pu_leave->setEnabled(true);
         pu_leave->setMaximumSize(QSize(119, 50));
         pu_leave->setFont(font);
         pu_leave->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
@@ -176,7 +158,7 @@ public:
 
         pu_useless = new QPushButton(groupBox);
         pu_useless->setObjectName(QString::fromUtf8("pu_useless"));
-        pu_useless->setEnabled(true);
+        pu_useless->setEnabled(false);
         pu_useless->setMaximumSize(QSize(119, 50));
         pu_useless->setFont(font);
         pu_useless->setStyleSheet(QString::fromUtf8("QPushButton{color: rgb(255, 255, 255);background:rgb(180, 45, 55);border:1px solid grey; border-radius: 8px;}\n"
@@ -381,24 +363,11 @@ public:
 
         verticalLayout_9->addWidget(groupBox);
 
-        scrollArea = new QScrollArea(centralwidget);
-        scrollArea->setObjectName(QString::fromUtf8("scrollArea"));
-        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        scrollArea->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
-        scrollArea->setWidgetResizable(true);
-        scrollAreaWidgetContents = new QWidget();
-        scrollAreaWidgetContents->setObjectName(QString::fromUtf8("scrollAreaWidgetContents"));
-        scrollAreaWidgetContents->setGeometry(QRect(0, 0, 1161, 571));
-        verticalLayout_7 = new QVBoxLayout(scrollAreaWidgetContents);
-        verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        verticalLayout_4 = new QVBoxLayout();
-        verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
+        quickWidget = new QQuickWidget(centralwidget);
+        quickWidget->setObjectName(QString::fromUtf8("quickWidget"));
+        quickWidget->setResizeMode(QQuickWidget::SizeRootObjectToView);
 
-        verticalLayout_7->addLayout(verticalLayout_4);
-
-        scrollArea->setWidget(scrollAreaWidgetContents);
-
-        verticalLayout_9->addWidget(scrollArea);
+        verticalLayout_9->addWidget(quickWidget);
 
         verticalLayout_9->setStretch(0, 2);
         verticalLayout_9->setStretch(1, 5);
@@ -559,7 +528,7 @@ public:
 
         horizontalLayout_4->addLayout(verticalLayout_5);
 
-        horizontalLayout_4->setStretch(0, 5);
+        horizontalLayout_4->setStretch(0, 4);
         horizontalLayout_4->setStretch(1, 1);
         MainWindow->setCentralWidget(centralwidget);
 
@@ -572,7 +541,6 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox->setTitle(QString());
-        pu_init->setText(QCoreApplication::translate("MainWindow", "\345\210\235\345\247\213\345\214\226", nullptr));
         pu_start->setText(QCoreApplication::translate("MainWindow", "\345\274\200\345\261\200\357\274\2106\357\274\211", nullptr));
 #if QT_CONFIG(shortcut)
         pu_start->setShortcut(QCoreApplication::translate("MainWindow", "6", nullptr));

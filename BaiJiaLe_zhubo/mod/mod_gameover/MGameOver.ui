@@ -236,14 +236,14 @@ color: rgb(170, 0, 0);</string>
      </item>
      <item>
       <widget class="QPushButton" name="pu_yes">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 197, 132);</string>
        </property>
        <property name="text">
         <string>确定</string>
-       </property>
-       <property name="shortcut">
-        <string>Enter</string>
        </property>
       </widget>
      </item>
@@ -262,6 +262,9 @@ color: rgb(170, 0, 0);</string>
      </item>
      <item>
       <widget class="QPushButton" name="pu_no">
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
        <property name="styleSheet">
         <string notr="true">background-color: rgb(40, 197, 132);</string>
        </property>
