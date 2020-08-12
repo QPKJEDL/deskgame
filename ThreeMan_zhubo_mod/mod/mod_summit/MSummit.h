@@ -14,7 +14,7 @@ typedef struct{
     QLabel *result;
 
     MNetManager *manager;
-    QString inter;
+    QString interface;
     int status;
 }MSummitArg;
 
@@ -37,7 +37,6 @@ private:
     Ui::MSummit *ui;
     MSummitArg *arg;
     QMap<int,exe_summit> _map;
-    QWidget *parent;
 
     QString result;
 

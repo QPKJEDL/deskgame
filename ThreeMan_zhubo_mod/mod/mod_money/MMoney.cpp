@@ -12,7 +12,7 @@ MMoney::MMoney(MMoneyArg *arg):
     ui->setupUi(this);
 
     this->arg = new MMoneyArg();
-    this->arg->inter = arg->inter;
+    this->arg->interface = arg->interface;
     this->arg->status = arg->status;
     this->arg->widget = arg->widget;
     this->arg->manager = arg->manager;
@@ -106,7 +106,7 @@ void MMoney::clear()
 void MMoney::request_money()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->inter);
+    arg->manager->setInterface(arg->interface);
     QByteArray postData;
     postData.append("page=" + QString::number(page));
     postData.append("&type=" + QString::number(type));

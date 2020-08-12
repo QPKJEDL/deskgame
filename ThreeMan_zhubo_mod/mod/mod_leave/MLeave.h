@@ -8,8 +8,7 @@ class MLeave : public QObject
 {
     Q_OBJECT
 public:
-    explicit MLeave(QPushButton *button,QWidget *parent = nullptr);
-    ~MLeave();
+    explicit MLeave(QPushButton *button,QWidget *widget,QObject *parent = nullptr);
 
 private slots:
     void pu_button();

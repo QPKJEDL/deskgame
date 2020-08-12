@@ -10,7 +10,7 @@ MRoomInfo::MRoomInfo(MRoomInfoArg *arg, QObject *parent) : QObject(parent)
     this->arg->deskId = arg->deskId;
     this->arg->status = arg->status;
     this->arg->manager = arg->manager;
-    this->arg->inter = arg->inter;
+    this->arg->interface = arg->interface;
     this->arg->timesBoot = arg->timesBoot;
     this->arg->timesPave = arg->timesPave;
 
@@ -18,16 +18,10 @@ MRoomInfo::MRoomInfo(MRoomInfoArg *arg, QObject *parent) : QObject(parent)
     connect(this->arg->manager,SIGNAL(responsed(QNetworkReply*,int)),this,SLOT(on_responsed(QNetworkReply*,int)));
 }
 
-MRoomInfo::~MRoomInfo()
-{
-    if(arg)
-        delete arg;
-}
-
 void MRoomInfo::request_room_info()
 {
     arg->manager->setStatus(arg->status);
-    arg->manager->setInterface(arg->inter);
+    arg->manager->setInterface(arg->interface);
     arg->manager->postData(QByteArray());
 }
 

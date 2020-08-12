@@ -10,7 +10,7 @@ typedef struct{
     QWidget *widget;
     MNetManager *manager;
     int status;
-    QString inter;
+    QString interface;
 }MMoneyArg;
 
 class MMoney;

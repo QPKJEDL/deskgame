@@ -11,7 +11,7 @@ typedef struct{
     QLabel *pave;
 
     MNetManager *manager;
-    QString inter;
+    QString interface;
     int status;
 }MStartArg;
 
@@ -24,7 +24,6 @@ class MStart : public QObject
 
 public:
     MStart(MStartArg *arg,QObject *parent = nullptr);
-    ~MStart();
 
 private:
     MStartArg *arg;

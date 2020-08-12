@@ -206,6 +206,5 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
-    if(ui)
-        delete ui;
+    delete ui;
 }

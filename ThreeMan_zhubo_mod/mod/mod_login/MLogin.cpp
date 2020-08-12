@@ -47,10 +47,7 @@ MLogin::MLogin(MLoginArg *arg) :
 
 MLogin::~MLogin()
 {
-    if(ui)
-        delete ui;
-    if(arg)
-        delete arg;
+    delete ui;
 }
 
 void MLogin::pu_login()
